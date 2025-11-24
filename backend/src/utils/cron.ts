@@ -679,7 +679,7 @@ async function fetchOpenExchangeRates(baseCurrency: string) {
     `Starting OpenExchangeRates API call with baseCurrency: ${baseCurrency}`
   );
   const openExchangeRatesApiKey = process.env.APP_OPENEXCHANGERATES_APP_ID;
-  const openExchangeRatesUrl = `https://openexchangerates.org/api/latest.json?appId=${openExchangeRatesApiKey}&base=${baseCurrency}`;
+  const openExchangeRatesUrl = `https://openexchangerates.org/api/latest.json?app_id=${openExchangeRatesApiKey}&base=${baseCurrency}`;
   const frankfurterApiUrl = `https://api.frankfurter.app/latest?from=${baseCurrency}`;
 
   try {
