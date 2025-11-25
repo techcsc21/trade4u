@@ -5,7 +5,7 @@ import "simplebar-react/dist/simplebar.min.css";
 import Providers from "@/provider/providers";
 import DirectionProvider from "@/provider/direction.provider";
 import { routing } from "@/i18n/routing";
-import { NextIntlClientProvider } from "next-intl";
+import { IntlProvider } from "@/components/providers/intl-provider";
 import { notFound } from "next/navigation";
 import { getUserProfile } from "@/lib/fetchers/user";
 import { getSettings } from "@/lib/fetchers/settings";
@@ -148,9 +148,12 @@ export default async function RootLayout(
 
     // Validate locale first
     if (!routing.locales.includes(locale)) {
-      console.warn(
-        `Invalid locale: ${locale}. Available locales: ${routing.locales.join(", ")}`
-      );
+      // Only log in development to avoid noise from bot attacks
+      if (process.env.NODE_ENV === "development") {
+        console.warn(
+          `Invalid locale: ${locale}. Available locales: ${routing.locales.join(", ")}`
+        );
+      }
       notFound();
     }
 
@@ -233,7 +236,7 @@ export default async function RootLayout(
           style={{ "--radius": "0.5rem" } as React.CSSProperties}
           suppressHydrationWarning
         >
-          <NextIntlClientProvider locale={locale} messages={messages || {}}>
+          <IntlProvider locale={locale} messages={messages || {}}>
             <Providers
               profile={profile}
               settings={settings}
@@ -247,7 +250,7 @@ export default async function RootLayout(
                 </ConditionalLayoutProvider>
               </DirectionProvider>
             </Providers>
-          </NextIntlClientProvider>
+          </IntlProvider>
         </body>
       </html>
     );

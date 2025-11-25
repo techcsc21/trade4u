@@ -10,6 +10,7 @@ export default class p2pOffer
   public type!: "BUY" | "SELL";
   public currency!: string;
   public walletType!: "FIAT" | "SPOT" | "ECO";
+  public priceCurrency?: string; // Currency used for pricing (USD, EUR, GBP, etc.)
   public amountConfig!: {
     total: number;
     min?: number;
@@ -21,6 +22,8 @@ export default class p2pOffer
     value: number;
     marketPrice?: number;
     finalPrice: number;
+    currency?: string; // Currency for the price (USD, EUR, GBP, etc.)
+    marginType?: "percentage" | "fixed";
   };
   public tradeSettings!: {
     autoCancel: number;
@@ -93,25 +96,161 @@ export default class p2pOffer
             },
           },
         },
+        priceCurrency: {
+          type: DataTypes.STRING(10),
+          allowNull: true,
+          comment: "Currency used for pricing (USD, EUR, GBP, etc.)",
+        },
         amountConfig: {
           type: DataTypes.JSON,
           allowNull: false,
+          get() {
+            const value = this.getDataValue('amountConfig');
+            if (typeof value === 'string') {
+              try {
+                return JSON.parse(value);
+              } catch (e) {
+                return {};
+              }
+            }
+            return value || {};
+          },
+          set(value: any) {
+            if (typeof value === 'string') {
+              try {
+                JSON.parse(value); // Validate it's valid JSON
+                this.setDataValue('amountConfig', value as any);
+              } catch (e) {
+                this.setDataValue('amountConfig', JSON.stringify({}) as any);
+              }
+            } else if (typeof value === 'object' && value !== null) {
+              this.setDataValue('amountConfig', JSON.stringify(value) as any);
+            } else {
+              this.setDataValue('amountConfig', JSON.stringify({}) as any);
+            }
+          }
         },
         priceConfig: {
           type: DataTypes.JSON,
           allowNull: false,
+          get() {
+            const value = this.getDataValue('priceConfig');
+            if (typeof value === 'string') {
+              try {
+                return JSON.parse(value);
+              } catch (e) {
+                return {};
+              }
+            }
+            return value || {};
+          },
+          set(value: any) {
+            if (typeof value === 'string') {
+              try {
+                JSON.parse(value); // Validate it's valid JSON
+                this.setDataValue('priceConfig', value as any);
+              } catch (e) {
+                this.setDataValue('priceConfig', JSON.stringify({}) as any);
+              }
+            } else if (typeof value === 'object' && value !== null) {
+              this.setDataValue('priceConfig', JSON.stringify(value) as any);
+            } else {
+              this.setDataValue('priceConfig', JSON.stringify({}) as any);
+            }
+          }
         },
         tradeSettings: {
           type: DataTypes.JSON,
           allowNull: false,
+          get() {
+            const value = this.getDataValue('tradeSettings');
+            if (typeof value === 'string') {
+              try {
+                return JSON.parse(value);
+              } catch (e) {
+                return {};
+              }
+            }
+            return value || {};
+          },
+          set(value: any) {
+            if (typeof value === 'string') {
+              try {
+                JSON.parse(value); // Validate it's valid JSON
+                this.setDataValue('tradeSettings', value as any);
+              } catch (e) {
+                this.setDataValue('tradeSettings', JSON.stringify({}) as any);
+              }
+            } else if (typeof value === 'object' && value !== null) {
+              this.setDataValue('tradeSettings', JSON.stringify(value) as any);
+            } else {
+              this.setDataValue('tradeSettings', JSON.stringify({}) as any);
+            }
+          }
         },
         locationSettings: {
           type: DataTypes.JSON,
           allowNull: true,
+          get() {
+            const value = this.getDataValue('locationSettings');
+            if (value === null) return null;
+            if (typeof value === 'string') {
+              try {
+                return JSON.parse(value);
+              } catch (e) {
+                return null;
+              }
+            }
+            return value;
+          },
+          set(value: any) {
+            if (value === null || value === undefined) {
+              this.setDataValue('locationSettings', null as any);
+            } else if (typeof value === 'string') {
+              try {
+                JSON.parse(value); // Validate it's valid JSON
+                this.setDataValue('locationSettings', value as any);
+              } catch (e) {
+                this.setDataValue('locationSettings', null as any);
+              }
+            } else if (typeof value === 'object') {
+              this.setDataValue('locationSettings', JSON.stringify(value) as any);
+            } else {
+              this.setDataValue('locationSettings', null as any);
+            }
+          }
         },
         userRequirements: {
           type: DataTypes.JSON,
           allowNull: true,
+          get() {
+            const value = this.getDataValue('userRequirements');
+            if (value === null) return null;
+            if (typeof value === 'string') {
+              try {
+                return JSON.parse(value);
+              } catch (e) {
+                return null;
+              }
+            }
+            return value;
+          },
+          set(value: any) {
+            if (value === null || value === undefined) {
+              this.setDataValue('userRequirements', null as any);
+            } else if (typeof value === 'string') {
+              try {
+                JSON.parse(value); // Validate it's valid JSON
+                this.setDataValue('userRequirements', value as any);
+              } catch (e) {
+                this.setDataValue('userRequirements', null as any);
+              }
+            } else if (typeof value === 'object') {
+              this.setDataValue('userRequirements', JSON.stringify(value) as any);
+            } else {
+              this.setDataValue('userRequirements', null as any);
+            }
+          }
         },
         status: {
           type: DataTypes.ENUM(

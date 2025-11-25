@@ -123,10 +123,36 @@ const TradingViewChartBase = ({
   showExpiry = false,
   expiryMinutes = 5,
   orders = [],
-  marketType = "spot",
+  marketType: marketTypeProp,
   onPriceUpdate,
   metadata,
 }: TradingViewChartProps) => {
+  // Derive market type from URL if not provided explicitly
+  const [derivedMarketType, setDerivedMarketType] = useState<"spot" | "eco" | "futures">(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const typeParam = urlParams.get('type');
+      if (typeParam === 'spot-eco') return 'eco';
+      if (typeParam === 'futures') return 'futures';
+      return 'spot';
+    }
+    return marketTypeProp || 'spot';
+  });
+
+  // Update derived market type when URL changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const typeParam = urlParams.get('type');
+      if (typeParam === 'spot-eco') setDerivedMarketType('eco');
+      else if (typeParam === 'futures') setDerivedMarketType('futures');
+      else if (typeParam === 'spot') setDerivedMarketType('spot');
+      else if (marketTypeProp) setDerivedMarketType(marketTypeProp);
+    }
+  }, [marketTypeProp]);
+
+  const marketType = marketTypeProp || derivedMarketType;
+
   const [chartReady, setChartReady] = useState(false);
   const [tvWidget, setTvWidget] = useState<any>(null);
   const [provider, setProvider] = useState<string>("binance");

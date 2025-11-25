@@ -32,6 +32,7 @@ export interface DashboardState {
   dashboardStats: P2PStatData[];
   tradingActivity: P2PTradeActivity[];
   transactions: P2PTransaction[];
+  userOffers: any[];
 
   // Loading states
   isLoadingDashboardData: boolean;
@@ -39,6 +40,7 @@ export interface DashboardState {
   isLoadingDashboardStats: boolean;
   isLoadingTradingActivity: boolean;
   isLoadingTransactions: boolean;
+  isLoadingUserOffers: boolean;
 
   // Error states
   dashboardDataError: string | null;
@@ -46,6 +48,7 @@ export interface DashboardState {
   dashboardStatsError: string | null;
   tradingActivityError: string | null;
   transactionsError: string | null;
+  userOffersError: string | null;
 }
 
 export interface DashboardActions {
@@ -54,6 +57,7 @@ export interface DashboardActions {
   fetchDashboardStats: () => Promise<void>;
   fetchTradingActivity: () => Promise<void>;
   fetchTransactions: () => Promise<void>;
+  fetchUserOffers: () => Promise<void>;
   clearDashboardErrors: () => void;
 }
 
@@ -67,6 +71,7 @@ export const createDashboardSlice = (
   dashboardStats: [],
   tradingActivity: [],
   transactions: [],
+  userOffers: [],
 
   // Loading states
   isLoadingDashboardData: false,
@@ -74,6 +79,7 @@ export const createDashboardSlice = (
   isLoadingDashboardStats: false,
   isLoadingTradingActivity: false,
   isLoadingTransactions: false,
+  isLoadingUserOffers: false,
 
   // Error states
   dashboardDataError: null,
@@ -81,6 +87,7 @@ export const createDashboardSlice = (
   dashboardStatsError: null,
   tradingActivityError: null,
   transactionsError: null,
+  userOffersError: null,
 
   // Actions
   fetchDashboardData: async () => {
@@ -124,6 +131,9 @@ export const createDashboardSlice = (
         transactions: processedData.transactions,
         isLoadingDashboardData: false,
       });
+
+      // Also fetch user offers
+      get().fetchUserOffers();
     } catch (err) {
       set({
         dashboardDataError: "An unexpected error occurred",
@@ -173,7 +183,10 @@ export const createDashboardSlice = (
         return;
       }
 
-      set({ dashboardStats: data, isLoadingDashboardStats: false });
+      // Extract stats array from backend response
+      const stats = Array.isArray(data.stats) ? data.stats : [];
+
+      set({ dashboardStats: stats, isLoadingDashboardStats: false });
     } catch (err) {
       set({
         dashboardStatsError: "An unexpected error occurred",
@@ -248,6 +261,31 @@ export const createDashboardSlice = (
     }
   },
 
+  fetchUserOffers: async () => {
+    try {
+      set({ isLoadingUserOffers: true, userOffersError: null });
+      const { data, error } = await $fetch({
+        url: "/api/p2p/offer/user",
+        silentSuccess: true,
+      });
+
+      if (error || !data) {
+        set({
+          userOffersError: "Failed to fetch user offers",
+          isLoadingUserOffers: false,
+        });
+        return;
+      }
+
+      set({ userOffers: Array.isArray(data) ? data : [], isLoadingUserOffers: false });
+    } catch (err) {
+      set({
+        userOffersError: "An unexpected error occurred",
+        isLoadingUserOffers: false,
+      });
+    }
+  },
+
   clearDashboardErrors: () => {
     set({
       dashboardDataError: null,
@@ -255,6 +293,7 @@ export const createDashboardSlice = (
       dashboardStatsError: null,
       tradingActivityError: null,
       transactionsError: null,
+      userOffersError: null,
     });
   },
 });

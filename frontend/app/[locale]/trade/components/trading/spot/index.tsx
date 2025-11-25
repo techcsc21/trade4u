@@ -48,6 +48,8 @@ export default function TradingFormPanel({
   const [currency, setCurrency] = useState<string>("");
   const [pair, setPair] = useState<string>("");
   const [isMarketEco, setIsMarketEco] = useState(isEco);
+  const [takerFee, setTakerFee] = useState(0.001); // Default 0.1%
+  const [makerFee, setMakerFee] = useState(0.001); // Default 0.1%
 
   // Add refs to prevent duplicate fetching
   const isFetchingRef = useRef(false);
@@ -103,6 +105,14 @@ export default function TradingFormPanel({
             if (metadata?.limits?.amount) {
               setMinAmount(metadata.limits.amount.min || 0.0001);
               setMaxAmount(metadata.limits.amount.max || 1000000);
+            }
+
+            // Set fee rates from market metadata
+            if (metadata?.taker !== undefined) {
+              setTakerFee(Number(metadata.taker) / 100); // Convert from percentage to decimal
+            }
+            if (metadata?.maker !== undefined) {
+              setMakerFee(Number(metadata.maker) / 100); // Convert from percentage to decimal
             }
           } else {
             // Fallback: extract from symbol if market not found
@@ -175,12 +185,17 @@ export default function TradingFormPanel({
       });
 
       if (!error && data) {
-        // Store both balances - the display logic will handle which one to show
+        // Handle new response format with balance details
+        // data.CURRENCY and data.PAIR are now objects with balance (available), inOrder, total
+        const currencyAvailable = typeof data.CURRENCY === 'object'
+          ? data.CURRENCY.balance
+          : data.CURRENCY;
+
         setWalletData({
-          balance: data.CURRENCY, // Default to currency balance
-          availableBalance: data.CURRENCY,
+          balance: currencyAvailable, // Available balance for backward compatibility
+          availableBalance: currencyAvailable,
           currency: currency,
-          currencyBalance: data.CURRENCY, // Store both balances for reference
+          currencyBalance: data.CURRENCY, // Store full balance object for reference
           pairBalance: data.PAIR,
         });
       }
@@ -204,14 +219,30 @@ export default function TradingFormPanel({
         fetchWalletData();
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency, pair, isMarketEco]);
 
   // Note: We don't auto-refresh wallet data on a timer
   // Wallet balance is updated when:
   // 1. Market changes (handled by useEffect above)
   // 2. After successful order (forms call fetchWalletData after order submission)
+  // 3. After order cancellation (walletUpdated event from orders panel)
   // This prevents unnecessary API calls and reduces server load
+
+  // Listen for wallet updates from other components (e.g., when orders are cancelled)
+  useEffect(() => {
+    const handleWalletUpdate = () => {
+      // Force refresh wallet data when orders are cancelled
+      if (currency && pair) {
+        lastFetchTimeRef.current = 0; // Reset the fetch timer to allow immediate fetch
+        fetchWalletData();
+      }
+    };
+
+    window.addEventListener('walletUpdated', handleWalletUpdate);
+    return () => {
+      window.removeEventListener('walletUpdated', handleWalletUpdate);
+    };
+  }, [currency, pair, isMarketEco]);
 
   // Subscribe to price updates
   useEffect(() => {
@@ -305,6 +336,8 @@ export default function TradingFormPanel({
     onOrderSubmit,
     fetchWalletData,
     isEco: isMarketEco,
+    takerFee,
+    makerFee,
   };
 
   return (

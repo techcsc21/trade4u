@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { $serverFetch } from "@/lib/api";
 import NFTDetailClient from "./client";
+import WalletProvider from "@/context/wallet";
 
 interface NFTDetailPageProps {
   params: Promise<{
@@ -41,5 +42,9 @@ export default async function NFTDetailPage({ params }: NFTDetailPageProps) {
     notFound();
   }
 
-  return <NFTDetailClient tokenId={id} />;
+  return (
+    <WalletProvider cookies="">
+      <NFTDetailClient tokenId={id} />
+    </WalletProvider>
+  );
 } 

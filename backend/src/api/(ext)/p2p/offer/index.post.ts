@@ -187,21 +187,50 @@ export default async function handler(data: { body: any; user?: any }) {
   const autoApprove = await cacheManager.getSetting("p2pAutoApproveOffers");
   const shouldAutoApprove = autoApprove === true || autoApprove === "true";
 
+  // Validate and prepare JSON fields to prevent double-encoding
+  const jsonFields = ["amountConfig", "priceConfig", "tradeSettings", "locationSettings", "userRequirements"];
+  const preparedData: any = {};
+
+  for (const field of jsonFields) {
+    if (body[field] !== undefined && body[field] !== null) {
+      const value = body[field];
+      // Ensure JSON fields are objects, not strings (prevent double-encoding)
+      if (typeof value === 'string') {
+        try {
+          preparedData[field] = JSON.parse(value);
+        } catch (e) {
+          throw createError({
+            statusCode: 400,
+            message: `Invalid JSON for field ${field}`,
+          });
+        }
+      } else if (typeof value === 'object') {
+        preparedData[field] = value;
+      }
+    } else {
+      preparedData[field] = null;
+    }
+  }
+
+  // Extract priceCurrency from priceConfig for convenience
+  const priceCurrency = preparedData.priceConfig?.currency || "USD";
+
   // start a transaction so creation + associations roll back together
   const t = await sequelize.transaction();
   try {
-    // 1. create the offer
+    // 1. create the offer - model setters will handle JSON serialization
     const offer = await models.p2pOffer.create(
       {
         userId: user.id,
         type: body.type,
         currency: body.currency,
         walletType: body.walletType,
-        amountConfig: body.amountConfig,
-        priceConfig: body.priceConfig,
-        tradeSettings: body.tradeSettings,
-        locationSettings: body.locationSettings ?? null,
-        userRequirements: body.userRequirements ?? null,
+        priceCurrency: priceCurrency,
+        amountConfig: preparedData.amountConfig,
+        priceConfig: preparedData.priceConfig,
+        tradeSettings: preparedData.tradeSettings,
+        locationSettings: preparedData.locationSettings,
+        userRequirements: preparedData.userRequirements,
         status: shouldAutoApprove ? "ACTIVE" : "PENDING_APPROVAL",
         views: 0,
         systemTags: [],
@@ -251,7 +280,7 @@ export default async function handler(data: { body: any; user?: any }) {
     await t.commit();
 
     // reload to include the paymentMethods in the response
-    await offer.reload({ 
+    await offer.reload({
       include: [
         {
           model: models.p2pPaymentMethod,
@@ -259,7 +288,7 @@ export default async function handler(data: { body: any; user?: any }) {
           attributes: ["id", "name", "icon"],
           through: { attributes: [] },
         }
-      ] 
+      ]
     });
 
     return { message: "Offer created successfully.", offer };

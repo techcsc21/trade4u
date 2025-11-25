@@ -28,6 +28,9 @@ interface InvestmentFormProps {
     tokenPrice: number;
     targetAmount: number;
     symbol: string;
+    currentPhase?: {
+      tokenPrice: number;
+    };
   };
 }
 
@@ -41,7 +44,13 @@ const InvestmentFormSchema = (minInvestment: number) =>
         minInvestment,
         `Minimum investment is ${formatCurrency(minInvestment)}`
       ),
-    walletAddress: z.string().min(1, "Wallet address is required"),
+    walletAddress: z
+      .string()
+      .min(1, "Wallet address is required")
+      .regex(
+        /^(0x)?[0-9a-fA-F]{40}$|^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$|^bc1[a-z0-9]{39,59}$|^[A-Za-z0-9]{32,44}$/,
+        "Please enter a valid wallet address (Ethereum, Bitcoin, or other blockchain address)"
+      ),
   });
 
 export function InvestmentForm({ offering }: InvestmentFormProps) {
@@ -65,7 +74,9 @@ export function InvestmentForm({ offering }: InvestmentFormProps) {
   });
 
   const watchedAmount = watch("amount");
-  const tokenAmount = watchedAmount / offering.tokenPrice;
+  // Use current phase token price if available, fallback to offering token price
+  const currentTokenPrice = offering.currentPhase?.tokenPrice || offering.tokenPrice;
+  const tokenAmount = watchedAmount / currentTokenPrice;
   const platformFee = watchedAmount * 0.02;
   const totalAmount = watchedAmount * 1.02;
 
@@ -144,7 +155,7 @@ export function InvestmentForm({ offering }: InvestmentFormProps) {
           <div className="space-y-2 pt-2">
             <div className="flex justify-between text-sm">
               <span>{t("token_price")}</span>
-              <span>{formatCurrency(offering.tokenPrice)}</span>
+              <span>{formatCurrency(currentTokenPrice)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span>{t("tokens_to_receive")}</span>

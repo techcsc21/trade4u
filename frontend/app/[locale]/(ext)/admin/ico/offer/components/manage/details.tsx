@@ -112,7 +112,7 @@ export const TokenDetailsSection = () => {
                         </span>
                       </div>
                       <span className="font-medium capitalize">
-                        {offering.tokenDetail.tokenType}
+                        {offering.tokenDetail.tokenTypeData?.name || offering.tokenDetail.tokenType}
                       </span>
                     </div>
                     <Separator />

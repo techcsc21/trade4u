@@ -73,27 +73,15 @@ export function formatCurrencySafe(
   // Check if the currency is a valid ISO currency code
   const isValidCurrency = isValidCurrencyCode(currency);
 
-  if (isValidCurrency) {
-    try {
-      return new Intl.NumberFormat(locale, {
-        style: "currency",
-        currency,
-        minimumFractionDigits,
-        maximumFractionDigits: Math.min(maximumFractionDigits, 2), // ISO currencies max 2 decimals
-      }).format(amount);
-    } catch (error) {
-      // Fallback if there's still an error
-      return `${currency} ${amount.toFixed(minimumFractionDigits)}`;
-    }
-  } else {
-    // For cryptocurrencies and other non-ISO currencies, format manually
-    const formattedValue = new Intl.NumberFormat(locale, {
-      minimumFractionDigits,
-      maximumFractionDigits, // Cryptocurrencies can have more decimal places
-    }).format(amount);
-    
-    return `${formattedValue} ${currency}`;
-  }
+  // Format the number without currency symbol, then append currency code
+  const formattedValue = new Intl.NumberFormat(locale, {
+    minimumFractionDigits,
+    maximumFractionDigits: isValidCurrency
+      ? Math.min(maximumFractionDigits, 2) // ISO currencies max 2 decimals
+      : maximumFractionDigits, // Cryptocurrencies can have more decimal places
+  }).format(amount);
+
+  return `${formattedValue} ${currency}`;
 }
 
 /**

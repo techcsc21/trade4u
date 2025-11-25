@@ -4,6 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent } from "@/components/ui/card";
 import {
+  Tooltip as TooltipUI,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
   Line,
   XAxis,
   YAxis,
@@ -170,71 +176,86 @@ export function ProjectionTab({
   }));
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-      <div className="space-y-6">
-        <h3 className="text-lg font-medium">{t("market_parameters")}</h3>
+    <TooltipProvider>
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="space-y-6">
+          <h3 className="text-lg font-medium">{t("market_parameters")}</h3>
 
-        <div className="grid gap-6">
-          <div className="space-y-3">
-            <label className="text-sm font-medium flex items-center">
-              {t("monthly_growth_rate_(%)")}
-              <HelpCircle className="h-4 w-4 ml-1 text-muted-foreground" />
-            </label>
-            <div className="flex items-center gap-3">
-              <Slider
-                value={[growthRate]}
-                min={-10}
-                max={20}
-                step={0.5}
-                onValueChange={(value) =>
-                  onMarketParamsChange({ growthRate: value[0] })
-                }
-                className="w-full"
-              />
-              <Input
-                type="number"
-                value={growthRate}
-                onChange={(e) =>
-                  onMarketParamsChange({ growthRate: Number(e.target.value) })
-                }
-                min={-10}
-                max={20}
-                step={0.5}
-                className="w-24 text-center"
-                icon="mdi:percent"
-              />
+          <div className="grid gap-6">
+            <div className="space-y-3">
+              <label className="text-sm font-medium flex items-center">
+                {t("monthly_growth_rate_(%)")}
+                <TooltipUI>
+                  <TooltipTrigger asChild>
+                    <HelpCircle className="h-4 w-4 ml-1 text-muted-foreground cursor-help" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="max-w-xs">{t("monthly_growth_rate_tooltip")}</p>
+                  </TooltipContent>
+                </TooltipUI>
+              </label>
+              <div className="flex items-center gap-3">
+                <Slider
+                  value={[growthRate]}
+                  min={-50}
+                  max={50}
+                  step={0.5}
+                  onValueChange={(value) =>
+                    onMarketParamsChange({ growthRate: value[0] })
+                  }
+                  className="w-full"
+                />
+                <Input
+                  type="number"
+                  value={growthRate}
+                  onChange={(e) =>
+                    onMarketParamsChange({ growthRate: Number(e.target.value) })
+                  }
+                  min={-50}
+                  max={50}
+                  step={0.5}
+                  className="w-24 text-center"
+                  icon="mdi:percent"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="space-y-3">
-            <label className="text-sm font-medium flex items-center">
-              {t("volatility_(%)")}
-              <HelpCircle className="h-4 w-4 ml-1 text-muted-foreground" />
-            </label>
-            <div className="flex items-center gap-3">
-              <Slider
-                value={[volatility]}
-                min={0}
-                max={50}
-                step={1}
-                onValueChange={(value) =>
-                  onMarketParamsChange({ volatility: value[0] })
-                }
-                className="w-full"
-              />
-              <Input
-                type="number"
-                value={volatility}
-                onChange={(e) =>
-                  onMarketParamsChange({ volatility: Number(e.target.value) })
-                }
-                min={0}
-                max={50}
-                className="w-24 text-center"
-                icon="mdi:percent"
-              />
+            <div className="space-y-3">
+              <label className="text-sm font-medium flex items-center">
+                {t("volatility_(%)")}
+                <TooltipUI>
+                  <TooltipTrigger asChild>
+                    <HelpCircle className="h-4 w-4 ml-1 text-muted-foreground cursor-help" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="max-w-xs">{t("volatility_tooltip")}</p>
+                  </TooltipContent>
+                </TooltipUI>
+              </label>
+              <div className="flex items-center gap-3">
+                <Slider
+                  value={[volatility]}
+                  min={0}
+                  max={100}
+                  step={1}
+                  onValueChange={(value) =>
+                    onMarketParamsChange({ volatility: value[0] })
+                  }
+                  className="w-full"
+                />
+                <Input
+                  type="number"
+                  value={volatility}
+                  onChange={(e) =>
+                    onMarketParamsChange({ volatility: Number(e.target.value) })
+                  }
+                  min={0}
+                  max={100}
+                  className="w-24 text-center"
+                  icon="mdi:percent"
+                />
+              </div>
             </div>
-          </div>
 
           <div className="space-y-3">
             <label className="text-sm font-medium">
@@ -575,5 +596,6 @@ export function ProjectionTab({
         </div>
       </div>
     </div>
+    </TooltipProvider>
   );
 }

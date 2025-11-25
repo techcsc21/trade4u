@@ -47,28 +47,18 @@ export default function NFTSettingsConfiguration() {
     MarketplaceFeePercentage: localSettings.nftMarketplaceFeePercentage ?? 2.5,
     MaxRoyaltyPercentage: localSettings.nftMaxRoyaltyPercentage ?? 10,
     ListingFee: localSettings.nftListingFee ?? 0,
-    GasOptimizationEnabled: localSettings.nftGasOptimizationEnabled ?? true,
-    FeeRecipientAddress: localSettings.nftFeeRecipientAddress ?? "",
   };
 
   // Extract verification settings object from the flat settings.
   const verificationSettings = {
-    AutoVerifyCreators: localSettings.nftAutoVerifyCreators ?? false,
     RequireKycForCreators: localSettings.nftRequireKycForCreators ?? false,
     RequireKycForHighValue: localSettings.nftRequireKycForHighValue ?? true,
     HighValueThreshold: localSettings.nftHighValueThreshold ?? 1000,
-    VerificationBadgeEnabled: localSettings.nftVerificationBadgeEnabled ?? true,
-    ManualReviewRequired: localSettings.nftManualReviewRequired ?? true,
   };
 
   // Extract content settings object from the flat settings.
   const contentSettings = {
-    EnableContentModeration: localSettings.nftEnableContentModeration ?? true,
-    AllowExplicitContent: localSettings.nftAllowExplicitContent ?? false,
-    MaxFileSize: localSettings.nftMaxFileSize ?? 100,
-    SupportedFormats: localSettings.nftSupportedFormats ?? "jpg,jpeg,png,gif,mp4,mp3,webp",
     RequireMetadataValidation: localSettings.nftRequireMetadataValidation ?? true,
-    EnableIpfsStorage: localSettings.nftEnableIpfsStorage ?? true,
   };
 
   // Extract integration settings object from the flat settings.
@@ -119,7 +109,32 @@ export default function NFTSettingsConfiguration() {
     setHasSubmitted(true);
 
     try {
-      const updatedSettings = { ...localSettings };
+      // Ensure all NFT settings with defaults are included
+      const allNftSettings = {
+        // Trading settings
+        nftEnableFixedPriceSales: tradingSettings.EnableFixedPriceSales,
+        nftEnableAuctions: tradingSettings.EnableAuctions,
+        nftEnableOffers: tradingSettings.EnableOffers,
+        nftMinAuctionDuration: tradingSettings.MinAuctionDuration,
+        nftMaxAuctionDuration: tradingSettings.MaxAuctionDuration,
+        nftBidIncrementPercentage: tradingSettings.BidIncrementPercentage,
+        nftEnableAntiSnipe: tradingSettings.EnableAntiSnipe,
+        nftAntiSnipeExtension: tradingSettings.AntiSnipeExtension,
+        // Fees settings
+        nftMarketplaceFeePercentage: feesSettings.MarketplaceFeePercentage,
+        nftMaxRoyaltyPercentage: feesSettings.MaxRoyaltyPercentage,
+        nftListingFee: feesSettings.ListingFee,
+        // Verification settings
+        nftRequireKycForCreators: verificationSettings.RequireKycForCreators,
+        nftRequireKycForHighValue: verificationSettings.RequireKycForHighValue,
+        nftHighValueThreshold: verificationSettings.HighValueThreshold,
+        // Content settings
+        nftRequireMetadataValidation: contentSettings.RequireMetadataValidation,
+        // Integration settings
+        nftEnableCrossChain: integrationSettings.EnableCrossChain,
+      };
+
+      const updatedSettings = { ...localSettings, ...allNftSettings };
       const { data, error, validationErrors } = await $fetch({
         url: "/api/admin/system/settings",
         method: "PUT",

@@ -58,6 +58,11 @@ export default async (data: { params?: any }) => {
     const plain = offer.get({ plain: true });
     const sellerId = plain.user.id;
 
+    // Extract priceCurrency from priceConfig if not set at top level
+    if (!plain.priceCurrency && plain.priceConfig) {
+      plain.priceCurrency = plain.priceConfig.currency || "USD";
+    }
+
     // 2) Compute seller trade metrics
     const totalTrades = await models.p2pTrade.count({ where: { sellerId } });
     const completedTrades = await models.p2pTrade.count({

@@ -150,19 +150,6 @@
     "top_up": "Aufladen",
     "total_equity": "Eigenkapitalsumme:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "Hinzufügen",
-    "All": "Alle",
-    "Binary": "Binär",
-    "Favorites": "Favoriten",
-    "Hot": "Heiß",
-    "Loading": "Wird geladen",
-    "Market": "Markt",
-    "Trending": "Trending",
-    "active_markets": "Aktive Märkte",
-    "no_markets_found": "Keine Märkte gefunden",
-    "try_adjusting_your_search": "Versuchen Sie, Ihre Suche anzupassen"
-  },
   "binary/components/header/market-selector": {
     "Added": "Zugefügt",
     "Connecting": "Verbindend",
@@ -170,7 +157,7 @@
     "Done": "Fertig",
     "Hot": "Heiß",
     "Markets": "Märkte",
-    "Trending": "Trending",
+    "Trending": "Im Trend",
     "add_new_trading_pairs_to_your_workspace": "Fügen Sie Ihrem Arbeitsbereich neue Handelspaare hinzu",
     "add_to_trading": "Zum Trading hinzufügen",
     "binary_options": "Binäre Optionen",
@@ -179,6 +166,19 @@
     "no_markets_found": "Keine Märkte gefunden",
     "select": "auswählen",
     "try_adjusting_your_different_categories": "Versuchen Sie, Ihre Suche anzupassen oder verschiedene Kategorien zu durchsuchen"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "Hinzufügen",
+    "All": "Alle",
+    "Binary": "Binär",
+    "Favorites": "Favoriten",
+    "Hot": "Heiß",
+    "Loading": "Wird geladen",
+    "Market": "Markt",
+    "Trending": "Im Trend",
+    "active_markets": "Aktive Märkte",
+    "no_markets_found": "Keine Märkte gefunden",
+    "try_adjusting_your_search": "Versuchen Sie, Ihre Suche anzupassen"
   },
   "binary/components/header/mobile-header": {
     "balance": "Gleichgewicht:"
@@ -230,7 +230,7 @@
     "execution": "Ausführung:",
     "expiry_time": "Ablaufzeit:",
     "fees": "Honorare:",
-    "min)": "min)",
+    "min)": "Min.)",
     "potential_loss": "Potenzieller Verlust:",
     "potential_profit": "Potenzieller Gewinn:",
     "processing": "Verarbeitung",
@@ -1150,13 +1150,6 @@
     "Image": "Bild",
     "Images": "Bilder",
     "Important": "Wichtig",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "Verbesserung",
     "Inactive": "Inaktiv",
     "Insights": "Einblicke",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "Sie haben insgesamt",
     "you_havent_created_any_api_keys_yet": "Sie haben noch keine API-Schlüssel erstellt",
     "you_havent_saved_any_sections_yet": "Sie haben noch keine Abschnitte gespeichert",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "Sie müssen die Erweiterung auf die neueste Version aktivieren und installieren, bevor Sie sie aktivieren können",
     "youll_be_redirected_to_the_login_page_after_logout": "Nach dem Abmelden werden Sie auf die Anmeldeseite weitergeleitet",
     "youll_need_it_log_in": "Sie benötigen es, um Verifizierungscodes zu erhalten, wenn Sie sich anmelden",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• Migrationsvorgänge können nach Abschluss nicht mehr rückgängig gemacht werden.",
     "•_monitor_system_data_migrations": "• Überwachen Sie die Systemleistung bei großen Datenmigrationen",
     "•_some_operations_maintenance_mode": "• Für einige Vorgänge ist möglicherweise der Systemwartungsmodus erforderlich.",
-    "•_using_fallback_mode": "• Verwenden des Fallback-Modus"
+    "•_using_fallback_mode": "• Verwenden des Fallback-Modus",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "Zur Startseite",
@@ -2543,7 +2543,7 @@
     "the_page_you_removed_had": "Die Seite, die Sie suchen, wurde möglicherweise entfernt,"
   },
   "ext": {
-    "#affiliate_#rewards": "#affiliate #rewards",
+    "#affiliate_#rewards": "#affiliate #belohnungen",
     "%_actual_apr": "% tatsächlicher effektiver Jahreszins",
     "%_apr_is_market_conditions": "% effektiver Jahreszins ist nicht garantiert und kann je nach Marktbedingungen angepasst werden",
     "%_apr_on_your_staked": "% APR auf Ihren Einsatz",
@@ -2585,7 +2585,7 @@
     "100%_secure": "100% sicher",
     "100%_secure_escrow_protection": "100% sicherer Treuhandschutz",
     "100%_secure_trading": "100% sicherer Handel",
-    "123_commerce_st": "123 Commerce St",
+    "123_commerce_st": "Handelsstraße 123",
     "12_hours": "12 Stunden",
     "15_minutes": "15 Minuten",
     "15_minutes_ago": "vor 15 Minuten",
@@ -2799,7 +2799,7 @@
     "Joined": "Beigetreten",
     "Launch": "Abschießen",
     "Launched": "Lancierte",
-    "Level": "Level",
+    "Level": "Stufe",
     "Leverage": "Hebel",
     "Limits": "Limits",
     "Link": "Verbinden",
@@ -2820,7 +2820,7 @@
     "Month": "Monat",
     "Monthly": "Monatlich",
     "NATIVE": "URSPRÜNGLICH",
-    "N_A": "N/A",
+    "N_A": "N/V",
     "Name": "Name",
     "Network": "Netz",
     "Newest": "Neuest",
@@ -2975,7 +2975,7 @@
     "Tokens": "Token",
     "Total": "Gesamt",
     "Trade": "Handel",
-    "Trades": "Trades",
+    "Trades": "Handel",
     "Trading": "Handel",
     "Transactions": "Transaktionen",
     "Transparency": "Transparenz",
@@ -3009,7 +3009,7 @@
     "Volatility": "Flüchtigkeit",
     "Wallet": "Brieftasche",
     "Warnings": "Warnungen",
-    "Website": "Website",
+    "Website": "Webseite",
     "Weekly": "Wöchentlich",
     "WhatsApp": "WhatsApp (Englisch)",
     "Whitepaper": "Whitepaper",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "Eine Welt, in der innovative Projekte leicht Zugang zu Kapital erhalten und Investoren mit Vertrauen und Sicherheit an Chancen teilnehmen können",
     "accept_offers_that_match_your_needs": "Akzeptieren Sie Angebote, die Ihren Bedürfnissen entsprechen",
     "accepted_methods": "Akzeptierte Methoden",
-    "access_denied": "Access Denied",
+    "access_denied": "Zugriff verweigert",
     "access_institutional-grade_forex_serious_investors": "Greifen Sie auf institutionellen Forex-Handel mit fortschrittlichen Algorithmen, professionellem Risikomanagement und konsistenten Renditen für seriöse Anleger zu",
     "access_to_marketing_support_and_security_audits": "Zugang zu Marketing-Support und Sicherheitsaudits",
     "account": "Konto:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "Neuen Anhang hinzufügen",
     "add_note": "Notiz hinzufügen",
     "add_notes_and_terms_for_this_offer": "Fügen Sie Hinweise und Bedingungen für dieses Angebot hinzu",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "Zahlungsmethode hinzufügen",
     "add_phase": "Phase hinzufügen",
     "add_plan": "Plan hinzufügen",
     "add_roadmap_item": "Roadmap-Element hinzufügen",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "Zusätzliche Verifizierungsanforderungen für hochwertige NFT-Transaktionen",
     "address": "Adresse:",
     "adjust_amount": "Betrag anpassen",
-    "admin": "Admin",
+    "admin": "Administrator",
     "admin_actions": "Admin-Aktionen",
     "admin_actions_will_appear_here": "Admin-Aktionen werden hier angezeigt",
     "admin_activity": "Admin-Aktivität",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "Verkäufe und neue Angebote automatisch posten",
     "auto-release": "Automatische Freigabe:",
     "auto-verify_new_creators": "Neue Ersteller automatisch verifizieren",
+    "auto_approve_offers": "Angebote automatisch genehmigen",
     "auto_cancel": "Automatisch stornieren",
     "auto_cancel_time_(minutes)": "Automatische Stornierungszeit (Minuten)",
     "automatic_earnings_distribution": "Automatische Ertragsverteilung",
     "automatic_escrow_protection_for_all_funds": "Automatischer Treuhandschutz für alle Gelder",
     "automatic_release_after_no_dispute)": "Automatische Freigabe nach 24 Stunden nach Zahlungsbestätigung (wenn keine Streitigkeit)",
     "automatically_adjust_amount_to_meet_minimum": "Passen Sie den Betrag automatisch an, um das Minimum zu erreichen",
+    "automatically_approve_new_and_edited_offers": "Neue und bearbeitete Angebote automatisch genehmigen",
     "automatically_cancel_the_specified_time": "Automatisches Stornieren des Angebots, wenn innerhalb einer bestimmten Zeit keine Antwort erfolgt",
     "automatically_cancel_trades_payment_window": "Stornieren Sie automatisch Trades, wenn die Zahlung nicht innerhalb des Zahlungsfensters bestätigt wird",
     "automatically_extend_auctions_when": "Auktionen automatisch verlängern, wenn Gebote kurz vor Ende abgegeben werden",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "Bestätigen Sie Ihre Einzahlung",
     "confirm_your_withdrawal": "Bestätigen Sie Ihre Auszahlung",
     "confirmed_at": "Bestätigt am:",
-    "conflict": "Conflict",
+    "conflict": "Konflikt",
     "connect_with_traders_worldwide": "Verbinden Sie sich mit Händlern weltweit",
     "connections": "Verbindungen",
     "consider_cliff_periods_for_team_tokens": "Berücksichtigen Sie Cliff-Perioden für Team-Token",
@@ -3720,7 +3722,7 @@
     "discard_unsaved_changes": "Nicht gespeicherte Änderungen verwerfen?",
     "discord_integration": "Discord-Integration",
     "discord_webhook_for_sending": "Discord-Webhook zum Senden von Marktplatz-Benachrichtigungen",
-    "discord_webhook_url": "Discord Webhook URL",
+    "discord_webhook_url": "Discord-Webhook-URL",
     "discount_code": "Rabattcode",
     "discover_all_the_affiliate_program": "Entdecken Sie alle Möglichkeiten, wie Sie über unser Partnerprogramm Belohnungen verdienen können",
     "discover_and_invest_our_platform": "Entdecken Sie die neuesten Token-Angebote auf unserer Plattform und investieren Sie in sie",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "Ende-zu-Ende-verschlüsselter Chat für eine sichere Kommunikation zwischen Käufer und Verkäufer während des Handels",
     "end_date": "Enddatum:",
     "end_of_term": "Ende der Laufzeit",
+    "ended": "Beendet",
     "ending_soon": "Endet bald",
     "enhance_multiple_faqs_ai-powered_improvements": "Verbessern Sie mehrere FAQs mit unseren KI-gestützten Verbesserungen",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "Profitieren Sie von den niedrigsten Gebühren der Branche mit nur 0",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "Interne Notizen zu diesem Streit",
     "internal_notes_about_this_offer": "Interne Hinweise zu diesem Angebot",
     "internal_notes_about_this_position": "Interne Notizen zu dieser Position",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "Ungültige Anfrage",
     "invest_in": "Investieren Sie in",
     "invest_in_this_offering": "Investieren Sie in dieses Angebot",
     "invest_more": "Investieren Sie mehr",
@@ -4326,6 +4329,7 @@
     "live_preview": "Live-Vorschau",
     "load_id": "Beladungs-ID:",
     "load_more": "Mehr laden",
+    "loading": "Lädt",
     "loading_activity_data": "Laden von Aktivitätsdaten",
     "loading_affiliate_data": "Laden von Affiliate-Daten",
     "loading_analytics_data": "Laden von Analysedaten",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "Verwalten und überwachen Sie Ihre Token-Angebote",
     "manage_and_track_your_referred_users": "Verwalten und verfolgen Sie Ihre geworbenen Benutzer",
     "manage_conditions": "Bedingungen verwalten",
+    "manage_rewards": "Belohnungen verwalten",
     "manage_the_blockchains_token_launches": "Verwalten Sie die Blockchains, die für Token-Starts verfügbar sind",
     "manage_this_trade": "Verwalten Sie diesen Handel",
     "manage_token_release": "Verwalten der Tokenfreigabe",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "Monatliche Einnahmen der letzten 6 Monate",
     "monthly_faq_views_for_the_current_year": "Monatliche FAQ-Ansichten für das laufende Jahr",
     "monthly_growth_rate_(%)": "Monatliche Wachstumsrate (%)",
+    "monthly_growth_rate_tooltip": "Erwartete durchschnittliche monatliche Preiswachstumsrate. Positive Werte zeigen Preissteigerung an, negative Werte zeigen Wertminderung an. Typischer Bereich: -50% bis +50%",
     "monthly_profit": "Monatlicher Gewinn",
     "more": "mehr",
     "most_common_search_terms_used_by_your_users": "Die häufigsten Suchbegriffe, die von Ihren Nutzern verwendet werden",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "Keine Warnungen gefunden",
     "no_withdrawal_methods_available_for_this_currency": "Keine Auszahlungsmethoden für diese Währung verfügbar",
     "not_available_for_this_chain": "Für diese Kette nicht verfügbar",
-    "not_found": "Not Found",
+    "not_found": "Nicht gefunden",
     "not_helpful": "Nicht hilfreich",
+    "not_started": "Nicht gestartet",
     "not_submitted": "Nicht eingereicht",
     "notes_and_comments_about_this_transaction": "Hinweise und Kommentare zu dieser Transaktion",
     "now_accepting_bitcoin_ethereum_&_more": "Jetzt auch Bitcoin, Ethereum & mehr akzeptieren",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "Angebot nicht gefunden oder Sie haben keine Berechtigung zur Bearbeitung",
     "offer_status": "Angebotsstatus",
     "offer_type": "Art des Angebots",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "Angebot nicht verfügbar",
     "offer_updated_successfully_and_is_pending_approval": "Angebot erfolgreich aktualisiert und wartet auf Genehmigung",
     "offer_visibility": "Bieten Sie Sichtbarkeit",
     "offering": "Anbietend:",
@@ -4791,7 +4798,7 @@
     "password": "Passwort",
     "pay_with_confidence_processing_system": "Bezahlen Sie vertrauensvoll mit unserem sicheren Zahlungsabwicklungssystem",
     "pay_within_time_limit": "Zahlen Sie innerhalb der Frist",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "Zahlungsaktivitäten",
     "payment_completed_successfully": "Zahlung erfolgreich abgeschlossen!",
     "payment_confirmed": "Zahlung bestätigt",
     "payment_details": "Zahlungsdetails",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "Zahlungsanweisungen",
     "payment_marked_as_sent": "Zahlung als gesendet markiert",
     "payment_method": "Zahlungsmethode:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "Zahlungsmethode erforderlich",
     "payment_methods": "Zahlungsmethoden",
     "payment_methods_summary": "Zusammenfassung der Zahlungsmethoden",
     "payment_methods_you_prefer": "Zahlungsmethoden, die Sie bevorzugen",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "Bitte wählen Sie die Ziele aus, die Sie zu dieser Kampagne hinzufügen möchten.",
     "please_send_payment_when_done": "Bitte senden Sie die Zahlung mit der angegebenen Zahlungsmethode an den Verkäufer und bestätigen Sie, wenn Sie fertig sind",
     "please_sign_in_to_view_your_shipping_details": "Bitte melden Sie sich an, um Ihre Versanddetails anzuzeigen",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "Bitte langsamer",
     "please_try_again": "Bitte versuchen Sie es erneut",
     "please_try_again_later": "Bitte versuchen Sie es später erneut",
     "please_try_refreshing_the_page": "Bitte versuchen Sie, die Seite zu aktualisieren.",
@@ -5351,13 +5358,14 @@
     "social_media_post": "Social-Media-Beitrag",
     "solana_(sol)": "Solana (SOL)",
     "sold": "verkauft",
+    "sold_out": "Ausverkauft",
     "some_features_may_be_temporarily_unavailable": "Einige Funktionen sind möglicherweise vorübergehend nicht verfügbar",
     "some_pools_distribute_staking_period": "Einige Pools verteilen Belohnungen täglich, während andere dies wöchentlich, monatlich oder am Ende des Staking-Zeitraums tun",
     "some_pools_offer_higher_returns": "Einige Pools bieten eine automatische Aufzinsung an, bei der Ihre verdienten Belohnungen automatisch reinvestiert werden, um noch höhere Renditen zu erzielen",
     "some_pools_offer_your_rewards": "Einige Pools bieten eine automatische Aufzinsung an, bei der Ihre Belohnungen automatisch reinvestiert werden",
     "some_settings_like_launch_plans": "Einige Einstellungen wie Limits für Teammitglieder und Roadmap-Elemente werden jetzt durch Einführungspläne gesteuert",
     "some_trade_features_are_currently_disabled": "Einige Handelsfunktionen sind derzeit deaktiviert:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "Etwas ist schiefgelaufen",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "Leider konnten wir die von Ihnen gesuchte Seite nicht finden",
     "sort_by": "Sortieren nach",
     "source_code_verification": "Überprüfung des Quellcodes",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Abonnieren Sie unseren Newsletter",
     "subtotal": "Zwischensumme:",
     "subtotal_(": "Zwischensumme (",
-    "success": "Success",
+    "success": "Erfolg",
     "success_rate": "Erfolgsquote",
     "successful_offerings": "Erfolgreiche Angebote",
     "successful_trades": "Erfolgreiche Trades:",
@@ -5658,7 +5666,7 @@
     "tokens": "Token",
     "tokens_for_sale": "Token zum Verkauf",
     "tokens_to_receive": "Zu erhaltende Token:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "Zu viele Anfragen",
     "top-performing_staking_pools": "Die leistungsstärksten Staking-Pools",
     "top_performing_affiliates": "Die leistungsstärksten Partner",
     "top_performing_faqs": "Häufig gestellte Fragen zur Top-Performance",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "Handelsdetails sind derzeit nicht zugänglich",
     "trade_details_are_temporarily_unavailable": "Handelsdetails sind vorübergehend nicht verfügbar",
     "trade_disputed": "Handel umstritten",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "Handel abgelaufen",
     "trade_history_requirements": "Anforderungen an die Handelshistorie",
     "trade_id": "Handels-ID",
     "trade_information": "Handelsinformation",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Venmo Mobile Zahlungen",
     "verification_badges": "Verifizierungsabzeichen",
     "verification_badges_help_users": "Verifizierungsabzeichen helfen Benutzern, vertrauenswürdige Ersteller und authentische Sammlungen zu identifizieren. Sie erscheinen in Profilen, Angeboten und Suchergebnissen.",
-    "verification_required": "Verification Required",
+    "verification_required": "Verifizierung erforderlich",
     "verification_settings_affect_marketplace": "Verifizierungseinstellungen beeinflussen das Vertrauen und die Compliance des Marktplatzes. Berücksichtigen Sie die Anforderungen Ihrer Gerichtsbarkeit.",
     "verified_only": "Nur verifiziert",
     "verified_project_teams_and_offerings": "Verifizierte Projektteams und Angebote",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "Nur verifizierte Händler",
     "verified_users_have_verification_process": "Verifizierte Benutzer haben unseren Identitätsprüfungsprozess abgeschlossen",
     "verify_&_approve_transaction": "Transaktion verifizieren und genehmigen",
-    "verify_account": "Verify Account",
+    "verify_account": "Konto verifizieren",
     "verify_payment_and_release_funds": "Überprüfen Sie die Zahlung und geben Sie Gelder frei",
     "verify_payment_before_releasing": "Überprüfen Sie die Zahlung vor der Freigabe",
     "verify_payment_first": "Zuerst die Zahlung verifizieren",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "Visualisieren und verwalten Sie die Struktur Ihres Affiliate-Netzwerks",
     "visualize_distribution_vesting_token_launch": "Visualisieren Sie Verteilung, Vesting-Zeitpläne und Marktprognosen, um Ihre Token-Einführung zu optimieren",
     "volatility_(%)": "Volatilität (%)",
+    "volatility_tooltip": "Erwarteter Preisschwankungsbereich. Höhere Volatilität bedeutet größere Preisbewegungen. 0% bedeutet stabile Preise, 100% bedeutet extreme Preisbewegungen.",
     "volume": "Volumen:",
     "volume_(btc)": "Volumen (BTC)",
     "vs": "Vs",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "Was möchten Sie tun?",
     "what_would_you_like_to_do_next": "Was möchten Sie als nächstes tun?",
     "when_a_trade_into_escrow": "Wenn ein Handel beginnt, müssen Sie die Kryptowährung auf ein Treuhandkonto einzahlen:",
+    "when_disabled_offers_require_admin_moderation": "Wenn deaktiviert, erfordern Angebote eine Admin-Moderation",
     "when_disabled_users_can_only_take_existing_offers": "Wenn diese Option deaktiviert ist, können Benutzer nur vorhandene Angebote annehmen",
     "when_disabled_users_cannot_access_p2p_features": "Wenn diese Option deaktiviert ist, können Benutzer nicht auf P2P-Funktionen zugreifen",
     "when_disabled_users_cannot_create_custom_payment_methods": "Wenn deaktiviert, können Benutzer keine benutzerdefinierten Zahlungsmethoden erstellen",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "Sie haben noch keine Trades abgeschlossen",
     "you_havent_distributed_any_earnings_yet": "Sie haben noch keine Einnahmen ausgeschüttet",
     "you_might_want_question_directly": "Vielleicht möchten Sie unsere Suche ausprobieren oder direkt eine Frage stellen",
+    "you_must_be_logged_in_to_access_the_dashboard": "Sie müssen angemeldet sein, um auf das Dashboard zuzugreifen",
     "you_must_be_logged_in_to_ask_a_question": "Sie müssen angemeldet sein, um eine Frage stellen zu können",
     "you_need": "Du brauchst",
     "you_need_to_a_review": "Sie müssen dieses Produkt kaufen, bevor Sie eine Rezension schreiben können",
@@ -6206,7 +6217,75 @@
     "•_escrow_services_are_unavailable": "• Treuhanddienste sind nicht verfügbar",
     "•_lock_period": "• Sperrfrist:",
     "•_trade_dispute_resolution_is_unavailable": "• Die Beilegung von Handelsstreitigkeiten ist nicht möglich",
-    "✓_purchased": "✓ Gekauft"
+    "✓_purchased": "✓ Gekauft",
+    "Configure NFT metadata requirements": "NFT-Metadaten-Anforderungen konfigurieren",
+    "Configure platform and creator fees": "Plattform- und Ersteller-Gebühren konfigurieren",
+    "Fixed fee to create a listing (0 = free)": "Feste Gebühr zum Erstellen eines Angebots (0 = Kostenlos)",
+    "High-Value Threshold (USD)": "Hochwert-Schwellenwert (USD)",
+    "Listing Fee (Optional)": "Angebotsgebühr (Optional)",
+    "Marketplace Fee (%)": "Marktplatzgebühr (%)",
+    "Marketplace Fees": "Marktplatzgebühren",
+    "Maximum Royalty (%)": "Maximale Lizenzgebühr (%)",
+    "Maximum royalty creators can set (0-50%)": "Maximale Lizenzgebühr, die Ersteller festlegen können (0-50%)",
+    "Metadata & IPFS": "Metadaten & IPFS",
+    "Percentage fee charged on each sale (0-10%)": "Prozentuale Gebühr, die bei jedem Verkauf erhoben wird (0-10%)",
+    "Require Metadata Validation": "Metadaten-Validierung erforderlich",
+    "Validate IPFS metadata URLs before accepting NFT listings": "IPFS-Metadaten-URLs vor Annahme von NFT-Angeboten validieren",
+    "are_you_sure_you_want_to_remove_this_offer": "Sind Sie sicher, dass Sie dieses Angebot entfernen möchten",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "Änderungen der Preis- und Mengeneinstellungen können eine Administratorgenehmigung erfordern, bevor sie wirksam werden",
+    "create_your_first_offer": "Erstellen Sie Ihr erstes Angebot",
+    "dynamic_price_(market_based)": "Dynamischer Preis (marktbasiert)",
+    "edit": "Bearbeiten",
+    "enter_your_fixed_price": "Geben Sie Ihren Festpreis ein",
+    "failed_to_remove_offer": "Angebot konnte nicht entfernt werden",
+    "limit": "Limit",
+    "market_price_offset_(%)": "Marktpreis-Abweichung (%)",
+    "max_trade_amount": "Maximaler Handelsbetrag",
+    "maximum_amount": "Maximaler Betrag",
+    "maximum_limit": "Maximales Limit",
+    "min_trade_amount": "Minimaler Handelsbetrag",
+    "minimum_amount": "Minimaler Betrag",
+    "minimum_limit": "Minimales Limit",
+    "my_offers": "Meine Angebote",
+    "no_recent_activity": "Keine kürzliche Aktivität",
+    "note": "Hinweis",
+    "offer_removed": "Angebot entfernt",
+    "positive_=_above_market,_negative_=_below_market": "Positiv = Über Marktpreis, Negativ = Unter Marktpreis",
+    "price_&_amount": "Preis & Menge",
+    "price_&_amount_settings": "Preis- & Mengeneinstellungen",
+    "pricing_model": "Preismodell",
+    "remove_offer": "Angebot entfernen",
+    "removing": "Wird entfernt",
+    "the_price_per_unit_of": "Der Preis pro Einheit von",
+    "this_is_the_total_amount_for_this_trade": "Dies ist der Gesamtbetrag für diesen Handel",
+    "total_amount_available": "Insgesamt verfügbarer Betrag",
+    "total_available": "Insgesamt verfügbar",
+    "trading_limits": "Handelslimits",
+    "update_pricing_model_and_trading_limits": "Preismodell und Handelslimits aktualisieren",
+    "view": "Ansehen",
+    "you_dont_have_any_offers_yet": "Sie haben noch keine Angebote",
+    "your_offer_has_been_successfully_removed": "Ihr Angebot wurde erfolgreich entfernt",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "5% über Marktpreis"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "Abbrechen",
@@ -6249,6 +6328,8 @@
     "network_fee": "Netzwerkgebühr",
     "new_balance": "Neuer Kontostand",
     "no_currencies_found": "Keine Währungen gefunden für",
+    "no_wallets_available": "Keine Wallets verfügbar",
+    "no_wallets_available_description": "Beschreibung: Keine Wallets verfügbar",
     "not_available": "Nicht verfügbar",
     "of": "von",
     "pay_with": "Bezahlen mit",
@@ -6342,6 +6423,8 @@
     "make_another_transfer": "Machen Sie eine weitere Überweisung",
     "move_funds_between_another_user": "Verschieben Sie Gelder zwischen Ihren Wallets oder senden Sie sie an einen anderen Benutzer",
     "move_funds_between_your_different_wallet_types": "Verschieben Sie Gelder zwischen Ihren verschiedenen Wallet-Typen",
+    "no_wallets_available": "Keine Wallets verfügbar",
+    "no_wallets_available_description": "Beschreibung: Keine Wallets verfügbar",
     "processing_transfer": "Übergabe bearbeiten",
     "recipient_details": "Angaben zum Empfänger",
     "recipient_receives": "Der Empfänger erhält:",
@@ -6381,12 +6464,12 @@
     "the_wallet_youre_to_it": "Die Wallet, die Sie suchen, existiert nicht oder Sie haben keinen Zugriff darauf",
     "wallet_address": "Wallet-Adresse",
     "wallet_not_found": "Geldbörse nicht gefunden",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
+    "wallet_type_ai_investment": "KI-Investition",
+    "wallet_type_derivatives": "Derivate",
+    "wallet_type_eco": "Öko",
     "wallet_type_fiat": "Fiat",
     "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
+    "wallet_type_funding": "Finanzierung",
     "wallet_type_futures": "Futures",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
@@ -6429,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(um zu erhalten",
+    "Amount to Send (before network fees)": "Zu sendender Betrag (vor Netzwerkgebühren)",
     "Free": "Kostenlos",
+    "Platform Fee": "Plattformgebühr",
     "Processing": "Verarbeitung",
     "Select": "Auswählen",
     "Withdraw": "Zurückziehen",
@@ -6450,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "Keine Währungen mit verfügbarem Guthaben in",
     "no_currencies_with_balance_in_wallet_type": "Keine Währungen mit Guthaben im Wallet-Typ",
     "no_wallets_available": "Keine Wallets verfügbar",
+    "no_wallets_available_description": "Alle Wallet-Typen wurden vom Administrator deaktiviert. Bitte kontaktieren Sie den Support oder versuchen Sie es später erneut.",
     "no_wallets_with_balance_for_withdrawal": "Keine Wallets mit Guthaben für Auszahlung",
     "no_withdrawal_methods": "Keine Auszahlungsmethoden verfügbar",
     "no_withdrawal_methods_available": "Keine Auszahlungsmethoden verfügbar",
@@ -6800,7 +6886,7 @@
     "create_nft": "NFT erstellen",
     "creating": "Wird erstellt...",
     "creation_summary": "Erstellungsübersicht",
-    "creator_hub": "Creator Hub",
+    "creator_hub": "Creator-Hub",
     "describe_your_nft": "Beschreiben Sie Ihr NFT",
     "drag_and_drop_your_image_here_or_click_to_browse": "Ziehen Sie Ihr Bild hierher oder klicken Sie zum Durchsuchen",
     "enter_nft_name": "NFT-Namen eingeben",
@@ -6934,7 +7020,7 @@
     "current_bid": "Aktuelles Gebot",
     "edit_profile": "Profil bearbeiten",
     "followers": "Follower",
-    "gold_creator": "Gold Creator",
+    "gold_creator": "Gold-Creator",
     "nfts_created": "Erstellte NFTs",
     "no_bio_own_profile": "Sie haben Ihrem Profil noch keine Biografie hinzugefügt",
     "no_collections_created_yet": "Noch keine Sammlungen erstellt",
@@ -6992,8 +7078,11 @@
     "create_nft": "NFT erstellen",
     "create_your_first_collection_to_organize_your_nfts": "Erstellen Sie Ihre erste Sammlung, um Ihre NFTs zu organisieren",
     "create_your_first_nft_to_get_started": "Erstellen Sie Ihr erstes NFT, um zu beginnen",
-    "creator_hub": "Creator Hub",
+    "creator_dashboard": "Creator-Dashboard",
+    "creator_hub": "Creator-Hub",
+    "creator_since": "Creator seit",
     "explore_nfts": "NFTs erkunden",
+    "failed_to_load_dashboard": "Dashboard konnte nicht geladen werden",
     "favorite_nfts": "Favorisierte NFTs",
     "manage_your_nfts_collections": "Verwalten Sie Ihre NFTs, Sammlungen und Marktplatzaktivitäten",
     "my_collections": "Meine Sammlungen",
@@ -7004,6 +7093,7 @@
     "no_favorites_yet": "Noch keine Favoriten",
     "no_nfts_yet": "Noch keine NFTs",
     "please_login_to_view_your_dashboard": "Bitte melden Sie sich an, um Ihr Dashboard anzuzeigen",
+    "please_sign_in_to_access_your_creator_dashboard": "Bitte melden Sie sich an, um auf Ihr Creator-Dashboard zuzugreifen",
     "please_sign_in_to_view_your_nft_dashboard": "Bitte melden Sie sich an, um Ihr NFT-Dashboard anzuzeigen",
     "recent_activity": "Neueste Aktivitäten",
     "sign_in": "Anmelden",
@@ -7011,6 +7101,7 @@
     "total_nfts": "Gesamt-NFTs",
     "total_value": "Gesamtwert",
     "total_views": "Gesamtansichten",
+    "try_again": "Erneut versuchen",
     "your_nft_activities_will_appear_here": "Ihre NFT-Aktivitäten werden hier angezeigt"
   },
   "nft/details": {
@@ -7146,7 +7237,8 @@
     "sell_at_a_fixed_price": "Zu einem Festpreis verkaufen",
     "sell_to_highest_bidder": "An Höchstbietenden verkaufen",
     "start_time": "Startzeit",
-    "starting_price": "Startpreis"
+    "starting_price": "Startpreis",
+    "Duration": "Dauer"
   },
   "nft/modals/offer": {
     "Cancel": "Abbrechen",
@@ -7210,7 +7302,8 @@
     "token_details": "Token-Details",
     "token_id": "Token-ID",
     "token_standard": "Token-Standard",
-    "view_on_explorer": "Im Explorer anzeigen"
+    "view_on_explorer": "Im Explorer anzeigen",
+    "browse_marketplace": "Marktplatz durchsuchen"
   },
   "nft/user/profile": {
     "Activity": "Aktivität",
@@ -7337,7 +7430,7 @@
     "chat_session_has_ended": "Die Chat-Sitzung ist beendet",
     "connect_instantly_with_our_expert_support_team": "Verbinden Sie sich sofort mit unserem Experten-Support-Team",
     "end_chat": "Chat beenden",
-    "position_#": "Position #",
+    "position_#": "Position Nr.",
     "press_enter_to_send_shift+enter_for_new_line": "Drücken Sie die Eingabetaste zum Senden, Umschalt+Eingabetaste für eine neue Zeile",
     "start_live_chat": "Live-Chat starten",
     "uploading_image": "Bild hochladen",
@@ -7369,7 +7462,7 @@
   },
   "trade/components/header/trading-header": {
     "24h_high": "24h Hoch",
-    "24h_vol": "24h Vol",
+    "24h_vol": "24h Vol.",
     "Name": "Name",
     "Popular": "Beliebt",
     "Save": "Retten",
@@ -7518,7 +7611,7 @@
   "trade/components/trading/futures/balance-display": {
     "Available": "Verfügbar",
     "Loading": "Lädt",
-    "Margin": "Margin",
+    "Margin": "Marge",
     "current_price": "Aktueller Preis",
     "funding_rate": "Finanzierungsrate"
   },
@@ -7543,12 +7636,12 @@
     "Amount": "Betrag",
     "Fees": "Gebühren",
     "Leverage": "Hebel",
-    "Long": "Long",
+    "Long": "Lang",
     "Margin": "Marge",
     "Optional": "Optional",
     "Placing": "Platzierung",
     "Price": "Preis",
-    "Short": "Short",
+    "Short": "Kurz",
     "amount": "Betrag",
     "current_price": "Aktueller Preis",
     "estimated_loss": "Geschätzter Verlust",
@@ -7558,7 +7651,7 @@
     "leverage": "Hebel",
     "limit_price": "Limitpreis",
     "liquidation_price": "Liquidationspreis",
-    "long": "Long",
+    "long": "Lang",
     "margin": "Marge",
     "net_potential": "Nettopotenzial",
     "order_failed": "Bestellung fehlgeschlagen",
@@ -7568,7 +7661,7 @@
     "price": "Preis",
     "ratio": "Verhältnis",
     "risk_reward_analysis": "Risiko-/Ertragsanalyse",
-    "short": "Short",
+    "short": "Kurz",
     "stop_loss": "Stop-Loss",
     "take_profit": "Take-Profit"
   },
@@ -7579,10 +7672,10 @@
     "Amount": "Betrag",
     "Fees": "Gebühren",
     "Leverage": "Hebel",
-    "Long": "Long",
+    "Long": "Lang",
     "Margin": "Marge",
     "Optional": "Optional",
-    "Short": "Short",
+    "Short": "Kurz",
     "Submitting": "Wird übermittelt",
     "amount": "Betrag",
     "current_price": "Aktueller Preis",
@@ -7592,7 +7685,7 @@
     "futures_trading_involves_substantial_risk_leverage_can_work_against_you_as_well_as_for_you": "Der Futures-Handel birgt erhebliche Risiken. Hebelwirkung kann sowohl gegen Sie als auch für Sie arbeiten.",
     "leverage": "Hebel",
     "liquidation_price": "Liquidationspreis",
-    "long": "Long",
+    "long": "Lang",
     "margin": "Marge",
     "net_potential": "Nettopotenzial",
     "order_failed": "Auftrag fehlgeschlagen",
@@ -7602,7 +7695,7 @@
     "price": "Preis",
     "ratio": "Verhältnis",
     "risk_reward_analysis": "Risiko-/Ertragsanalyse",
-    "short": "Short",
+    "short": "Kurz",
     "stop_loss": "Stop-Loss",
     "take_profit": "Gewinnmitnahme"
   },
@@ -7621,13 +7714,15 @@
     "take_profit": "Take-Profit"
   },
   "trade/components/trading/futures/trading-buttons": {
-    "Long": "Long",
-    "Short": "Short",
+    "Long": "Lang",
+    "Short": "Kurz",
     "submitting": "Einreichen"
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "Laden",
-    "available": "Verfügbar:"
+    "available": "Verfügbar:",
+    "balance": "Guthaben",
+    "in_orders": "In Aufträgen"
   },
   "trade/components/trading/spot/index": {
     "Limit": "Limit",
@@ -7644,7 +7739,10 @@
     "Price": "Preis",
     "Processing": "Verarbeitung",
     "Sell": "Verkaufen",
-    "Total": "Gesamt"
+    "Total": "Gesamt",
+    "Est": {
+      " Fee": "Gebühr"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "Betrag",
@@ -7654,7 +7752,10 @@
     "estimated_total": "Geschätzter Gesamtbetrag",
     "market_orders_execute_available_price": "Market-Orders werden sofort zum besten verfügbaren Preis ausgeführt",
     "market_price": "Marktpreis",
-    "the_final_execution_estimated_price": "Der endgültige Ausführungspreis kann vom geschätzten Preis abweichen"
+    "the_final_execution_estimated_price": "Der endgültige Ausführungspreis kann vom geschätzten Preis abweichen",
+    "Est": {
+      " Fee": "Gebühr"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "Betrag",
@@ -7669,7 +7770,10 @@
     "stop_market_orders_is_reached": "Stop-Market-Orders werden als Market-Orders ausgeführt, wenn der Stop-Preis erreicht ist",
     "stop_price": "Stopp-Preis",
     "the_order_will_available_price": "Die Bestellung wird zum besten verfügbaren Preis ausgeführt",
-    "the_order_will_or_better": "Die Order wird zum Limitpreis oder besser ausgeführt"
+    "the_order_will_or_better": "Die Order wird zum Limitpreis oder besser ausgeführt",
+    "Est": {
+      " Fee": "Gebühr"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "*Keine Sorge, wir werden Sie nicht spammen, :)",
@@ -7683,5 +7787,553 @@
     "were_making_the_system_more_awesome": "Wir machen das System noch großartiger",
     "we’ll_be_back_shortly": "Wir sind gleich wieder da",
     "we’re_making_the_system_more_awesome": "Wir machen das System noch großartiger"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "Erweiterte Finanzanalysen mit Gewinnverfolgung, Analyse von Einnahmequellen und umfassenden Business-Intelligence-Dashboards.",
+        "title": "Umsatzanalysen"
+      },
+      "communication": {
+        "description": "Plattformkommunikationsverwaltung einschließlich Benachrichtigungen, Ankündigungen und Benutzer-Nachrichtensystemen.",
+        "title": "Kommunikationswerkzeuge"
+      },
+      "compliance": {
+        "description": "Regulatorische Compliance-Werkzeuge einschließlich KYC-Verarbeitung, Dokumentenverifizierung und Identitätsverwaltung zur Einhaltung gesetzlicher Vorschriften.",
+        "title": "Compliance & Verifizierung"
+      },
+      "currencies": {
+        "description": "Multi-Währungsunterstützung mit Echtzeit-Wechselkursen, Handelspaarkonfiguration und Marktdatenintegration.",
+        "title": "Währungsverwaltung"
+      },
+      "dashboard": {
+        "description": "Umfassende administrative Übersicht mit Echtzeit-Analysen, Systemzustandsüberwachung und schnellem Zugriff auf kritische Verwaltungsfunktionen.",
+        "title": "Dashboard"
+      },
+      "monitoring": {
+        "description": "Umfassende Systemüberwachung mit Protokollierung, Leistungsmetriken und automatisiertem Aufgabenmanagement.",
+        "title": "Systemüberwachung"
+      },
+      "permissions": {
+        "description": "Granulare Berechtigungsverwaltung für feinabgestimmte Zugriffskontrolle über alle Systemfunktionen und -funktionen hinweg.",
+        "title": "Berechtigungen"
+      },
+      "roles": {
+        "title": "Benutzerrollen",
+        "description": "Erstellen und verwalten Sie Benutzerrollen mit anpassbaren Berechtigungssätzen und hierarchischen Zugriffskontrollstrukturen.",
+        "permissions": {
+          "description": "Erweitertes Zugriffskontrollsystem zur Definition von Benutzerrollen, Verwaltung von Berechtigungen und Implementierung von Sicherheitsrichtlinien auf der gesamten Plattform.",
+          "title": "Rollen & Berechtigungen"
+        }
+      },
+      "support": {
+        "description": "Integriertes Support-Ticket-System mit Prioritätenverwaltung, Antwortverfolgung und Kundenzufriedenheitsüberwachung.",
+        "title": "Kundensupport"
+      },
+      "users": {
+        "description": "Umfassende Benutzerdatenbank mit erweiterter Filterung, Massenoperationen, Profilverwaltung und detaillierter Aktivitätsverfolgung.",
+        "title": "Benutzer"
+      },
+      "affiliate": {
+        "system": {
+          "description": "Mehrstufiges Partnerprogramm mit Provisionsverfolgung, Leistungsanalysen und automatisierten Auszahlungen.",
+          "title": "Partnerprogramm"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "Konfigurieren Sie KI-Strategie-Zeitrahmen mit dynamischer Neugewichtung und Anpassungen an Marktbedingungen.",
+          "title": "Strategielaufzeiten"
+        },
+        "investment": {
+          "description": "Künstliche Intelligenz-gestützte Investmentverwaltung mit maschinellen Lernalgorithmen und automatisierter Portfoliooptimierung.",
+          "title": "KI-Investment"
+        },
+        "performance": {
+          "description": "KI-Investitionsleistungsanalyse mit Modellgenauigkeitsverfolgung und Strategieeffektivitätsmetriken.",
+          "title": "KI-Leistung"
+        },
+        "strategies": {
+          "description": "Maschinelle Lern-Investmentstrategien mit Backtesting, Risikobewertung und Leistungsoptimierung.",
+          "title": "KI-Strategien"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "API-Schlüssel-Lebenszyklusverwaltung mit Nutzungsüberwachung, Ratenbegrenzung und Sicherheitskontrollen für Drittanbieter-Integrationen.",
+          "title": "API-Verwaltung"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "Legen Sie Handelszeitrahmen und Auszahlungsprozentsätze für binäre Optionen mit Risikomanagementkontrollen fest.",
+          "title": "Handelsdauern"
+        },
+        "markets": {
+          "description": "Konfigurieren Sie binäre Optionsmärkte mit Vermögenswertpaaren, Handelsparametern und Marktzeiten.",
+          "title": "Binärmärkte"
+        },
+        "orders": {
+          "description": "Überwachen und verwalten Sie binäre Optionsaufträge mit Ausführungsverfolgung und Abwicklungsverarbeitung.",
+          "title": "Binäraufträge"
+        },
+        "trading": {
+          "description": "Binäroptionshandelssystem mit Markteinrichtung, Laufzeitverwaltung und Auszahlungskonfiguration.",
+          "title": "Binäre Optionen"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "Unveränderliche Hauptbuchverwaltung mit Prüfpfaden, Compliance-Berichterstattung und forensischen Analysewerkzeugen.",
+          "title": "Blockchain-Ledger"
+        },
+        "networks": {
+          "description": "Multi-Chain-Netzwerkverwaltung mit Knotenüberwachung, Konsensverfolgung und Netzwerkzustandsanalysen.",
+          "title": "Blockchain-Netzwerke"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "Vollständige Blogverwaltung mit Autorenprofilen, Inhaltsplanung, SEO-Optimierung und Engagement-Analysen.",
+          "title": "Blog-System"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "Wesentliche Geschäftswerkzeuge für Marketing, Kundensupport und Wissensmanagement.",
+          "title": "Geschäftswerkzeuge"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "Umfassendes Content-Management-System für Blogs, Medieninhalte und dynamische Website-Inhalte.",
+          "title": "Inhalt"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "Digitale Vermögensverwaltung mit Blockchain-Integration, Wallet-Konnektivität und Echtzeit-Marktdaten-Feeds.",
+          "title": "Kryptowährungen"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "Institutionelle Verwahrungswallet-Dienste mit regulatorischer Compliance und Versicherungsschutz.",
+          "title": "Verwahrungsdienste"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "Umfassende Einzahlungstransaktionsprotokolle mit Statusverfolgung, Abgleichswerkzeugen und Prüffunktionen.",
+          "title": "Einzahlungsdatensätze"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "Fortgeschrittener visueller Seitenbaukasten mit Drag-and-Drop-Oberfläche, responsiven Design-Werkzeugen und Markenanpassungsoptionen.",
+          "title": "Seitenersteller"
+        },
+        "customization": {
+          "description": "Passen Sie das Erscheinungsbild und Design Ihrer Website mit fortgeschrittenen visuellen Werkzeugen an.",
+          "title": "Design"
+        },
+        "default": {
+          "editor": {
+            "description": "Bearbeiten Sie Standard-Frontend-Seiten einschließlich Startseite, rechtlicher Seiten und Layouts mit Code-Editor-Oberfläche.",
+            "title": "Standardseiten"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "Voll ausgestattete E-Commerce-Plattform mit Bestandsverwaltung, Auftragsabwicklung und Multi-Vendor-Unterstützung.",
+          "title": "E-Commerce-Plattform"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "Dezentrale Marktverwaltung mit AMM-Protokollen, Liquiditätspools und Yield-Farming-Integration.",
+          "title": "DeFi-Märkte"
+        },
+        "orders": {
+          "description": "Blockchain-Ökosystem-Handelsaufträge mit Smart-Contract-Integration und dezentraler Ausführung.",
+          "title": "Ökosystem-Aufträge"
+        },
+        "platform": {
+          "description": "Dezentrales Handelsökosystem mit Blockchain-Integration, DeFi-Protokollen und Smart-Contract-Automatisierung.",
+          "title": "Blockchain-Ökosystem"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "Erstellen und verwalten Sie E-Mail-Kampagnen mit Segmentierung, Personalisierung und Leistungsverfolgung.",
+          "title": "E-Mail-Kampagnen"
+        },
+        "marketing": {
+          "description": "Professionelle E-Mail-Marketing-Plattform mit Automatisierungs-Workflows, A/B-Tests und Analysen.",
+          "title": "E-Mail-Marketing"
+        },
+        "templates": {
+          "description": "Professionelle E-Mail-Vorlagenbibliothek mit responsivem Design und Markenanpassungsoptionen.",
+          "title": "E-Mail-Vorlagen"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "Verwalten Sie Börsenintegrationen mit Liquiditätsanbietern, API-Konfigurationen und Leistungsüberwachung.",
+          "title": "Börsenanbieter"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "Erweiterungs-Lebenszyklusverwaltung mit Installation, Updates, Abhängigkeitsauflösung und Kompatibilitätsprüfung.",
+          "title": "Erweiterungs-Manager"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "Traditionelle Währungsverwaltung mit Wechselkursüberwachung, regionalen Einstellungen und Zahlungsgateway-Integration.",
+          "title": "Fiatwährungen"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "Umfassende Finanzverwaltungssuite mit Umsatzanalysen, Währungsverwaltung, Zahlungsabwicklung und Transaktionsaufsicht.",
+          "title": "Finanzen"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "Professioneller Forex-Handel mit MetaTrader-Integration, algorithmischem Handel und institutioneller Liquidität.",
+          "title": "Forex-Handel"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "Futures-Marktkonfiguration mit Vertragsspezifikationen, Margin-Anforderungen und Abwicklungsverfahren.",
+          "title": "Futures-Märkte"
+        },
+        "orders": {
+          "description": "Futures-Kontraktauftragsverwaltung mit Margin-Verfolgung und Risikobewertungswerkzeugen.",
+          "title": "Futures-Aufträge"
+        },
+        "platform": {
+          "description": "Professionelle Futures-Handelsplattform mit Margin-Management, Risikokontrollen und institutioneller Ausführung.",
+          "title": "Futures-Handel"
+        },
+        "positions": {
+          "description": "Echtzeit-Positionsüberwachung mit Gewinn-und-Verlust-Verfolgung, Nachschussforderungen und automatisiertem Risikomanagement.",
+          "title": "Positionsverwaltung"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "Dynamische Homepage-Inhaltsverwaltung mit responsiven Slidern, Call-to-Action-Buttons und A/B-Testing-Funktionen.",
+          "title": "Homepage-Slider"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "Initial Coin Offering-Plattform mit KYC-Integration, Smart-Contract-Bereitstellung und einhaltung gesetzlicher Vorschriften.",
+          "title": "Token-Verkäufe"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "Verwalten Sie interne Geldtransfers zwischen Konten mit Genehmigungsworkflows und Compliance-Prüfungen.",
+          "title": "Interne Überweisungen"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "Konfigurieren Sie Investitionslaufzeiten, Fälligkeitszeiträume und Zinseszinsberechnungen für verschiedene Produkte.",
+          "title": "Anlagedauern"
+        },
+        "extensions": {
+          "description": "Fortgeschrittene Investmentprodukte mit KI-gesteuerten Strategien, Staking-Diensten und Tokenisierungsplattformen.",
+          "title": "Anlageprodukte"
+        },
+        "history": {
+          "description": "Umfassende Investment-Performance-Analysen mit ROI-Verfolgung und Portfolio-Management-Einblicken.",
+          "title": "Anlageanalysen"
+        },
+        "management": {
+          "description": "Investmentproduktverwaltung mit Planerstellung, Leistungsverfolgung und Portfolio-Aufsichtswerkzeugen.",
+          "title": "Anlageverwaltung"
+        },
+        "plans": {
+          "description": "Erstellen und verwalten Sie Investmentprodukte mit Risikoprofilen, Renditeberechnungen und Laufzeitkonfigurationen.",
+          "title": "Anlagepläne"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "Umfassendes Wissensmanagementsystem mit KI-gestützter Suche und Inhaltsoptimierung.",
+          "title": "Wissensdatenbank"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "Überprüfen und bearbeiten Sie Know-Your-Customer-Anträge mit Dokumentenverifizierung, Risikobewertung und Genehmigungsworkflows.",
+          "title": "KYC-Anträge"
+        },
+        "levels": {
+          "description": "Konfigurieren Sie Verifizierungsstufen mit anpassbaren Anforderungen, Limits und Zugriffsrechten für verschiedene Benutzerkategorien.",
+          "title": "Verifizierungsstufen"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "Systemwartungswerkzeuge einschließlich Datenbankoptimierung, Cache-Verwaltung und Migrationswerkzeugen.",
+          "title": "Wartungswerkzeuge"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "E-Commerce- und digitale Marktplatzplattformen mit umfassenden Verkäuferwerkzeugen und Käuferschutz.",
+          "title": "Marktplatzlösungen"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "Master-Wallet-Verwaltung auf Unternehmensniveau mit Multi-Signatur-Sicherheit und Kaltspeicher-Integration.",
+          "title": "Master-Wallets"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "Zentralisierte Medienverwaltung mit Cloud-Speicher, Bildoptimierung und CDN-Integration für optimale Leistung.",
+          "title": "Medienbibliothek"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "Professioneller NFT-Marktplatz mit Prägewerkzeugen, Lizenzgebührenverwaltung und Auktionsfunktionen.",
+          "title": "NFT-Marktplatz"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "Anpassbare Benachrichtigungsvorlagen mit Mehrkanalzustellung und Personalisierungsvariablen.",
+          "title": "Benachrichtigungsvorlagen"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "Zentralisierte Auftragsverarbeitung und -verwaltung über alle Handelsplattformen und Anlageklassen hinweg.",
+          "title": "Auftragsverwaltung"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "Peer-to-Peer-Handelsplattform mit Treuhanddiensten, Streitbeilegung und Multi-Payment-Gateway-Unterstützung.",
+          "title": "P2P-Börse"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "Konfigurieren und überwachen Sie Zahlungsgateways mit Betrugserkennung, Compliance-Prüfungen und Leistungsanalysen.",
+          "title": "Zahlungsgateways"
+        },
+        "methods": {
+          "description": "Verwalten Sie verfügbare Zahlungsoptionen einschließlich Karten, Banküberweisungen, digitaler Wallets und Kryptowährungszahlungen.",
+          "title": "Zahlungsmethoden"
+        },
+        "systems": {
+          "description": "Vollständige Zahlungsinfrastrukturverwaltung einschließlich Gateways, Methoden und Transaktionsverarbeitungsaufsicht.",
+          "title": "Zahlungssysteme"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "Erweiterte Plattformerweiterungen, die spezialisierte Funktionen für Handel, Marktplatz und Geschäftsbetrieb bereitstellen.",
+          "title": "Erweiterungen"
+        },
+        "settings": {
+          "description": "Kernplattformkonfiguration einschließlich Branding, Lokalisierung, Sicherheitsrichtlinien und Funktionsschalter.",
+          "title": "Plattformeinstellungen"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "Automatisierter Aufgabenplaner mit Auftragsüberwachung, Fehlerbehandlung und Leistungsoptimierung.",
+          "title": "Geplante Aufgaben"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "Spot-Trading-Auftragsverwaltung mit Echtzeitausführungsüberwachung und Marktauswirkungsanalyse.",
+          "title": "Spot-Aufträge"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "Umfassende Staking-Plattform mit Validator-Verwaltung, Belohnungsverteilung und Slashing-Schutz.",
+          "title": "Staking-Dienste"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "Umfassende Systemadministrationssuite für Plattformkonfiguration, Überwachung und Wartungsvorgänge.",
+          "title": "System"
+        },
+        "announcements": {
+          "description": "Plattformweites Ankündigungssystem mit Planungs-, Targeting- und Engagement-Tracking-Funktionen.",
+          "title": "Systemankündigungen"
+        },
+        "logs": {
+          "description": "Zentralisiertes Protokollierungssystem mit Echtzeitüberwachung, Protokollaggregation und erweiterten Suchfunktionen.",
+          "title": "Systemprotokolle"
+        },
+        "updates": {
+          "description": "Automatisierte Systemaktualisierungen mit Rollback-Funktionen, Sicherheitspatches und Feature-Deployment-Verwaltung.",
+          "title": "System-Updates"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "Umfassendes Token-Lebenszyklusmanagement mit Präge-, Verbrennungs- und Governance-Funktionen.",
+          "title": "Token-Verwaltung"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "Professionelle Handelsplattformen mit erweiterten Auftragsarten, Marktanalysetools und institutioneller Ausführungsqualität.",
+          "title": "Handelsplattformen"
+        },
+        "infrastructure": {
+          "description": "Handelsplattformverwaltung einschließlich Börsenanbietern, Marktkonfigurationen und Auftragsverarbeitungssystemen.",
+          "title": "Handelsinfrastruktur"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "Umfassende Transaktionshistorie mit erweiterten Filterfunktionen, Exportmöglichkeiten und Prüfpfaden.",
+          "title": "Transaktionsprotokolle"
+        },
+        "management": {
+          "description": "Vollständige Transaktionsaufsicht mit detaillierter Protokollierung, Abstimmung und Übertragungsverwaltungsfunktionen.",
+          "title": "Transaktionsverwaltung"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "Vollständiges Benutzerlebenszyklusmanagement einschließlich Registrierung, Verifizierung, Rollenzuweisung und Kundenbeziehungstools für umfassende Benutzerverwaltung.",
+          "title": "Benutzer"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "Erweiterte UTXO-Verwaltung mit Transaktionsgraphenanalyse und datenschutzwahrenden Funktionen.",
+          "title": "UTXO-Verfolgung"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "Verwaltung von Wallets für mehrere Währungen mit Saldoüberwachung, Sicherheitskontrollen und Backup-Verwaltung.",
+          "title": "Wallet-Verwaltung"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "Überwachen Sie Auszahlungsanfragen mit Statusverfolgung, Genehmigungsworkflows und Compliance-Überprüfung.",
+          "title": "Auszahlungsaufzeichnungen"
+        },
+        "management": {
+          "description": "Umfassendes Auszahlungssystemmanagement mit automatisierter Verarbeitung, Betrugsprävention und Compliance-Kontrollen.",
+          "title": "Auszahlungsverwaltung"
+        },
+        "methods": {
+          "description": "Konfigurieren Sie Auszahlungsoptionen einschließlich Banküberweisungen, Krypto-Auszahlungen und Drittanbieter-Prozessoren.",
+          "title": "Auszahlungsmethoden"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "Handel",
+        "description": "Greifen Sie auf umfassende Handelsplattformen mit erweiterten Charting-Tools, Echtzeit-Marktdaten und professionellen Ausführungsfunktionen für alle Anlageklassen zu.",
+        "spot": {
+          "title": "Spot-Handel",
+          "description": "Führen Sie sofortige Kauf- und Verkaufsaufträge zu aktuellen Marktpreisen mit erweiterten Auftragsarten, Tiefencharts und professionellen Handelstools aus."
+        },
+        "binary": {
+          "title": "Binäre Optionen",
+          "description": "Handeln Sie binäre Optionen mit ausgefeilten Analysen, Risikomanagement-Tools und optimierter Ausführung für zeitkritische Strategien."
+        },
+        "forex": {
+          "title": "Forex",
+          "description": "Greifen Sie auf globale Devisenmärkte mit MetaTrader 4/5-Integration, erweiterten Charts und institutioneller Ausführung zu."
+        },
+        "p2p": {
+          "title": "P2P-Börse",
+          "description": "Beteiligen Sie sich am sicheren Peer-to-Peer-Kryptowährungshandel mit Treuhand-Schutz, flexiblen Zahlungsmethoden und wettbewerbsfähigen Kursen."
+        }
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "Umfassende Portfolio-Management-Suite zur Verfolgung von Vermögenswerten, Leistungsanalyse und Verwaltung Ihrer Finanzinstrumente über alle Plattformen hinweg.",
+        "wallet": {
+          "title": "Wallet-Verwaltung",
+          "description": "Sichere Multi-Währungs-Wallet mit Echtzeit-Saldoverfolgung, Transaktionshistorie und nahtlosen Ein-/Auszahlungsfunktionen."
+        },
+        "transactions": {
+          "title": "Transaktionshistorie",
+          "description": "Detaillierte Transaktionsaufzeichnungen mit erweiterter Filterung, Exportfunktionen und umfassenden Prüfpfaden für alle Finanzaktivitäten."
+        },
+        "transfers": {
+          "title": "Überweisungen",
+          "description": "Interne und externe Überweisungsdienste mit sofortiger Verarbeitung, wettbewerbsfähigen Gebühren und Multi-Währungsunterstützung."
+        }
+      },
+      "investments": {
+        "title": "Investitionen",
+        "description": "Diversifizierte Investitionsmöglichkeiten mit professionellen Analysen, Risikobewertungstools und Leistungsverfolgung über mehrere Anlageklassen hinweg.",
+        "plans": {
+          "title": "Investitionspläne",
+          "description": "Kuratierte Investitionsstrategien mit detaillierten Risikoprofilen, historischen Leistungsdaten und flexiblen Bedingungen, die zu Ihren finanziellen Zielen passen."
+        },
+        "staking": {
+          "title": "Staking-Belohnungen",
+          "description": "Verdienen Sie passives Einkommen durch Kryptowährungs-Staking mit wettbewerbsfähigen APY-Sätzen, flexiblen Sperrfristen und automatisierter Belohnungsverteilung."
+        },
+        "ico": {
+          "title": "Token-Verkäufe",
+          "description": "Früher Zugang zu geprüften Initial Coin Offerings mit umfassenden Due-Diligence-Berichten, Tokenomics-Analysen und Investitionsverfolgung."
+        }
+      },
+      "marketplace": {
+        "title": "Marktplatz",
+        "description": "Erkunden Sie Premium-Digital- und Physikmarktplätze mit sicheren Transaktionen, verifizierten Verkäufern und umfassendem Käuferschutz.",
+        "nft": {
+          "title": "NFT-Galerie",
+          "description": "Entdecken, erstellen und handeln Sie einzigartige digitale Assets in unserem kuratierten NFT-Marktplatz mit Auktionsfunktionen und Creator-Tantiemen."
+        },
+        "store": {
+          "title": "Shop",
+          "description": "Premium-Marktplatz mit digitalen und physischen Produkten mit sicherer Zahlungsabwicklung, weltweitem Versand und Käuferschutz."
+        }
+      },
+      "services": {
+        "title": "Dienste",
+        "description": "Professionelle Dienste und Tools zur Verbesserung Ihres Handelserlebnisses, einschließlich Partnerprogrammen, Bildungsressourcen und Premium-Support.",
+        "affiliate": {
+          "title": "Partnerprogramm",
+          "description": "Monetarisieren Sie Ihr Netzwerk durch unser umfassendes Partnerprogramm mit wettbewerbsfähigen Provisionen, Echtzeit-Tracking und Marketing-Tools."
+        },
+        "support": {
+          "title": "Support-Center",
+          "description": "Professioneller Kundensupport mit Ticket-Verwaltung, Live-Chat-Funktionen und dedizierter Kontoverwaltung für Premium-Nutzer."
+        },
+        "faq": {
+          "title": "Wissensdatenbank",
+          "description": "Umfassende Dokumentation, Tutorials und häufig gestellte Fragen, um Ihnen zu helfen, die Plattformfunktionen optimal zu nutzen."
+        }
+      },
+      "insights": {
+        "title": "Einblicke",
+        "description": "Professionelle Marktanalysen, Handelseinblicke und Branchennachrichten von unserem Team aus Finanzexperten und Marktforschern."
+      }
+    }
   }
 }

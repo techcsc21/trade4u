@@ -45,10 +45,14 @@ export const metadata: OperationObject = {
 export default async (data: Handler) => {
   const { query } = data;
 
-  return getFiltered({
+  // Only show ACTIVE offers in the public marketplace
+  // PAUSED offers should not appear in listings
+  // Admins can see all offers through the admin panel at /admin/extensions/p2p/offers
+  const result = await getFiltered({
     model: models.p2pOffer,
     query,
     sortField: query.sortField || "createdAt",
+    where: { status: "ACTIVE" },
     includeModels: [
       {
         model: models.user,
@@ -63,4 +67,17 @@ export default async (data: Handler) => {
       },
     ],
   });
+
+  // Extract priceCurrency from priceConfig for each offer
+  if (result.items && Array.isArray(result.items)) {
+    result.items = result.items.map((offer: any) => {
+      const plain = offer.get ? offer.get({ plain: true }) : offer;
+      if (!plain.priceCurrency && plain.priceConfig) {
+        plain.priceCurrency = plain.priceConfig.currency || "USD";
+      }
+      return plain;
+    });
+  }
+
+  return result;
 };

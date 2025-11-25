@@ -130,5 +130,13 @@ export default class icoTokenDetail
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
     });
+    // Association without foreign key constraint (table already has 64 keys - MySQL limit)
+    // This allows eager loading without creating a new database constraint
+    icoTokenDetail.belongsTo(models.icoTokenType, {
+      as: "tokenTypeData",
+      foreignKey: "tokenType",
+      targetKey: "id",
+      constraints: false, // Don't create FK constraint in database
+    });
   }
 }

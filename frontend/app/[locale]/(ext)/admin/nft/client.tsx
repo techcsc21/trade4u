@@ -6,13 +6,8 @@ import { $fetch } from "@/lib/api";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "@/i18n/routing";
 import {
-  Package,
-  Coins,
-  ShoppingCart,
-  TrendingUp,
   Activity,
   Users,
   DollarSign,
@@ -20,13 +15,13 @@ import {
   ArrowUpRight,
   ArrowDownRight,
   Plus,
-  Settings,
-  BarChart3,
-  Zap,
-  Building2,
   BookOpen,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Package,
+  Coins,
+  ShoppingCart,
+  TrendingUp
 } from "lucide-react";
 
 interface AdminStats {
@@ -78,10 +73,26 @@ interface RecentActivity {
   timestamp: string;
 }
 
+interface OnboardingStatus {
+  completedTasks: string[];
+  stats: {
+    deployedMarketplaces: number;
+    deployedChains: string[];
+    categoriesCount: number;
+    activeCollections: number;
+    collectionsWithTokens: number;
+    verifiedCreators: number;
+    tradingConfigured: boolean;
+    contentConfigured: boolean;
+    verificationConfigured: boolean;
+  };
+}
+
 export default function NFTAdminDashboard() {
   const t = useTranslations();
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [recentActivity, setRecentActivity] = useState<RecentActivity[]>([]);
+  const [onboardingStatus, setOnboardingStatus] = useState<OnboardingStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -94,9 +105,10 @@ export default function NFTAdminDashboard() {
       setLoading(true);
       setError(null);
 
-      const [statsResponse, activityResponse] = await Promise.all([
+      const [statsResponse, activityResponse, onboardingResponse] = await Promise.all([
         $fetch({ url: "/api/admin/nft/stats", silentSuccess: true }),
-        $fetch({ url: "/api/admin/nft/activity/recent", silentSuccess: true })
+        $fetch({ url: "/api/admin/nft/activity/recent", silentSuccess: true }),
+        $fetch({ url: "/api/nft/onboarding/status", method: "GET", silent: true })
       ]);
 
       if (statsResponse.error) {
@@ -108,6 +120,7 @@ export default function NFTAdminDashboard() {
 
       setStats(statsResponse.data || statsResponse);
       setRecentActivity(activityResponse.data || activityResponse || []);
+      setOnboardingStatus(onboardingResponse.data || onboardingResponse);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load dashboard data");
     } finally {
@@ -115,12 +128,20 @@ export default function NFTAdminDashboard() {
     }
   };
 
-  const formatCurrency = (amount: number) => {
+  const formatCurrency = (amount: number | string | undefined) => {
+    const num = typeof amount === 'string' ? parseFloat(amount) : amount;
+    if (!num || isNaN(num) || num === 0) return "0";
+
+    // For very small numbers (crypto amounts)
+    if (num < 0.01) {
+      return num.toFixed(8).replace(/\.?0+$/, '');
+    }
+
+    // For normal numbers
     return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
       minimumFractionDigits: 2,
-    }).format(amount);
+      maximumFractionDigits: 4,
+    }).format(num).replace(/\.?0+$/, '');
   };
 
   const formatNumber = (num: number) => {
@@ -136,6 +157,70 @@ export default function NFTAdminDashboard() {
       case "TRANSFER": return <ArrowDownRight className="h-4 w-4 text-gray-500" />;
       default: return <Activity className="h-4 w-4 text-gray-500" />;
     }
+  };
+
+  const getOnboardingProgress = () => {
+    if (!onboardingStatus) return 0;
+
+    // Total expected tasks (approximate based on onboarding phases)
+    const totalTasks = 9; // 2 infra + 3 config + 3 content + 1 user
+    const completed = onboardingStatus.completedTasks.length;
+
+    return Math.round((completed / totalTasks) * 100);
+  };
+
+  const getNextStep = () => {
+    if (!onboardingStatus) return null;
+
+    const { stats } = onboardingStatus;
+
+    // Priority order of tasks
+    if (stats.deployedMarketplaces === 0) {
+      return {
+        title: "Deploy Your First Marketplace",
+        description: "Deploy a marketplace contract to get started with NFT trading",
+        action: "Deploy Contract",
+        href: "/admin/nft/marketplace"
+      };
+    }
+
+    if (!stats.tradingConfigured) {
+      return {
+        title: "Configure Trading Settings",
+        description: "Set up auction features, offers, and bidding rules",
+        action: "Configure Trading",
+        href: "/admin/nft/settings"
+      };
+    }
+
+    if (stats.categoriesCount < 2) {
+      return {
+        title: "Create NFT Categories",
+        description: "Create at least 2 categories to organize your NFTs",
+        action: "Create Categories",
+        href: "/admin/nft/category"
+      };
+    }
+
+    if (stats.activeCollections === 0) {
+      return {
+        title: "Approve First Collection",
+        description: "Review and approve collections to start minting NFTs",
+        action: "Manage Collections",
+        href: "/admin/nft/collection"
+      };
+    }
+
+    if (!stats.contentConfigured) {
+      return {
+        title: "Configure Content Settings",
+        description: "Set file size limits, formats, and moderation rules",
+        action: "Configure Content",
+        href: "/admin/nft/settings"
+      };
+    }
+
+    return null; // All major tasks completed
   };
 
   if (loading) {
@@ -196,74 +281,69 @@ export default function NFTAdminDashboard() {
               Setup Guide
             </Button>
           </Link>
-          <Link href="/admin/nft/analytics">
-            <Button variant="outline">
-              <BarChart3 className="h-4 w-4 mr-2" />
-              Analytics
-            </Button>
-          </Link>
-          <Link href="/admin/nft/settings">
-            <Button variant="outline">
-              <Settings className="h-4 w-4 mr-2" />
-              Settings
-            </Button>
-          </Link>
-          <Link href="/nft">
-            <Button>
-              <Zap className="h-4 w-4 mr-2" />
-              View Marketplace
-            </Button>
-          </Link>
         </div>
       </div>
 
-      {/* Onboarding Alert */}
-      {stats && (stats.collections.total === 0 || stats.tokens.total === 0) && (
-        <Card className="border-orange-200 bg-gradient-to-r from-orange-50 to-yellow-50">
-          <CardContent className="pt-6">
-            <div className="flex items-start gap-4">
-              <div className="p-2 bg-orange-100 rounded-lg">
-                <AlertCircle className="h-6 w-6 text-orange-600" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-orange-900 mb-2">
-                  Welcome to your NFT Marketplace! 🎉
-                </h3>
-                <p className="text-orange-800 mb-4">
-                  Your marketplace isn't fully set up yet. Follow our comprehensive setup guide to deploy contracts, configure settings, and launch successfully.
-                </p>
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="flex items-center gap-1 text-sm text-orange-700">
-                    <CheckCircle2 className="h-4 w-4 text-green-600" />
-                    Step-by-step guidance
+      {/* Dynamic Onboarding Alert */}
+      {(() => {
+        const progress = getOnboardingProgress();
+        const nextStep = getNextStep();
+
+        // Don't show alert if 100% complete
+        if (progress >= 100 || !nextStep) return null;
+
+        return (
+          <Card className="border-l-4 border-l-blue-500 dark:border-l-blue-600">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-2 bg-blue-100 dark:bg-blue-950/30 rounded-lg">
+                  <AlertCircle className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-semibold text-foreground">
+                      {nextStep.title}
+                    </h3>
+                    <Badge variant="outline" className="text-blue-600 dark:text-blue-400 border-blue-600 dark:border-blue-400">
+                      {progress}% Complete
+                    </Badge>
                   </div>
-                  <div className="flex items-center gap-1 text-sm text-orange-700">
-                    <CheckCircle2 className="h-4 w-4 text-green-600" />
-                    Progress tracking
+                  <p className="text-muted-foreground mb-4">
+                    {nextStep.description}
+                  </p>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-500" />
+                      Step-by-step guidance
+                    </div>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-500" />
+                      Progress tracking
+                    </div>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-500" />
+                      Expert tips
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 text-sm text-orange-700">
-                    <CheckCircle2 className="h-4 w-4 text-green-600" />
-                    Expert tips
+                  <div className="flex gap-2">
+                    <Link href={nextStep.href}>
+                      <Button>
+                        {nextStep.action}
+                      </Button>
+                    </Link>
+                    <Link href="/admin/nft/onboarding">
+                      <Button variant="outline">
+                        <BookOpen className="h-4 w-4 mr-2" />
+                        View Full Guide
+                      </Button>
+                    </Link>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <Link href="/admin/nft/onboarding">
-                    <Button className="bg-orange-600 hover:bg-orange-700 text-white">
-                      <BookOpen className="h-4 w-4 mr-2" />
-                      Start Setup Guide
-                    </Button>
-                  </Link>
-                  <Link href="/admin/nft/marketplace">
-                    <Button variant="outline">
-                      Deploy First Contract
-                    </Button>
-                  </Link>
-                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
+            </CardContent>
+          </Card>
+        );
+      })()}
 
       {/* Stats Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -371,20 +451,24 @@ export default function NFTAdminDashboard() {
 
       </div>
 
-      {/* Quick Actions & Recent Activity */}
-      <Tabs defaultValue="activity" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="activity">Recent Activity</TabsTrigger>
-          <TabsTrigger value="actions">Quick Actions</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="activity" className="space-y-4">
+      {/* Recent Activity */}
+      <div className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Recent Marketplace Activity</CardTitle>
-              <CardDescription>
-                Latest transactions and events in the NFT marketplace
-              </CardDescription>
+              <div className="flex items-start justify-between">
+                <div>
+                  <CardTitle>Recent Marketplace Activity</CardTitle>
+                  <CardDescription>
+                    Latest transactions and events in the NFT marketplace
+                  </CardDescription>
+                </div>
+                <Link href="/admin/nft/activity">
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <Activity className="h-4 w-4" />
+                    View All
+                  </Button>
+                </Link>
+              </div>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -421,148 +505,7 @@ export default function NFTAdminDashboard() {
               </div>
             </CardContent>
           </Card>
-        </TabsContent>
-
-        <TabsContent value="actions" className="space-y-4">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="cursor-pointer hover:shadow-md transition-shadow border-orange-200 bg-gradient-to-br from-orange-50 to-yellow-50">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-orange-600" />
-                  Setup Guide & Onboarding
-                </CardTitle>
-                <CardDescription>
-                  Complete marketplace setup checklist with step-by-step guidance
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/admin/nft/onboarding">
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700">Start Setup Guide</Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="cursor-pointer hover:shadow-md transition-shadow border-primary/20 bg-primary/5">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Building2 className="h-5 w-5 text-primary" />
-                  Marketplace Contracts
-                </CardTitle>
-                <CardDescription>
-                  Deploy and manage marketplace contracts across blockchains
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/admin/nft/marketplace">
-                  <Button className="w-full">Manage Contracts</Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Package className="h-5 w-5" />
-                  Manage Collections
-                </CardTitle>
-                <CardDescription>
-                  View and manage NFT collections, verify creators
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/admin/nft/collection">
-                  <Button className="w-full">View Collections</Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Coins className="h-5 w-5" />
-                  Manage NFTs
-                </CardTitle>
-                <CardDescription>
-                  Review and moderate individual NFTs
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/admin/nft/token">
-                  <Button className="w-full">View NFTs</Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <ShoppingCart className="h-5 w-5" />
-                  Active Listings
-                </CardTitle>
-                <CardDescription>
-                  Monitor and manage marketplace listings
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/admin/nft/listing">
-                  <Button className="w-full">View Listings</Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <TrendingUp className="h-5 w-5" />
-                  Sales Analytics
-                </CardTitle>
-                <CardDescription>
-                  View sales data and marketplace performance
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/admin/nft/sale">
-                  <Button className="w-full">View Sales</Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5" />
-                  Analytics Dashboard
-                </CardTitle>
-                <CardDescription>
-                  Detailed analytics and insights
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/admin/nft/analytics">
-                  <Button className="w-full">View Analytics</Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Settings className="h-5 w-5" />
-                  Marketplace Settings
-                </CardTitle>
-                <CardDescription>
-                  Configure marketplace parameters
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link href="/admin/nft/settings">
-                  <Button className="w-full">Open Settings</Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-        </TabsContent>
-      </Tabs>
+      </div>
     </div>
   );
 } 

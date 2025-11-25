@@ -56,13 +56,33 @@ export const columns = [
     editable: true,
     usedInCreate: true,
         },
+        metadata: [
+          {
+            key: "chain",
+            title: "Chain",
+            type: "custom",
+            render: (value) => (
+              <span className="text-xs font-medium uppercase">{value}</span>
+            )
+          },
+          {
+            key: "contractAddress",
+            title: "Deployment",
+            type: "custom",
+            render: (value) => (
+              <span className={`text-xs px-1.5 py-0.5 rounded ${value ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'}`}>
+                {value ? 'Deployed' : 'Not Deployed'}
+              </span>
+            )
+          }
+        ]
       }
     }
   },
   {
     key: "creator",
     title: "Creator",
-    type: "compound",
+    type: "custom",
     sortable: true,
     searchable: true,
     filterable: true,
@@ -70,62 +90,33 @@ export const columns = [
     usedInCreate: false,
     icon: User,
     priority: 2,
-    sortKey: "creator.firstName",
+    sortKey: "creator.user.firstName",
     render: {
-      type: "compound",
-      config: {
-        image: {
-          key: "avatar",
-          fallback: "/img/placeholder.svg",
-          type: "image",
-          title: "Avatar",
-          description: "Creator's profile picture",
-          editable: false,
-          usedInCreate: false,
-        },
-        primary: {
-          key: ["firstName", "lastName"],
-          title: ["First Name", "Last Name"],
-          description: ["Creator's first name", "Creator's last name"],
-          editable: false,
-          usedInCreate: false,
-          icon: User,
-        },
-        secondary: {
-          key: "email",
-          title: "Email",
-          editable: false,
-          usedInCreate: false,
-        },
+      type: "custom",
+      render: (value, row) => {
+        const creator = row.creator;
+        const user = creator?.user;
+        if (!user) return <span className="text-muted-foreground">—</span>;
+
+        const displayName = creator.displayName || `${user.firstName} ${user.lastName}`;
+
+        return (
+          <div className="flex items-center gap-3 min-w-0">
+            <img
+              src={user.avatar || "/img/placeholder.svg"}
+              alt={displayName}
+              className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+            />
+            <div className="min-w-0 flex-1">
+              <div className="font-medium truncate" title={displayName}>{displayName}</div>
+              {creator.isVerified && (
+                <div className="text-xs text-blue-600 dark:text-blue-400">✓ Verified</div>
+              )}
+            </div>
+          </div>
+        );
       }
     }
-  },
-  {
-    key: "chain",
-    title: "Blockchain",
-    type: "select",
-    sortable: true,
-    filterable: true,
-    editable: true,
-    usedInCreate: true,
-    options: [
-      { value: "ETH", label: "Ethereum", color: "blue" },
-      { value: "BSC", label: "BSC", color: "yellow" },
-      { value: "POLYGON", label: "Polygon", color: "purple" },
-      { value: "ARBITRUM", label: "Arbitrum", color: "blue" },
-      { value: "OPTIMISM", label: "Optimism", color: "red" }
-    ],
-    render: {
-      type: "badge",
-      config: {
-        variant: (value) => {
-          const colors = { ETH: "blue", BSC: "yellow", POLYGON: "purple", ARBITRUM: "blue", OPTIMISM: "red" };
-          return colors[value] || "default";
-        }
-      }
-    },
-    priority: 3,
-    expandedOnly: true,
   },
   {
     key: "standard",
@@ -133,8 +124,8 @@ export const columns = [
     type: "select",
     sortable: true,
     filterable: true,
-    editable: true,
-    usedInCreate: true,
+    editable: false,
+    usedInCreate: false, // Set by collection creator, not admin
     options: [
       { value: "ERC721", label: "ERC-721", color: "blue" },
       { value: "ERC1155", label: "ERC-1155", color: "purple" }
@@ -154,9 +145,9 @@ export const columns = [
     type: "number",
     sortable: true,
     filterable: true,
-    editable: true,
-    usedInCreate: true,
-    description: "Total number of NFTs",
+    editable: false,
+    usedInCreate: false, // Managed by minting, not set by admin
+    description: "Total number of NFTs minted",
     priority: 3,
     render: {
       type: "number",
@@ -223,10 +214,18 @@ export const columns = [
     description: "Collection verification status",
     priority: 1,
     render: {
-      type: "badge",
-      config: {
-        variant: (value) => value ? "success" : "secondary",
-        text: (value) => value ? "Verified" : "Unverified"
+      type: "custom",
+      render: (value) => {
+        const isTrue = value === true || value === "true" || value === 1;
+        return (
+          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+            isTrue
+              ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+              : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+          }`}>
+            {isTrue ? "Verified" : "Unverified"}
+          </span>
+        );
       }
     }
   },
@@ -236,8 +235,8 @@ export const columns = [
     type: "select",
     sortable: true,
     filterable: true,
-    editable: true,
-    usedInCreate: true,
+    editable: true, // Admins can change collection status
+    usedInCreate: false, // Collections created by users start with default status
     options: [
       { value: "DRAFT", label: "Draft", color: "secondary" },
       { value: "PENDING", label: "Pending", color: "warning" },
@@ -268,9 +267,9 @@ export const columns = [
     type: "number",
     sortable: true,
     filterable: true,
-    editable: true,
-    usedInCreate: true,
-    description: "Creator royalty percentage",
+    editable: false,
+    usedInCreate: false, // Set by collection creator, not admin
+    description: "Creator royalty percentage (0-10%)",
     priority: 4,
     render: {
       type: "custom",
@@ -289,8 +288,8 @@ export const columns = [
     type: "number",
     sortable: true,
     filterable: true,
-    editable: true,
-    usedInCreate: true,
+    editable: false,
+    usedInCreate: false, // Set by collection creator, not admin
     description: "Token mint price",
     priority: 4,
     render: {
@@ -306,46 +305,13 @@ export const columns = [
     expandedOnly: true,
   },
   {
-    key: "currency",
-    title: "Currency",
-    type: "select",
-    sortable: true,
-    filterable: true,
-    editable: true,
-    usedInCreate: true,
-    options: [
-      { value: "ETH", label: "ETH", color: "blue" },
-      { value: "USDC", label: "USDC", color: "green" },
-      { value: "USDT", label: "USDT", color: "green" },
-      { value: "BNB", label: "BNB", color: "yellow" },
-      { value: "MATIC", label: "MATIC", color: "purple" }
-    ],
-    render: {
-      type: "badge",
-      config: {
-        variant: (value) => {
-          const variants = {
-            ETH: "blue",
-            USDC: "green",
-            USDT: "green",
-            BNB: "yellow",
-            MATIC: "purple"
-          };
-          return variants[value] || "secondary";
-        }
-      }
-    },
-    priority: 4,
-    expandedOnly: true,
-  },
-  {
     key: "contractAddress",
     title: "Contract Address",
     type: "text",
     sortable: false,
     searchable: true,
     filterable: false,
-    editable: true,
+    editable: false, // Cannot be changed after deployment to blockchain
     usedInCreate: false,
     description: "Smart contract address",
     priority: 4,
@@ -360,34 +326,13 @@ export const columns = [
     expandedOnly: true,
   },
   {
-    key: "network",
-    title: "Network",
-    type: "select",
-    sortable: true,
-    filterable: true,
-    editable: true,
-    usedInCreate: true,
-    options: [
-      { value: "mainnet", label: "Mainnet", color: "success" },
-      { value: "testnet", label: "Testnet", color: "warning" }
-    ],
-    render: {
-      type: "badge",
-      config: {
-        variant: (value) => value === "mainnet" ? "success" : "warning"
-      }
-    },
-    priority: 4,
-    expandedOnly: true,
-  },
-  {
     key: "maxSupply",
     title: "Max Supply",
       type: "number",
     sortable: true,
     filterable: true,
-    editable: true,
-    usedInCreate: true,
+    editable: false,
+    usedInCreate: false, // Set by collection creator, not admin
     description: "Maximum token supply",
     priority: 4,
     render: {
@@ -407,15 +352,15 @@ export const columns = [
     type: "boolean",
     sortable: true,
     filterable: true,
-    editable: true,
-    usedInCreate: true,
+    editable: false,
+    usedInCreate: false, // Set by collection creator, not admin
     description: "Uses lazy minting",
     priority: 4,
     render: {
       type: "badge",
       config: {
-        variant: (value) => value ? "blue" : "secondary",
-        text: (value) => value ? "Lazy" : "Pre-minted"
+        variant: (value) => value === true || value === "true" || value === 1 ? "blue" : "secondary",
+        text: (value) => value === true || value === "true" || value === 1 ? "Lazy" : "Pre-minted"
       }
     },
     expandedOnly: true,
@@ -427,9 +372,9 @@ export const columns = [
     sortable: false,
     searchable: true,
     filterable: false,
-    editable: true,
-    usedInCreate: false,
-    description: "Royalty recipient address",
+    editable: false,
+    usedInCreate: false, // Set by collection creator, not admin
+    description: "Wallet address to receive royalty payments",
     priority: 4,
     render: {
       type: "custom",
@@ -448,9 +393,9 @@ export const columns = [
     sortable: false,
     searchable: false,
     filterable: false,
-    editable: true,
+    editable: false, // Only creator can set, admins just view
     usedInCreate: false,
-    description: "Project website",
+    description: "Project website URL",
     priority: 4,
     render: {
       type: "custom",
@@ -469,9 +414,9 @@ export const columns = [
     sortable: false,
     searchable: false,
     filterable: false,
-    editable: true,
+    editable: false, // Only creator can set, admins just view
     usedInCreate: false,
-    description: "Discord server link",
+    description: "Discord server invite link",
     priority: 4,
     render: {
       type: "custom",
@@ -490,9 +435,9 @@ export const columns = [
     sortable: false,
     searchable: false,
     filterable: false,
-    editable: true,
+    editable: false, // Only creator can set, admins just view
     usedInCreate: false,
-    description: "Twitter profile link",
+    description: "Twitter/X profile URL",
     priority: 4,
     render: {
       type: "custom",
@@ -511,9 +456,9 @@ export const columns = [
     sortable: false,
     searchable: false,
     filterable: false,
-    editable: true,
+    editable: false, // Only creator can set, admins just view
     usedInCreate: false,
-    description: "Telegram group link",
+    description: "Telegram group/channel link",
     priority: 4,
     render: {
       type: "custom",

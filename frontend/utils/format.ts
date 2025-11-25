@@ -12,16 +12,17 @@ export function formatNumber(value: number | string): string {
 
 /**
  * Format a currency value with symbol
+ * For crypto currencies, use formatCrypto instead for better formatting
  */
 export function formatCurrency(
-  value: number | string, 
+  value: number | string,
   currency: string = "USD",
   locale: string = "en-US"
 ): string {
   const num = typeof value === "string" ? parseFloat(value) : value;
-  
-  if (isNaN(num)) return "$0.00";
-  
+
+  if (isNaN(num)) return "0";
+
   // List of valid ISO 4217 currency codes that Intl.NumberFormat supports
   const validCurrencyCodes = [
     "USD", "EUR", "GBP", "JPY", "AUD", "CAD", "CHF", "CNY", "SEK", "NZD",
@@ -45,11 +46,17 @@ export function formatCurrency(
     }
   } else {
     // For cryptocurrencies and other non-ISO currencies, format manually
-    const formattedValue = new Intl.NumberFormat(locale, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 8, // Cryptocurrencies often have more decimal places
-    }).format(num);
-    
+    // Remove trailing zeros for cleaner display
+    let formattedValue: string;
+
+    if (num < 0.01) {
+      // For very small numbers, show up to 8 decimals but remove trailing zeros
+      formattedValue = num.toFixed(8).replace(/\.?0+$/, '');
+    } else {
+      // For normal numbers, show up to 4 decimals but remove trailing zeros
+      formattedValue = num.toFixed(4).replace(/\.?0+$/, '');
+    }
+
     return `${formattedValue} ${currency}`;
   }
 }

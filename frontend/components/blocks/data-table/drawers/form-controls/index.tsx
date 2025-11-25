@@ -15,6 +15,7 @@ import { CustomFieldsFormControl } from "./custom-fields";
 import { TextAreaFormControl } from "./text-area";
 import RichTextEditor from "../../../../ui/editor";
 import { RatingFormControl } from "./rating";
+import { useWatch } from "react-hook-form";
 
 interface FormControlsProps {
   column: ColumnDefinition;
@@ -29,6 +30,9 @@ export function FormControls({
   error,
   control,
 }: FormControlsProps) {
+  // Watch all form values for dynamic options
+  const formValues = useWatch({ control });
+
   // Simple placeholder helper
   const getPlaceholder = () =>
     ["select", "multiselect", "date", "tags"].includes(column.type)
@@ -37,6 +41,9 @@ export function FormControls({
 
   // 1) SELECT
   if (column.type === "select") {
+    // Use getOptions function if available, otherwise use static options
+    const options = column.getOptions ? column.getOptions(formValues) : column.options;
+
     return (
       <SelectFormControl
         field={field}
@@ -47,7 +54,7 @@ export function FormControls({
         // Pass the dynamicSelect config if defined in the column config
         dynamicSelect={column.dynamicSelect}
         control={control}
-        options={column.options} // fallback static options
+        options={options} // use dynamic or static options
       />
     );
   }

@@ -75,10 +75,10 @@ function PaginationPrevious({
     <PaginationLink
       aria-label="Go to previous page"
       size="default"
-      className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
+      className={cn("gap-1 px-2.5 ltr:sm:pl-2.5 rtl:sm:pr-2.5", className)}
       {...props}
     >
-      <ChevronLeftIcon />
+      <ChevronLeftIcon className="rtl:rotate-180" />
       <span className="hidden sm:block">{t("Previous")}</span>
     </PaginationLink>
   );
@@ -93,11 +93,11 @@ function PaginationNext({
     <PaginationLink
       aria-label="Go to next page"
       size="default"
-      className={cn("gap-1 px-2.5 sm:pr-2.5", className)}
+      className={cn("gap-1 px-2.5 ltr:sm:pr-2.5 rtl:sm:pl-2.5", className)}
       {...props}
     >
       <span className="hidden sm:block">{t("Next")}</span>
-      <ChevronRightIcon />
+      <ChevronRightIcon className="rtl:rotate-180" />
     </PaginationLink>
   );
 }

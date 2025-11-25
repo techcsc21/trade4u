@@ -27,6 +27,8 @@ export default function MarketOrderForm({
   onOrderSubmit,
   fetchWalletData,
   isEco,
+  takerFee = 0.001,
+  makerFee = 0.001,
 }: OrderFormProps) {
   const t = useTranslations("trade/components/trading/spot/market-order-form");
   const [amount, setAmount] = useState("");
@@ -61,46 +63,113 @@ export default function MarketOrderForm({
     setPercentSelected(percent);
 
     try {
+      // Validate market price first
+      const numericPrice = Number(marketPrice.replace(/,/g, ""));
+      if (!numericPrice || isNaN(numericPrice) || numericPrice <= 0) {
+        console.warn("Invalid market price for percentage calculation");
+        setAmount("");
+        setTotal("");
+        return;
+      }
+
       // Get available balance based on trading mode
       // For buy orders (buyMode = true), use pair balance (USDT) to calculate how much currency (BTC) can be bought
       // For sell orders (buyMode = false), use currency balance (BTC) to calculate how much to sell
-      const availableBalance = buyMode
-        ? walletData?.pairBalance || 0
-        : walletData?.currencyBalance || 0;
+      const rawBalance = buyMode
+        ? walletData?.pairBalance
+        : walletData?.currencyBalance;
+
+      // Extract numeric balance (handle both number and WalletBalance object)
+      const availableBalance = typeof rawBalance === 'object' && rawBalance !== null
+        ? rawBalance.balance
+        : (rawBalance || 0);
+
+      // Check if balance is available
+      if (!availableBalance || availableBalance <= 0) {
+        setAmount("0");
+        setTotal("0");
+        return;
+      }
 
       let calculatedAmount: string;
 
       if (buyMode) {
         // For buy orders: calculate how much currency can be bought with the percentage of pair balance
-        const availableForPurchase = availableBalance * (percent / 100);
-        calculatedAmount = (
-          availableForPurchase / Number(marketPrice.replace(/,/g, ""))
-        ).toFixed(amountPrecision);
+        // Need to account for the fee which is charged in the quote currency (pair)
+        let availableForPurchase = availableBalance * (percent / 100);
+
+        // For 100% buy orders, reduce slightly to avoid precision issues with fee calculation
+        if (percent === 100) {
+          availableForPurchase = availableForPurchase * 0.9999;
+        }
+
+        // Market orders use taker fee
+        // Total cost = amount * price * (1 + takerFee)
+        // Therefore: amount = availableForPurchase / (price * (1 + takerFee))
+        const amountValue = availableForPurchase / (numericPrice * (1 + takerFee));
+
+        // Check for NaN
+        if (isNaN(amountValue) || amountValue <= 0) {
+          setAmount("0");
+          setTotal("0");
+          return;
+        }
+
+        // Round DOWN to ensure we never exceed available balance
+        calculatedAmount = (Math.floor(amountValue * Math.pow(10, amountPrecision)) / Math.pow(10, amountPrecision)).toString();
       } else {
         // For sell orders: calculate percentage of currency balance to sell
-        calculatedAmount = (availableBalance * (percent / 100)).toFixed(
-          amountPrecision
-        );
+        // Fee is deducted from the proceeds, not from the amount being sold
+        let amountValue = availableBalance * (percent / 100);
+
+        // For 100% sell orders, reduce by a tiny amount (0.0001%) to avoid
+        // floating-point precision issues in backend validation
+        if (percent === 100) {
+          amountValue = amountValue * 0.999999;
+        }
+
+        // Check for NaN
+        if (isNaN(amountValue) || amountValue <= 0) {
+          setAmount("0");
+          setTotal("0");
+          return;
+        }
+
+        calculatedAmount = amountValue.toFixed(amountPrecision);
       }
 
       // Ensure amount is within limits
       const numAmount = Number(calculatedAmount);
+      if (isNaN(numAmount)) {
+        setAmount("0");
+        setTotal("0");
+        return;
+      }
+
+      // Determine the final amount to use (respecting min/max limits)
+      let finalAmount: number;
       if (numAmount < minAmount) {
+        finalAmount = minAmount;
         setAmount(minAmount.toFixed(amountPrecision));
       } else if (numAmount > maxAmount) {
+        finalAmount = maxAmount;
         setAmount(maxAmount.toFixed(amountPrecision));
       } else {
+        finalAmount = numAmount;
         setAmount(calculatedAmount);
       }
 
-      // Calculate total
-      const numericPrice = Number(marketPrice.replace(/,/g, ""));
-      const calculatedTotal = (numericPrice * Number(calculatedAmount)).toFixed(
-        pricePrecision
-      );
-      setTotal(calculatedTotal);
+      // Calculate total using the FINAL amount that was actually set
+      const calculatedTotal = numericPrice * finalAmount;
+      if (isNaN(calculatedTotal)) {
+        setTotal("0");
+      } else {
+        setTotal(calculatedTotal.toFixed(pricePrecision));
+      }
     } catch (error) {
       console.error("Error calculating amount:", error);
+      setAmount("0");
+      setTotal("0");
     }
   };
 
@@ -147,7 +216,7 @@ export default function MarketOrderForm({
           setOrderError(result.error || "Failed to place order");
         } else {
           // Reset form on success
-          setAmount("untitled");
+          setAmount("");
           setTotal("");
           setPercentSelected(null);
         }
@@ -166,7 +235,7 @@ export default function MarketOrderForm({
           setOrderError(error);
         } else {
           // Reset form on success
-          setAmount("untitled");
+          setAmount("");
           setTotal("");
           setPercentSelected(null);
 
@@ -310,6 +379,16 @@ export default function MarketOrderForm({
           {t("the_final_execution_estimated_price")}.
         </p>
       </div>
+
+      {/* Fee Display */}
+      {amount && marketPrice && Number(amount) > 0 && (
+        <div className="flex items-center justify-between px-1 py-0.5 text-[10px] text-muted-foreground dark:text-zinc-500">
+          <span>{t("Est. Fee")} ({(takerFee * 100).toFixed(2)}%):</span>
+          <span>
+            {(Number(marketPrice.replace(/,/g, "")) * Number(amount) * takerFee).toFixed(pricePrecision)} {pair}
+          </span>
+        </div>
+      )}
 
       {orderError && (
         <div className="p-2 bg-red-500/10 border border-red-500/30 rounded-sm text-red-500 text-xs">

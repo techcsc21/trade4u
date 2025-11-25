@@ -30,6 +30,8 @@ interface ColumnDefinition {
   validation?: (value: any) => string | null;
   render?: CellRenderType;
   options?: Array<{ value: string; label: string; color?: BadgeVariant }>;
+  getOptions?: (formValues: any) => Array<{ value: string; label: string; color?: BadgeVariant }>;
+  onChange?: (value: any, form: any) => void;
   dynamicSelect?: DynamicSelectConfig;
   min?: number;
   max?: number;

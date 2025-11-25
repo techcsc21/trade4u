@@ -150,19 +150,6 @@
     "top_up": "Recàrrega",
     "total_equity": "Fons propis totals:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "Sumar",
-    "All": "Tot",
-    "Binary": "Binari",
-    "Favorites": "Preferits",
-    "Hot": "Calent",
-    "Loading": "Carregant",
-    "Market": "Mercat",
-    "Trending": "Tendències",
-    "active_markets": "Mercats actius",
-    "no_markets_found": "No s'han trobat mercats",
-    "try_adjusting_your_search": "Proveu d'ajustar la cerca"
-  },
   "binary/components/header/market-selector": {
     "Added": "Afegit",
     "Connecting": "Connectar",
@@ -179,6 +166,19 @@
     "no_markets_found": "No s'han trobat mercats",
     "select": "seleccionar",
     "try_adjusting_your_different_categories": "Proveu d'ajustar la cerca o navegueu per diferents categories"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "Sumar",
+    "All": "Tot",
+    "Binary": "Binari",
+    "Favorites": "Preferits",
+    "Hot": "Calent",
+    "Loading": "Carregant",
+    "Market": "Mercat",
+    "Trending": "Tendències",
+    "active_markets": "Mercats actius",
+    "no_markets_found": "No s'han trobat mercats",
+    "try_adjusting_your_search": "Proveu d'ajustar la cerca"
   },
   "binary/components/header/mobile-header": {
     "balance": "Balança:"
@@ -1150,13 +1150,6 @@
     "Image": "Imatge",
     "Images": "Imatges",
     "Important": "Important",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "Millorar",
     "Inactive": "Inactiu",
     "Insights": "Idees",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "Tens un total de",
     "you_havent_created_any_api_keys_yet": "Encara no heu creat cap clau d'API",
     "you_havent_saved_any_sections_yet": "Encara no heu desat cap secció",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "Heu d'activar i instal·lar l'extensió a la darrera versió abans d'activar-la",
     "youll_be_redirected_to_the_login_page_after_logout": "Se us redirigirà a la pàgina d'inici de sessió després de tancar la sessió",
     "youll_need_it_log_in": "El necessitareu per rebre codis de verificació cada vegada que inicieu sessió",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• Les operacions de migració són irreversibles un cop finalitzades",
     "•_monitor_system_data_migrations": "• Supervisar el rendiment del sistema durant grans migracions de dades",
     "•_some_operations_maintenance_mode": "• Algunes operacions poden requerir el mode de manteniment del sistema",
-    "•_using_fallback_mode": "• Ús del mode alternatiu"
+    "•_using_fallback_mode": "• Ús del mode alternatiu",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "Anar a la pàgina d'inici",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "Un món on els projectes innovadors puguin accedir fàcilment al capital i els inversors puguin participar en oportunitats amb confiança i seguretat",
     "accept_offers_that_match_your_needs": "Accepta ofertes que s'ajustin a les teves necessitats",
     "accepted_methods": "Mètodes acceptats",
-    "access_denied": "Access Denied",
+    "access_denied": "Accés Denegat",
     "access_institutional-grade_forex_serious_investors": "Accedeix al comerç de divises de grau institucional amb algoritmes avançats, gestió de riscos professional i rendiments constants per a inversors seriosos",
     "access_to_marketing_support_and_security_audits": "Accés a suport de màrqueting i auditories de seguretat",
     "account": "Compte:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "Afegeix un fitxer adjunt nou",
     "add_note": "Afegeix una nota",
     "add_notes_and_terms_for_this_offer": "Afegir notes i condicions per a aquesta oferta",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "Afegir Mètode de Pagament",
     "add_phase": "Afegeix fase",
     "add_plan": "Afegeix un pla",
     "add_roadmap_item": "Afegeix un element del full de ruta",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "Requisits de verificació addicionals per a transaccions d'NFT d'alt valor",
     "address": "Adreça:",
     "adjust_amount": "Ajusta l'import",
-    "admin": "Admin",
+    "admin": "Administrador",
     "admin_actions": "Accions de l'administrador",
     "admin_actions_will_appear_here": "Les accions de l'administrador apareixeran aquí",
     "admin_activity": "Activitat de l'administrador",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "Publicar automàticament vendes i nous llistats",
     "auto-release": "Alliberament automàtic:",
     "auto-verify_new_creators": "Auto-Verificar Nous Creadors",
+    "auto_approve_offers": "Aprovar Ofertes Automàticament",
     "auto_cancel": "Cancel·lació automàtica",
     "auto_cancel_time_(minutes)": "Temps de cancel·lació automàtica (minuts)",
     "automatic_earnings_distribution": "Distribució automàtica de guanys",
     "automatic_escrow_protection_for_all_funds": "Protecció automàtica de dipòsit en garantia per a tots els fons",
     "automatic_release_after_no_dispute)": "Alliberament automàtic després de 24 hores de la confirmació del pagament (si no hi ha disputa)",
     "automatically_adjust_amount_to_meet_minimum": "Ajusta automàticament l'import per complir el mínim",
+    "automatically_approve_new_and_edited_offers": "Aprovar Automàticament Ofertes Noves i Editades",
     "automatically_cancel_the_specified_time": "Cancel·lar automàticament l'oferta si no hi ha resposta en un temps determinat",
     "automatically_cancel_trades_payment_window": "Cancel·lar automàticament les operacions si el pagament no es confirma dins de la finestra de pagament",
     "automatically_extend_auctions_when": "Estendre automàticament les subhastes quan es fan ofertes prop del final",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "Confirma el teu dipòsit",
     "confirm_your_withdrawal": "Confirmeu la vostra retirada",
     "confirmed_at": "Confirmat a:",
-    "conflict": "Conflict",
+    "conflict": "Conflicte",
     "connect_with_traders_worldwide": "Connecta amb comerciants de tot el món",
     "connections": "Connexions",
     "consider_cliff_periods_for_team_tokens": "Considereu els períodes de penya-segats per a les fitxes d'equip",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "Xat xifrat d'extrem a extrem per a una comunicació segura entre comprador i venedor durant l'operació",
     "end_date": "Data de finalització:",
     "end_of_term": "Fi del trimestre",
+    "ended": "Finalitzat",
     "ending_soon": "Finalitza aviat",
     "enhance_multiple_faqs_ai-powered_improvements": "Millora diverses preguntes freqüents amb les nostres millores basades en IA",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "Gaudeix de les tarifes més baixes del sector a només 0",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "Incloeu els números de referència necessaris",
     "include_company_logo": "Inclou el logotip de l'empresa",
     "include_the_trade_payment_description": "Incloure el número de referència de l'operació a la descripció del pagament",
-    "info": "Info",
+    "info": "Informació",
     "information_about_the_dispute": "Informació sobre el conflicte",
     "information_about_the_disputed_trade": "Informació sobre el comerç en disputa",
     "initial_holder": "Titular inicial:",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "Notes internes sobre aquesta disputa",
     "internal_notes_about_this_offer": "Notes internes sobre aquesta oferta",
     "internal_notes_about_this_position": "Notes internes sobre aquest càrrec",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "Sol·licitud No Vàlida",
     "invest_in": "Inverteix en",
     "invest_in_this_offering": "Inverteix en aquesta oferta",
     "invest_more": "Inverteix més",
@@ -4326,6 +4329,7 @@
     "live_preview": "Vista prèvia en directe",
     "load_id": "ID de càrrega:",
     "load_more": "Carregar més",
+    "loading": "Carregant",
     "loading_activity_data": "Càrrega de dades d'activitat",
     "loading_affiliate_data": "Càrrega de dades d'afiliats",
     "loading_analytics_data": "Càrrega de dades analítiques",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "Gestiona i supervisa les teves ofertes de tokens",
     "manage_and_track_your_referred_users": "Gestionar i fer un seguiment dels usuaris recomanats",
     "manage_conditions": "Gestionar condicions",
+    "manage_rewards": "Gestionar Recompenses",
     "manage_the_blockchains_token_launches": "Gestiona les cadenes de blocs disponibles per al llançament de tokens",
     "manage_this_trade": "Gestiona aquest comerç",
     "manage_token_release": "Gestiona l'alliberament de tokens",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "Guanys mensuals dels darrers 6 mesos",
     "monthly_faq_views_for_the_current_year": "Preguntes freqüents mensuals de l'any en curs",
     "monthly_growth_rate_(%)": "Taxa de creixement mensual (%)",
+    "monthly_growth_rate_tooltip": "Taxa de creixement mensual mitjana del preu esperada. Els valors positius indiquen apreciació del preu, els valors negatius indiquen depreciació. Rang típic: -50% a +50%",
     "monthly_profit": "Benefici mensual",
     "more": "més",
     "most_common_search_terms_used_by_your_users": "Termes de cerca més habituals utilitzats pels usuaris",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "No s'han trobat avisos",
     "no_withdrawal_methods_available_for_this_currency": "No hi ha mètodes de retirada disponibles per a aquesta moneda",
     "not_available_for_this_chain": "No disponible per a aquesta cadena",
-    "not_found": "Not Found",
+    "not_found": "No Trobat",
     "not_helpful": "No és útil",
+    "not_started": "No Iniciat",
     "not_submitted": "No presentat",
     "notes_and_comments_about_this_transaction": "Notes i comentaris sobre aquesta transacció",
     "now_accepting_bitcoin_ethereum_&_more": "Ara accepta Bitcoin, Ethereum i més",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "Oferta no trobada o no tens permís per editar-la",
     "offer_status": "Estat de l'oferta",
     "offer_type": "Tipus d'oferta",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "Oferta No Disponible",
     "offer_updated_successfully_and_is_pending_approval": "Oferta actualitzada correctament i pendent d'aprovació",
     "offer_visibility": "Visibilitat de l'oferta",
     "offering": "Ofrena:",
@@ -4791,7 +4798,7 @@
     "password": "contrasenya",
     "pay_with_confidence_processing_system": "Paga amb confiança amb el nostre sistema segur de processament de pagaments",
     "pay_within_time_limit": "Paga dins del límit de temps",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "Activitats de Pagament",
     "payment_completed_successfully": "Pagament completat amb èxit!",
     "payment_confirmed": "Pagament confirmat",
     "payment_details": "Detalls de pagament",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "Instruccions de pagament",
     "payment_marked_as_sent": "Pagament marcat com a enviat",
     "payment_method": "Pagament:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "Mètode de Pagament Requerit",
     "payment_methods": "Mètodes de pagament",
     "payment_methods_summary": "Resum de mètodes de pagament",
     "payment_methods_you_prefer": "Formes de pagament que prefereixes",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "Seleccioneu els objectius que voleu afegir a aquesta campanya",
     "please_send_payment_when_done": "Envieu el pagament al venedor mitjançant el mètode de pagament especificat i confirmeu-ho quan hàgiu acabat",
     "please_sign_in_to_view_your_shipping_details": "Si us plau, inicieu la sessió per veure les vostres dades d'enviament",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "Si Us Plau Alenteix",
     "please_try_again": "Si us plau, torna-ho a provar",
     "please_try_again_later": "Torneu-ho a provar més tard",
     "please_try_refreshing_the_page": "Si us plau, proveu d'actualitzar la pàgina",
@@ -5351,13 +5358,14 @@
     "social_media_post": "Publicació a les xarxes socials",
     "solana_(sol)": "Solana (SOL)",
     "sold": "Venut",
+    "sold_out": "Esgotat",
     "some_features_may_be_temporarily_unavailable": "És possible que algunes funcions no estiguin disponibles temporalment",
     "some_pools_distribute_staking_period": "Alguns grups distribueixen recompenses diàriament, mentre que altres ho fan setmanalment, mensualment o al final del període de participació",
     "some_pools_offer_higher_returns": "Alguns grups ofereixen capitalització automàtica, que reinverteix automàticament les recompenses guanyades per generar rendiments encara més alts",
     "some_pools_offer_your_rewards": "Alguns grups ofereixen la composició automàtica, que reinverteix automàticament les vostres recompenses",
     "some_settings_like_launch_plans": "Alguns paràmetres com els membres de l'equip i els límits d'elements del full de ruta ara estan controlats pels plans de llançament",
     "some_trade_features_are_currently_disabled": "Algunes funcions comercials estan desactivades actualment:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "Alguna Cosa Ha Anat Malament",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "Ho sentim, no hem pogut trobar la pàgina que esteu buscant",
     "sort_by": "Ordena per",
     "source_code_verification": "Verificació del codi font",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Subscriu-te al nostre butlletí",
     "subtotal": "Subtotal:",
     "subtotal_(": "Subtotal (",
-    "success": "Success",
+    "success": "Èxit",
     "success_rate": "Taxa d'èxit",
     "successful_offerings": "Ofertes d'èxit",
     "successful_trades": "Operacions d'èxit:",
@@ -5658,7 +5666,7 @@
     "tokens": "Fitxes",
     "tokens_for_sale": "Fitxes en venda",
     "tokens_to_receive": "Fitxes per rebre:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "Massa Sol·licituds",
     "top-performing_staking_pools": "Grups de participació de millor rendiment",
     "top_performing_affiliates": "Afiliats amb millor rendiment",
     "top_performing_faqs": "Preguntes freqüents sobre el millor rendiment",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "Les dades de l'operació no són accessibles en aquest moment",
     "trade_details_are_temporarily_unavailable": "Les dades de l'operació no estan disponibles temporalment",
     "trade_disputed": "Comerç en disputa",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "Intercanvi Caducat",
     "trade_history_requirements": "Requisits de l'historial d'operacions",
     "trade_id": "Identificador d'operacions",
     "trade_information": "Informació comercial",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Pagaments mòbils Venmo",
     "verification_badges": "Insígnies de verificació",
     "verification_badges_help_users": "Les insígnies de verificació ajuden els usuaris a identificar creadors de confiança i col·leccions autèntiques. Apareixen als perfils, llistats i resultats de cerca.",
-    "verification_required": "Verification Required",
+    "verification_required": "Verificació Requerida",
     "verification_settings_affect_marketplace": "Els paràmetres de verificació afecten la confiança i el compliment del mercat. Considereu els requisits de la vostra jurisdicció.",
     "verified_only": "Només verificat",
     "verified_project_teams_and_offerings": "Equips i ofertes de projecte verificats",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "Només comerciants verificats",
     "verified_users_have_verification_process": "Els usuaris verificats han completat el nostre procés de verificació d'identitat",
     "verify_&_approve_transaction": "Verifica i aprova la transacció",
-    "verify_account": "Verify Account",
+    "verify_account": "Verificar Compte",
     "verify_payment_and_release_funds": "Verificar el pagament i alliberar fons",
     "verify_payment_before_releasing": "Verificar el pagament abans d'alliberar",
     "verify_payment_first": "Verificar primer el pagament",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "Visualitza i gestiona l'estructura de la teva xarxa d'afiliats",
     "visualize_distribution_vesting_token_launch": "Visualitzeu la distribució, els calendaris d'adquisició i les projeccions de mercat per optimitzar el llançament del vostre token",
     "volatility_(%)": "Volatilitat (%)",
+    "volatility_tooltip": "Rang de fluctuació del preu esperat. Una volatilitat més alta significa oscil·lacions de preu més grans. 0% significa preus estables, 100% significa moviments de preu extrems.",
     "volume": "Volum:",
     "volume_(btc)": "Volum (BTC)",
     "vs": "vs",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "Què t'agradaria fer?",
     "what_would_you_like_to_do_next": "Què t'agradaria fer després?",
     "when_a_trade_into_escrow": "Quan comenci una operació, haureu de dipositar la criptomoneda en dipòsit:",
+    "when_disabled_offers_require_admin_moderation": "Quan Està Desactivat les Ofertes Requereixen Moderació de l'Administrador",
     "when_disabled_users_can_only_take_existing_offers": "Quan es desactiva, els usuaris només poden acceptar ofertes existents",
     "when_disabled_users_cannot_access_p2p_features": "Quan està desactivat, els usuaris no poden accedir a les funcions P2P",
     "when_disabled_users_cannot_create_custom_payment_methods": "Quan està desactivat, els usuaris no poden crear mètodes de pagament personalitzats",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "Encara no heu completat cap operació",
     "you_havent_distributed_any_earnings_yet": "Encara no heu distribuït cap guany",
     "you_might_want_question_directly": "Potser voldreu provar la nostra cerca o fer una pregunta directament",
+    "you_must_be_logged_in_to_access_the_dashboard": "Heu d'iniciar sessió per accedir al tauler de control",
     "you_must_be_logged_in_to_ask_a_question": "Has d'haver iniciat sessió per fer una pregunta",
     "you_need": "Necessites",
     "you_need_to_a_review": "Heu de comprar aquest producte abans de poder escriure una ressenya",
@@ -6206,7 +6217,75 @@
     "•_escrow_services_are_unavailable": "• Els serveis de dipòsit no estan disponibles",
     "•_lock_period": "• Període de bloqueig:",
     "•_trade_dispute_resolution_is_unavailable": "• La resolució de conflictes comercials no està disponible",
-    "✓_purchased": "✓ Comprat"
+    "✓_purchased": "✓ Comprat",
+    "Configure NFT metadata requirements": "Configurar els requisits de metadades NFT",
+    "Configure platform and creator fees": "Configurar les tarifes de la plataforma i del creador",
+    "Fixed fee to create a listing (0 = free)": "Tarifa fixa per crear un anunci (0 = Gratuït)",
+    "High-Value Threshold (USD)": "Llindar de valor alt (USD)",
+    "Listing Fee (Optional)": "Tarifa d'anunci (opcional)",
+    "Marketplace Fee (%)": "Tarifa del mercat (%)",
+    "Marketplace Fees": "Tarifes del mercat",
+    "Maximum Royalty (%)": "Royalty màxim (%)",
+    "Maximum royalty creators can set (0-50%)": "Royalty màxim que els creadors poden establir (0-50%)",
+    "Metadata & IPFS": "Metadades i IPFS",
+    "Percentage fee charged on each sale (0-10%)": "Percentatge de tarifa cobrat en cada venda (0-10%)",
+    "Require Metadata Validation": "Requerir validació de metadades",
+    "Validate IPFS metadata URLs before accepting NFT listings": "Validar les URL de metadades IPFS abans d'acceptar els anuncis NFT",
+    "are_you_sure_you_want_to_remove_this_offer": "Esteu segur que voleu eliminar aquesta oferta",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "Els canvis a la configuració de preu i quantitat poden requerir l'aprovació de l'administrador abans d'entrar en vigor",
+    "create_your_first_offer": "Creeu la vostra primera oferta",
+    "dynamic_price_(market_based)": "Preu dinàmic (basat en el mercat)",
+    "edit": "Editar",
+    "enter_your_fixed_price": "Introduïu el vostre preu fix",
+    "failed_to_remove_offer": "No s'ha pogut eliminar l'oferta",
+    "limit": "Límit",
+    "market_price_offset_(%)": "Desviació del preu de mercat (%)",
+    "max_trade_amount": "Quantitat màxima per operació",
+    "maximum_amount": "Quantitat màxima",
+    "maximum_limit": "Límit màxim",
+    "min_trade_amount": "Quantitat mínima per operació",
+    "minimum_amount": "Quantitat mínima",
+    "minimum_limit": "Límit mínim",
+    "my_offers": "Les meves ofertes",
+    "no_recent_activity": "Cap activitat recent",
+    "note": "Nota",
+    "offer_removed": "Oferta eliminada",
+    "positive_=_above_market,_negative_=_below_market": "Positiu = per sobre del mercat, Negatiu = per sota del mercat",
+    "price_&_amount": "Preu i quantitat",
+    "price_&_amount_settings": "Configuració de preu i quantitat",
+    "pricing_model": "Model de preus",
+    "remove_offer": "Eliminar oferta",
+    "removing": "Eliminant",
+    "the_price_per_unit_of": "El preu per unitat de",
+    "this_is_the_total_amount_for_this_trade": "Aquesta és la quantitat total per a aquesta operació",
+    "total_amount_available": "Quantitat total disponible",
+    "total_available": "Total disponible",
+    "trading_limits": "Límits de comerç",
+    "update_pricing_model_and_trading_limits": "Actualitzar model de preus i límits de comerç",
+    "view": "Veure",
+    "you_dont_have_any_offers_yet": "Encara no teniu cap oferta",
+    "your_offer_has_been_successfully_removed": "La vostra oferta s'ha eliminat correctament",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "5% per sobre del mercat"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "Cancel·lar",
@@ -6249,6 +6328,8 @@
     "network_fee": "Comissió de xarxa",
     "new_balance": "Nou saldo",
     "no_currencies_found": "No s'han trobat monedes per",
+    "no_wallets_available": "No hi ha carteres disponibles",
+    "no_wallets_available_description": "Descripció de No hi ha carteres disponibles",
     "not_available": "No disponible",
     "of": "de",
     "pay_with": "Pagar amb",
@@ -6342,6 +6423,8 @@
     "make_another_transfer": "Fer una altra transferència",
     "move_funds_between_another_user": "Mou fons entre les teves carteres o envia'ls a un altre usuari",
     "move_funds_between_your_different_wallet_types": "Mou fons entre els diferents tipus de cartera",
+    "no_wallets_available": "No hi ha carteres disponibles",
+    "no_wallets_available_description": "Descripció de No hi ha carteres disponibles",
     "processing_transfer": "Processament de transferència",
     "recipient_details": "Detalls del destinatari",
     "recipient_receives": "El destinatari rep:",
@@ -6381,17 +6464,17 @@
     "the_wallet_youre_to_it": "La cartera que busques no existeix o no hi tens accés",
     "wallet_address": "Adreça de la cartera",
     "wallet_not_found": "No s'ha trobat la cartera",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
+    "wallet_type_ai_investment": "Inversió IA",
+    "wallet_type_derivatives": "Derivats",
     "wallet_type_eco": "Eco",
     "wallet_type_fiat": "Fiat",
     "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
-    "wallet_type_futures": "Futures",
+    "wallet_type_funding": "Finançament",
+    "wallet_type_futures": "Futurs",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
     "wallet_type_spot": "Spot",
-    "wallet_type_staking": "Staking"
+    "wallet_type_staking": "Participació"
   },
   "finance/wallet/client": {
     "add_funds": "Afegeix fons",
@@ -6429,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(per rebre",
+    "Amount to Send (before network fees)": "Import a enviar (abans de comissions de xarxa)",
     "Free": "Gratuït",
+    "Platform Fee": "Tarifa de Plataforma",
     "Processing": "Processant",
     "Select": "Seleccionar",
     "Withdraw": "Retirar",
@@ -6450,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "No hi ha monedes amb saldo disponible a",
     "no_currencies_with_balance_in_wallet_type": "No hi ha monedes amb saldo en aquest tipus de cartera",
     "no_wallets_available": "No hi ha carteres disponibles",
+    "no_wallets_available_description": "Tots els tipus de cartera han estat desactivats per l'administrador. Si us plau, contacteu amb el suport per obtenir assistència o torneu-ho a provar més tard.",
     "no_wallets_with_balance_for_withdrawal": "No hi ha carteres amb saldo per retirar",
     "no_withdrawal_methods": "No hi ha mètodes de retirada disponibles",
     "no_withdrawal_methods_available": "No hi ha mètodes de retirada disponibles",
@@ -6674,7 +6760,7 @@
   },
   "nft": {
     "Collections": "Col·leccions",
-    "NFTs": "NFTs",
+    "NFTs": "NFT",
     "Search": "Cercar",
     "Users": "Usuaris",
     "all_categories": "Totes les categories",
@@ -6776,14 +6862,14 @@
   "nft/create": {
     "Attributes": "Atributs",
     "Back": "Enrere",
-    "Blockchain": "Blockchain",
+    "Blockchain": "Cadena de blocs",
     "Cancel": "Cancel·lar",
     "Collection": "Col·lecció",
     "Continue": "Continuar",
     "Description": "Descripció",
     "Name": "Nom",
     "Preview": "Previsualització",
-    "Royalty": "Royalty",
+    "Royalty": "Regalies",
     "Settings": "Configuració",
     "Value": "Valor",
     "add_attribute": "Afegir atribut",
@@ -6992,8 +7078,11 @@
     "create_nft": "Crear NFT",
     "create_your_first_collection_to_organize_your_nfts": "Crea la teva primera col·lecció per organitzar els teus NFT",
     "create_your_first_nft_to_get_started": "Crea el teu primer NFT per començar",
+    "creator_dashboard": "Tauler de creador",
     "creator_hub": "Centre de creadors",
+    "creator_since": "Creador des de",
     "explore_nfts": "Explora NFT",
+    "failed_to_load_dashboard": "Error en carregar el tauler",
     "favorite_nfts": "NFT favorits",
     "manage_your_nfts_collections": "Gestiona els teus NFTs, col·leccions i activitat del mercat",
     "my_collections": "Les meves col·leccions",
@@ -7004,6 +7093,7 @@
     "no_favorites_yet": "Encara no tens favorits",
     "no_nfts_yet": "Encara no tens NFT",
     "please_login_to_view_your_dashboard": "Si us plau, inicia sessió per veure el teu tauler",
+    "please_sign_in_to_access_your_creator_dashboard": "Si us plau, inicieu sessió per accedir al vostre tauler de creador",
     "please_sign_in_to_view_your_nft_dashboard": "Si us plau, inicia sessió per veure el teu tauler de NFT",
     "recent_activity": "Activitat recent",
     "sign_in": "Inicia sessió",
@@ -7011,6 +7101,7 @@
     "total_nfts": "NFTs Totals",
     "total_value": "Valor Total",
     "total_views": "Visualitzacions Totals",
+    "try_again": "Torna-ho a provar",
     "your_nft_activities_will_appear_here": "Les teves activitats NFT apareixeran aquí"
   },
   "nft/details": {
@@ -7146,7 +7237,8 @@
     "sell_at_a_fixed_price": "Vendre a un preu fix",
     "sell_to_highest_bidder": "Vendre al millor postor",
     "start_time": "Hora d'inici",
-    "starting_price": "Preu inicial"
+    "starting_price": "Preu inicial",
+    "Duration": "Durada"
   },
   "nft/modals/offer": {
     "Cancel": "Cancel·la",
@@ -7210,7 +7302,8 @@
     "token_details": "Detalls del Token",
     "token_id": "ID del Token",
     "token_standard": "Estàndard del token",
-    "view_on_explorer": "Veure a l'Explorador"
+    "view_on_explorer": "Veure a l'Explorador",
+    "browse_marketplace": "Navega pel Mercat"
   },
   "nft/user/profile": {
     "Activity": "Activitat",
@@ -7385,7 +7478,7 @@
     "Orderbook": "Llibre de comandes",
     "Orders": "Ordres",
     "Panels": "Panells",
-    "Presets": "Presets",
+    "Presets": "Predefinits",
     "Trading": "Negociació",
     "reset_layout": "Restableix el disseny"
   },
@@ -7627,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "Carregant",
-    "available": "Disponible:"
+    "available": "Disponible:",
+    "balance": "Saldo",
+    "in_orders": "En Ordres"
   },
   "trade/components/trading/spot/index": {
     "Limit": "Límit",
@@ -7644,7 +7739,10 @@
     "Price": "Preu",
     "Processing": "Processant",
     "Sell": "Vendre",
-    "Total": "Total"
+    "Total": "Total",
+    "Est": {
+      " Fee": " Comissió"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "Import",
@@ -7654,7 +7752,10 @@
     "estimated_total": "Total estimat",
     "market_orders_execute_available_price": "Les ordres de mercat s'executen immediatament al millor preu disponible",
     "market_price": "Preu de mercat",
-    "the_final_execution_estimated_price": "El preu final d'execució pot diferir del preu estimat"
+    "the_final_execution_estimated_price": "El preu final d'execució pot diferir del preu estimat",
+    "Est": {
+      " Fee": " Comissió"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "Import",
@@ -7669,7 +7770,10 @@
     "stop_market_orders_is_reached": "Les ordres de mercat s'executen com a ordres de mercat quan s'assoleix el preu d'aturada",
     "stop_price": "Preu d'aturada",
     "the_order_will_available_price": "La comanda s'executarà al millor preu disponible",
-    "the_order_will_or_better": "L'ordre s'executarà al preu límit o millor"
+    "the_order_will_or_better": "L'ordre s'executarà al preu límit o millor",
+    "Est": {
+      " Fee": " Comissió"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "*No et preocupis, no t'enviarem correu brossa :)",
@@ -7683,5 +7787,553 @@
     "were_making_the_system_more_awesome": "Estem fent que el sistema sigui més increïble",
     "we’ll_be_back_shortly": "Tornarem aviat",
     "we’re_making_the_system_more_awesome": "Estem fent que el sistema sigui més increïble"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "Analítiques financeres avançades amb seguiment de beneficis, anàlisi de fluxos d'ingressos i taulers integrals d'intel·ligència empresarial.",
+        "title": "Analítica d'ingressos"
+      },
+      "communication": {
+        "description": "Gestió de comunicacions de la plataforma incloent notificacions, anuncis i sistemes de missatgeria d'usuari.",
+        "title": "Eines de Comunicació"
+      },
+      "compliance": {
+        "description": "Eines de compliment normatiu incloent processament KYC, verificació de documents i gestió d'identitat per a l'adherència legal.",
+        "title": "Compliment i verificació"
+      },
+      "currencies": {
+        "description": "Suport multi-divisa amb tipus de canvi en temps real, configuració de parells de negociació i integració de dades de mercat.",
+        "title": "Gestió de divises"
+      },
+      "dashboard": {
+        "description": "Visió general administrativa integral amb analítiques en temps real, monitoratge de la salut del sistema i accés ràpid a funcions de gestió crítiques.",
+        "title": "Tauler"
+      },
+      "monitoring": {
+        "description": "Monitorització integral del sistema amb registre, mètriques de rendiment i gestió automàtica de tasques.",
+        "title": "Monitorització del Sistema"
+      },
+      "permissions": {
+        "description": "Gestió granular de permisos per a un control d'accés ajustat a totes les funcions i característiques del sistema.",
+        "title": "Permisos"
+      },
+      "roles": {
+        "title": "Rols d'usuari",
+        "description": "Crea i gestiona rols d'usuari amb conjunts de permisos personalitzables i estructures de control d'accés jeràrquiques.",
+        "permissions": {
+          "description": "Sistema avançat de control d'accés per a definir rols d'usuari, gestionar permisos i implementar polítiques de seguretat a tota la plataforma.",
+          "title": "Rols i permisos"
+        }
+      },
+      "support": {
+        "description": "Sistema integrat de tiquets de suport amb gestió de prioritats, seguiment de respostes i monitorització de la satisfacció del client.",
+        "title": "Atenció al client"
+      },
+      "users": {
+        "description": "Base de dades completa d'usuaris amb filtrat avançat, operacions massives, gestió de perfils i seguiment detallat de l'activitat.",
+        "title": "Usuaris"
+      },
+      "affiliate": {
+        "system": {
+          "description": "Programa d'afiliació multinivell amb seguiment de comissions, analítiques de rendiment i pagaments automatitzats.",
+          "title": "Programa d'Afiliats"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "Configureu els períodes temporals de l'estratègia IA amb reequilibri dinàmic i adaptacions a les condicions del mercat.",
+          "title": "Durades d'Estratègia"
+        },
+        "investment": {
+          "description": "Gestió d'inversions impulsada per intel·ligència artificial amb algoritmes d'aprenentatge automàtic i optimització automàtica de cartera.",
+          "title": "Inversió amb IA"
+        },
+        "performance": {
+          "description": "Analítiques del rendiment de la inversió en IA amb seguiment de la precisió del model i mètriques d'efectivitat de l'estratègia.",
+          "title": "Rendiment de la IA"
+        },
+        "strategies": {
+          "description": "Estratègies d'inversió d'aprenentatge automàtic amb proves retrospectives, avaluació de riscos i optimització del rendiment.",
+          "title": "Estratègies d'IA"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "Gestió del cicle de vida de claus API amb monitoratge d'ús, limitació de velocitat i controls de seguretat per a integracions de tercers.",
+          "title": "Gestió d'API"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "Establiu els períodes temporals de negociació i els percentatges de pagament per a opcions binàries amb controls de gestió de riscos.",
+          "title": "Durades de negociació"
+        },
+        "markets": {
+          "description": "Configureu els mercats d'opcions binàries amb parells d'actius, paràmetres de negociació i horaris del mercat.",
+          "title": "Mercats binaris"
+        },
+        "orders": {
+          "description": "Superviseu i gestioneu les ordres d'opcions binàries amb seguiment d'execució i processament de liquidació.",
+          "title": "Ordres binàries"
+        },
+        "trading": {
+          "description": "Sistema de negociació d'opcions binàries amb configuració del mercat, gestió de durada i configuració de pagaments.",
+          "title": "Opcions binàries"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "Gestió de llibres de comptes immutables amb rastres d'auditoria, informes de compliment i eines d'anàlisi forense.",
+          "title": "Llibres Majors Blockchain"
+        },
+        "networks": {
+          "description": "Gestió de xarxes multi-cadena amb monitoratge de nodes, seguiment de consens i analítiques de salut de xarxa.",
+          "title": "Xarxes Blockchain"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "Gestió completa de blocs amb perfils d'autor, programació de contingut, optimització SEO i analítiques de participació.",
+          "title": "Sistema de Blog"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "Eines empresarials essencials per a màrqueting, suport al client i gestió del coneixement.",
+          "title": "Eines Empresarials"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "Sistema integral de gestió de contingut per a blocs, actius multimèdia i contingut dinàmic del lloc web.",
+          "title": "Contingut"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "Gestió d'actius digitals amb integració de blockchain, connectivitat de carteres i fluxos de dades de mercat en temps real.",
+          "title": "Criptomonedes"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "Serveis de cartera de custòdia institucional amb compliment normatiu i cobertura d'assegurança.",
+          "title": "Serveis de Custòdia"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "Registres integrals de transaccions de dipòsit amb seguiment d'estat, eines de reconciliació i capacitats d'auditoria.",
+          "title": "Registres de dipòsits"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "Constructor visual de pàgines avançat amb interfície d'arrossegar i deixar anar, eines de disseny responsiu i opcions de personalització de marca.",
+          "title": "Constructor de Pàgines"
+        },
+        "customization": {
+          "description": "Personalitzeu l'aparença i el disseny del vostre lloc web amb eines visuals avançades.",
+          "title": "Disseny"
+        },
+        "default": {
+          "editor": {
+            "description": "Editeu les pàgines predeterminades del frontend incloent pàgina d'inici, pàgines legals i dissenys amb interfície d'editor de codi.",
+            "title": "Pàgines Predeterminades"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "Plataforma de comerç electrònic amb totes les funcions, incloent gestió d'inventari, processament de comandes i suport per a múltiples venedors.",
+          "title": "Plataforma de Comerç Electrònic"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "Gestió de mercats descentralitzats amb protocols AMM, grups de liquiditat i integració d'agricultura de rendiment.",
+          "title": "Mercats DeFi"
+        },
+        "orders": {
+          "description": "Ordres de negociació d'ecosistema blockchain amb integració de contractes intel·ligents i execució descentralitzada.",
+          "title": "Ordres d'Ecosistema"
+        },
+        "platform": {
+          "description": "Ecosistema de comerç descentralitzat amb integració de blockchain, protocols DeFi i automatització de contractes intel·ligents.",
+          "title": "Ecosistema Blockchain"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "Creeu i gestioneu campanyes de correu electrònic amb segmentació, personalització i seguiment del rendiment.",
+          "title": "Campanyes de Correu Electrònic"
+        },
+        "marketing": {
+          "description": "Plataforma professional de màrqueting per correu electrònic amb fluxos de treball d'automatització, proves A/B i analítiques.",
+          "title": "Màrqueting per Correu Electrònic"
+        },
+        "templates": {
+          "description": "Biblioteca de plantilles de correu electrònic professionals amb disseny responsiu i opcions de personalització de marca.",
+          "title": "Plantilles de Correu Electrònic"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "Gestiona les integracions d'intercanvi amb proveïdors de liquiditat, configuracions d'API i monitorització del rendiment.",
+          "title": "Proveïdors d'intercanvi"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "Gestió del cicle de vida de les extensions amb instal·lació, actualitzacions, resolució de dependències i comprovació de compatibilitat.",
+          "title": "Gestor d'Extensions"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "Gestió de moneda tradicional amb monitorització de tipus de canvi, configuració regional i integració de passarel·les de pagament.",
+          "title": "Divises fiat"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "Conjunt integral de gestió financera que cobreix analítiques d'ingressos, gestió de monedes, processament de pagaments i supervisió de transaccions.",
+          "title": "Finances"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "Comerç professional de forex amb integració de MetaTrader, comerç algorítmic i liquiditat institucional.",
+          "title": "Comerç de Forex"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "Configuració del mercat de futurs amb especificacions de contractes, requisits de marge i procediments de liquidació.",
+          "title": "Mercats de Futurs"
+        },
+        "orders": {
+          "description": "Gestió d'ordres de contractes de futurs amb seguiment de marges i eines d'avaluació de riscos.",
+          "title": "Ordres de Futurs"
+        },
+        "platform": {
+          "description": "Plataforma professional de comerç de futurs amb gestió de marges, controls de risc i execució institucional.",
+          "title": "Comerç de Futurs"
+        },
+        "positions": {
+          "description": "Monitorització de posicions en temps real amb seguiment de P&L, trucades de marge i gestió automàtica de riscos.",
+          "title": "Gestió de Posicions"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "Gestió dinàmica de contingut de la pàgina d'inici amb controls lliscants responsius, botons de crida a l'acció i capacitats de proves A/B.",
+          "title": "Carrusels de la Pàgina d'Inici"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "Plataforma d'Oferta Inicial de Monedes amb integració KYC, desplegament de contractes intel·ligents i compliment normatiu.",
+          "title": "Venda de Tokens"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "Gestiona les transferències internes de fons entre comptes amb fluxos de treball d'aprovació i controls de compliment.",
+          "title": "Transferències Internes"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "Configura les durades d'inversió, períodes de venciment i càlculs d'interès compost per a diversos productes.",
+          "title": "Durades d'inversió"
+        },
+        "extensions": {
+          "description": "Productes d'inversió avançats amb estratègies impulsades per IA, serveis d'staking i plataformes de tokenització.",
+          "title": "Productes d'inversió"
+        },
+        "history": {
+          "description": "Analítiques integrals del rendiment d'inversions amb seguiment de ROI i informació de gestió de carteres.",
+          "title": "Analítica d'inversions"
+        },
+        "management": {
+          "description": "Gestió de productes d'inversió amb creació de plans, seguiment del rendiment i eines de supervisió de carteres.",
+          "title": "Gestió d'inversions"
+        },
+        "plans": {
+          "description": "Crea i gestiona productes d'inversió amb perfils de risc, càlculs de rendiment i configuracions de terminis.",
+          "title": "Plans d'inversió"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "Sistema integral de gestió del coneixement amb cerca impulsada per IA i optimització de contingut.",
+          "title": "Base de Coneixement"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "Revisa i processa les sol·licituds de Coneix el teu Client amb verificació de documents, avaluació de riscos i fluxos de treball d'aprovació.",
+          "title": "Sol·licituds KYC"
+        },
+        "levels": {
+          "description": "Configura nivells de verificació amb requisits personalitzables, límits i privilegis d'accés per a diferents categories d'usuaris.",
+          "title": "Nivells de verificació"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "Utilitats de manteniment del sistema que inclouen optimització de bases de dades, gestió de memòria cau i eines de migració.",
+          "title": "Eines de Manteniment"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "Plataformes de comerç electrònic i mercat digital amb eines integrals per a venedors i protecció del comprador.",
+          "title": "Solucions de Mercat"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "Gestió de cartera mestra de nivell empresarial amb seguretat de signatures múltiples i integració d'emmagatzematge en fred.",
+          "title": "Carteres Mestres"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "Gestió centralitzada de mitjans amb emmagatzematge al núvol, optimització d'imatges i integració CDN per a un rendiment òptim.",
+          "title": "Biblioteca Multimèdia"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "Mercat professional de NFT amb eines d'encunyació, gestió de drets d'autor i capacitats de subhasta.",
+          "title": "Mercat NFT"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "Plantilles de notificació personalitzables amb lliurament multicanal i variables de personalització.",
+          "title": "Plantilles de Notificació"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "Processament i gestió centralitzats d'ordres a totes les plataformes de negociació i classes d'actius.",
+          "title": "Gestió de comandes"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "Plataforma de comerç entre iguals amb serveis d'escrow, resolució de disputes i suport per a múltiples passarel·les de pagament.",
+          "title": "Intercanvi P2P"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "Configura i monitoritza les passarel·les de pagament amb detecció de fraus, controls de compliment i analítiques de rendiment.",
+          "title": "Passarel·les de pagament"
+        },
+        "methods": {
+          "description": "Gestiona les opcions de pagament disponibles incloent targetes, transferències bancàries, carteres digitals i pagaments amb criptomonedes.",
+          "title": "Mètodes de pagament"
+        },
+        "systems": {
+          "description": "Gestió completa de la infraestructura de pagaments incloent passarel·les, mètodes i supervisió del processament de transaccions.",
+          "title": "Sistemes de pagament"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "Extensions avançades de la plataforma que proporcionen funcionalitat especialitzada per a operacions de comerç, mercat i negocis.",
+          "title": "Extensions"
+        },
+        "settings": {
+          "description": "Configuració bàsica de la plataforma incloent marca, localització, polítiques de seguretat i commutadors de funcions.",
+          "title": "Configuració de la Plataforma"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "Programador de tasques automatitzat amb monitorització de treballs, gestió de fallades i optimització del rendiment.",
+          "title": "Tasques Programades"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "Gestió d'ordres de negociació al comptat amb monitorització d'execució en temps real i anàlisi d'impacte de mercat.",
+          "title": "Ordres Spot"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "Plataforma completa d'staking amb gestió de validadors, distribució de recompenses i protecció contra retallades.",
+          "title": "Serveis d'Staking"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "Conjunt complet d'administració del sistema per a configuració, monitorització i operacions de manteniment de la plataforma.",
+          "title": "Sistema"
+        },
+        "announcements": {
+          "description": "Sistema d'anuncis per a tota la plataforma amb programació, segmentació i capacitats de seguiment de la participació.",
+          "title": "Anuncis del Sistema"
+        },
+        "logs": {
+          "description": "Sistema centralitzat de registre amb monitorització en temps real, agregació de registres i capacitats de cerca avançades.",
+          "title": "Registres del Sistema"
+        },
+        "updates": {
+          "description": "Actualitzacions automàtiques del sistema amb capacitats de reversió, pedaços de seguretat i gestió del desplegament de funcions.",
+          "title": "Actualitzacions del Sistema"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "Gestió integral del cicle de vida dels tokens amb encunyació, cremació i capacitats de governança.",
+          "title": "Gestió de Tokens"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "Plataformes de negociació professionals amb tipus d'ordres avançats, eines d'anàlisi de mercat i execució de nivell institucional.",
+          "title": "Plataformes de negociació"
+        },
+        "infrastructure": {
+          "description": "Gestió de plataformes de negociació incloent proveïdors d'intercanvi, configuracions de mercat i sistemes de processament d'ordres.",
+          "title": "Infraestructura de negociació"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "Historial de transaccions integral amb filtrat avançat, capacitats d'exportació i pistes d'auditoria.",
+          "title": "Registres de Transaccions"
+        },
+        "management": {
+          "description": "Supervisió completa de transaccions amb registre detallat, reconciliació i capacitats de gestió de transferències.",
+          "title": "Gestió de Transaccions"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "Gestió completa del cicle de vida dels usuaris incloent registre, verificació, assignació de rols i eines de relació amb el client per a una administració integral dels usuaris.",
+          "title": "Usuaris"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "Gestió avançada d'UTXO amb anàlisi de grafs de transaccions i funcions de preservació de la privadesa.",
+          "title": "Seguiment UTXO"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "Administració de carteres multi-moneda amb monitorització de saldos, controls de seguretat i gestió de còpies de seguretat.",
+          "title": "Gestió de Cartera"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "Monitoritza les sol·licituds de retirada amb seguiment d'estat, fluxos de treball d'aprovació i verificació de compliment.",
+          "title": "Registres de Retirades"
+        },
+        "management": {
+          "description": "Gestió integral del sistema de retirades amb processament automatitzat, prevenció de fraus i controls de compliment.",
+          "title": "Gestió de Retirades"
+        },
+        "methods": {
+          "description": "Configura les opcions de retirada incloent transferències bancàries, retirades de cripto i processadors de tercers.",
+          "title": "Mètodes de Retirada"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "Comerç",
+        "description": "Accedeix a plataformes de comerç completes amb eines de gràfics avançats, dades de mercat en temps real i capacitats d'execució de qualitat professional per a totes les classes d'actius.",
+        "spot": {
+          "title": "ComerçSpot",
+          "description": "Executa ordres de compra i venda immediates als preus actuals del mercat amb tipus d'ordre avançats, gràfics de profunditat i eines de comerç professionals."
+        },
+        "binary": {
+          "title": "Opcions Binàries",
+          "description": "Comercia amb opcions binàries amb anàlisis sofisticades, eines de gestió de riscos i execució simplificada per a estratègies sensibles al temps."
+        },
+        "forex": {
+          "title": "Forex",
+          "description": "Accedeix als mercats globals de divises amb integració MetaTrader 4/5, gràfics avançats i execució de qualitat institucional."
+        },
+        "p2p": {
+          "title": "Intercanvi P2P",
+          "description": "Participa en el comerç segur de criptomonedes entre iguals amb protecció de dipòsit en garantia, mètodes de pagament flexibles i tarifes competitives."
+        }
+      },
+      "portfolio": {
+        "title": "Cartera",
+        "description": "Suite de gestió de carteres integral per fer seguiment d'actius, analitzar rendiment i gestionar els teus instruments financers a totes les plataformes.",
+        "wallet": {
+          "title": "Gestió de Moneder",
+          "description": "Moneder multi-divisa segur amb seguiment de saldo en temps real, historial de transaccions i capacitats de dipòsit/retirada sense interrupcions."
+        },
+        "transactions": {
+          "title": "Historial de Transaccions",
+          "description": "Registres detallats de transaccions amb filtratge avançat, capacitats d'exportació i rastres d'auditoria complets per a totes les activitats financeres."
+        },
+        "transfers": {
+          "title": "Transferències",
+          "description": "Serveis de transferència interna i externa amb processament instantani, comissions competitives i suport multi-divisa."
+        }
+      },
+      "investments": {
+        "title": "Inversions",
+        "description": "Oportunitats d'inversió diversificades amb anàlisis de qualitat professional, eines d'avaluació de riscos i seguiment de rendiment a través de múltiples classes d'actius.",
+        "plans": {
+          "title": "Plans d'Inversió",
+          "description": "Estratègies d'inversió curades amb perfils de risc detallats, dades de rendiment històric i termes flexibles per adaptar-se als teus objectius financers."
+        },
+        "staking": {
+          "title": "Recompenses d'Staking",
+          "description": "Guanya ingressos passius mitjançant l'staking de criptomonedes amb taxes APY competitives, períodes de bloqueig flexibles i distribució automatitzada de recompenses."
+        },
+        "ico": {
+          "title": "Venda de Tokens",
+          "description": "Accés primerenc a Ofertes Inicials de Monedes verificades amb informes de diligència deguda complets, anàlisi de tokenomics i seguiment d'inversions."
+        }
+      },
+      "marketplace": {
+        "title": "Mercat",
+        "description": "Exploreu mercats digitals i físics premium amb transaccions segures, venedors verificats i protecció integral del comprador.",
+        "nft": {
+          "title": "Galeria NFT",
+          "description": "Descobriu, creeu i comercialitzeu actius digitals únics al nostre mercat NFT seleccionat amb capacitats de subhasta i drets d'autor per a creadors."
+        },
+        "store": {
+          "title": "Botiga",
+          "description": "Mercat premium amb productes digitals i físics amb processament de pagaments segur, enviament arreu del món i protecció del comprador."
+        }
+      },
+      "services": {
+        "title": "Serveis",
+        "description": "Serveis professionals i eines per millorar la vostra experiència de comerç, incloent programes d'afiliació, recursos educatius i suport premium.",
+        "affiliate": {
+          "title": "Programa d'Afiliació",
+          "description": "Monetitzeu la vostra xarxa mitjançant el nostre programa d'afiliació integral amb comissions competitives, seguiment en temps real i eines de màrqueting."
+        },
+        "support": {
+          "title": "Centre de Suport",
+          "description": "Suport al client professional amb gestió de tiquets, capacitats de xat en directe i gestió de comptes dedicada per a usuaris premium."
+        },
+        "faq": {
+          "title": "Base de Coneixement",
+          "description": "Documentació exhaustiva, tutorials i preguntes freqüents per ajudar-vos a maximitzar les capacitats de la plataforma."
+        }
+      },
+      "insights": {
+        "title": "Perspectives",
+        "description": "Anàlisi professional del mercat, perspectives de comerç i notícies del sector del nostre equip d'experts financers i investigadors de mercat."
+      }
+    }
   }
 }

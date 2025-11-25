@@ -129,7 +129,7 @@ interface DisputeMessage {
 const DISPUTE_STATUSES = [
   { value: "PENDING", label: "Pending", color: "bg-yellow-500" },
   { value: "INVESTIGATING", label: "Investigating", color: "bg-blue-500" },
-  { value: "AWAITING_RESPONSE", label: "Awaiting Response", color: "bg-orange-500" },
+  { value: "AWAITING_RESPONSE", label: "Awaiting Response", color: "bg-amber-500" },
   { value: "RESOLVED", label: "Resolved", color: "bg-green-500" },
   { value: "REJECTED", label: "Rejected", color: "bg-red-500" },
   { value: "ESCALATED", label: "Escalated", color: "bg-purple-500" },
@@ -138,7 +138,7 @@ const DISPUTE_STATUSES = [
 const DISPUTE_PRIORITIES = [
   { value: "LOW", label: "Low", color: "bg-gray-500" },
   { value: "MEDIUM", label: "Medium", color: "bg-yellow-500" },
-  { value: "HIGH", label: "High", color: "bg-orange-500" },
+  { value: "HIGH", label: "High", color: "bg-amber-600" },
   { value: "CRITICAL", label: "Critical", color: "bg-red-500" },
 ];
 

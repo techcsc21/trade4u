@@ -46,6 +46,7 @@ export default function NFTIntegrationSettingsSection({
         const { data, error } = await $fetch({
           url: "/api/admin/nft/blockchain/options",
           method: "GET",
+          silent: true,
         });
 
         if (error) {

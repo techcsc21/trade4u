@@ -9,7 +9,6 @@ import {
 } from "@b/utils/query";
 import { crudParameters, paginationSchema } from "@b/utils/constants";
 import { createError } from "@b/utils/error";
-import { Op } from "sequelize";
 
 export const metadata: OperationObject = {
   summary: "Lists all p2p offers with pagination and optional filtering",
@@ -50,7 +49,7 @@ export default async (data: Handler) => {
     throw createError({ statusCode: 401, message: "Unauthorized" });
   }
 
-  return getFiltered({
+  const result = await getFiltered({
     model: models.p2pOffer,
     query,
     sortField: query.sortField || "createdAt",
@@ -68,4 +67,17 @@ export default async (data: Handler) => {
       },
     ],
   });
+
+  // Extract priceCurrency from priceConfig for each offer
+  if (result.items && Array.isArray(result.items)) {
+    result.items = result.items.map((offer: any) => {
+      const plain = offer.get ? offer.get({ plain: true }) : offer;
+      if (!plain.priceCurrency && plain.priceConfig) {
+        plain.priceCurrency = plain.priceConfig.currency || "USD";
+      }
+      return plain;
+    });
+  }
+
+  return result;
 };

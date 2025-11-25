@@ -150,19 +150,6 @@
     "top_up": "Gcwalisa phezulu",
     "total_equity": "Ukulingana okuphelele:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "Engeza",
-    "All": "Konke",
-    "Binary": "Okubili",
-    "Favorites": "Izintandokazi",
-    "Hot": "Kushisa",
-    "Loading": "Kuyalayisha",
-    "Market": "Imakethe",
-    "Trending": "Okuthandwayo",
-    "active_markets": "Izimakethe ezisebenzayo",
-    "no_markets_found": "Azikho izimakethe ezitholakele",
-    "try_adjusting_your_search": "Zama ukulungisa usesho lwakho"
-  },
   "binary/components/header/market-selector": {
     "Added": "Kungezwe",
     "Connecting": "Ukuxhuma",
@@ -179,6 +166,19 @@
     "no_markets_found": "Azikho izimakethe ezitholakele",
     "select": "khetha",
     "try_adjusting_your_different_categories": "Zama ukulungisa usesho lwakho noma uphequlule izigaba ezahlukene"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "Engeza",
+    "All": "Konke",
+    "Binary": "Okubili",
+    "Favorites": "Izintandokazi",
+    "Hot": "Kushisa",
+    "Loading": "Kuyalayisha",
+    "Market": "Imakethe",
+    "Trending": "Okuthandwayo",
+    "active_markets": "Izimakethe ezisebenzayo",
+    "no_markets_found": "Azikho izimakethe ezitholakele",
+    "try_adjusting_your_search": "Zama ukulungisa usesho lwakho"
   },
   "binary/components/header/mobile-header": {
     "balance": "Ibhalansi:"
@@ -274,19 +274,19 @@
     "Author": "Umbhali",
     "Authors": "Ababhali",
     "Cancel": "Khansela",
-    "Categories": "Categories",
+    "Categories": "Izigaba",
     "Category": "Isigaba",
     "Comments": "Amazwana",
     "Content": "Okuqukethwe",
     "Description": "Incazelo",
     "Draft": "Uhlaka",
     "Drafts": "Imibhalo",
-    "Explore": "Explore",
+    "Explore": "Hlola",
     "Guidelines": "Imihlahlandlela",
     "Media": "Abezindaba",
     "Metadata": "Idatha eyengeziwe",
     "Next": "Okulandelayo",
-    "Overview": "Overview",
+    "Overview": "Ukubuka Konke",
     "Preview": "Buka kuqala",
     "Previous": "Ngaphambilini",
     "Published": "Kushicilelwe",
@@ -295,7 +295,7 @@
     "Rules": "Imithetho",
     "Saving": "Iyalondoloza",
     "Settings": "Izilungiselelo",
-    "Showing": "Showing",
+    "Showing": "Kubonisa",
     "Status": "Isimo",
     "Tags": "Amathegi",
     "Title": "Isihloko",
@@ -306,7 +306,7 @@
     "agreed_to_follow_our_community_rules": "Sivumile ukulandela imithetho yethu yomphakathi",
     "all_articles": "Zonke izihloko",
     "all_authors_must_adhere_to_these_rules": "Bonke ababhali kufanele balandele le mithetho",
-    "all_categories": "All Categories",
+    "all_categories": "Zonke Izigaba",
     "all_content_goes_being_published": "Konke okuqukethwe kuhamba ngenqubo yokulinganisela ngaphambi kokushicilelwa",
     "all_tags": "Wonke amathegi",
     "allow_users_to_comment_on_blog_posts": "Vumela abasebenzisi ukuthi baphawule ngokuthunyelwe kwebhulogi",
@@ -433,7 +433,7 @@
     "most_popular_content_categories": "Izigaba zokuqukethwe ezithandwa kakhulu",
     "most_used_content_tags": "Amathegi wokuqukethwe asetshenziswe kakhulu",
     "my_blog_posts": "Okuthunyelwe Kwami Kwebhulogi",
-    "newest_first": "Newest First",
+    "newest_first": "Okusha Kuqala",
     "no_articles_found": "Azikho izihloko ezitholakele",
     "no_authors_found": "Akukho babhali abatholakele",
     "no_categories_found": "Azikho izigaba ezitholakele",
@@ -458,7 +458,7 @@
     "participate_in_our_author_community": "Bamba iqhaza emphakathini wethu wombhali",
     "pending_authors": "Ababhali abalindile",
     "please_check_back_later": "Sicela ubheke emuva kamuva",
-    "popular_tags": "Popular Tags",
+    "popular_tags": "Amagama Asetshenziswa Kakhulu",
     "post_limit_reached": "Umkhawulo weposi ufinyelelwe",
     "posts": "Okuthunyelwe",
     "posts_distribution_by_category": "Ukusatshalaliswa okuthunyelwe ngesigaba",
@@ -509,7 +509,7 @@
     "top_categories": "Izigaba eziphezulu",
     "top_performing_content_by_views_and_engagement": "Okuqukethwe okusebenza kakhulu ngokubukwa nokuzibandakanya",
     "total": "Ingqikithi",
-    "try_again": "Try Again",
+    "try_again": "Zama Futhi",
     "type_and_press_comma_or_enter_to_add_a_tag": "Thayipha bese ucindezela ukoma noma Faka ukwengeza isiphawuli",
     "unfortunately_your_application_been_rejected": "Ngeshwa, isicelo sakho sokuba ngumbhali senqatshelwe",
     "unfortunately_your_application_this_time": "Ngeshwa, isicelo sakho asizange samukelwe ngalesi sikhathi",
@@ -839,10 +839,10 @@
     "current_sort": "Uhlobo lwamanje:"
   },
   "components/blocks/docs/DocumentationHeader": {
-    "%_complete": "% Complete"
+    "%_complete": "% Kuqediwe"
   },
   "components/blocks/docs/DocumentationSection": {
-    "Read": "Read"
+    "Read": "Funda"
   },
   "components/blocks/kyc/built-in-fields": {
     "Enabled": "Inikwe amandla",
@@ -1011,7 +1011,7 @@
     "%_completion_rate": "% yesilinganiso sokuqedela",
     "%_health": "% Impilo",
     "%_of_total_applications": "% yezinhlelo zokusebenza zonke",
-    "%_success_rate": "% success rate",
+    "%_success_rate": "% izinga lempumelelo",
     "(e": "(e",
     "(recommended)": "(Kunconyiwe)",
     "(required)": "(edingekayo)",
@@ -1051,7 +1051,7 @@
     "Bulk": "Ngobuningi",
     "Button": "Inkinobho",
     "Canada": "I-Canada",
-    "Cancel": "Cancel",
+    "Cancel": "Khansela",
     "Card": "Ikhadi",
     "Category": "Isigaba",
     "Center": "Isikhungo",
@@ -1077,7 +1077,7 @@
     "Copy": "Kopisha",
     "Country": "Izwe",
     "Created": "Kudalwe",
-    "Creating": "Creating",
+    "Creating": "Ukudala",
     "Currency": "Uhlobo lwemali",
     "Custom": "Ngokwezifiso",
     "DESCRIPTION": "INCAZELO",
@@ -1150,13 +1150,6 @@
     "Image": "Isithombe",
     "Images": "Izithombe",
     "Important": "Kubalulekile",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "Ukuthuthukiswa",
     "Inactive": "Engasebenzi",
     "Insights": "Ukuqonda",
@@ -1166,7 +1159,7 @@
     "Large": "Enkulu",
     "Layout": "Ukuhlelwa",
     "Left": "Kwesokunxele",
-    "Level": "Level",
+    "Level": "Izinga",
     "License": "Ilayisensi",
     "Licensed": "Ilayisensi",
     "List": "Uhlu",
@@ -1180,7 +1173,7 @@
     "Manual": "Ibhukwana",
     "Margin": "Umkhawulo",
     "Medium": "Okuphakathi",
-    "Metadata": "Metadata",
+    "Metadata": "Imininingwane",
     "Middle": "Phakathi",
     "Migrating": "Ukufuduka",
     "Mobile": "Iselula",
@@ -1207,7 +1200,7 @@
     "Play": "Dlala",
     "Popular": "Okudumile",
     "Presets": "Izilungiselelo zangaphambilini",
-    "Preview": "Preview",
+    "Preview": "Ukubuka Kuqala",
     "Print": "Phrinta",
     "Processing": "Kuyacutshungulwa",
     "Progress": "Inqubo",
@@ -1275,13 +1268,13 @@
     "Threshold": "Umkhawulo",
     "Tier": "Isigaba",
     "Tilt": "Ukuthambekela",
-    "Timeline": "Timeline",
+    "Timeline": "Umugqa Wesikhathi",
     "Top": "Phezulu",
     "URL": "I-URL",
-    "Unassigned": "Unassigned",
+    "Unassigned": "Akunikwanga",
     "Unit": "Iyunithi",
     "Unlicensed": "Ngaphandle kwelayisensi",
-    "Updated": "Updated",
+    "Updated": "Kubuyekeziwe",
     "Upgrade": "Thuthukisa",
     "Upload": "Layisha",
     "Uploading": "Ukulayisha",
@@ -1291,7 +1284,7 @@
     "Value": "Inani",
     "Variables": "Okuguquguqukayo",
     "Verification": "Ukuqinisekiswa",
-    "Verified": "Verified",
+    "Verified": "Kuqinisekisiwe",
     "Verify": "Qinisekisa",
     "Verifying": "Ukuqinisekisa",
     "Version": "Inguqulo",
@@ -1932,7 +1925,7 @@
     "needs_attention": "Idinga ukunakwa",
     "needs_info": "Izidingo Ulwazi",
     "needs_work": "Izidingo zomsebenzi",
-    "network": "Network:",
+    "network": "Inethiwekhi:",
     "never_share_your_client-side_code": "Ungalokothi wabelane ngezinkinobho zakho ze-API noma uzifake kukhodi eseceleni kweklayenti",
     "new": "Okusha",
     "newest_first": "Okusha Kuqala",
@@ -2046,7 +2039,7 @@
     "please_enter_your_the_license": "Sicela ufake imininingwane yakho yokuthenga ngezansi ukuze usebenze ilayisense",
     "please_enter_your_your_license": "Sicela ufake imininingwane yakho yokuthenga ukuze uqinisekise ilayisensi yakho",
     "please_go_back_and_try_again": "Sicela ubuyele emuva bese uzama futhi",
-    "please_try_again": "Please try again",
+    "please_try_again": "Sicela uzame futhi",
     "please_try_again_or_contact_support": "Uyacelwa ukuba uzame futhi noma uthintane nosizo",
     "please_update_your_as_possible": "Sicela ubuyekeze isicelo sakho ngemininingwane eceliwe ngokushesha ngangokunokwenzeka",
     "please_upload": "Sicela ulayishe",
@@ -2083,7 +2076,7 @@
     "read": "Funda",
     "read_(": "Funda (",
     "real-time_balance_information_connected_exchange": "Imininingwane yokulinganisa yesikhathi sangempela kusuka ekushintshanisweni kwakho okuxhunyiwe",
-    "real-time_cron_job_monitoring_dashboard": "Real-time cron job monitoring dashboard",
+    "real-time_cron_job_monitoring_dashboard": "Ideshibhodi yokuqapha umsebenzi we-cron wesikhathi sangempela",
     "receive_emails_about_and_maintenance": "Thola ama-imeyili mayelana nezibuyekezo zesistimu nokugcinwa",
     "receive_emails_about_important_alerts_and_updates": "Thola ama-imeyili mayelana nezixwayiso ezibalulekile nezibuyekezo",
     "receive_emails_about_your_tokens": "Thola ama-imeyili mayelana nokutshalwa kwezimali okusha kumathokheni akho",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "Unayo ingqikithi",
     "you_havent_created_any_api_keys_yet": "Awukakhi noma yiziphi izinkinobho ze-API okwamanje",
     "you_havent_saved_any_sections_yet": "Awukalondolozi noma yiziphi izingxenye okwamanje",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "Udinga ukwenza kusebenze futhi ufake isandiso enguqulweni yakamuva ngaphambi kokuyivumela",
     "youll_be_redirected_to_the_login_page_after_logout": "Uzoqondiswa kabusha ekhasini lokungena ngemvume ngemuva kokungena",
     "youll_need_it_log_in": "Uzodinga ukuthola amakhodi okuqinisekisa noma nini lapho ungena ngemvume",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• Imisebenzi yokufuduka ayinakuguqulwa uma isiqediwe",
     "•_monitor_system_data_migrations": "• Ukuqapha ukusebenza kohlelo ngesikhathi sokufuduka kwedatha enkulu",
     "•_some_operations_maintenance_mode": "• Eminye imisebenzi ingadinga imodi yesondlo sesistimu",
-    "•_using_fallback_mode": "• Ukusebenzisa imodi yokubuyela emuva"
+    "•_using_fallback_mode": "• Ukusebenzisa imodi yokubuyela emuva",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "Iya ekhasini lasekhaya",
@@ -2543,7 +2543,7 @@
     "the_page_you_removed_had": "Ikhasi olifunayo kungenzeka ukuthi lisusiwe"
   },
   "ext": {
-    "#affiliate_#rewards": "#affiliate #rewards",
+    "#affiliate_#rewards": "#affiliate #imiklomelo",
     "%_actual_apr": "I-APR yangempela elingu-%",
     "%_apr_is_market_conditions": "I-APR elingu-% ayiqinisekisiwe futhi ingashintshwa kuye ngezimo zemakethe",
     "%_apr_on_your_staked": "% ye-APR kwesifakiwe sakho",
@@ -2648,7 +2648,7 @@
     "Asia": "I-Asia",
     "Attachments": "Okunamathiselwe",
     "Audio": "Umsindo",
-    "Australia": "Australia",
+    "Australia": "I-Australia",
     "Auto-Cancellation": "Ukukhansela okuzenzakalelayo",
     "Auto-Compound": "I-Auto-Compound",
     "Auto-Compounding": "Ukuhlanganiswa okuzenzakalelayo",
@@ -2670,7 +2670,7 @@
     "Buy": "Thenga",
     "Buyer": "Umthengi",
     "CSV": "I-CSV",
-    "Canada": "Canada",
+    "Canada": "IKhanada",
     "Cancel": "Khansela",
     "Canceled": "Kukhanseliwe",
     "Cancelled": "Kukhanseliwe",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "Izwe lapho amaphrojekthi amasha angafinyelela kalula imali, futhi abatshalizimali bangabamba iqhaza kumathuba ngokuzethemba nokuphepha",
     "accept_offers_that_match_your_needs": "Yamukela okunikezwayo okuhambisana nezidingo zakho",
     "accepted_methods": "Izindlela ezamukelekile",
-    "access_denied": "Access Denied",
+    "access_denied": "Ukufinyelela Kwenqatshelwe",
     "access_institutional-grade_forex_serious_investors": "Finyelela ukuhweba kwe-forex ebangeni lesikhungo ngama-algorithms athuthukile, ukuphathwa kobungozi obuchwepheshe, kanye nembuyiselo engaguquguquki yabatshalizimali abakhulu",
     "access_to_marketing_support_and_security_audits": "Ukufinyelela ekusekelweni kokumaketha nokuhlolwa kokuphepha",
     "account": "I-akhawunti:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "Engeza okunamathiselwe okusha",
     "add_note": "Engeza inothi",
     "add_notes_and_terms_for_this_offer": "Engeza amanothi nemigomo yalesi sipho",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "Engeza Indlela Yokukhokha",
     "add_phase": "Engeza Isigaba",
     "add_plan": "Engeza uhlelo",
     "add_roadmap_item": "Engeza Into Yomgwaqo",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "Izidingo zokuqinisekisa ezengeziwe zokuthengiselana kwe-NFT yenani eliphezulu",
     "address": "Ikheli:",
     "adjust_amount": "Lungisa inani",
-    "admin": "Admin",
+    "admin": "Umphathi",
     "admin_actions": "Izenzo ze-Admin",
     "admin_actions_will_appear_here": "Izenzo ze-admin zizovela lapha",
     "admin_activity": "Umsebenzi we-Admin",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "Posa ngokuzenzakalelayo ukuthengisa nohlu olusha",
     "auto-release": "Ukukhishwa okuzenzakalelayo:",
     "auto-verify_new_creators": "Qinisekisa Abadali Abasha Ngokuzenzakalela",
+    "auto_approve_offers": "Vumela Ngokuzenzakalela Iziphakamiso",
     "auto_cancel": "Khansela Ngokuzenzakalelayo",
     "auto_cancel_time_(minutes)": "Isikhathi Sokukhansela Ngokuzenzakalela (imizuzu)",
     "automatic_earnings_distribution": "Ukusatshalaliswa kwemali engenayo okuzenzakalelayo",
     "automatic_escrow_protection_for_all_funds": "Ukuvikelwa okuzenzakalelayo kwayo yonke imali",
     "automatic_release_after_no_dispute)": "Ukukhishwa okuzenzakalelayo ngemuva kwamahora angama-24 okuqinisekisa ukukhokha (uma kungekho mpikiswano)",
     "automatically_adjust_amount_to_meet_minimum": "Lungisa ngokuzenzakalelayo inani ukuze lihlangabezane nobuncane",
+    "automatically_approve_new_and_edited_offers": "Vumela Ngokuzenzakalela Iziphakamiso Ezintsha Nezihlelelwe",
     "automatically_cancel_the_specified_time": "Khansela ngokuzenzakalelayo umnikelo uma kungekho mpendulo kungakapheli isikhathi esibekiwe",
     "automatically_cancel_trades_payment_window": "Khansela ngokuzenzakalelayo ukuhweba uma inkokhelo ingaqinisekisiwe ngaphakathi kwewindi lokukhokha",
     "automatically_extend_auctions_when": "Welula ngokuzenzakalela amafandesi lapho amabhidi efakwa eduze nokuphela",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "Qinisekisa idiphozi yakho",
     "confirm_your_withdrawal": "Qinisekisa ukuhoxiswa kwakho",
     "confirmed_at": "Kuqinisekisiwe ku:",
-    "conflict": "Conflict",
+    "conflict": "Ukungqubuzana",
     "connect_with_traders_worldwide": "Xhuma nabathengisi emhlabeni wonke",
     "connections": "Izinxhumanisi",
     "consider_cliff_periods_for_team_tokens": "Cabanga ngezikhathi zama-cliff amathokheni eqembu",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "Ingxoxo efihliwe yokuphela kokuphela kokuxhumana okuphephile phakathi komthengi nomthengisi ngesikhathi sokuhweba",
     "end_date": "Usuku Lokuphela:",
     "end_of_term": "Ukuphela kwesikhathi",
+    "ended": "Kuphele",
     "ending_soon": "Kuphela Maduze",
     "enhance_multiple_faqs_ai-powered_improvements": "Thuthukisa ama-FAQ amaningi usebenzisa ukuthuthukiswa kwethu okunikwe amandla yi-AI",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "Jabulela izindleko eziphansi kakhulu embonini ku-0 kuphela",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "Faka noma yiziphi izinombolo zenkomba ezidingekayo",
     "include_company_logo": "Faka i-logo yenkampani",
     "include_the_trade_payment_description": "Faka inombolo yereferensi yokuhweba encazelweni yakho yokukhokha",
-    "info": "Info",
+    "info": "Ulwazi",
     "information_about_the_dispute": "Ulwazi mayelana nengxabano",
     "information_about_the_disputed_trade": "Imininingwane mayelana nokuhweba okuphikisanayo",
     "initial_holder": "Umnikazi wokuqala:",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "Amanothi angaphakathi mayelana nale mpikiswano",
     "internal_notes_about_this_offer": "Amanothi angaphakathi mayelana nalesi sipho",
     "internal_notes_about_this_position": "Amanothi angaphakathi mayelana nalesi sikhundla",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "Isicelo Esingavumelekile",
     "invest_in": "Tshala imali ku-",
     "invest_in_this_offering": "Tshala imali kulokhu kunikezwa",
     "invest_more": "Tshala imali ethe xaxa",
@@ -4326,6 +4329,7 @@
     "live_preview": "Ukubuka kuqala bukhoma",
     "load_id": "I-ID yokulayisha:",
     "load_more": "Layisha Okuningi",
+    "loading": "Iyalayisha",
     "loading_activity_data": "Ukufakwa kwemininingwane yomsebenzi",
     "loading_affiliate_data": "Ukufakwa kweminininga yokubambisana",
     "loading_analytics_data": "Ukulayisha idatha ye-analytics",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "Phatha futhi uqaphe iminikelo yakho yamathokheni",
     "manage_and_track_your_referred_users": "Phatha futhi ulandele abasebenzisi bakho ababhekiswe kubo",
     "manage_conditions": "Phatha izimo",
+    "manage_rewards": "Phatha Imiklomelo",
     "manage_the_blockchains_token_launches": "Phatha ama-blockchains atholakalayo okwethulwa kwamathokheni",
     "manage_this_trade": "Phatha lokhu kuhweba",
     "manage_token_release": "Phatha Ukukhishwa Kwethokheni",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "kugcine ukuphendulwa ngu Isabela 6 izinyanga ezidlule",
     "monthly_faq_views_for_the_current_year": "Ukubukwa kwe-FAQ kwanyanga zonke konyaka wamanje",
     "monthly_growth_rate_(%)": "Izinga lokukhula kwanyanga zonke (%)",
+    "monthly_growth_rate_tooltip": "Isilinganiso esilindelwe sokukhula kwenani lenyanga. Amanani amakhulu akhombisa ukukhuphuka kwenani, amanani amancane akhombisa ukwehla. Umkhawulo ovamile: -50% kuya ku-+50%",
     "monthly_profit": "Inzuzo yanyanga zonke",
     "more": "Okuningi",
     "most_common_search_terms_used_by_your_users": "Amagama okusesha asetshenziswa kakhulu ngabasebenzisi bakho",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "Azikho izixwayiso ezitholakele",
     "no_withdrawal_methods_available_for_this_currency": "Azikho izindlela zokukhipha imali kulolu hlobo lwemali",
     "not_available_for_this_chain": "Akutholakali kulolu chungechunge",
-    "not_found": "Not Found",
+    "not_found": "Akutholakalanga",
     "not_helpful": "Akusizi",
+    "not_started": "Akukaqalwa",
     "not_submitted": "Ayifakiwe",
     "notes_and_comments_about_this_transaction": "Amanothi namazwana mayelana nalokhu kuthengiselana",
     "now_accepting_bitcoin_ethereum_&_more": "Manje ukwamukela i-Bitcoin, i-Ethereum nokuningi",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "Isipho asitholakali noma awunamvume yokusihlela",
     "offer_status": "Isimo Somnikelo",
     "offer_type": "Uhlobo lokunikezwa",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "Isiphakamiso Asitholakali",
     "offer_updated_successfully_and_is_pending_approval": "Isipho sibuyekeziwe ngempumelelo futhi silinde ukugunyazwa",
     "offer_visibility": "Nikeza ukubonakala",
     "offering": "Ukunikela:",
@@ -4791,7 +4798,7 @@
     "password": "Igama lokungena",
     "pay_with_confidence_processing_system": "Khokha ngokuzethemba usebenzisa uhlelo lwethu lokucubungula inkokhelo oluphephile",
     "pay_within_time_limit": "Khokha ngaphakathi kwesikhathi esilinganiselwe",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "Imisebenzi Yokukhokha",
     "payment_completed_successfully": "Inkokhelo iphelile ngempumelelo!",
     "payment_confirmed": "Inkokhelo iqinisekisiwe",
     "payment_details": "Imininingwane yokukhokha",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "Imiyalelo yokukhokha",
     "payment_marked_as_sent": "Inkokhelo ephawulwe njengethunyelwe",
     "payment_method": "Indlela yokukhokha:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "Indlela Yokukhokha Iyadingeka",
     "payment_methods": "Izindlela Zokukhokha",
     "payment_methods_summary": "Isifinyezo Sezindlela Zokukhokha",
     "payment_methods_you_prefer": "Izindlela zokukhokha ozithandayo",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "Uyacelwa ukuba ukhethe imigomo ofuna ukwengeza kulo mkhankaso",
     "please_send_payment_when_done": "Sicela uthumele inkokhelo kumthengisi usebenzisa indlela yokukhokha ecacisiwe futhi uqinisekise ukuthi usuqedile nini",
     "please_sign_in_to_view_your_shipping_details": "Sicela ungene ngemvume ukuze ubone imininingwane yakho yokuthumela",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "Sicela Unqamule",
     "please_try_again": "Sicela uzame futhi",
     "please_try_again_later": "Uyacelwa ukuba uzame futhi emva kwesikhathi",
     "please_try_refreshing_the_page": "Sicela uzame ukuvuselela ikhasi",
@@ -5351,13 +5358,14 @@
     "social_media_post": "Okuthunyelwe Kwezokuxhumana",
     "solana_(sol)": "I-Solana (SOL)",
     "sold": "ithengisiwe",
+    "sold_out": "Sekuthengisiwe Konke",
     "some_features_may_be_temporarily_unavailable": "Ezinye izici kungenzeka zingatholakali okwesikhashana",
     "some_pools_distribute_staking_period": "Amanye amachibi asabalalisa imivuzo nsuku zonke, kanti amanye enza kanjalo masonto onke, ngenyanga, noma ekupheleni kwesikhathi sokubeka",
     "some_pools_offer_higher_returns": "Amanye amachibi anikeza ukuhlanganiswa okuzenzakalelayo, okubuyisela ngokuzenzakalelayo imivuzo oyitholile ukukhiqiza imbuyiselo ephakeme nakakhulu",
     "some_pools_offer_your_rewards": "Amanye amachibi anikela ngokuzenzakalelayo ukuhlanganiswa okuzenzakalelayo, okubuyisela ngokuzenzakalelayo imivuzo yakho",
     "some_settings_like_launch_plans": "Ezinye izilungiselelo ezifana namalungu eqembu kanye nemikhawulo yezinto zomgwaqo manje zilawulwa yizinhlelo zokuqalisa",
     "some_trade_features_are_currently_disabled": "Ezinye izici zokuhweba okwamanje zikhubazekile:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "Kukhona Okungahambanga Kahle",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "Ngiyaxolisa, asikwazanga ukuthola ikhasi olifunayo",
     "sort_by": "Hlunga ngokwe",
     "source_code_verification": "Ukuqinisekiswa Kwekhodi Yomthombo",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Bhalisela i-newsletter yethu",
     "subtotal": "I-Subtotal:",
     "subtotal_(": "I-subtotal (",
-    "success": "Success",
+    "success": "Impumelelo",
     "success_rate": "Izinga lempumelelo",
     "successful_offerings": "Iminikelo ephumelelayo",
     "successful_trades": "Ukuhweba okuphumelelayo:",
@@ -5658,7 +5666,7 @@
     "tokens": "Amathokheni",
     "tokens_for_sale": "Amathokheni athengiswayo",
     "tokens_to_receive": "Amathokheni ongawathola:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "Izicelo Eziningi Kakhulu",
     "top-performing_staking_pools": "Amachibi e-Staking asebenza kakhulu",
     "top_performing_affiliates": "Ababambisene Benza Phezulu",
     "top_performing_faqs": "Ama-FAQ ahamba phambili",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "Imininingwane yokuhweba ayitholakali okwamanje",
     "trade_details_are_temporarily_unavailable": "Imininingwane yokuhweba ayitholakali okwesikhashana",
     "trade_disputed": "Ukuhweba Okuphikisanayo",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "Ukuhweba Kuphelelwe Yisikhathi",
     "trade_history_requirements": "Izidingo zomlando wezohwebo",
     "trade_id": "I-ID yokuhweba",
     "trade_information": "Ulwazi lokuhweba",
@@ -5806,8 +5814,8 @@
     "unilevel_level_percentages": "Amaphesenti ezinga le-Unilevel",
     "unilevel_levels": "Amazinga e-Unilevel",
     "unilevel_structure_summary": "Isifinyezo sesakhiwo se-Unilevel",
-    "united_kingdom": "United Kingdom",
-    "united_states": "United States",
+    "united_kingdom": "I-United Kingdom",
+    "united_states": "I-United States",
     "unlock_more_features": "Vula izici ezengeziwe",
     "unlock_premium_benefits_and_lower_fees": "Vula izinzuzo eziphambili nemali encane",
     "unsaved_changes": "Izinguquko Ezingagciniwe",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Izinkokhelo zeselula zeVenmo",
     "verification_badges": "Amabheji Okuqinisekisa",
     "verification_badges_help_users": "Amaphawu okuqinisekisa asiza abasebenzisi ukubona abadali abathembekile namaqoqo angempela. Avela kumaphrofayela, ohlwini, nakumiphumela yokusesha.",
-    "verification_required": "Verification Required",
+    "verification_required": "Ukuqinisekiswa Kuyadingeka",
     "verification_settings_affect_marketplace": "Izilungiselelo zokuqinisekisa zithinta ukwethenjwa kwemakethe nokuthobela imithetho. Cabangela izidingo zendawo yakho.",
     "verified_only": "Kuqinisekisiwe kuphela",
     "verified_project_teams_and_offerings": "Amaqembu ephrojekthi aqinisekisiwe kanye neminikelo",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "Abahwebi abaqinisekisiwe kuphela",
     "verified_users_have_verification_process": "Abasebenzisi abaqinisekisiwe sebeqedile inqubo yethu yokuqinisekisa ubunikazi",
     "verify_&_approve_transaction": "Qinisekisa & Vuma Ukuthengiselana",
-    "verify_account": "Verify Account",
+    "verify_account": "Qinisekisa I-akhawunti",
     "verify_payment_and_release_funds": "Qinisekisa ukukhokha nokukhipha izimali",
     "verify_payment_before_releasing": "Qinisekisa inkokhelo ngaphambi kokukhipha",
     "verify_payment_first": "Qinisekisa Inkokhelo Kuqala",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "Buka ngeso lengqondo futhi uphathe ukwakheka komphambo wakho obambisene",
     "visualize_distribution_vesting_token_launch": "Bona ngeso lengqondo ukusatshalaliswa, amashejuli we-vesting, kanye nokuqagela kwemakethe ukuze uthuthukise ukwethulwa kwakho kwethokheni",
     "volatility_(%)": "Ukuguquguquka (%)",
+    "volatility_tooltip": "Umkhawulo wokuguquguquka kwenani okulindelwe. Ukuguquguquka okuphezulu kusho ukushintsha kwenani okukhulu. 0% kusho amanani azinzile, 100% kusho ukushintsha kwenani okumangalisayo.",
     "volume": "Umthamo:",
     "volume_(btc)": "Umthamo (BTC)",
     "vs": "vs",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "Ungathanda ukwenzani?",
     "what_would_you_like_to_do_next": "Yini ongathanda ukuyenza ngokulandelayo?",
     "when_a_trade_into_escrow": "Lapho ukuhweba kuqala, kuzodingeka ufake i-cryptocurrency ku-escrow:",
+    "when_disabled_offers_require_admin_moderation": "Uma Kukhutshaziwe Izipho Zidinga Ukugunyazwa Ngumphathi",
     "when_disabled_users_can_only_take_existing_offers": "Uma kukhubazekile, abasebenzisi bangathatha kuphela izipesheli ezikhona",
     "when_disabled_users_cannot_access_p2p_features": "Uma kunqatshelwe, abasebenzisi abakwazi ukufinyelela izici ze-P2P",
     "when_disabled_users_cannot_create_custom_payment_methods": "Uma kukhutshaziwe, abasebenzisi abakwazi ukudala izindlela zokukhokha ezenzakalelayo",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "Awukaqedi noma yikuphi ukuhweba okwamanje",
     "you_havent_distributed_any_earnings_yet": "Awukadluli noma iyiphi inzuzo okwamanje",
     "you_might_want_question_directly": "Ungase uthande ukuzama ukusesha kwethu noma ukubuza umbuzo ngqo",
+    "you_must_be_logged_in_to_access_the_dashboard": "Kufanele Ungene Ngemvume Ukuze Ufinyelele Kudeshbhodi",
     "you_must_be_logged_in_to_ask_a_question": "Kufanele ungene ngemvume ukuze ubuze umbuzo",
     "you_need": "Udinga",
     "you_need_to_a_review": "Kufanele uthenge lo mkhiqizo ngaphambi kokuthi ubhale isibuyekezo",
@@ -6207,10 +6218,74 @@
     "•_lock_period": "• Isikhathi sokukhiya:",
     "•_trade_dispute_resolution_is_unavailable": "• Ukuxazulula izingxabano zokuhweba akutholakali",
     "✓_purchased": "✓ Kuthengiwe",
-    "not_started": "Not Started",
-    "ended": "Ended",
-    "sold_out": "Sold Out",
-    "manage_rewards": "Manage Rewards"
+    "Configure NFT metadata requirements": "Lungiselela Izidingo Ze-NFT Metadata",
+    "Configure platform and creator fees": "Lungiselela Izimali Zenkundla Nabadali",
+    "Fixed fee to create a listing (0 = free)": "Imali Eqinile Yokudala Uhlu (0 = Mahhala)",
+    "High-Value Threshold (USD)": "Umkhawulo Wenani Eliphezulu (USD)",
+    "Listing Fee (Optional)": "Imali Yokufaka Ohlwini (Ongakhetha)",
+    "Marketplace Fee (%)": "Imali Yemakethe (%)",
+    "Marketplace Fees": "Izimali Zemakethe",
+    "Maximum Royalty (%)": "I-Royalty Ephezulu (%)",
+    "Maximum royalty creators can set (0-50%)": "I-Royalty Ephezulu Abadali Abangayimisa (0 50%)",
+    "Metadata & IPFS": "I-Metadata ne-IPFS",
+    "Percentage fee charged on each sale (0-10%)": "Imali Yephesenti Ekhokhiswa Ekuthengisweni Ngakunye (0 10%)",
+    "Require Metadata Validation": "Idinga Ukuqinisekiswa Kwe-Metadata",
+    "Validate IPFS metadata URLs before accepting NFT listings": "Qinisekisa Ama-URL e-IPFS Metadata Ngaphambi Kokwamukela Uhlu Lwe-NFT",
+    "are_you_sure_you_want_to_remove_this_offer": "Uqinisekile Ukuthi Ufuna Ukususa Lesi Sithembiso",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "Izinguquko Ezimalunga Nentengo Nezilungiselelo Zenani Zingadinga Ukugunyazwa Komlawuli Ngaphambi Kokuthi Ziqale Ukusebenza",
+    "create_your_first_offer": "Dala Isithembiso Sakho Sokuqala",
+    "dynamic_price_(market_based)": "Intengo Eguquguqukayo (Esekelwe Emakethe)",
+    "edit": "Hlela",
+    "enter_your_fixed_price": "Faka Intengo Yakho Eqinile",
+    "failed_to_remove_offer": "Kuhlulekile Ukususa Isithembiso",
+    "limit": "Umkhawulo",
+    "market_price_offset_(%)": "Ukukhishwa Kwentengo Yemakethe (%)",
+    "max_trade_amount": "Inani Eliphezulu Lokuhwebelana",
+    "maximum_amount": "Inani Eliphezulu",
+    "maximum_limit": "Umkhawulo Ophezulu",
+    "min_trade_amount": "Inani Elincane Lokuhwebelana",
+    "minimum_amount": "Inani Elincane",
+    "minimum_limit": "Umkhawulo Omncane",
+    "my_offers": "Izithembiso Zami",
+    "no_recent_activity": "Ayikho Imisebenzi Yakamuva",
+    "note": "Qaphela",
+    "offer_removed": "Isithembiso Sisusiwe",
+    "positive_=_above_market,_negative_=_below_market": "Okuhle = Ngaphezu Kwemakethe, Okubi = Ngaphansi Kwemakethe",
+    "price_&_amount": "Intengo Nenani",
+    "price_&_amount_settings": "Izilungiselelo Zentengo Nenani",
+    "pricing_model": "Imodeli Yentengo",
+    "remove_offer": "Susa Ukuhlinzeka",
+    "removing": "Iyasusa",
+    "the_price_per_unit_of": "Intengo Ngeyunithi Ye",
+    "this_is_the_total_amount_for_this_trade": "Lena Iyinani Eliphelele Lalokhu Kuhweba",
+    "total_amount_available": "Inani Eliphelele Elitholakalayo",
+    "total_available": "Okutholakalayo Okuphelele",
+    "trading_limits": "Imikhawulo Yokuhweba",
+    "update_pricing_model_and_trading_limits": "Buyekeza Imodeli Yentengo Nemikhawulo Yokuhweba",
+    "view": "Buka",
+    "you_dont_have_any_offers_yet": "Awunayo Iminikelo Okwamanje",
+    "your_offer_has_been_successfully_removed": "Ukunikezela Kwakho Kususiwe Ngempumelelo",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "I-5% Ngaphezu Kwemakethe"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "Khansela",
@@ -6253,6 +6328,8 @@
     "network_fee": "Imali Yenethiwekhi",
     "new_balance": "Ibhalansi Entsha",
     "no_currencies_found": "Azikho izimali ezitholakele ze",
+    "no_wallets_available": "Ayikho Izikhwama Ezitholakalayo",
+    "no_wallets_available_description": "Incazelo Yokungabikho Kwezikhwama Ezitholakalayo",
     "not_available": "Akutholakali",
     "of": "kwe",
     "pay_with": "Khokha nge",
@@ -6346,6 +6423,8 @@
     "make_another_transfer": "Yenza okunye ukudluliswa",
     "move_funds_between_another_user": "Hambisa izimali phakathi kwezikhwama zakho noma uthumele komunye umsebenzisi",
     "move_funds_between_your_different_wallet_types": "Hambisa imali phakathi kwezinhlobo zakho ezahlukene zesikhwama",
+    "no_wallets_available": "Ayikho Izikhwama Ezitholakalayo",
+    "no_wallets_available_description": "Incazelo Yokungabikho Kwezikhwama Ezitholakalayo",
     "processing_transfer": "Ukucubungula Ukudluliswa",
     "recipient_details": "Imininingwane Yomamukeli",
     "recipient_receives": "Umamukeli wathola:",
@@ -6385,17 +6464,17 @@
     "the_wallet_youre_to_it": "Isikhwama osifunayo asikho noma awukwazi ukufinyelela kuso",
     "wallet_address": "Ikheli lesikhwama",
     "wallet_not_found": "Isikhwama semali asitholakali",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
-    "wallet_type_fiat": "Fiat",
-    "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
-    "wallet_type_futures": "Futures",
+    "wallet_type_ai_investment": "Ukutshalwa Kwemali Nge-AI",
+    "wallet_type_derivatives": "Ama-Derivatives",
+    "wallet_type_eco": "I-Eco",
+    "wallet_type_fiat": "I-Fiat",
+    "wallet_type_forex": "I-Forex",
+    "wallet_type_funding": "Uxhaso Lwezimali",
+    "wallet_type_futures": "Ama-Futures",
     "wallet_type_ico": "ICO",
-    "wallet_type_p2p": "P2P",
-    "wallet_type_spot": "Spot",
-    "wallet_type_staking": "Staking"
+    "wallet_type_p2p": "I-P2P",
+    "wallet_type_spot": "I-Spot",
+    "wallet_type_staking": "I-Staking"
   },
   "finance/wallet/client": {
     "add_funds": "Engeza izimali",
@@ -6433,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(Ukwamukela",
+    "Amount to Send (before network fees)": "Inani Ozokulithumela (Ngaphambi Kwezindleko Zenethiwekhi)",
     "Free": "Mahhala",
+    "Platform Fee": "Imali Yenkundla",
     "Processing": "Kuyacutshungulwa",
     "Select": "Khetha",
     "Withdraw": "Hoxisa",
@@ -6454,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "Azikho izinhlobo zemali ezinebhalansi etholakalayo ku-",
     "no_currencies_with_balance_in_wallet_type": "Azikho izinhlobo zemali ezinebhalansi kuhlobo lwesikhwama",
     "no_wallets_available": "Azikho izikhwama ezitholakalayo",
+    "no_wallets_available_description": "Zonke izinhlobo zezikhwama zikhutshaziwe ngumphathi. Sicela uxhumane nothekelo ukuze uthole usizo noma ubuye kamuva.",
     "no_wallets_with_balance_for_withdrawal": "Azikho izikhwama ezinebhalansi yokukhipha",
     "no_withdrawal_methods": "Azikho izindlela zokukhipha ezitholakalayo",
     "no_withdrawal_methods_available": "Azikho izindlela zokukhipha ezitholakalayo",
@@ -6661,9 +6743,9 @@
     "24h_volume": "Umqulu we-24h",
     "Action": "Isenzo",
     "Asset": "Impahla",
-    "Price": "Price",
+    "Price": "Intengo",
     "Trade": "Ukuhweba",
-    "Volume": "Volume",
+    "Volume": "Ivolumu",
     "create_free_account": "Yakha i-akhawunti yamahhala",
     "crypto_markets": "Izimakethe ze-Crypto",
     "cryptocurrency_markets": "Izimakethe ze-Cryptocurrency",
@@ -6671,7 +6753,7 @@
     "market_cap": "Imakethe Cap",
     "no_markets_found": "Azikho izimakethe ezitholakele",
     "real-time_prices_24h_cryptocurrency_pairs": "Amanani wesikhathi sangempela, izinguquko ezingama-24h, namavolumu okuhweba kuwo wonke amabhangqa we-cryptocurrency atholakalayo",
-    "start_trading": "Start Trading",
+    "start_trading": "Qala Ukuhweba",
     "start_trading_demo": "Qala Ukuhweba Demo",
     "start_trading_with_deep_liquidity": "Qala ukuhweba ngamathuluzi asezingeni lobuchwepheshe kanye ne-liquidity ejulile",
     "try_adjusting_your_search_or_filter_criteria": "Zama ukulungisa imigomo yakho yokucinga noma yokuhlunga"
@@ -6996,8 +7078,11 @@
     "create_nft": "Dala i-NFT",
     "create_your_first_collection_to_organize_your_nfts": "Dala iqoqo lakho lokuqala ukuze uhlele ama-NFT akho",
     "create_your_first_nft_to_get_started": "Dala i-NFT yakho yokuqala ukuze uqale",
+    "creator_dashboard": "Ideshibhodi Lomdali",
     "creator_hub": "Isikhungo Sabadali",
+    "creator_since": "Umdali Kusukela",
     "explore_nfts": "Hlola Ama-NFT",
+    "failed_to_load_dashboard": "Kuhlulekile Ukulayisha Ideshibhodi",
     "favorite_nfts": "Ama-NFT Athandwayo",
     "manage_your_nfts_collections": "Phatha ama-NFT akho, amaqoqo, nomsebenzi wemakethe",
     "my_collections": "Amaqoqo Ami",
@@ -7008,6 +7093,7 @@
     "no_favorites_yet": "Akukho Okuthandwayo Okwamanje",
     "no_nfts_yet": "Awekho Ama-NFT Okwamanje",
     "please_login_to_view_your_dashboard": "Sicela ungene ngemvume ukuze ubuke ideshibhodi yakho",
+    "please_sign_in_to_access_your_creator_dashboard": "Sicela Ungene Ngemvume Ukuze Ufinyelele Ideshibhodi Lakho Lomdali",
     "please_sign_in_to_view_your_nft_dashboard": "Sicela ungene ngemvume ukuze ubone ideshibhodi yakho yama-NFT",
     "recent_activity": "Umsebenzi Wakamuva",
     "sign_in": "Ngena Ngemvume",
@@ -7015,6 +7101,7 @@
     "total_nfts": "Isamba sama-NFT",
     "total_value": "Inani Eliphelele",
     "total_views": "Ukubukwa Okuphelele",
+    "try_again": "Zama Futhi",
     "your_nft_activities_will_appear_here": "Imisebenzi yakho ye-NFT izovela lapha"
   },
   "nft/details": {
@@ -7150,22 +7237,23 @@
     "sell_at_a_fixed_price": "Thengisa ngentengo engaguquki",
     "sell_to_highest_bidder": "Thengisela umthengi okhokha kakhulu",
     "start_time": "Isikhathi Sokuqala",
-    "starting_price": "Intengo Yokuqala"
+    "starting_price": "Intengo Yokuqala",
+    "Duration": "Isikhathi"
   },
   "nft/modals/offer": {
-    "Cancel": "Cancel",
+    "Cancel": "Khansela",
     "Currency": "Uhlobo Lwemali",
     "Expires": "Execution error",
     "Message": "Umlayezo",
     "Optional": "Akuphoqelekile",
     "add_a_personal_message_to_the_seller": "Faka umlayezo wakho kumthengisi",
-    "by_making_this_offer": "By making this offer, you agree to purchase this NFT if the seller accepts. Make sure you have sufficient balance in your wallet.",
+    "by_making_this_offer": "Ngokwenza lolu nikelo, uyavuma ukuthenga le NFT uma umthengisi eyamukela. Qiniseka ukuthi unebhalansi eyanele esikhwameni sakho semali.",
     "collection_floor": "Intengo Ephansi Yeqoqo",
     "current_price": "Intengo Yamanje",
     "custom_expiry_date": "Usuku Lokuphelelwa Yisikhathi Olwenziwe",
     "make_an_offer": "Yenza Isiphakamiso",
-    "make_offer": "Make Offer",
-    "making_offer": "Making Offer...",
+    "make_offer": "Yenza Inikelo",
+    "making_offer": "Ukwenza Inikelo...",
     "offer_amount": "Inani Lesiphakamiso",
     "offer_below_floor_price": "Isiphakamiso singaphansi kwentengo ephansi",
     "offer_expires_in": "Isiphakamiso Siphelelwa Yisikhathi Nge",
@@ -7214,7 +7302,8 @@
     "token_details": "Imininingwane Yethokheni",
     "token_id": "I-ID Yethokheni",
     "token_standard": "Izinga Lophawu",
-    "view_on_explorer": "Buka ku-Explorer"
+    "view_on_explorer": "Buka ku-Explorer",
+    "browse_marketplace": "Bhekabheka Imakethe"
   },
   "nft/user/profile": {
     "Activity": "Umsebenzi",
@@ -7631,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "Iyalayisha",
-    "available": "Iyatholakala:"
+    "available": "Iyatholakala:",
+    "balance": "Ibhalansi",
+    "in_orders": "Eku-odeni"
   },
   "trade/components/trading/spot/index": {
     "Limit": "Umkhawulo",
@@ -7648,7 +7739,10 @@
     "Price": "Intengo",
     "Processing": "Iyacutshungulwa",
     "Sell": "Thengisa",
-    "Total": "Ingqikithi"
+    "Total": "Ingqikithi",
+    "Est": {
+      " Fee": " Imali"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "Inani",
@@ -7658,7 +7752,10 @@
     "estimated_total": "Ingqikithi elinganisiwe",
     "market_orders_execute_available_price": "Ama-oda emakethe enza ngokushesha ngentengo engcono kakhulu etholakalayo",
     "market_price": "Intengo yemakethe",
-    "the_final_execution_estimated_price": "Intengo yokugcina yokubulawa ingahluka ngentengo elinganisiwe"
+    "the_final_execution_estimated_price": "Intengo yokugcina yokubulawa ingahluka ngentengo elinganisiwe",
+    "Est": {
+      " Fee": " Imali"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "Inani",
@@ -7673,7 +7770,10 @@
     "stop_market_orders_is_reached": "Ama-oda wemakethe we-stop enza njengama-oda emakethe lapho intengo yokumisa ifinyelelwa",
     "stop_price": "Yeka Intengo",
     "the_order_will_available_price": "I-oda lizogcwaliswa ngentengo engcono kakhulu etholakalayo",
-    "the_order_will_or_better": "I-oda lizogcwaliswa ngentengo yomkhawulo noma kangcono"
+    "the_order_will_or_better": "I-oda lizogcwaliswa ngentengo yomkhawulo noma kangcono",
+    "Est": {
+      " Fee": " Imali"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "* Ungakhathazeki, ngeke sikuthumelele :)",
@@ -7687,5 +7787,553 @@
     "were_making_the_system_more_awesome": "Senza uhlelo lube luhle ngokwengeziwe",
     "we’ll_be_back_shortly": "Sizobuya maduze",
     "we’re_making_the_system_more_awesome": "Senza uhlelo lube luhle ngokwengeziwe"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "Ukuhlaziywa kwezezimali okuthuthukile ngokulandelela inzuzo, ukuhlaziywa kwemithombo yemali engenayo, namadeshbhodi abanzi obuhlakani bebhizinisi.",
+        "title": "Ukuhlaziya Kwengeniso"
+      },
+      "communication": {
+        "description": "Ukuphathwa kokuxhumana kwepulatifomu kufaka phakathi izaziso, izimemezelo, nezinhlelo zokuthumela imiyalezo yabasebenzisi.",
+        "title": "Amathuluzi Okuxhumana"
+      },
+      "compliance": {
+        "description": "Amathuluzi okuthobela imithetho efaka phakathi ukucutshungulwa kwe-KYC, ukuqinisekiswa kwemibhalo, nokuphathwa kobunikazi ukuze kuhanjiswe umthetho.",
+        "title": "Ukuthobela Nokuqinisekiswa"
+      },
+      "currencies": {
+        "description": "Ukusekelwa kwezimali eziningi ngezintengo zokushintshana zesikhathi sangempela, ukucushwa kwamapheya okuhweba, kanye nokuhlanganiswa kwedatha yemakethe.",
+        "title": "Ukuphathwa Kwemali"
+      },
+      "dashboard": {
+        "description": "Ukubukwa okuphelele kokuphatha ngokuhlaziya kwesikhathi sangempela, ukuqapha impilo yohlelo, kanye nokufinyelela okusheshayo emisebenzini ebalulekile yokuphatha.",
+        "title": "Ideshibhodi"
+      },
+      "monitoring": {
+        "description": "Ukuqapha kohlelo oluphelele ngokungena, amamethrikhi wokusebenza, kanye nokuphathwa kwemisebenzi ezenzakalelayo.",
+        "title": "Ukuqapha Kohlelo"
+      },
+      "permissions": {
+        "description": "Ukuphathwa kwemvume emazingeni ukuze kubekwe ukulawula okufinyelela okuhlelwe kahle kuyo yonke imisebenzi yohlelo kanye nezici.",
+        "title": "Imvume"
+      },
+      "roles": {
+        "title": "Izindima Zomsebenzisi",
+        "description": "Dala futhi uphathe izindima zabasebenzisi ngamasethi wemvume angakwazi ukwenziwa ngokwakho kanye nezakhiwo zokulawula okufinyelela ezihlelekayo.",
+        "permissions": {
+          "description": "Uhlelo lokulawula okufinyelela oluphezulu lokuchaza izindima zabasebenzisi, ukuphatha imvume, kanye nokusebenzisa izinqubomgomo zokuphepha kuyo yonke inkundla.",
+          "title": "Izindima Nemvume"
+        }
+      },
+      "support": {
+        "description": "Uhlelo lwethikithi lokusekelwa oluhlanganisiwe ngokuphathwa kokubaluleka, ukuqapha ukuphendula, kanye nokuqapha ukwaneliseka kwamakhasimende.",
+        "title": "Ukwesekwa Kwamakhasimende"
+      },
+      "users": {
+        "description": "Isizindalwazi sabasebenzisi esiphelele esinezihlungi ezithuthukile, imisebenzi emikhulu, ukuphathwa kwephrofayela, kanye nokulandelela okuwemininingwane yomsebenzi.",
+        "title": "Abasebenzisi"
+      },
+      "affiliate": {
+        "system": {
+          "description": "Uhlelo lwamalungu lwamazinga amaningi olokulandelela ikhomishini, ukuhlaziywa kokusebenza, nokukhokhelwa okuzenzakalelayo.",
+          "title": "Uhlelo Lwe-Affiliate"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "Lungiselela izikhathi zamasu e-AI ngokulinganisa okuguquguqukayo nokuzivumelanisa nezimo zezimakethe.",
+          "title": "Isikhathi Samasu"
+        },
+        "investment": {
+          "description": "Ukuphathwa kokutshalwa kwemali okunikwe amandla i-artificial intelligence ngama-algorithms okufunda ngomshini kanye nokwenzelwa okuhle kwe-portfolio ngokuzenzakalelayo.",
+          "title": "Ukutshalwa Kwemali Kwe-AI"
+        },
+        "performance": {
+          "description": "Ukuhlaziywa kokusebenza kokutshalwa kwemali kwe-AI ngokulandelela ukunemba kwemodeli kanye nezingaphezu zokusebenza kwamasu.",
+          "title": "Ukusebenza kwe-AI"
+        },
+        "strategies": {
+          "description": "Amasu okutshalwa kwemali wokufunda ngomshini ngokuhlolwa kwangasemva, ukuhlolwa kobungozi, nokwenziwa okuhle kokusebenza.",
+          "title": "Amasu E-AI"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "Ukuphathwa komjikelezo wempilo wokhiye we-API ngokuqapha ukusetshenziswa, ukuncipha kwesilinganiso, nezilawulo zokuphepha zokuhlanganiswa kwezinkampani zangaphandle.",
+          "title": "Ukuphathwa kwe-API"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "Setha izikhathi zokuhweba namaphesenti okukhokha ezinketho ze-binary ngezilawulo zokuphatha ubungozi.",
+          "title": "Izikhathi Zokuhweba"
+        },
+        "markets": {
+          "description": "Lungiselela izimakethe zezinketho ze-binary ngamapheya ezimpahla, amapharamitha okuhweba, namahora ezimakethe.",
+          "title": "Izimakethe Ezimbili"
+        },
+        "orders": {
+          "description": "Qaphela futhi uphathe ama-oda ezinketho ze-binary ngokulandelela ukwenziwa kanye nokucubungula ukuxazululwa.",
+          "title": "Ama-oda Okubili"
+        },
+        "trading": {
+          "description": "Uhlelo lokuhweba lwezinketho ze-binary ngokusetha kwezimakethe, ukuphathwa kobude besikhathi, nokulungiselelwa kokukhokha.",
+          "title": "Izinketho Zokubili"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "Ukuphathwa kwe-ledger engenakuguqulwa ngemikhondo yokuhlola, ukubika ukuthobela, namathuluzi okuhlaziya i-forensic.",
+          "title": "Ama-ledger We-Blockchain"
+        },
+        "networks": {
+          "description": "Ukuphathwa kwenethiwekhi yamaketanga amaningi ngokuqapha i-node, ukulandelela ukuvumelana, kanye nokuhlaziywa kwempilo yenethiwekhi.",
+          "title": "Amanethiwekhi We-Blockchain"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "Ukuphathwa kwebhulogi ephelele ngamaphrofayela ababhali, ukuhlelwa kokuqukethwe, ukwenziwa okuhle kwe-SEO, kanye nokuhlaziywa kokubandakanyeka.",
+          "title": "Uhlelo Lwe-Blog"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "Amathuluzi ebuhlakani bebhizinisi abalulekile wokumaketha, ukusekela amakhasimende, nokuphathwa kolwazi.",
+          "title": "Amathuluzi Ebhizinisi"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "Uhlelo oluphelele lokuphatha okuqukethwe lwamabhulogi, izimpahla zemidiya, nokuqukethwe kwewebhusayithi eguquguqukayo.",
+          "title": "Okuqukethwe"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "Ukuphathwa kwezimpahla zedijithali ngokuhlanganiswa kwe-blockchain, ukuxhumana kwesikhwama, kanye nezindlela zedatha yemakethe yesikhathi sangempela.",
+          "title": "Ama-Cryptocurrencies"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "Izinsizakalo zesikhwama se-custodial yezimboni ezinokuthobela umthetho kanye nombozo womshwalense.",
+          "title": "Izinsizakalo Zokulondoloza"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "Amalogi okufakwa kwemali aphelele ngokuqapha kwesimo, amathuluzi okuvumelanisa, kanye namandla okuphenya.",
+          "title": "Amarekhodi Okufaka"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "Umakhi wekhasi obonakalayo ophezulu ngesixhumi sokudonsela-ubese, amathuluzi wokuklama okuphendulayo, kanye nezinketho zokwenza kube ngokwakho komkhiqizo.",
+          "title": "Umakhi Wekhasi"
+        },
+        "customization": {
+          "description": "Yenza kube ngokwakho ukubukeka kwewebhusayithi yakho nokuklama ngamathuluzi abonakalayo aphezulu.",
+          "title": "Ukwakhiwa"
+        },
+        "default": {
+          "editor": {
+            "description": "Hlela amakhasi angaphambili azenzakalelayo kufaka phakathi ikhaya, amakhasi omthetho, nezakhiwo ngokuxhuma kwekhodi yokuhlela.",
+            "title": "Amakhasi Azenzakalelayo"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "Inkundla yezohwebo enezici ezigcwele enokuphathwa kwempahla, ukucubungula ama-oda, kanye nokwesekwa kwabathengisi abaningi.",
+          "title": "Inkundla Yezohwebo"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "Ukuphathwa kwemakethe engahlelekile ngezinhlelo ze-AMM, amachibi wemali, kanye nokuhlanganiswa kokulima kwenzuzo.",
+          "title": "Izimakethe Ze-DeFi"
+        },
+        "orders": {
+          "description": "Ama-oda okuhweba we-ecosystem ye-blockchain ngokuhlanganiswa kwenkontileka ehlakaniphile nokwenziwa okungahlelekile.",
+          "title": "Ama-oda We-Ecosystem"
+        },
+        "platform": {
+          "description": "Uhlelo lokuhweba olungagxilile endaweni eyodwa oluhlanganiswe ne-blockchain, izixazululo ze-DeFi, kanye nokuzenzakalelayo kwezinkontileka ezihlakaniphile.",
+          "title": "Uhlelo Lwe-Blockchain"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "Dala futhi uphathe imikhankaso ye-imeyili ngokuhlukaniswa, ukwenza kube ngokwakho, kanye nokuqapha ukusebenza.",
+          "title": "Imikhankaso Ye-imeyili"
+        },
+        "marketing": {
+          "description": "Inkundla yokumaketha ye-imeyili yochwepheshe ngokusebenza okuzenzakalelayo, ukuhlola kwe-A/B, kanye nokuhlaziya.",
+          "title": "Ukumaketha Nge-imeyili"
+        },
+        "templates": {
+          "description": "Umtapo wezifanekiso ze-imeyili zochwepheshe ngokuklama okuphendulayo kanye nezinketho zokwenza kube ngokwakho komkhiqizo.",
+          "title": "Izifanekiso Ze-imeyili"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "Phatha ukuhlanganiswa kokushintshaniswa ngabahlinzeki bokufakazelwa, ukucushwa kwe-API, kanye nokuqapha ukusebenza.",
+          "title": "Abahlinzeki Baseshintshiselweni"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "Ukuphathwa kweminyaka yokuphila kwesingezelelo ngokufakwa, izibuyekezo, ukuxazulula ukuthembela, kanye nokuhlola ukuhambisana.",
+          "title": "Umenenja Wezandiso"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "Ukuphathwa kwemali yendabuko ngokuqapha izintengo zokushintshana, izilungiselelo zesifunda, kanye nokuhlanganiswa kwesango lokukhokha.",
+          "title": "Izimali Zase-Fiat"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "Iqembu lokuphatha kwezezimali eliphelele elihlanganisa ukuhlaziya kwengeniso, ukuphathwa kwemali, ukucubungula inkokhelo, kanye nokubhekwa kokuthenga.",
+          "title": "Ezezimali"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "Ukuhweba i-forex kochwepheshe ngokuhlanganiswa kwe-MetaTrader, ukuhweba nge-algorithmic, kanye noketshezi lwamafemu.",
+          "title": "Ukuhweba i-Forex"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "Ukucushwa kwemakethe yekusasa ngokucaciswa kwenkontileka, izidingo ze-margin, kanye nezinqubo zokunquma.",
+          "title": "Izimakethe Zekusasa"
+        },
+        "orders": {
+          "description": "Ukuphathwa kwe-oda lenkontileka yekusasa ngokuqapha i-margin kanye namathuluzi wokuhlola ubungozi.",
+          "title": "Ama-oda Wekusasa"
+        },
+        "platform": {
+          "description": "Inkundla yokuhweba ikusasa yochwepheshe enokuphathwa kwamajini, izilawuli zobungozi, kanye nokwenziwa kwamafemu.",
+          "title": "Ukuhweba Ikusasa"
+        },
+        "positions": {
+          "description": "Ukuqapha kwesikhundla sesikhathi sangempela ngokuqapha kwe-P&L, izibizo ze-margin, kanye nokuphathwa kobungozi okuzenzakalelayo.",
+          "title": "Ukulawulwa Kwesikhundla"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "Ukuphathwa kokuqukethwe kwekhasi lasekhaya okuguquguqukayo ngezilayidi eziphendulayo, izinkinobho zokubiza-ekusebenzeni, kanye namandla wokuhlola kwe-A/B.",
+          "title": "Ama-slider Wekhasi Lasekhaya"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "Inkundla ye-Initial Coin Offering enokuhlanganiswa kwe-KYC, ukuthunyelwa kwezinkontileka ezihlakaniphile, kanye nokuthobela imithetho.",
+          "title": "Ukuthengiswa Kwamathokheni"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "Phatha ukudluliselwa kwezimali zangaphakathi phakathi kwama-akhawunti ngokusebenza kokugunyaza kanye nokuhlola ukuthobela.",
+          "title": "Ukudluliselwa Kwangaphakathi"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "Hlanganisa izikhathi zokutshalwa kwezimali, izikhathi zokuvuthwa, kanye nokubala kwenzalo ehlanganisiwe yemikhiqizo ehlukahlukene.",
+          "title": "Izikhathi Zokutshalwa Kwezimali"
+        },
+        "extensions": {
+          "description": "Imikhiqizo yokutshalwa kwezimali ephezulu ngamasu aqhutshwa yi-AI, izinsizakalo zokubeka isibambiso, kanye nezinkundla ze-tokenization.",
+          "title": "Imikhiqizo Yokutshalwa Kwezimali"
+        },
+        "history": {
+          "description": "Ukuhlaziya okuphelele kokusebenza kokutshalwa kwezimali ngokuqapha kwe-ROI kanye nemihlomulo yokuphatha kwephothifoliyo.",
+          "title": "Ukuhlaziya Kokutshalwa Kwezimali"
+        },
+        "management": {
+          "description": "Ukuphathwa kwemikhiqizo yokutshalwa kwezimali ngokudala uhlelo, ukuqapha ukusebenza, kanye namathuluzi wokubheka iphothifoliyo.",
+          "title": "Ukuphathwa Kokutshalwa Kwezimali"
+        },
+        "plans": {
+          "description": "Dala futhi uphathe imikhiqizo yokutshalwa kwezimali ngamaphrofayili wobungozi, ukubala kwembuyiselo, kanye nokucushwa kwesikhathi.",
+          "title": "Izinhlelo Zokutshalwa Kwezimali"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "Uhlelo lokuphatha ulwazi oluphelele ngokusesha okuqhutshwa yi-AI kanye nokwenza ngcono kokuqukethwe.",
+          "title": "Isisekelo Solwazi"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "Buyekeza futhi ucubungule izicelo zokwazi ikhasimende lakho ngokuqinisekisa idokhumenti, ukuhlola ubungozi, kanye nokusebenza kokugunyaza.",
+          "title": "Izicelo ze-KYC"
+        },
+        "levels": {
+          "description": "Hlanganisa amazinga wokuqinisekisa ngezidingo ezingakwazi ukwenziwa ngokwakho, imikhawulo, kanye namalungelo wokufinyelela ezigabeni ezihlukahlukene zabasebenzisi.",
+          "title": "AmazingaOkuqinisekisa"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "Amathuluzi wokunakekela uhlelo kufaka phakathi ukwenza ngcono idathabeyisi, ukuphathwa kwe-cache, kanye namathuluzi wokufuduka.",
+          "title": "Amathuluzi Okunakekelwa"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "Izinkundla ze-e-commerce kanye nemakethe yedijithali eziphelele ngamathuluzi aphelele womthengisi kanye nokuvikelwa komthengi.",
+          "title": "Izixazululo Zemakethe"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "Ukuphathwa kwesikhwama esikhulu sezimboni ngokuphepha kwe-multi-signature kanye nokuhlanganiswa kwesitoreji esibandayo.",
+          "title": "Izikhwama Eziyinhloko"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "Ukuphathwa kwemidiya okuhlanganisiwe ngesitoreji samafu, ukwenza ngcono isithombe, kanye nokuhlanganiswa kwe-CDN ukuze kube nokusebenza okuhle kakhulu.",
+          "title": "Umtapo Wabezindaba"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "Imakethe ye-NFT yochwepheshe ngamathuluzi wokwenza, ukuphathwa kwe-royalty, kanye namandla wokufaka isithombe.",
+          "title": "Imakethe Ye-NFT"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "Izifanekiso zezaziso ezingakwazi ukwenziwa ngokwakho ngokuthunyelwa kweziteshi eziningi kanye nezinto eziguquguqukayo zokwenza kube ngokwakho.",
+          "title": "Izifanekiso Zezaziso"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "Ukucubungula kwe-oda okuhlanganisiwe kanye nokuphathwa kuzo zonke izinkundla zokuhweba kanye nezigaba zempahla.",
+          "title": "Ukulawulwa Kwe-oda"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "Inkundla yokuhweba phakathi kwabantu ngabanye enesevisi ye-escrow, ukuxazululwa kwezingxabano, kanye nokwesekwa kwesango lokukhokha eliningi.",
+          "title": "Ukushintshanisa kwe-P2P"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "Hlanganisa futhi uqaphe amasango okukhokha ngokubonwa kokukhwabanisa, ukuhlola ukuthobela, kanye nokuhlaziya ukusebenza.",
+          "title": "AmasangoOkukhokha"
+        },
+        "methods": {
+          "description": "Phatha izinketho zokukhokha ezitholakalayo kufaka phakathi amakhadi, ukudluliselwa kwebhange, izikhwama zedijithali, kanye nezinkokhelo ze-cryptocurrency.",
+          "title": "Izindlela Zokukhokha"
+        },
+        "systems": {
+          "description": "Ukuphathwa kwengqalasizinda yokukhokha ephelele kufaka phakathi amasango, izindlela, kanye nokubhekwa kokucubungula ukuthenga.",
+          "title": "Izinhlelo Zokukhokha"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "Izandiso zenkundla ezithuthukile ezihlinzeka ngomsebenzi okhethekile wokuhweba, imakethe, kanye nemisebenzi yebhizinisi.",
+          "title": "Izandiso"
+        },
+        "settings": {
+          "description": "Ukumisa okuyisisekelo kwenkundla okubandakanya uphawu, ukwenziwa kwendawo, izinqubomgomo zokuphepha, kanye nokuvumelana kwezici.",
+          "title": "Izilungiselelo Zenkundla"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "Isihlanganisi somsebenzi osebenza ngokuzenzakalelayo ngokuqapha umsebenzi, ukuphathwa kokuhluleka, kanye nokwenza ngcono ukusebenza.",
+          "title": "Imisebenzi Ehleliwe"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "Ukuphathwa kwe-oda lokuhweba lendawo ngokuqapha kokwenziwa kwesikhathi sangempela kanye nokuhlaziya umthelela wemakethe.",
+          "title": "Ama-oda Endawo"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "Inkundla yokubeka ephelele enokuphathwa kwabahloli, ukusatshalaliswa kwemivuzo, kanye nokuvikelwa kokuqothulwa.",
+          "title": "Izinsizakalo Zokubeka"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "Iqembu lokuphatha uhlelo eliphelele lokucushwa kwenkundla, ukuqapha, kanye nemisebenzi yokunakekela.",
+          "title": "Uhlelo"
+        },
+        "announcements": {
+          "description": "Uhlelo lwezimemezelo kwinkundla yonke ngokucwayisa, ukuqondisa, kanye namandla wokuqapha ukuzibandakanya.",
+          "title": "Izimemezelo Zohlelo"
+        },
+        "logs": {
+          "description": "Uhlelo lokungena oluhlanganisiwe ngokuqapha kwesikhathi sangempela, ukuhlanganiswa kwamalogi, kanye namandla wokusesha aphezulu.",
+          "title": "Amalogi Ohlelo"
+        },
+        "updates": {
+          "description": "Izibuyekezo zesistimu ezenzekelayo ezinezakhono zokubuyisela emuva, izilungiso zokuphepha, kanye nokuphathwa kokuthunyelwa kwezici.",
+          "title": "Izibuyekezo Zohlelo"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "Ukuphathwa okugcwele kwemijikelezo yethokheni ngokugqumisa, ukushisa, kanye namandla okubusa.",
+          "title": "Ukulawulwa Kwe-Token"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "Izinkundla zokuhweba zochwepheshe ezinezinhlobo ezithuthukile zama-oda, amathuluziokuhlaziya imakethe, kanye nokusetshenziswa kwezinga lezikhungo.",
+          "title": "Izinkundla Zokuhweba"
+        },
+        "infrastructure": {
+          "description": "Ukuphathwa kwenkundla yokuhweba okubandakanya abahlinzeki baseshintshiselweni, ukumiswa kwemakethe, kanye nezinhlelo zokucubungula ama-oda.",
+          "title": "Ingqalasizinda Yokuhweba"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "Umlando ogcwele wezigameko ngokuhlungwa okuthuthukile, amandla okuthekelisa, kanye nemikhondo yokuhlola.",
+          "title": "Amalogi Ezikweletu"
+        },
+        "management": {
+          "description": "Ukubhekwa okugcwele kwezigameko ngokugadwa okuningiliziwe, ukuxoxisana, kanye namandla okuphatha ukudluliselwa.",
+          "title": "Ukulawulwa Kwezikweletu"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "Ukuphathwa okuphelele kwemjikelezo wokuphila komsebenzisi okubandakanya ukubhalisa, ukuqinisekisa, ukwabelwa kweqhaza, kanye namathuluzi obudlelwano namakhasimende ukuze kuphathwe ngokugcwele abasebenzisi.",
+          "title": "Abasebenzisi"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "Ukuphathwa kwe-UTXO okuthuthukile ngokuhlaziya igrafu yezigameko kanye nezici zokuvikela ubumfihlo.",
+          "title": "Ukulandelela Kwe-UTXO"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "Ukuphathwa kwesikhwama semali eziningi ngokubhekwa kwebhalansi, izilawuli zokuphepha, kanye nokuphathwa kokuhlela ngemuva.",
+          "title": "Ukulawulwa Kwesikhwama"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "Qaphela izicelo zokuhoxa ngokulandelwa kwesimo, ukuhamba komsebenzi wokuvuma, kanye nokuqinisekiswa kokuthobela.",
+          "title": "Amarekhodi Okukhipha"
+        },
+        "management": {
+          "description": "Ukuphathwa okubanzi kwesistimu yokuhoxa ngokucutshungulwa okuzenzakalelayo, ukuvimbela ukukopuza, kanye nezilawuli zokuthobela.",
+          "title": "Ukulawulwa Kokukhipha"
+        },
+        "methods": {
+          "description": "Misa izinketho zokuhoxa ezibandakanya ukudluliselwa kwebhange, ukuhoxa kwe-crypto, kanye nabacubunguli bezinhlangano zangaphandle.",
+          "title": "Izindlela Zokukhipha"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "Ukuhweba",
+        "description": "Finyelela ezinkundleni zokuhweba eziphelele ezinamathuluzi okwenza amashadi aphezulu, idatha yemakethe yesikhathi sangempela, kanye namakhono okwenza ochwepheshe kuzo zonke izigaba zempahla.",
+        "spot": {
+          "title": "Ukuhweba Ngesikhathi",
+          "description": "Yenza ama-oda okuthenga nokuthengisa ngesikhathi sakamuva ngamanani emakethe yamanje ngezinhlobo zama-oda ezithuthukisiwe, amashadi obujule, namathuluzi okuhweba ochwepheshe."
+        },
+        "binary": {
+          "title": "Izinketho Ze-Binary",
+          "description": "Hweba izinketho ze-binary ngokuhlaziya okuyinkimbinkimbi, amathuluzi okulawula ubungozi, kanye nokwenza okuhleliwe kwamasu esikhathi."
+        },
+        "forex": {
+          "title": "I-Forex",
+          "description": "Finyelela izimakethe zokushintshanisa izimali zomhlaba wonke ngokuhlanganiswa kwe-MetaTrader 4/5, amashadi athuthukisiwe, nokwenza kwezinga lesikhungo."
+        },
+        "p2p": {
+          "title": "Ukushintshanisana Kwabantu Ngabanye",
+          "description": "Zibandakanye ekuhwebeni okuvikelekile kwe-cryptocurrency kwabantu ngabantu ngokuvikelwa kwe-escrow, izindlela zokukhokha eziguquguqukayo, namanani ancintisanayo."
+        }
+      },
+      "portfolio": {
+        "title": "I-Portfolio",
+        "description": "Iqoqo eliphelele lokulawula i-portfolio lokulandelela izimpahla, ukuhlaziya ukusebenza, nokulawula izinsiza zakho zezezimali kuzo zonke izinkundla.",
+        "wallet": {
+          "title": "Ukulawulwa Kwesikhwama",
+          "description": "Isikhwama esiphephile sezimali eziningi esinokulandelela ibhalansi yesikhathi sangempela, umlando wezintengiselwano, namakhono okulula okufaka/ukukhipha."
+        },
+        "transactions": {
+          "title": "Umlando Wezintengiselwano",
+          "description": "Amarekhodi enemininingwane yezintengiselwano anezihlungi ezithuthukile, amandla okuthekelisa, nemigwaqo yokuhlola ephelele yazo zonke izenzo zezezimali."
+        },
+        "transfers": {
+          "title": "Ukudluliswa",
+          "description": "Amasevisi okudlulisa angaphakathi nangaphandle anokucubungula ngokushesha, izimali ezincintisanayo, kanye nokusekela imali yamazwe ngamazwe."
+        }
+      },
+      "investments": {
+        "title": "Ukutshalwa Kwezimali",
+        "description": "Amathuba okutshalwa kwezimali ahlukahlukene nezinhlelo zokuhlaziya ezisezilingeni lochwepheshe, amathuluzi okuhlola ubungozi, nokulandelela ukusebenza kuzo zonke izigaba zezimpahla.",
+        "plans": {
+          "title": "Izinhlelo Zokutshalwa Kwezimali",
+          "description": "Amasu okutshalwa kwezimali akhethiwe anezinkomba zobungozi ezinemininingwane, idatha yokusebenza komlando, nemibandela eguquguqukayo ukuhambisana nezinhloso zakho zezezimali."
+        },
+        "staking": {
+          "title": "Imiklomelo Ye-Staking",
+          "description": "Thola imali engajahile ngokusebenzisa i-cryptocurrency staking ngamazinga e-APY ancintisanayo, izikhathi zokukhiya eziguquguqukayo, nokusabalalisa kwemiklomelo okuzenzakalelayo."
+        },
+        "ico": {
+          "title": "Ukuthengiswa Kwamatokeni",
+          "description": "Ukufinyelela kwasekuqaleni kuma-Initial Coin Offerings ahlolwe kahle ngemibiko yokuhlola ephelele, ukuhlaziywa kwe-tokenomics, nokulandelela ukutshalwa kwezimali."
+        }
+      },
+      "marketplace": {
+        "title": "Imakethe",
+        "description": "Hlola izimakethe ezisezingeni eliphezulu zezinto zedijithali nezenyama ezinezintengiselwano ezivikelekile, abathengisi abaqinisekisiwe, nokuvikelwa kwabathengi okugcwele.",
+        "nft": {
+          "title": "Igalari Ye-NFT",
+          "description": "Thola, dala, futhi ushintshanise izimpahla zedijithali ezihlukile emakethe yethu ye-NFT ekhethiwe enamakhono okufaka isabelo kanye nemali yabadali."
+        },
+        "store": {
+          "title": "Isitolo",
+          "description": "Imakethe esezingeni eliphezulu enemikhiqizo yedijithali neyenyama enokucubungula kwenkokhelo okuvikelekile, ukuthunyelwa emhlabeni wonke, nokuvikelwa kwabathengi."
+        }
+      },
+      "services": {
+        "title": "Amasevisi",
+        "description": "Amasevisi ochwepheshe namathuluzi okuthuthukisa isipiliyoni sakho sokuhwebelana, kufaka phakathi izinhlelo ze-affiliate, izinsiza zemfundo, nokusekelwa okukahle.",
+        "affiliate": {
+          "title": "Uhlelo Lwe-Affiliate",
+          "description": "Yenza imali ngenethiwekhi yakho ngohlelo lwethu oluphelele lwe-affiliate olunekhomishana encintisanayo, ukulandelela ngesikhathi sangempela, namathuluzi okumaketha."
+        },
+        "support": {
+          "title": "Isikhungo Sokusekela",
+          "description": "Ukusekelwa kwamakhasimende ochwepheshe ngokuphathwa kwamathikithi, amandla wengxoxo ebukhoma, nokuphathwa kwe-akhawunti ezinikele kubasebenzisi abakahle."
+        },
+        "faq": {
+          "title": "Isisekelo Solwazi",
+          "description": "Amadokhumenti aphelele, izifundo, nemibuzo evame ukubuzwa ukusiza ukuthi usebenzise ngokugcwele amandla enkundla."
+        }
+      },
+      "insights": {
+        "title": "Ukuqonda",
+        "description": "Ukuhlaziywa kwemakethe kochwepheshe, ukuqonda kokuhwebelana, nezindaba zemboni kusuka eqenjini lethu lezazi zezezimali nabacwaningi bemakethe."
+      }
+    }
   }
 }

@@ -5,6 +5,13 @@ import { useWizard } from "../trading-wizard";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   InfoIcon as InfoCircle,
   HelpCircle,
   AlertTriangle,
@@ -21,6 +28,61 @@ import {
 } from "@/components/ui/tooltip";
 import { useTranslations } from "next-intl";
 import { isValidCurrencyCode } from "@/utils/currency";
+import { $fetch } from "@/lib/api";
+
+// Currency interface for FIAT currencies
+interface FiatCurrency {
+  id: string;
+  name: string;
+  symbol: string;
+  price?: number;
+  precision: number;
+  status: boolean;
+}
+
+// Hook to fetch available FIAT currencies for pricing
+const useFiatCurrencies = () => {
+  const [currencies, setCurrencies] = useState<FiatCurrency[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCurrencies = async () => {
+      try {
+        const { data, error } = await $fetch({
+          url: "/api/finance/currency?action=deposit&walletType=FIAT",
+          silentSuccess: true,
+        });
+
+        if (!error && data) {
+          // Transform the response to match our interface
+          const formatted = data.map((curr: any) => ({
+            id: curr.value,
+            name: curr.label.split(" - ")[1] || curr.value,
+            symbol: curr.value,
+            precision: 2, // Default precision for FIAT
+            status: true,
+          }));
+          setCurrencies(formatted);
+        }
+      } catch (err) {
+        // Set a default fallback to USD if fetch fails
+        setCurrencies([{
+          id: "USD",
+          name: "US Dollar",
+          symbol: "USD",
+          precision: 2,
+          status: true,
+        }]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCurrencies();
+  }, []);
+
+  return { currencies, loading };
+};
 
 // Replace the useMarketPrice hook with this updated version that includes wallet type
 const useMarketPrice = (currency: string, walletType: string) => {
@@ -38,9 +100,8 @@ const useMarketPrice = (currency: string, walletType: string) => {
       setLoading(true);
       try {
         // Include wallet type in the API request
-        const response = await fetch(
-          `/api/finance/currency/price?currency=${currency}&type=${walletType}`
-        );
+        const url = `/api/finance/currency/price?currency=${currency}&type=${walletType}`;
+        const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch price: ${response.statusText}`);
@@ -51,14 +112,9 @@ const useMarketPrice = (currency: string, walletType: string) => {
         if (data.status && data.data) {
           setPrice(data.data);
           setLastUpdated(new Date());
-        } else {
-          console.error(
-            "Failed to fetch price:",
-            data.message || "Unknown error"
-          );
         }
       } catch (error) {
-        console.error("Error fetching price:", error);
+        // Error fetching price
       } finally {
         setLoading(false);
       }
@@ -125,9 +181,13 @@ export function AmountPriceStep() {
   const [marginValue, setMarginValue] = useState("2");
   const [minLimit, setMinLimit] = useState("100");
   const [maxLimit, setMaxLimit] = useState("5000");
+  const [priceCurrency, setPriceCurrency] = useState("USD");
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
   const [isValidated, setIsValidated] = useState(false);
   const [isInitializing, setIsInitializing] = useState(true);
+
+  // Fetch available FIAT currencies for pricing
+  const { currencies: fiatCurrencies, loading: loadingCurrencies } = useFiatCurrencies();
 
   // Update the hook usage in the component to include wallet type
   const {
@@ -407,12 +467,36 @@ export function AmountPriceStep() {
           value: priceValue,
           marketPrice: marketPrice,
           finalPrice: priceValue,
+          currency: priceCurrency,
+          marginType: marginType,
         },
         // Keep the price field for backward compatibility
         price: priceValue,
       });
     },
-    [updateTradeData, marketPrice]
+    [updateTradeData, marketPrice, priceCurrency, marginType]
+  );
+
+  // Handle price currency change
+  const handlePriceCurrencyChange = useCallback(
+    (currency: string) => {
+      setPriceCurrency(currency);
+
+      // Update the priceConfig with the new currency
+      const currentPrice = tradeData.priceConfig?.value || tradeData.price || 0;
+      updateTradeData({
+        priceConfig: {
+          ...(tradeData.priceConfig || {}),
+          model: priceModel,
+          value: currentPrice,
+          marketPrice: marketPrice,
+          finalPrice: currentPrice,
+          currency: currency,
+          marginType: marginType,
+        },
+      });
+    },
+    [updateTradeData, tradeData.priceConfig, tradeData.price, priceModel, marketPrice, marginType]
   );
 
   // Update the handlePriceModelChange function to store data in the expected format
@@ -559,9 +643,14 @@ export function AmountPriceStep() {
           value: marketPrice || 0,
           marketPrice: marketPrice || 0,
           finalPrice: marketPrice || 0,
+          currency: "USD", // Default currency
+          marginType: "percentage",
         };
         // Keep the price field for backward compatibility
         updates.price = marketPrice || 0;
+      } else if (tradeData.priceConfig.currency) {
+        // If priceConfig exists and has a currency, set it
+        setPriceCurrency(tradeData.priceConfig.currency);
       }
 
       // Set price model if not already set
@@ -842,7 +931,7 @@ export function AmountPriceStep() {
 
           <div className="space-y-2 pt-4">
             <div className="flex justify-between">
-              <Label htmlFor="minLimit">{t("minimum_limit_(usd)")}</Label>
+              <Label htmlFor="minLimit">{t("minimum_limit")} ({priceCurrency})</Label>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -874,7 +963,7 @@ export function AmountPriceStep() {
 
           <div className="space-y-2">
             <div className="flex justify-between">
-              <Label htmlFor="maxLimit">{t("maximum_limit_(usd)")}</Label>
+              <Label htmlFor="maxLimit">{t("maximum_limit")} ({priceCurrency})</Label>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -934,10 +1023,33 @@ export function AmountPriceStep() {
 
             <TabsContent value="fixed" className="space-y-4 pt-4">
               <div className="space-y-2">
+                <Label htmlFor="priceCurrency">
+                  {t("currency")}
+                </Label>
+                <Select value={priceCurrency} onValueChange={handlePriceCurrencyChange} disabled={loadingCurrencies}>
+                  <SelectTrigger>
+                    <SelectValue placeholder={loadingCurrencies ? t("loading") + "..." : t("select_currency")} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {fiatCurrencies.length === 0 ? (
+                      <div className="p-2 text-sm text-muted-foreground">
+                        {loadingCurrencies ? "Loading currencies..." : "No currencies available"}
+                      </div>
+                    ) : (
+                      fiatCurrencies.map((curr: FiatCurrency) => (
+                        <SelectItem key={curr.id} value={curr.id}>
+                          {curr.symbol} - {curr.name}
+                        </SelectItem>
+                      ))
+                    )}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
                 <Label htmlFor="price">
                   {t("price_per")}{" "}
                   {getCryptoSymbol()}{" "}
-                  (USD)
+                  ({priceCurrency})
                 </Label>
                 <Input
                   id="price"
@@ -1029,7 +1141,7 @@ export function AmountPriceStep() {
                       step={marginType === "percentage" ? "0.1" : "1"}
                     />
                     <span className="text-sm font-medium">
-                      {marginType === "percentage" ? "%" : "USD"}
+                      {marginType === "percentage" ? "%" : priceCurrency}
                     </span>
                   </div>
                   <p className="text-xs text-muted-foreground">
@@ -1093,11 +1205,11 @@ export function AmountPriceStep() {
         <div className="flex justify-between items-center">
           <h4 className="font-medium">{t("total_value")}</h4>
           <div className="text-xl font-bold">
-            ${tradeData.totalValue || "0.00"}
+            {tradeData.totalValue || "0.00"} {priceCurrency}
           </div>
         </div>
         <p className="text-sm text-muted-foreground mt-2">
-          {t("this_is_the_total_amount_in_usd_for_this_trade")}.
+          {t("this_is_the_total_amount_for_this_trade", { currency: priceCurrency })}.
         </p>
       </div>
 

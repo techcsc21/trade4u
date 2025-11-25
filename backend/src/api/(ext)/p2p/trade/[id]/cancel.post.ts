@@ -107,21 +107,25 @@ export default async (data: { params?: any; body: any; user?: any }) => {
     }
 
     // If funds were locked (PENDING or PAYMENT_SENT status), unlock them
+    // Note: Only unlock for non-FIAT wallets, as FIAT was never locked
     if (["PENDING", "PAYMENT_SENT"].includes(trade.status)) {
-      const sellerWallet = await getWalletSafe(
-        trade.sellerId,
-        trade.offer.walletType,
-        trade.offer.currency
-      );
+      // Only unlock crypto wallets (SPOT/ECO), not FIAT
+      if (trade.offer.walletType !== "FIAT") {
+        const sellerWallet = await getWalletSafe(
+          trade.sellerId,
+          trade.offer.walletType,
+          trade.offer.currency
+        );
 
-      if (sellerWallet && sellerWallet.inOrder >= trade.amount) {
-        // Unlock seller's funds
-        await sellerWallet.update({
-          inOrder: sellerWallet.inOrder - trade.amount,
-        }, { transaction });
+        if (sellerWallet && sellerWallet.inOrder >= trade.amount) {
+          // Unlock seller's funds
+          await sellerWallet.update({
+            inOrder: sellerWallet.inOrder - trade.amount,
+          }, { transaction });
+        }
       }
 
-      // Restore offer amount if applicable
+      // Restore offer amount if applicable (for both FIAT and crypto)
       if (trade.offerId) {
         const offer = await models.p2pOffer.findByPk(trade.offerId, {
           lock: true,

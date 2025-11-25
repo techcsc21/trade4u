@@ -41,8 +41,20 @@ export const RegularField: React.FC<RegularFieldProps> = ({
       control={form.control}
       name={column.key}
       render={({ field, fieldState: { error } }) => {
+        // Wrap the field onChange to support custom onChange handlers
+        const enhancedField = {
+          ...field,
+          onChange: (value: any) => {
+            field.onChange(value);
+            // Call column's custom onChange if provided
+            if (column.onChange) {
+              column.onChange(value, form);
+            }
+          }
+        };
+
         return (
-          <FormItem className={cn("space-y-1", isFullWidth && "md:col-span-2")}>
+          <FormItem className={cn(isFullWidth && "md:col-span-2")}>
             <FormLabel className={cn(error && "text-destructive")}>
               {column.title}
               {isRequired && <span className="text-destructive"> *</span>}
@@ -50,7 +62,7 @@ export const RegularField: React.FC<RegularFieldProps> = ({
             <FormControl>
               <FormControls
                 column={column}
-                field={field}
+                field={enhancedField}
                 error={error?.message}
                 control={form.control}
               />

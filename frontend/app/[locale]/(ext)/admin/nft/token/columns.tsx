@@ -96,7 +96,17 @@ export const columns = [
           usedInCreate: false,
         },
         metadata: [
-          { key: "isVerified", title: "Verified", type: "boolean" }
+          {
+            key: "isVerified",
+            title: "Verified",
+            type: "custom",
+            render: (value) => {
+              if (value === true || value === 1 || value === "true") {
+                return <span className="text-xs text-green-600 dark:text-green-400">✓ Verified</span>;
+              }
+              return null; // Don't show anything if not verified
+            }
+          }
         ]
       }
     }
@@ -152,24 +162,25 @@ export const columns = [
     usedInCreate: false,
     icon: User,
     priority: 3,
-    sortKey: "creator.firstName",
+    sortKey: "creator.user.firstName",
     render: {
       type: "custom",
       render: (value, row) => {
-        if (!row.creator || (!row.creator.firstName && !row.creator.lastName && !row.creator.email)) {
+        if (!row.creator || !row.creator.user) {
           return <span className="text-muted-foreground">No creator assigned</span>;
         }
-        
+
         const creator = row.creator;
-        const fullName = [creator.firstName, creator.lastName].filter(Boolean).join(" ");
-        
+        const user = creator.user;
+        const displayName = creator.displayName || [user.firstName, user.lastName].filter(Boolean).join(" ");
+
         return (
           <div className="flex items-center gap-3">
             <div className="relative h-8 w-8 rounded-full overflow-hidden bg-muted">
-              {creator.avatar ? (
-                <img 
-                  src={creator.avatar} 
-                  alt={fullName || "Creator"} 
+              {user.avatar ? (
+                <img
+                  src={user.avatar}
+                  alt={displayName || "Creator"}
                   className="h-full w-full object-cover"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -177,14 +188,19 @@ export const columns = [
                   }}
                 />
               ) : null}
-              <div className="absolute inset-0 flex items-center justify-center bg-muted" style={{ display: creator.avatar ? 'none' : 'flex' }}>
+              <div className="absolute inset-0 flex items-center justify-center bg-muted" style={{ display: user.avatar ? 'none' : 'flex' }}>
                 <User className="h-4 w-4 text-muted-foreground" />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="font-medium text-sm">{fullName || "Unknown Creator"}</span>
-              {creator.email && (
-                <span className="text-xs text-muted-foreground">{creator.email}</span>
+              <div className="flex items-center gap-1">
+                <span className="font-medium text-sm">{displayName || "Unknown Creator"}</span>
+                {creator.isVerified && (
+                  <span className="text-blue-600 dark:text-blue-400 text-xs">✓</span>
+                )}
+              </div>
+              {user.email && (
+                <span className="text-xs text-muted-foreground">{user.email}</span>
               )}
             </div>
           </div>
@@ -206,7 +222,7 @@ export const columns = [
       { value: "COMMON", label: "Common", color: "secondary" },
       { value: "UNCOMMON", label: "Uncommon", color: "blue" },
       { value: "RARE", label: "Rare", color: "purple" },
-      { value: "EPIC", label: "Epic", color: "orange" },
+      { value: "EPIC", label: "Epic", color: "amber" },
       { value: "LEGENDARY", label: "Legendary", color: "yellow" }
     ],
     render: {
@@ -223,8 +239,8 @@ export const columns = [
           const variants = {
             COMMON: "secondary",
             UNCOMMON: "blue",
-            RARE: "purple", 
-            EPIC: "orange",
+            RARE: "purple",
+            EPIC: "amber",
             LEGENDARY: "yellow"
           };
         
@@ -243,7 +259,7 @@ export const columns = [
           secondary: "bg-secondary text-secondary-foreground",
           blue: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
           purple: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
-          orange: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300",
+          amber: "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300",
           yellow: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
         };
         

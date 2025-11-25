@@ -11,11 +11,11 @@ export default function IcoTransactionsPage() {
       userAnalytics={true}
       model="icoTransaction"
       permissions={{
-        access: "view.ico.transaction",
-        view: "view.ico.transaction",
-        create: "create.ico.transaction",
-        edit: "edit.ico.transaction",
-        delete: "delete.ico.transaction",
+        access: undefined, // User dashboard - no permission check needed (backend filters by user)
+        view: undefined,
+        create: undefined,
+        edit: undefined,
+        delete: undefined,
       }}
       pageSize={10}
       canCreate={false}

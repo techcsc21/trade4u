@@ -103,11 +103,17 @@ export const formatCurrency = (amount: number, currency: string) => {
     }
   } else {
     // For cryptocurrencies and other non-ISO currencies, format manually
-    const formattedValue = new Intl.NumberFormat("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 8, // Cryptocurrencies often have more decimal places
-    }).format(amount);
-    
+    // Remove trailing zeros for cleaner display
+    let formattedValue: string;
+
+    if (amount < 0.01) {
+      // For very small numbers, show up to 8 decimals but remove trailing zeros
+      formattedValue = amount.toFixed(8).replace(/\.?0+$/, '');
+    } else {
+      // For normal numbers, show up to 4 decimals but remove trailing zeros
+      formattedValue = amount.toFixed(4).replace(/\.?0+$/, '');
+    }
+
     return `${formattedValue} ${currency}`;
   }
 };

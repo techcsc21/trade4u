@@ -32,6 +32,29 @@ export default async (data: { user?: any }) => {
     let activity: any[] = [];
     let transactions: any[] = [];
 
+    // Fetch user wallets for P2P trading first (needed for stats calculation)
+    let wallets: any[] = [];
+    try {
+      wallets = await models.wallet.findAll({
+        where: {
+          userId: user.id,
+          type: { [Op.in]: ["FIAT", "SPOT", "ECO"] },
+        },
+        attributes: [
+          "id",
+          "type",
+          "currency",
+          "balance",
+          "inOrder",
+          "status",
+        ],
+        raw: true,
+      });
+    } catch (walletsError) {
+      console.error("Error fetching user wallets:", walletsError);
+      wallets = [];
+    }
+
     try {
       // Portfolio: aggregate total value of completed trades (user is buyer or seller)
       portfolioResult = await models.p2pTrade.findOne({
@@ -53,12 +76,13 @@ export default async (data: { user?: any }) => {
     }
 
     try {
-      // Dashboard stats: count total trades
-      statsResult = await models.p2pTrade.findOne({
+      // Dashboard stats: count total trades and calculate stats
+      const tradeStats = await models.p2pTrade.findOne({
         attributes: [
+          [sequelize.fn("COUNT", sequelize.col("id")), "tradeCount"],
           [
-            sequelize.fn("COUNT", sequelize.col("id")),
-            "tradeCount",
+            sequelize.fn("COUNT", sequelize.literal("CASE WHEN status = 'COMPLETED' THEN 1 END")),
+            "completedCount"
           ],
         ],
         where: {
@@ -66,9 +90,54 @@ export default async (data: { user?: any }) => {
         },
         raw: true,
       });
+
+      const totalTrades = parseInt(tradeStats?.tradeCount || "0");
+      const completedTrades = parseInt(tradeStats?.completedCount || "0");
+      const successRate = totalTrades > 0 ? ((completedTrades / totalTrades) * 100).toFixed(1) : "0";
+
+      // Calculate total balance from wallets
+      const totalBalance = wallets.reduce((sum: number, wallet: any) => {
+        return sum + parseFloat(wallet.balance || 0);
+      }, 0);
+
+      // Format stats as array for frontend
+      statsResult = [
+        {
+          title: "Total Balance",
+          value: `$${totalBalance.toFixed(2)}`,
+          change: "+0.0% from last month",
+          changeType: "neutral",
+          icon: "wallet",
+          gradient: "from-blue-500 to-blue-700",
+        },
+        {
+          title: "Trading Volume",
+          value: `$${(portfolioResult?.totalValue || 0)}`,
+          change: "+0.0% from last month",
+          changeType: "neutral",
+          icon: "trending-up",
+          gradient: "from-green-500 to-green-700",
+        },
+        {
+          title: "Active Trades",
+          value: totalTrades.toString(),
+          change: `${completedTrades} completed`,
+          changeType: "neutral",
+          icon: "bar-chart",
+          gradient: "from-violet-500 to-violet-700",
+        },
+        {
+          title: "Success Rate",
+          value: `${successRate}%`,
+          change: `Based on ${totalTrades} trades`,
+          changeType: "neutral",
+          icon: "shield-check",
+          gradient: "from-amber-500 to-amber-700",
+        },
+      ];
     } catch (statsError) {
       console.error("Error fetching stats data:", statsError);
-      statsResult = { tradeCount: 0 };
+      statsResult = [];
     }
 
     try {
@@ -102,33 +171,10 @@ export default async (data: { user?: any }) => {
       transactions = [];
     }
 
-    // Fetch user wallets for P2P trading
-    let wallets: any[] = [];
-    try {
-      wallets = await models.wallet.findAll({
-        where: {
-          userId: user.id,
-          type: { [Op.in]: ["FIAT", "SPOT", "ECO"] },
-        },
-        attributes: [
-          "id",
-          "type",
-          "currency",
-          "balance",
-          "inOrder",
-          "status",
-        ],
-        raw: true,
-      });
-    } catch (walletsError) {
-      console.error("Error fetching user wallets:", walletsError);
-      wallets = [];
-    }
-
     return {
       notifications,
       portfolio: portfolioResult || { totalValue: 0 },
-      stats: statsResult || { tradeCount: 0 },
+      stats: statsResult || [],
       tradingActivity: activity || [],
       transactions: transactions || [],
       wallets: wallets.map((wallet: any) => ({

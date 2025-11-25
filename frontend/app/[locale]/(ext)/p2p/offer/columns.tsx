@@ -106,10 +106,10 @@ export const columns: ColumnDefinition[] = [
       ),
     },
   },
-  // Price (USD)
+  // Price
   {
     key: "priceConfig",
-    title: "Price (USD)",
+    title: "Price",
     type: "custom",
     icon: DollarSign,
     sortable: false, // Can't sort on JSON field
@@ -123,7 +123,8 @@ export const columns: ColumnDefinition[] = [
             ? JSON.parse(offer.priceConfig)
             : offer.priceConfig;
         const price = cfg?.finalPrice ?? 0;
-        return <div>{price.toLocaleString()} USD</div>;
+        const priceCurrency = offer.priceCurrency || cfg?.currency || "USD";
+        return <div>{price.toLocaleString()} {priceCurrency}</div>;
       },
     },
   },
@@ -148,13 +149,14 @@ export const columns: ColumnDefinition[] = [
             : offer.priceConfig;
         const price = cfg?.finalPrice ?? 0;
         const fiat = total * price;
+        const priceCurrency = offer.priceCurrency || cfg?.currency || "USD";
         return (
           <div>
             <p className="font-medium">
               {total} {offer.currency}
             </p>
             <p className="text-sm text-muted-foreground">
-              ≈ {fiat.toLocaleString()} USD
+              ≈ {fiat.toLocaleString()} {priceCurrency}
             </p>
           </div>
         );

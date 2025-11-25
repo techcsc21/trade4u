@@ -68,7 +68,11 @@ export default async (data: { user?: any; params?: any }) => {
     where: { id, userId: user.id },
     include: [
       { model: models.icoTokenOfferingPhase, as: "phases" },
-      { model: models.icoTokenDetail, as: "tokenDetail" },
+      {
+        model: models.icoTokenDetail,
+        as: "tokenDetail",
+        include: [{ model: models.icoTokenType, as: "tokenTypeData" }]
+      },
       { model: models.icoLaunchPlan, as: "plan" },
       // Include additional associations (e.g., roadmap items) as needed.
     ],

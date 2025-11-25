@@ -155,10 +155,9 @@ export function OfferHero({
         {/* Info row */}
         <div className="flex flex-wrap items-center text-primary-foreground dark:text-zinc-200 mb-6">
           <div className="flex items-center mr-6 mb-2">
-            <DollarSign className="h-4 w-4 mr-1" />
             <span className="font-medium">
               {price.toLocaleString()}{" "}
-              USD
+              {offer.priceCurrency || priceConfig.currency || "USD"}
             </span>
           </div>
 
@@ -227,13 +226,11 @@ export function OfferHero({
                 {t("available_amount")}
               </div>
               <div className="text-2xl font-bold text-primary-foreground dark:text-zinc-100">
-                {formatAmount(amountConfig.total || 0, offer.currency)}{" "}
-                <span className="text-lg">{offer.currency}</span>
+                {formatAmount(amountConfig.total || 0, offer.currency)}
               </div>
               <div className="text-xs text-primary-foreground/70 dark:text-zinc-400">
-                ≈
-                {((amountConfig.total || 0) * price).toFixed(2)}{" "}
-                USD
+                ≈{((amountConfig.total || 0) * price).toFixed(2)}{" "}
+                {offer.priceCurrency || priceConfig.currency || "USD"}
               </div>
             </div>
           </div>
@@ -242,13 +239,11 @@ export function OfferHero({
             <div className="bg-primary-foreground/20 dark:bg-zinc-800/50 rounded-lg p-4 w-full">
               <div className="text-sm text-primary-foreground/80 dark:text-zinc-300 mb-1">{t("min_order")}</div>
               <div className="text-2xl font-bold text-primary-foreground dark:text-zinc-100">
-                {formatAmount(minBtc, offer.currency)}{" "}
-                <span className="text-lg">{offer.currency}</span>
+                {formatAmount(minBtc, offer.currency)}
               </div>
               <div className="text-xs text-primary-foreground/70 dark:text-zinc-400">
-                ≈
-                {amountConfig.min?.toFixed(2) || "0.00"}{" "}
-                USD
+                ≈{amountConfig.min?.toFixed(2) || "0.00"}{" "}
+                {offer.priceCurrency || priceConfig.currency || "USD"}
               </div>
             </div>
           </div>
@@ -257,13 +252,11 @@ export function OfferHero({
             <div className="bg-primary-foreground/20 dark:bg-zinc-800/50 rounded-lg p-4 w-full">
               <div className="text-sm text-primary-foreground/80 dark:text-zinc-300 mb-1">{t("max_order")}</div>
               <div className="text-2xl font-bold text-primary-foreground dark:text-zinc-100">
-                {formatAmount(maxBtc, offer.currency)}{" "}
-                <span className="text-lg">{offer.currency}</span>
+                {formatAmount(maxBtc, offer.currency)}
               </div>
               <div className="text-xs text-primary-foreground/70 dark:text-zinc-400">
-                ≈
-                {amountConfig.max?.toFixed(2) || "0.00"}{" "}
-                USD
+                ≈{amountConfig.max?.toFixed(2) || "0.00"}{" "}
+                {offer.priceCurrency || priceConfig.currency || "USD"}
               </div>
             </div>
           </div>

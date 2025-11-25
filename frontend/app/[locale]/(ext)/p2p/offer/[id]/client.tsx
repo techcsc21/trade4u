@@ -65,7 +65,7 @@ export default function OfferDetailsClient() {
     }
 
     loadOfferDetails();
-  }, []);
+  }, [offerId, fetchOfferById]);
 
   // Loading state
   if (localLoading || isLoadingOfferById) {

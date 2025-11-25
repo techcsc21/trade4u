@@ -150,19 +150,6 @@
     "top_up": "Ychwanegu",
     "total_equity": "Cyfanswm ecwiti:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "Adio",
-    "All": "Popeth",
-    "Binary": "Deuaidd",
-    "Favorites": "Ffefrynnau",
-    "Hot": "Poeth",
-    "Loading": "Yn llwytho",
-    "Market": "Marchnad",
-    "Trending": "Tueddol",
-    "active_markets": "Marchnadoedd Gweithredol",
-    "no_markets_found": "Dim marchnadoedd wedi'u canfod",
-    "try_adjusting_your_search": "Ceisiwch addasu eich chwiliad"
-  },
   "binary/components/header/market-selector": {
     "Added": "Ychwanegu",
     "Connecting": "Cysylltiol",
@@ -179,6 +166,19 @@
     "no_markets_found": "Dim Marchnadoedd wedi'u Canfod",
     "select": "dewis",
     "try_adjusting_your_different_categories": "Ceisiwch addasu eich chwiliad neu bori gwahanol gategorïau"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "Adio",
+    "All": "Popeth",
+    "Binary": "Deuaidd",
+    "Favorites": "Ffefrynnau",
+    "Hot": "Poeth",
+    "Loading": "Yn llwytho",
+    "Market": "Marchnad",
+    "Trending": "Tueddol",
+    "active_markets": "Marchnadoedd Gweithredol",
+    "no_markets_found": "Dim marchnadoedd wedi'u canfod",
+    "try_adjusting_your_search": "Ceisiwch addasu eich chwiliad"
   },
   "binary/components/header/mobile-header": {
     "balance": "Cydbwysedd:"
@@ -1150,13 +1150,6 @@
     "Image": "Delwedd",
     "Images": "Delweddau",
     "Important": "Pwysig",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "Gwella",
     "Inactive": "Anweithredol",
     "Insights": "Cipolygon",
@@ -1245,7 +1238,7 @@
     "Shake": "Ysgwyd",
     "Share": "Rhannu",
     "Showing": "Yn dangos",
-    "Singapore": "Singapore",
+    "Singapore": "Singapôr",
     "Skew": "Sgiwio",
     "Small": "Bach",
     "Space": "Gofod",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "Mae gennych gyfanswm o",
     "you_havent_created_any_api_keys_yet": "Nid ydych wedi creu unrhyw allweddi API eto",
     "you_havent_saved_any_sections_yet": "Nid ydych wedi cadw unrhyw adrannau eto",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "Mae angen i chi actifadu a gosod yr estyniad i'r fersiwn ddiweddaraf cyn ei alluogi",
     "youll_be_redirected_to_the_login_page_after_logout": "Byddwch yn cael eich ailgyfeirio i'r dudalen mewngofnodi ar ôl allgofnodi",
     "youll_need_it_log_in": "Bydd ei angen arnoch i dderbyn codau dilysu pryd bynnag y byddwch yn mewngofnodi",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• Mae gweithrediadau mudo yn anadferadwy ar ôl eu cwblhau",
     "•_monitor_system_data_migrations": "• Monitro perfformiad y system yn ystod mudo data mawr",
     "•_some_operations_maintenance_mode": "• Efallai y bydd angen modd cynnal a chadw system ar rai gweithrediadau",
-    "•_using_fallback_mode": "• Defnyddio modd wrth gefn"
+    "•_using_fallback_mode": "• Defnyddio modd wrth gefn",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "Ewch i'r dudalen gartref",
@@ -2548,7 +2548,7 @@
     "%_apr_is_market_conditions": "% APR nid yw'n warantedig a gall gael ei addasu yn seiliedig ar amodau'r farchnad",
     "%_apr_on_your_staked": "% APR ar eich stac",
     "%_apr_paid_out": "% APR wedi'i dalu allan",
-    "%_at_tge": "% at TGE,",
+    "%_at_tge": "% yn TGE,",
     "%_complete": "% Wedi'i Gwblhau",
     "%_completed": "% wedi'i gwblhau",
     "%_completion": "% cwblhau",
@@ -2566,7 +2566,7 @@
     "%_of_total_earnings": "% o'r enillion cyfan",
     "%_penalty_fee": "% ffi cosb",
     "%_positive": "% cadarnhaol",
-    "%_released": "% Released:",
+    "%_released": "% a Ryddhawyd:",
     "%_sold": "% wedi'i werthu",
     "%_success_rate": "% cyfradd llwyddiant",
     "(optional)": "(Dewisol)",
@@ -2636,7 +2636,7 @@
     "Allocation": "Dyraniad",
     "Alphabetical": "Yn nhrefn yr wyddor",
     "Amount": "Swm",
-    "Analytics": "Analytics",
+    "Analytics": "Dadansoddeg",
     "Announcement": "Cyhoeddiad",
     "Answer": "Ateb",
     "Answered": "Ateb",
@@ -2703,7 +2703,7 @@
     "Country": "Gwlad",
     "Coupon": "Cwpon \"",
     "Create": "Creu",
-    "Created": "Created",
+    "Created": "Crëwyd",
     "Creating": "Creu",
     "Critical": "Beirniadol",
     "Crypto": "Cysylltu",
@@ -2713,7 +2713,7 @@
     "Custom": "Arfer",
     "Customers": "Cwsmeriaid",
     "DIRECT": "UNIONGYRCHOL",
-    "Daily": "Daily",
+    "Daily": "Dyddiol",
     "Dashboard": "Dangosfwrdd",
     "Date": "Dyddiad",
     "Days": "Dyddiau",
@@ -2753,7 +2753,7 @@
     "Escrow": "Mewngofnodi",
     "Ethereum": "Mewngofnodi",
     "Evidence": "Tystiolaeth",
-    "Export": "Export",
+    "Export": "Allforio",
     "FAQs": "Cwestiynau Cyffredin",
     "Facebook": "Cartref",
     "Failed": "Methedig",
@@ -2771,7 +2771,7 @@
     "Flexible": "Hyblyg",
     "Flexible term • High liquidity • Instant rewards": "Tymor hyblyg • Hylifedd uchel • Gwobrau ar unwaith",
     "Found": "Seilio",
-    "From": "From",
+    "From": "O",
     "General": "Cyffredinol",
     "Generator": "Generadur",
     "Get": "Cael",
@@ -3010,7 +3010,7 @@
     "Wallet": "Waled",
     "Warnings": "Rhybuddion",
     "Website": "Gwefan",
-    "Weekly": "Weekly",
+    "Weekly": "Wythnosol",
     "WhatsApp": "Cysylltu",
     "Whitepaper": "Papur Gwyn",
     "Wishlist": "Rhestr Ddymuniadau",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "Byd lle gall prosiectau arloesol gael mynediad at gyfalaf yn hawdd, a gall buddsoddwyr gymryd rhan mewn cyfleoedd gyda hyder a diogelwch",
     "accept_offers_that_match_your_needs": "Derbyn cynigion sy'n cyd-fynd â'ch anghenion",
     "accepted_methods": "Dulliau a Dderbynnir",
-    "access_denied": "Access Denied",
+    "access_denied": "Mynediad wedi'i Wrthod",
     "access_institutional-grade_forex_serious_investors": "Cyrchwch fasnachu forex gradd sefydliadol gydag algorithmau uwch, rheoli risg proffesiynol, ac enillion cyson ar gyfer buddsoddwyr difrifol",
     "access_to_marketing_support_and_security_audits": "Mynediad at gymorth marchnata ac archwiliadau diogelwch",
     "account": "Cyfrif:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "Ychwanegu Atodiad Newydd",
     "add_note": "Ychwanegu Nodyn",
     "add_notes_and_terms_for_this_offer": "Ychwanegu nodiadau a thelerau ar gyfer y cynnig hwn",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "Ychwanegu Dull Talu",
     "add_phase": "Ychwanegu Cyfnod",
     "add_plan": "Ychwanegu Cynllun",
     "add_roadmap_item": "Ychwanegu Eitem Map Ffordd",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "Gofynion dilysu ychwanegol ar gyfer trafodion NFT gwerth uchel",
     "address": "Cyfeiriad:",
     "adjust_amount": "Addasu Swm",
-    "admin": "Admin",
+    "admin": "Gweinyddwr",
     "admin_actions": "Gweithredoedd Gweinyddwr",
     "admin_actions_will_appear_here": "Bydd gweithredoedd gweinyddol yn ymddangos yma",
     "admin_activity": "Gweithgaredd Gweinyddol",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "Postio gwerthiannau a rhestrau newydd yn awtomatig",
     "auto-release": "Rhyddhau yn awtomatig:",
     "auto-verify_new_creators": "Awto-Ddilysu Crëwyr Newydd",
+    "auto_approve_offers": "Cymeradwyo Cynigion yn Awtomatig",
     "auto_cancel": "Canslo Awtomatig",
     "auto_cancel_time_(minutes)": "Amser Canslo Awtomatig (munudau)",
     "automatic_earnings_distribution": "Dosbarthiad Enillion Awtomatig",
     "automatic_escrow_protection_for_all_funds": "Amddiffyniad ysgrow awtomatig ar gyfer pob arian",
     "automatic_release_after_no_dispute)": "Rhyddhau awtomatig ar ôl 24 awr o gadarnhad taliad (os nad oes anghydfod)",
     "automatically_adjust_amount_to_meet_minimum": "Addasu'r swm yn awtomatig er mwyn cwrdd â'r isafswm",
+    "automatically_approve_new_and_edited_offers": "Cymeradwyo Cynigion Newydd a Golygedig yn Awtomatig",
     "automatically_cancel_the_specified_time": "Canslo'r cynnig yn awtomatig os nad oes ymateb o fewn amser penodol",
     "automatically_cancel_trades_payment_window": "Canslo crefftau yn awtomatig os nad yw'r taliad yn cael ei gadarnhau o fewn y ffenestr dalu",
     "automatically_extend_auctions_when": "Estyn arwerthiannau yn awtomatig pan wneir cynigion ger y diwedd",
@@ -3339,7 +3341,7 @@
     "binary_levels": "Lefelau Deuaidd",
     "binary_structure_summary": "Crynodeb o Strwythur Deuaidd",
     "bitcoin_(btc)": "Bitcoin (BTC)",
-    "blockchain": "Blockchain:",
+    "blockchain": "Cadwyn Flociau:",
     "blockchain_&_basic_information": "Blockchain a Gwybodaeth Sylfaenol",
     "blockchain_configuration": "Cyfluniad Blockchain",
     "blockchain_integration": "Integreiddio Blockchain",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "Cadarnhau eich blaendal",
     "confirm_your_withdrawal": "Cadarnhau eich tynnu'n ôl",
     "confirmed_at": "Cadarnhawyd yn:",
-    "conflict": "Conflict",
+    "conflict": "Gwrthdaro",
     "connect_with_traders_worldwide": "Cysylltu â masnachwyr ledled y byd",
     "connections": "Cysylltiadau",
     "consider_cliff_periods_for_team_tokens": "Ystyriwch gyfnodau clogwyni ar gyfer tocynnau tîm",
@@ -3627,7 +3629,7 @@
     "cryptocurrency_prices_are_staking_period": "Mae prisiau cryptocurrency yn hynod gyfnewidiol a gallant amrywio'n sylweddol yn ystod y cyfnod staking",
     "cryptocurrency_regulations_vary_are_evolving": "Mae rheoliadau cryptocurrency yn amrywio yn ôl awdurdodaeth ac yn esblygu",
     "cryptocurrency_type_and_amount": "Math a swm cryptocurrency",
-    "currency": "Currency:",
+    "currency": "Arian Cyfred:",
     "current_attachments": "Atodiadau Cyfredol",
     "current_download_options": "Opsiynau Llwytho i Lawr Cyfredol",
     "current_market_average": "Cyfartaledd cyfredol y farchnad",
@@ -3694,10 +3696,10 @@
     "deposit_-_max": "Adneuo - Uchafswm",
     "deposit_-_min": "Adneuo - Min",
     "deposit_cryptocurrency_to_escrow": "Adneuo Cryptocurrency i Escrow",
-    "deposit_details": "Deposit Details",
+    "deposit_details": "Manylion Adneuo",
     "deposit_fee": "Ffi Adneuo",
-    "deposit_funds": "Deposit Funds",
-    "deposit_successful": "Deposit Successful",
+    "deposit_funds": "Adneuo Arian",
+    "deposit_successful": "Adneuad yn Llwyddiannus",
     "deposit_summary": "Crynodeb Adneuo",
     "description": "Disgrifiad:",
     "design_and_visualize_vesting_schedule": "Dylunio a delweddu eich economeg tocyn, dosbarthu, ac amserlen freinio",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "Sgwrs wedi'i hamgryptio o'r diwedd i'r diwedd ar gyfer cyfathrebu diogel rhwng prynwr a gwerthwr yn ystod y fasnach",
     "end_date": "Dyddiad Gorffen:",
     "end_of_term": "Diwedd y Tymor",
+    "ended": "Wedi Gorffen",
     "ending_soon": "Yn Gorffen yn Fuan",
     "enhance_multiple_faqs_ai-powered_improvements": "Gwella sawl Cwestiynau Cyffredin gan ddefnyddio ein gwelliannau wedi'u pweru gan AI",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "Mwynhewch y ffioedd isaf yn y diwydiant ar ddim ond 0",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "Cynnwys unrhyw rifau cyfeirnod gofynnol",
     "include_company_logo": "Cynnwys logo y cwmni",
     "include_the_trade_payment_description": "Cynnwys y cyfeirnod masnach yn eich disgrifiad taliad",
-    "info": "Info",
+    "info": "Gwybodaeth",
     "information_about_the_dispute": "Gwybodaeth am yr anghydfod",
     "information_about_the_disputed_trade": "Gwybodaeth am y fasnach ddadleuol",
     "initial_holder": "Deiliad Cychwynnol:",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "Nodiadau mewnol am yr anghydfod hwn",
     "internal_notes_about_this_offer": "Nodiadau mewnol am y cynnig hwn",
     "internal_notes_about_this_position": "Nodiadau mewnol ynglŷn â'r sefyllfa hon",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "Cais Annilys",
     "invest_in": "Buddsoddi mewn",
     "invest_in_this_offering": "Buddsoddi yn y Cynnig hwn",
     "invest_more": "Buddsoddi Mwy",
@@ -4326,6 +4329,7 @@
     "live_preview": "Rhagolwg Byw",
     "load_id": "ID Llwytho:",
     "load_more": "Llwytho Mwy",
+    "loading": "Yn Llwytho",
     "loading_activity_data": "Llwytho data gweithgaredd",
     "loading_affiliate_data": "Llwytho data cysylltiedig",
     "loading_analytics_data": "Llwytho data dadansoddeg",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "Rheoli a monitro eich offrymau tocynnau",
     "manage_and_track_your_referred_users": "Rheoli ac olrhain eich defnyddwyr a atgyfeiriwyd",
     "manage_conditions": "Rheoli Amodau",
+    "manage_rewards": "Rheoli Gwobrau",
     "manage_the_blockchains_token_launches": "Rheoli'r blockchains sydd ar gael ar gyfer lansio tocynnau",
     "manage_this_trade": "Rheoli'r fasnach hon",
     "manage_token_release": "Rheoli Rhyddhau Tocyn",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "Enillion misol am y 6 mis diwethaf",
     "monthly_faq_views_for_the_current_year": "Golygfeydd Cwestiynau Cyffredin misol ar gyfer y flwyddyn gyfredol",
     "monthly_growth_rate_(%)": "Cyfradd Twf Misol (%)",
+    "monthly_growth_rate_tooltip": "Cyfradd twf pris misol cyfartalog disgwyliedig. Mae gwerthoedd cadarnhaol yn dynodi cynnydd mewn pris, mae gwerthoedd negyddol yn dynodi dirywiad. Ystod nodweddiadol: -50% i +50%",
     "monthly_profit": "Elw Misol",
     "more": "rhagor",
     "most_common_search_terms_used_by_your_users": "Y termau chwilio mwyaf cyffredin a ddefnyddir gan eich defnyddwyr",
@@ -4557,7 +4563,7 @@
     "no_activities_found": "Dim gweithgareddau wedi'u canfod",
     "no_activity_data_available": "Dim data gweithgaredd ar gael",
     "no_activity_recorded_for_this_offer": "Dim gweithgaredd wedi'i gofnodi ar gyfer y cynnig hwn",
-    "no_activity_yet": "No activity yet",
+    "no_activity_yet": "Dim gweithgaredd eto",
     "no_additional_trust_requirements": "Dim gofynion ymddiriedaeth ychwanegol",
     "no_admin_notes_have_been_added_to_this_offer": "Nid oes unrhyw nodiadau gweinyddol wedi'u hychwanegu at y cynnig hwn",
     "no_affiliate_programs_available_yet": "Nid oes unrhyw raglenni cysylltiedig ar gael eto",
@@ -4675,10 +4681,11 @@
     "no_users_found": "Ni chanfuwyd unrhyw ddefnyddwyr",
     "no_view_data_available": "Dim data golwg ar gael",
     "no_warnings_found": "Dim rhybuddion wedi'u canfod",
-    "no_withdrawal_methods_available_for_this_currency": "No withdrawal methods available for this currency",
+    "no_withdrawal_methods_available_for_this_currency": "Dim dulliau tynnu allan ar gael ar gyfer yr arian cyfred hwn",
     "not_available_for_this_chain": "Ddim ar gael ar gyfer y gadwyn hon",
-    "not_found": "Not Found",
+    "not_found": "Heb ei Ganfod",
     "not_helpful": "Ddim yn ddefnyddiol",
+    "not_started": "Heb Ddechrau",
     "not_submitted": "Heb ei gyflwyno",
     "notes_and_comments_about_this_transaction": "Nodiadau a sylwadau ynglŷn â'r trafodiad yma",
     "now_accepting_bitcoin_ethereum_&_more": "Nawr yn derbyn Bitcoin, Ethereum a mwy",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "Cynnig heb ei ganfod neu nid oes gennych ganiatâd i'w olygu",
     "offer_status": "Statws Cynnig",
     "offer_type": "Math o Gynnig",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "Cynnig Ddim ar Gael",
     "offer_updated_successfully_and_is_pending_approval": "Diweddarwyd y cynnig yn llwyddiannus ac mae'n aros am gymeradwyaeth",
     "offer_visibility": "Cynnig Gwelededd",
     "offering": "Cynnig:",
@@ -4791,7 +4798,7 @@
     "password": "cyfrinair",
     "pay_with_confidence_processing_system": "Talu gyda hyder gan ddefnyddio ein system prosesu taliadau diogel",
     "pay_within_time_limit": "Talu o fewn terfyn amser",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "Gweithgareddau Talu",
     "payment_completed_successfully": "Cwblhawyd y taliad yn llwyddiannus!",
     "payment_confirmed": "Taliad wedi'i gadarnhau",
     "payment_details": "Manylion Talu",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "Cyfarwyddiadau Talu",
     "payment_marked_as_sent": "Taliad wedi'i farcio fel un wedi'i anfon",
     "payment_method": "Dull Talu:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "Dull Talu yn Ofynnol",
     "payment_methods": "Dulliau Talu",
     "payment_methods_summary": "Crynodeb o ddulliau talu",
     "payment_methods_you_prefer": "Dulliau talu y mae'n well gennych",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "Dewiswch y targedau rydych chi am eu hychwanegu at yr ymgyrch hon",
     "please_send_payment_when_done": "Anfonwch y taliad at y gwerthwr gan ddefnyddio'r dull talu penodedig a chadarnhewch pan fydd wedi'i wneud",
     "please_sign_in_to_view_your_shipping_details": "Mewngofnodwch i weld eich manylion llongau",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "Arafu os gwelwch yn dda",
     "please_try_again": "Rhowch gynnig arall arni",
     "please_try_again_later": "Ceisiwch eto'n hwyrach os gwelwch yn dda",
     "please_try_refreshing_the_page": "Ceisiwch adnewyddu'r dudalen os gwelwch yn dda",
@@ -5225,7 +5232,7 @@
     "select_at_least_to_continue": "Dewiswch o leiaf un dull talu o'r opsiynau isod i barhau",
     "select_cryptocurrency": "Dewis Arian Crypto",
     "select_cryptocurrency_and_amount": "Dewiswch cryptocurrency a swm",
-    "select_currency": "Select Currency",
+    "select_currency": "Dewis Arian Cyfred",
     "select_dates": "Dewis dyddiadau",
     "select_from_a_investment_goals": "Dewiswch o blith ystod o opsiynau wedi'u teilwra i'ch nodau buddsoddi",
     "select_investment_duration": "Dewiswch Hyd y Buddsoddiad",
@@ -5242,7 +5249,7 @@
     "select_the_type_affiliate_program": "Dewiswch y math o system Marchnata Aml-Lefel ar gyfer eich rhaglen gysylltiedig",
     "select_the_wallet_type_you_want_to_use_for_this": "Dewiswch y math o waled yr hoffech ei ddefnyddio ar gyfer hyn",
     "select_trade_type": "Dewis Math o Fasnach",
-    "select_wallet_type": "Select Wallet Type",
+    "select_wallet_type": "Dewis Math o Waled",
     "select_which_payment_methods_you_accept": "Dewiswch pa ddulliau talu rydych yn eu derbyn",
     "select_which_wallet_of_products": "Dewiswch pa waled i'w defnyddio ar gyfer pob grŵp o gynhyrchion",
     "select_your_preferred_the_trade": "Dewiswch eich dull talu dewisol wrth gychwyn y fasnach",
@@ -5351,13 +5358,14 @@
     "social_media_post": "Post Cyfryngau Cymdeithasol",
     "solana_(sol)": "Solana (SOL)",
     "sold": "Werthu",
+    "sold_out": "Gwerthu Allan",
     "some_features_may_be_temporarily_unavailable": "Efallai nad yw rhai nodweddion ar gael dros dro",
     "some_pools_distribute_staking_period": "Mae rhai pyllau yn dosbarthu gwobrau bob dydd, tra bod eraill yn gwneud hynny yn wythnosol, yn fisol, neu ar ddiwedd y cyfnod staking",
     "some_pools_offer_higher_returns": "Mae rhai pyllau yn cynnig cyfansoddiad awtomatig, sy'n ail-fuddsoddi'ch gwobrau a enillwyd yn awtomatig i gynhyrchu enillion hyd yn oed yn uwch",
     "some_pools_offer_your_rewards": "Mae rhai pyllau yn cynnig cyfansoddiad awtomatig, sy'n ail-fuddsoddi'ch gwobrau yn awtomatig",
     "some_settings_like_launch_plans": "Mae rhai lleoliadau fel aelodau tîm a therfynau eitemau map ffordd bellach yn cael eu rheoli gan gynlluniau lansio",
     "some_trade_features_are_currently_disabled": "Mae rhai nodweddion masnach wedi'u hanalluogi ar hyn o bryd:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "Aeth Rhywbeth o'i Le",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "Mae'n ddrwg gennym, ni allwn ddod o hyd i'r dudalen rydych chi'n chwilio amdani",
     "sort_by": "Trefnu yn ôl",
     "source_code_verification": "Gwirio Cod Ffynhonnell",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Tanysgrifiwch i'n Cylchlythyr",
     "subtotal": "Is-gyfanswm:",
     "subtotal_(": "Is-gyfanswm (",
-    "success": "Success",
+    "success": "Llwyddiant",
     "success_rate": "Cyfradd Llwyddiant",
     "successful_offerings": "Offrymau Llwyddiannus",
     "successful_trades": "Crefftau llwyddiannus:",
@@ -5658,7 +5666,7 @@
     "tokens": "Tocynnau",
     "tokens_for_sale": "Tocynnau ar Werth",
     "tokens_to_receive": "Tocynnau i'w Derbyn:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "Gormod o Geisiadau",
     "top-performing_staking_pools": "Pyllau Staking sy'n Perfformio Orau",
     "top_performing_affiliates": "Cysylltiedig sy'n perfformio orau",
     "top_performing_faqs": "Cwestiynau Cyffredin sy'n perfformio orau",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "Nid yw manylion masnach ar gael ar hyn o bryd",
     "trade_details_are_temporarily_unavailable": "Nid yw manylion masnach ar gael dros dro",
     "trade_disputed": "Masnach yn ddadleuol",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "Masnachu wedi Dod i Ben",
     "trade_history_requirements": "Gofynion Hanes Masnach",
     "trade_id": "ID masnach",
     "trade_information": "Gwybodaeth Masnach",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Taliadau symudol Venmo",
     "verification_badges": "Bathodynnau Dilysu",
     "verification_badges_help_users": "Mae bathodynnau dilysu yn helpu defnyddwyr i adnabod crewyr dibynadwy a chasgliadau dilys. Maent yn ymddangos ar broffiliau, rhestriadau, a chanlyniadau chwilio.",
-    "verification_required": "Verification Required",
+    "verification_required": "Gofynion Dilysu",
     "verification_settings_affect_marketplace": "Mae gosodiadau dilysu yn effeithio ar ymddiriedaeth a chydymffurfiaeth y farchnad. Ystyriwch ofynion eich awdurdodaeth.",
     "verified_only": "Wedi'i ddilysu yn unig",
     "verified_project_teams_and_offerings": "Timau ac offrymau prosiect wedi'u gwirio",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "Masnachwyr wedi'u Gwirio yn Unig",
     "verified_users_have_verification_process": "Mae defnyddwyr wedi'u gwirio wedi cwblhau ein proses gwirio hunaniaeth",
     "verify_&_approve_transaction": "Gwirio a Chymeradwyo Trafodiad",
-    "verify_account": "Verify Account",
+    "verify_account": "Dilysu Cyfrif",
     "verify_payment_and_release_funds": "Gwirio taliad a rhyddhau cronfeydd",
     "verify_payment_before_releasing": "Gwirio taliad cyn rhyddhau",
     "verify_payment_first": "Gwirio Taliad yn Gyntaf",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "Delweddu a rheoli strwythur eich rhwydwaith cysylltiedig",
     "visualize_distribution_vesting_token_launch": "Delweddu dosbarthiad, amserlenni breinio, a rhagamcanion marchnad i wneud y gorau o'ch lansiad tocyn",
     "volatility_(%)": "Anwadalrwydd (%)",
+    "volatility_tooltip": "Ystod amrywiad pris disgwyliedig. Mae anwadalrwydd uwch yn golygu newidiadau pris mwy. Mae 0% yn golygu prisiau sefydlog, mae 100% yn golygu symudiadau pris eithafol.",
     "volume": "Cyfrol:",
     "volume_(btc)": "Cyfrol (BTC)",
     "vs": "Erbyn",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "Beth hoffet ti'i wneud?",
     "what_would_you_like_to_do_next": "Beth hoffech chi ei wneud nesaf?",
     "when_a_trade_into_escrow": "Pan fydd masnach yn dechrau, bydd angen i chi adneuo'r cryptocurrency i escrow:",
+    "when_disabled_offers_require_admin_moderation": "Pan yn Analluogedig Mae Cynigion yn Gofyn am Gymedroli Gweinyddwr",
     "when_disabled_users_can_only_take_existing_offers": "Pan fyddant yn anabl, gall defnyddwyr dderbyn cynigion presennol yn unig",
     "when_disabled_users_cannot_access_p2p_features": "Pan fyddwch yn analluogi, ni all defnyddwyr gyrchu nodweddion P2P",
     "when_disabled_users_cannot_create_custom_payment_methods": "Pan fydd wedi'i analluogi, ni all defnyddwyr greu dulliau talu wedi'u haddasu",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "Nid ydych wedi cwblhau unrhyw grefftau eto",
     "you_havent_distributed_any_earnings_yet": "Nid ydych wedi dosbarthu unrhyw enillion eto",
     "you_might_want_question_directly": "Efallai yr hoffech roi cynnig ar ein chwiliad neu ofyn cwestiwn yn uniongyrchol",
+    "you_must_be_logged_in_to_access_the_dashboard": "Rhaid i Chi Fod wedi Mewngofnodi i Gael Mynediad i'r Dangosfwrdd",
     "you_must_be_logged_in_to_ask_a_question": "Rhaid i chi fod wedi mewngofnodi i ofyn cwestiwn",
     "you_need": "Mae angen i ti",
     "you_need_to_a_review": "Mae angen i chi brynu'r cynnyrch hwn cyn y gallwch ysgrifennu adolygiad",
@@ -6207,10 +6218,74 @@
     "•_lock_period": "• Cyfnod clo:",
     "•_trade_dispute_resolution_is_unavailable": "• Nid yw datrys anghydfodau masnach ar gael",
     "✓_purchased": "✓ Prynu",
-    "not_started": "Not Started",
-    "ended": "Ended",
-    "sold_out": "Sold Out",
-    "manage_rewards": "Manage Rewards"
+    "Configure NFT metadata requirements": "Ffurfweddu Gofynion Metadata NFT",
+    "Configure platform and creator fees": "Ffurfweddu Ffioedd Platfform a Chrëwr",
+    "Fixed fee to create a listing (0 = free)": "Ffi Sefydlog i Greu Rhestr (0 = Am Ddim)",
+    "High-Value Threshold (USD)": "Trothwy Gwerth Uchel (USD)",
+    "Listing Fee (Optional)": "Ffi Rhestru (Dewisol)",
+    "Marketplace Fee (%)": "Ffi'r Farchnad (%)",
+    "Marketplace Fees": "Ffioedd y Farchnad",
+    "Maximum Royalty (%)": "Uchafswm Breindaliadau (%)",
+    "Maximum royalty creators can set (0-50%)": "Uchafswm Breindaliadau y Gall Crëwyr ei Osod (0 50%)",
+    "Metadata & IPFS": "Metadata ac IPFS",
+    "Percentage fee charged on each sale (0-10%)": "Ffi Canran a Godir ar Bob Gwerthiant (0 10%)",
+    "Require Metadata Validation": "Gofyn am Ddilysu Metadata",
+    "Validate IPFS metadata URLs before accepting NFT listings": "Dilysu URLau Metadata IPFS Cyn Derbyn Rhestrau NFT",
+    "are_you_sure_you_want_to_remove_this_offer": "Ydych Chi'n Siŵr Eich Bod Am Ddileu'r Cynnig Hwn",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "Gall Newidiadau i Osodiadau Pris a Swm Fod Angen Cymeradwyaeth Gweinyddwr Cyn Dod i Rym",
+    "create_your_first_offer": "Crëwch Eich Cynnig Cyntaf",
+    "dynamic_price_(market_based)": "Pris Dynamig (Yn Seiliedig ar y Farchnad)",
+    "edit": "Golygu",
+    "enter_your_fixed_price": "Rhowch Eich Pris Sefydlog",
+    "failed_to_remove_offer": "Methodd Dileu Cynnig",
+    "limit": "Terfyn",
+    "market_price_offset_(%)": "Gwyriad Pris y Farchnad (%)",
+    "max_trade_amount": "Uchafswm Swm Masnach",
+    "maximum_amount": "Swm Uchaf",
+    "maximum_limit": "Terfyn Uchaf",
+    "min_trade_amount": "Swm Masnachu Lleiaf",
+    "minimum_amount": "Swm Lleiaf",
+    "minimum_limit": "Terfyn Lleiaf",
+    "my_offers": "Fy Nghynigion",
+    "no_recent_activity": "Dim Gweithgaredd Diweddar",
+    "note": "Nodyn",
+    "offer_removed": "Cynnig wedi'i Dynnu",
+    "positive_=_above_market,_negative_=_below_market": "Positif = Uwchlaw'r Farchnad, Negatif = Islaw'r Farchnad",
+    "price_&_amount": "Pris a Swm",
+    "price_&_amount_settings": "Gosodiadau Pris a Swm",
+    "pricing_model": "Model Prisio",
+    "remove_offer": "Tynnu Cynnig",
+    "removing": "Yn Tynnu",
+    "the_price_per_unit_of": "Y Pris Fesul Uned O",
+    "this_is_the_total_amount_for_this_trade": "Dyma Gyfanswm y Swm ar gyfer y Fasnach Hon",
+    "total_amount_available": "Cyfanswm y Swm Sydd Ar Gael",
+    "total_available": "Cyfanswm Ar Gael",
+    "trading_limits": "Terfynau Masnachu",
+    "update_pricing_model_and_trading_limits": "Diweddaru Model Prisio a Therfynau Masnachu",
+    "view": "Gweld",
+    "you_dont_have_any_offers_yet": "Nid Oes Gennych Unrhyw Gynigion Eto",
+    "your_offer_has_been_successfully_removed": "Mae Eich Cynnig Wedi'i Dynnu'n Llwyddiannus",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "5% Uwchlaw'r Farchnad"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "Canslo",
@@ -6253,6 +6328,8 @@
     "network_fee": "Ffi Rhwydwaith",
     "new_balance": "Balans Newydd",
     "no_currencies_found": "Dim arian cyfred wedi'u darganfod ar gyfer",
+    "no_wallets_available": "Dim Waledi ar Gael",
+    "no_wallets_available_description": "Dim Disgrifiad Waledi ar Gael",
     "not_available": "Ddim ar Gael",
     "of": "o",
     "pay_with": "Talu gyda",
@@ -6346,6 +6423,8 @@
     "make_another_transfer": "Gwneud Trosglwyddiad Arall",
     "move_funds_between_another_user": "Symud arian rhwng eich waledi neu anfonwch at ddefnyddiwr arall",
     "move_funds_between_your_different_wallet_types": "Symud arian rhwng eich gwahanol fathau o waled",
+    "no_wallets_available": "Dim Waledi ar Gael",
+    "no_wallets_available_description": "Dim Disgrifiad Waledi ar Gael",
     "processing_transfer": "Prosesu Trosglwyddo",
     "recipient_details": "Manylion y Derbynnydd",
     "recipient_receives": "Derbynnydd yn Derbyn:",
@@ -6385,17 +6464,17 @@
     "the_wallet_youre_to_it": "Nid yw'r waled rydych chi'n chwilio amdani yn bodoli neu nid oes gennych fynediad iddi",
     "wallet_address": "Cyfeiriad Waled",
     "wallet_not_found": "Waled heb ei ganfod",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
+    "wallet_type_ai_investment": "Buddsoddi AI",
+    "wallet_type_derivatives": "Deilliadol",
     "wallet_type_eco": "Eco",
-    "wallet_type_fiat": "Fiat",
+    "wallet_type_fiat": "Arian Fiat",
     "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
-    "wallet_type_futures": "Futures",
+    "wallet_type_funding": "Ariannu",
+    "wallet_type_futures": "Dyfodol",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
-    "wallet_type_spot": "Spot",
-    "wallet_type_staking": "Staking"
+    "wallet_type_spot": "Man",
+    "wallet_type_staking": "Stacio"
   },
   "finance/wallet/client": {
     "add_funds": "Ychwanegu Cronfeydd",
@@ -6433,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(i dderbyn",
+    "Amount to Send (before network fees)": "Swm i'w Anfon (Cyn Ffioedd Rhwydwaith)",
     "Free": "Am ddim",
+    "Platform Fee": "Ffi Platfform",
     "Processing": "Prosesu",
     "Select": "Dewis",
     "Withdraw": "Ymneilltuo",
@@ -6454,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "Dim arian cyfred gyda balans ar gael yn",
     "no_currencies_with_balance_in_wallet_type": "Dim arian cyfred gyda balans yn y math waled",
     "no_wallets_available": "Dim waledi ar gael",
+    "no_wallets_available_description": "Mae pob math o waled wedi'i analluogi gan y gweinyddwr. Cysylltwch â chymorth am gymorth neu gwiriwch eto yn nes ymlaen.",
     "no_wallets_with_balance_for_withdrawal": "Dim waledi gyda balans ar gyfer tynnu arian",
     "no_withdrawal_methods": "Dim dulliau tynnu arian ar gael",
     "no_withdrawal_methods_available": "Dim dulliau tynnu arian ar gael",
@@ -6678,7 +6760,7 @@
   },
   "nft": {
     "Collections": "Casgliadau",
-    "NFTs": "NFTs",
+    "NFTs": "NFTau",
     "Search": "Chwilio",
     "Users": "Defnyddwyr",
     "all_categories": "Pob Categori",
@@ -6996,8 +7078,11 @@
     "create_nft": "Creu NFT",
     "create_your_first_collection_to_organize_your_nfts": "Creu eich casgliad cyntaf i drefnu eich NFTs",
     "create_your_first_nft_to_get_started": "Crëwch eich NFT cyntaf i ddechrau",
+    "creator_dashboard": "Dangosfwrdd Crëwr",
     "creator_hub": "Canolfan Creadigol",
+    "creator_since": "Crëwr Ers",
     "explore_nfts": "Archwilio NFTs",
+    "failed_to_load_dashboard": "Methu Llwytho'r Dangosfwrdd",
     "favorite_nfts": "NFTs Ffefrynnau",
     "manage_your_nfts_collections": "Rheoli eich NFTs, casgliadau, a gweithgaredd marchnad",
     "my_collections": "Fy Nghasgliadau",
@@ -7008,6 +7093,7 @@
     "no_favorites_yet": "Dim Ffefrynnau Eto",
     "no_nfts_yet": "Dim NFTs Eto",
     "please_login_to_view_your_dashboard": "Mewngofnodwch i weld eich dangosfwrdd",
+    "please_sign_in_to_access_your_creator_dashboard": "Mewngofnodwch i Gael Mynediad i'ch Dangosfwrdd Crëwr",
     "please_sign_in_to_view_your_nft_dashboard": "Mewngofnodwch i weld eich dangosfwrdd NFT",
     "recent_activity": "Gweithgaredd Diweddar",
     "sign_in": "Mewngofnodi",
@@ -7015,6 +7101,7 @@
     "total_nfts": "Cyfanswm NFTs",
     "total_value": "Cyfanswm Gwerth",
     "total_views": "Cyfanswm Golygfeydd",
+    "try_again": "Rhowch Gynnig Arall Arni",
     "your_nft_activities_will_appear_here": "Bydd eich gweithgareddau NFT yn ymddangos yma"
   },
   "nft/details": {
@@ -7150,7 +7237,8 @@
     "sell_at_a_fixed_price": "Gwerthu am bris sefydlog",
     "sell_to_highest_bidder": "Gwerthu i'r cynigydd uchaf",
     "start_time": "Amser Dechrau",
-    "starting_price": "Pris Cychwynnol"
+    "starting_price": "Pris Cychwynnol",
+    "Duration": "Hyd"
   },
   "nft/modals/offer": {
     "Cancel": "Canslo",
@@ -7177,7 +7265,7 @@
     "Accept": "Derbyn",
     "Activity": "Gweithgaredd",
     "Attributes": "Priodoleddau",
-    "Blockchain": "Blockchain",
+    "Blockchain": "Cadwyn Blociau",
     "Creator": "Crëwr",
     "Details": "Manylion",
     "Expires": "Yn dod i ben",
@@ -7214,7 +7302,8 @@
     "token_details": "Manylion Tocyn",
     "token_id": "ID Tocyn",
     "token_standard": "Safon Tocyn",
-    "view_on_explorer": "Gweld ar Explorer"
+    "view_on_explorer": "Gweld ar Explorer",
+    "browse_marketplace": "Pori'r Farchnad"
   },
   "nft/user/profile": {
     "Activity": "Gweithgaredd",
@@ -7631,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "Yn llwytho",
-    "available": "Gael:"
+    "available": "Gael:",
+    "balance": "Balans",
+    "in_orders": "Mewn Archebion"
   },
   "trade/components/trading/spot/index": {
     "Limit": "Terfyn",
@@ -7648,7 +7739,10 @@
     "Price": "Pris",
     "Processing": "Yn prosesu",
     "Sell": "Gwerthu",
-    "Total": "Cyfanswm"
+    "Total": "Cyfanswm",
+    "Est": {
+      " Fee": " Ffi"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "Swm",
@@ -7658,7 +7752,10 @@
     "estimated_total": "Amcangyfrif o Gyfanswm",
     "market_orders_execute_available_price": "Mae gorchmynion marchnad yn gweithredu ar unwaith am y pris gorau sydd ar gael",
     "market_price": "Pris y Farchnad",
-    "the_final_execution_estimated_price": "Gall y pris gweithredu terfynol fod yn wahanol i'r pris amcangyfrifedig"
+    "the_final_execution_estimated_price": "Gall y pris gweithredu terfynol fod yn wahanol i'r pris amcangyfrifedig",
+    "Est": {
+      " Fee": " Ffi"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "Swm",
@@ -7673,7 +7770,10 @@
     "stop_market_orders_is_reached": "Mae gorchmynion Stop Market yn gweithredu fel gorchmynion marchnad pan gyrhaeddir y pris stop",
     "stop_price": "Pris Stopio",
     "the_order_will_available_price": "Bydd yr archeb yn cael ei lenwi am y pris gorau sydd ar gael",
-    "the_order_will_or_better": "Bydd yr archeb yn cael ei lenwi am y pris terfyn neu'n well"
+    "the_order_will_or_better": "Bydd yr archeb yn cael ei lenwi am y pris terfyn neu'n well",
+    "Est": {
+      " Fee": " Ffi"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "* Peidiwch â phoeni ni fyddwn yn eich sbam :)",
@@ -7687,5 +7787,553 @@
     "were_making_the_system_more_awesome": "Rydyn ni'n gwneud y system yn fwy anhygoel",
     "we’ll_be_back_shortly": "Byddwn yn ôl cyn bo hir",
     "we’re_making_the_system_more_awesome": "Rydyn ni'n gwneud y system yn fwy anhygoel"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "Dadansoddeg ariannol uwch gyda thracio elw, dadansoddiad ffrydiau refeniw, a dangosfyrddau deallusrwydd busnes cynhwysfawr.",
+        "title": "Dadansoddeg Refeniw"
+      },
+      "communication": {
+        "description": "Rheolaeth cyfathrebu platfform gan gynnwys hysbysiadau, cyhoeddiadau, a systemau negeseuon defnyddwyr.",
+        "title": "Offer Cyfathrebu"
+      },
+      "compliance": {
+        "description": "Offer cydymffurfio rheoleiddiol gan gynnwys prosesu KYC, dilysu dogfennau, a rheoli hunaniaeth ar gyfer cydymffurfiad cyfreithiol.",
+        "title": "Cydymffurfiaeth a Gwirio"
+      },
+      "currencies": {
+        "description": "Cefnogaeth aml-arian cyfred gyda chyfraddau cyfnewid amser real, cyfluniad parau masnachu, ac integreiddiad data marchnad.",
+        "title": "Rheolaeth Arian Cyfred"
+      },
+      "dashboard": {
+        "description": "Trosolwg gweinyddol cynhwysfawr gyda dadansoddeg amser real, monitro iechyd system, a mynediad cyflym i swyddogaethau rheoli critigol.",
+        "title": "Dangosfwrdd"
+      },
+      "monitoring": {
+        "description": "Monitro system cynhwysfawr gyda mewngofnodi, metrigau perfformiad, a rheoli tasgau awtomataidd.",
+        "title": "Monitro System"
+      },
+      "permissions": {
+        "description": "Rheoli caniatâd manwl ar gyfer rheolaeth mynediad fanwl gywir ar draws holl swyddogaethau a nodweddion y system.",
+        "title": "Caniatadau"
+      },
+      "roles": {
+        "title": "Rolau Defnyddwyr",
+        "description": "Creu a rheoli rolau defnyddwyr gyda setiau caniatâd addasadwy a strwythurau rheoli mynediad hierarchaidd.",
+        "permissions": {
+          "description": "System rheoli mynediad uwch ar gyfer diffinio rolau defnyddwyr, rheoli caniatadau, a gweithredu polisïau diogelwch ar draws y platfform.",
+          "title": "Rolau a Chaniatadau"
+        }
+      },
+      "support": {
+        "description": "System docyn cymorth integredig gyda rheoli blaenoriaeth, olrhain ymateb, a monitro boddhad cwsmeriaid.",
+        "title": "Cymorth Cwsmeriaid"
+      },
+      "users": {
+        "description": "Cronfa ddata defnyddwyr gynhwysfawr gyda hidlo uwch, gweithrediadau swmp, rheoli proffil, a thracio gweithgaredd manwl.",
+        "title": "Defnyddwyr"
+      },
+      "affiliate": {
+        "system": {
+          "description": "Rhaglen gyswllt aml-lefel gyda thracio comisiwn, dadansoddeg perfformiad, a thaliadau awtomatig.",
+          "title": "Rhaglen Cyswllt"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "Ffurfweddu fframiau amser strategaeth AI gyda ailgydbwyso deinamig ac addasiadau amodau marchnad.",
+          "title": "Parhadau Strategaeth"
+        },
+        "investment": {
+          "description": "Rheolaeth buddsoddi wedi'i bweru gan ddeallusrwydd artiffisial gydag algorithmau dysgu peiriant ac optimeiddio portffolio awtomatig.",
+          "title": "Buddsoddi AI"
+        },
+        "performance": {
+          "description": "Dadansoddeg perfformiad buddsoddiad AI gyda thracio cywirdeb model a metrigau effeithiolrwydd strategaeth.",
+          "title": "Perfformiad AI"
+        },
+        "strategies": {
+          "description": "Strategaethau buddsoddi dysgu peiriant gyda phrofi cefn, asesiad risg, ac optimeiddio perfformiad.",
+          "title": "Strategaethau AI"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "Rheolaeth cylch bywyd allwedd API gyda monitro defnydd, cyfyngu cyfradd, a rheolaethau diogelwch ar gyfer integreiddiadau trydydd parti.",
+          "title": "Rheolaeth API"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "Gosod fframiau amser masnachu a chanrannau talu ar gyfer opsiynau deuaidd gyda rheolaethau rheoli risg.",
+          "title": "Cyfnodau Masnachu"
+        },
+        "markets": {
+          "description": "Ffurfweddu marchnadoedd opsiynau deuaidd gyda pharau asedau, paramedrau masnachu, ac oriau marchnad.",
+          "title": "Marchnadoedd Deuaidd"
+        },
+        "orders": {
+          "description": "Monitro a rheoli archebion opsiynau deuaidd gyda thracio gweithredu a phrosesu setliad.",
+          "title": "Archebion Deuaidd"
+        },
+        "trading": {
+          "description": "System fasnachu opsiynau deuaidd gyda gosod marchnad, rheoli hyd, a ffurfweddu talu.",
+          "title": "Opsiynau Deuaidd"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "Rheolaeth cyfriflyfr annewidiol gyda llwybrau archwilio, adrodd cydymffurfio, ac offer dadansoddeg fforensig.",
+          "title": "Cyfriflyfr Cadwyn Flociau"
+        },
+        "networks": {
+          "description": "Rheolaeth rhwydwaith aml-gadwyn gyda monitro nod, tracio consensws, a dadansoddeg iechyd rhwydwaith.",
+          "title": "Rhwydweithiau Cadwyn Flociau"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "Rheolaeth blog gyflawn gyda phroffiliau awduron, trefnu cynnwys, optimeiddio SEO, a dadansoddeg ymgysylltu.",
+          "title": "System Flog"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "Offer busnes hanfodol ar gyfer marchnata, cymorth cwsmeriaid, a rheolaeth gwybodaeth.",
+          "title": "Offer Busnes"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "System rheoli cynnwys cynhwysfawr ar gyfer blogiau, asedau cyfryngau, a chynnwys gwefan deinamig.",
+          "title": "Cynnwys"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "Rheoli asedau digidol gydag integreiddiad blockchain, cysylltedd waled, a ffrydiau data marchnad amser real.",
+          "title": "Arian Crypto"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "Gwasanaethau waled daliadol sefydliadol gyda chydymffurfiad rheoleiddiol a gorchudd yswiriant.",
+          "title": "Gwasanaethau Daliadol"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "Cofnodion trafodion blaendal cynhwysfawr gydag olrhain statws, offer cymod, ac adnoddau archwilio.",
+          "title": "Cofnodion Adneuo"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "Adeiladwr tudalen gweledol uwch gyda rhyngwyneb llusgo-a-gollwng, offer dylunio ymatebol, ac opsiynau addasu brand.",
+          "title": "Adeiladwr Tudalennau"
+        },
+        "customization": {
+          "description": "Addaswch ymddangosiad a dyluniad eich gwefan gydag offer gweledol uwch.",
+          "title": "Dylunio"
+        },
+        "default": {
+          "editor": {
+            "description": "Golygu tudalennau rhagosodedig y pen blaen gan gynnwys hafan, tudalennau cyfreithiol, a chynlluniau gyda rhyngwyneb golygydd cod.",
+            "title": "Tudalennau Rhagosodedig"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "Platfform e-fasnach llawn nodweddion gyda rheoli stocrestr, prosesu archebion, a chefnogaeth aml-werthwr.",
+          "title": "Platfform E-fasnach"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "Rheoli marchnad ddatganoledig gyda phrotocolau AMM, pyllau hylifedd, ac integreiddiad ffermio cynnyrch.",
+          "title": "Marchnadoedd DeFi"
+        },
+        "orders": {
+          "description": "Archebion masnachu ecosystem blockchain gydag integreiddiad contract clyfar a gweithrediad datganoledig.",
+          "title": "Archebion Ecosystem"
+        },
+        "platform": {
+          "description": "Ecosystem masnachu datganoledig gyda chyfuniad blockchain, protocolau DeFi, ac awtomatiaeth contract clyfar.",
+          "title": "Ecosystem Blockchain"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "Creu a rheoli ymgyrchoedd e-bost gyda segmentu, personoli, ac olrhain perfformiad.",
+          "title": "Ymgyrchoedd E-bost"
+        },
+        "marketing": {
+          "description": "Platfform marchnata e-bost proffesiynol gyda llif gwaith awtomatiaeth, profion A/B, a dadansoddeg.",
+          "title": "Marchnata E-bost"
+        },
+        "templates": {
+          "description": "Llyfrgell templedi e-bost proffesiynol gyda dyluniad ymatebol ac opsiynau addasu brand.",
+          "title": "Templedi E-bost"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "Rheoli integreiddiadau cyfnewid gyda darparwyr hylifedd, cyfluniadau API, a monitro perfformiad.",
+          "title": "Darparwyr Cyfnewid"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "Rheoli cylch oes estyniad gyda gosod, diweddariadau, datrys dibyniaethau, a gwirio cydnawsedd.",
+          "title": "Rheolwr Estyniadau"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "Rheoli arian cyfred traddodiadol gyda monitro cyfradd cyfnewid, gosodiadau rhanbarthol, ac integreiddiad porth talu.",
+          "title": "Arian Cyfred Ffïat"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "Cyfres rheoli ariannol cynhwysfawr yn cynnwys dadansoddeg refeniw, rheoli arian cyfred, prosesu taliadau, a throsolwg trafodion.",
+          "title": "Cyllid"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "Masnachu forex proffesiynol gyda chyfuniad MetaTrader, masnachu algorithmig, a hylifedd sefydliadol.",
+          "title": "Masnachu Forex"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "Cyfluniad marchnad y dyfodol gyda manylebau contract, gofynion ymyl, a gweithdrefnau setlo.",
+          "title": "Marchnadoedd Dyfodol"
+        },
+        "orders": {
+          "description": "Rheoli archeb contract y dyfodol gydag olrhain ymyl ac offer asesu risg.",
+          "title": "Archebion Dyfodol"
+        },
+        "platform": {
+          "description": "Platfform masnachu dyfodolion proffesiynol gyda rheoli ymyl, rheolaethau risg, a gweithrediad sefydliadol.",
+          "title": "Masnachu Dyfodolion"
+        },
+        "positions": {
+          "description": "Monitro safle amser real gydag olrhain P&L, galwadau ymyl, a rheoli risg awtomataidd.",
+          "title": "Rheoli Safleoedd"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "Rheoli cynnwys hafan deinamig gyda llithryddion ymatebol, botymau galw-i-weithredu, a galluoedd profion A/B.",
+          "title": "Sleidwyr Tudalen Cartref"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "Platfform Cynnig Darnau Cychwynnol gyda chyfuniad KYC, defnyddio contract clyfar, a chydymffurfiaeth reoleiddiol.",
+          "title": "Gwerthiannau Tocynnau"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "Rheoli trosglwyddiadau cronfa mewnol rhwng cyfrifon gyda llif gwaith cymeradwyaeth a gwiriadau cydymffurfiad.",
+          "title": "Trosglwyddiadau Mewnol"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "Cyflunio hyd buddsoddiad, cyfnodau aeddfedrwydd, a chyfrifiadau llog cyfansawdd ar gyfer cynhyrchion amrywiol.",
+          "title": "Parhadau Buddsoddi"
+        },
+        "extensions": {
+          "description": "Cynhyrchion buddsoddi uwch gyda strategaethau sy'n cael eu gyrru gan AI, gwasanaethau steicio, a llwyfannau tocyneiddio.",
+          "title": "Cynhyrchion Buddsoddi"
+        },
+        "history": {
+          "description": "Dadansoddeg perfformiad buddsoddi cynhwysfawr gydag olrhain ROI a mewnwelediadau rheoli portffolio.",
+          "title": "Dadansoddeg Buddsoddi"
+        },
+        "management": {
+          "description": "Rheoli cynnyrch buddsoddi gyda chreu cynllun, olrhain perfformiad, ac offer trosolwg portffolio.",
+          "title": "Rheolaeth Buddsoddiadau"
+        },
+        "plans": {
+          "description": "Creu a rheoli cynhyrchion buddsoddi gyda phroffil risg, cyfrifiadau adenillion, a chyfluniadau tymor.",
+          "title": "Cynlluniau Buddsoddi"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "System rheoli gwybodaeth gynhwysfawr gyda chwiliad wedi'i bweru gan AI ac optimeiddio cynnwys.",
+          "title": "Sylfaen Gwybodaeth"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "Adolygu a phrosesu ceisiadau Adnabod Eich Cwsmer gyda dilysu dogfennau, asesiad risg, a llif gwaith cymeradwyaeth.",
+          "title": "Ceisiadau KYC"
+        },
+        "levels": {
+          "description": "Cyflunio haenau dilysu gyda gofynion addasadwy, terfynau, a breintiau mynediad ar gyfer categorïau defnyddwyr gwahanol.",
+          "title": "Lefelau Gwirio"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "Cyfleusterau cynnal a chadw system gan gynnwys optimeiddio cronfa ddata, rheoli storfa dros dro, ac offer mudo.",
+          "title": "Offer Cynnal a Chadw"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "Llwyfannau e-fasnach a marchnad ddigidol gydag offer gwerthwr cynhwysfawr ac amddiffyniad prynwr.",
+          "title": "Atebion Marchnadfa"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "Rheoli waled feistr gradd menter gyda diogelwch aml-lofnod ac integreiddiad storfa oer.",
+          "title": "Waledi Meistr"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "Rheoli cyfryngau canoledig gyda storfa cwmwl, optimeiddio delwedd, ac integreiddiad CDN ar gyfer perfformiad gorau.",
+          "title": "Llyfrgell Cyfryngau"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "Marchnad NFT proffesiynol gydag offer bathu, rheoli breindal, a galluoedd arwerthiant.",
+          "title": "Marchnadfa NFT"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "Templedi hysbysiad addasadwy gyda dosbarthu aml-sianel a newidynnau personoli.",
+          "title": "Templedi Hysbysiadau"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "Prosesu a rheoli archeb canoledig ar draws pob platfform masnachu a dosbarth ased.",
+          "title": "Rheoli Archebion"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "Platfform masnachu cymar-i-gymar gyda gwasanaethau escrow, datrys anghydfodau, a chefnogaeth porth talu aml.",
+          "title": "Cyfnewidfa P2P"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "Cyflunio a monitro pyrth talu gyda chanfod twyll, gwiriadau cydymffurfiad, a dadansoddeg perfformiad.",
+          "title": "Pyrth Talu"
+        },
+        "methods": {
+          "description": "Rheoli opsiynau talu sydd ar gael gan gynnwys cardiau, trosglwyddiadau banc, waledau digidol, a thaliadau arian cyfred crypto.",
+          "title": "Dulliau Talu"
+        },
+        "systems": {
+          "description": "Rheoli seilwaith talu cyflawn gan gynnwys pyrth, dulliau, a throsolwg prosesu trafodion.",
+          "title": "Systemau Talu"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "Estyniadau platfform uwch yn darparu swyddogaethau arbenigol ar gyfer masnachu, marchnadfa, a gweithrediadau busnes.",
+          "title": "Estyniadau"
+        },
+        "settings": {
+          "description": "Ffurfweddiad platfform craidd gan gynnwys brandio, lleoleiddio, polisïau diogelwch, a thogl nodweddion.",
+          "title": "Gosodiadau Platfform"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "Amserlenydd tasgau awtomataidd gyda monitro swyddi, trin methiannau, ac optimeiddio perfformiad.",
+          "title": "Tasgau Wedi'u Trefnu"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "Rheoli archeb masnachu ar y fan gyda monitro gweithredu amser real a dadansoddeg effaith marchnad.",
+          "title": "Archebion Ar Y Pryd"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "Platfform steicio cynhwysfawr gyda rheoli dilysydd, dosbarthu gwobrau, ac amddiffyniad rhag torri.",
+          "title": "Gwasanaethau Steicio"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "Cyfres gweinyddiaeth system gyflawn ar gyfer cyfluniad platfform, monitro, a gweithrediadau cynnal a chadw.",
+          "title": "System"
+        },
+        "announcements": {
+          "description": "System cyhoeddiadau ar draws y platfform gyda galluoedd amserlennu, targedu a thracio ymgysylltu.",
+          "title": "Cyhoeddiadau System"
+        },
+        "logs": {
+          "description": "System logio ganolog gyda monitro amser real, crynhoi logiau a galluoedd chwilio uwch.",
+          "title": "Cofnodion System"
+        },
+        "updates": {
+          "description": "Diweddariadau system awtomatig gyda galluoedd dad-wneud, clytiau diogelwch a rheoli datblygiad nodweddion.",
+          "title": "Diweddariadau System"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "Rheolaeth cynhwysfawr o gylch bywyd tocynnau gyda galluoedd bathu, llosgi a llywodraethu.",
+          "title": "Rheoli Tocynnau"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "Platfformau masnachu proffesiynol gyda mathau archeb uwch, offer dadansoddi marchnad a gweithredu gradd sefydliadol.",
+          "title": "Platfformau Masnachu"
+        },
+        "infrastructure": {
+          "description": "Rheolaeth platfform masnachu gan gynnwys darparwyr cyfnewid, ffurfweddiadau marchnad a systemau prosesu archebion.",
+          "title": "Seilwaith Masnachu"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "Hanes trafodion cynhwysfawr gyda hidlo uwch, galluoedd allforio a llwybrau archwilio.",
+          "title": "Cofnodion Trafodion"
+        },
+        "management": {
+          "description": "Goruchwyliaeth drafodion gyflawn gyda logio manwl, cymod a galluoedd rheoli trosglwyddo.",
+          "title": "Rheoli Trafodion"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "Rheolaeth cylchred oes defnyddiwr cyflawn gan gynnwys cofrestru, dilysu, aseinio rôl, ac offer perthynas cwsmer ar gyfer gweinyddiaeth defnyddiwr gynhwysfawr.",
+          "title": "Defnyddwyr"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "Rheolaeth UTXO uwch gyda dadansoddiad graff trafodion a nodweddion gwarchod preifatrwydd.",
+          "title": "Tracio UTXO"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "Gweinyddiaeth waled aml-arian gyda monitro balans, rheolaethau diogelwch a rheoli copi wrth gefn.",
+          "title": "Rheoli Waledi"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "Monitro ceisiadau tynnu'n ôl gyda thracio statws, llif gwaith cymeradwyo a gwirio cydymffurfiaeth.",
+          "title": "Cofnodion Tynnu Arian"
+        },
+        "management": {
+          "description": "Rheolaeth system tynnu'n ôl gynhwysfawr gyda phrosesu awtomatig, atal twyll a rheolaethau cydymffurfiaeth.",
+          "title": "Rheoli Tynnu Arian"
+        },
+        "methods": {
+          "description": "Ffurfweddu opsiynau tynnu'n ôl gan gynnwys trosglwyddiadau banc, tynnu crypto'n ôl a phroseswyr trydydd parti.",
+          "title": "Dulliau Tynnu Arian"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "Masnachu",
+        "description": "Cael mynediad at lwyfannau masnachu cynhwysfawr gyda thechnolegau siartio uwch, data marchnad amser real, a galluoedd gweithredu gradd broffesiynol ar gyfer pob dosbarth o asedau.",
+        "spot": {
+          "title": "Masnachu ar y Pryd",
+          "description": "Gweithredu gorchmynion prynu a gwerthu ar unwaith ar brisiau marchnad cyfredol gyda mathau gorchymyn uwch, siartiau dyfnder, a thechnolegau masnachu proffesiynol."
+        },
+        "binary": {
+          "title": "Opsiynau Deuaidd",
+          "description": "Masnach opsiynau deuaidd gyda dadansoddeg soffistigedig, technolegau rheoli risg, a gweithredu symledig ar gyfer strategaethau sensitif i amser."
+        },
+        "forex": {
+          "title": "Cyfnewid Tramor",
+          "description": "Cael mynediad at farchnadoedd cyfnewid tramor byd-eang gyda chysylltiad MetaTrader 4/5, siartio uwch, a gweithredu gradd sefydliadol."
+        },
+        "p2p": {
+          "title": "Cyfnewidfa P2P",
+          "description": "Cymryd rhan mewn masnachu crypto-arian cymar-i-gymar diogel gyda diogelwch escrow, dulliau talu hyblyg, a chyfraddau cystadleuol."
+        }
+      },
+      "portfolio": {
+        "title": "Portffolio",
+        "description": "Cyfres rheoli portffolio gynhwysfawr ar gyfer olrhain asedau, dadansoddi perfformiad, a rheoli eich offerynnau ariannol ar draws pob llwyfan.",
+        "wallet": {
+          "title": "Rheoli Waled",
+          "description": "Waled aml-arian ddiogel gydag olrhain balans amser real, hanes trafodion, a galluoedd adneuo/tynnu'n ôl di-dor."
+        },
+        "transactions": {
+          "title": "Hanes Trafodion",
+          "description": "Cofnodion trafodion manwl gyda hidlo uwch, galluoedd allforio, a llwybrau archwilio cynhwysfawr ar gyfer pob gweithgaredd ariannol."
+        },
+        "transfers": {
+          "title": "Trosglwyddiadau",
+          "description": "Gwasanaethau trosglwyddo mewnol ac allanol gyda phrosesu ar unwaith, ffioedd cystadleuol, a chefnogaeth aml-arian."
+        }
+      },
+      "investments": {
+        "title": "Buddsoddiadau",
+        "description": "Cyfleoedd buddsoddi amrywiol gyda dadansoddeg gradd broffesiynol, technolegau asesu risg, ac olrhain perfformiad ar draws dosbarthiadau asedau lluosog.",
+        "plans": {
+          "title": "Cynlluniau Buddsoddi",
+          "description": "Strategaethau buddsoddi wedi'u curadu gyda phroffiliau risg manwl, data perfformiad hanesyddol, a thelerau hyblyg i gyd-fynd â'ch nodau ariannol."
+        },
+        "staking": {
+          "title": "Gwobrau Stacio",
+          "description": "Ennill incwm goddefol trwy stacio crypto-arian gyda chyfraddau APY cystadleuol, cyfnodau cloi hyblyg, a dosbarthu gwobrau awtomatig."
+        },
+        "ico": {
+          "title": "Gwerthiannau Tocynnau",
+          "description": "Mynediad cynnar at Gynigion Darnau Cychwynnol wedi'u gwirio gyda diwyddrwydd dyladwy cynhwysfawr, dadansoddiad tocynegau, ac olrhain buddsoddiadau."
+        }
+      },
+      "marketplace": {
+        "title": "Marchnad",
+        "description": "Archwilio marchnadoedd digidol a chorfforol premiwm gyda thrafodion diogel, gwerthwyr wedi'u gwirio, a diogelwch prynwyr cynhwysfawr.",
+        "nft": {
+          "title": "Oriel NFT",
+          "description": "Darganfod, creu, a masnachu asedau digidol unigryw yn ein marchnad NFT wedi'i churadu gyda galluoedd arwerthiant a breindal crewyr."
+        },
+        "store": {
+          "title": "Siop",
+          "description": "Marchnad premiwm yn cynnwys cynhyrchion digidol a chorfforol gyda phrosesu taliadau diogel, cludo byd-eang, a diogelwch prynwyr."
+        }
+      },
+      "services": {
+        "title": "Gwasanaethau",
+        "description": "Gwasanaethau a thechnolegau proffesiynol i wella eich profiad masnachu, gan gynnwys rhaglenni cyswllt, adnoddau addysgol, a chefnogaeth premiwm.",
+        "affiliate": {
+          "title": "Rhaglen Gyswllt",
+          "description": "Gwneud arian o'ch rhwydwaith trwy ein rhaglen gyswllt gynhwysfawr gyda chomisiynau cystadleuol, olrhain amser real, a thechnolegau marchnata."
+        },
+        "support": {
+          "title": "Canolfan Gymorth",
+          "description": "Cefnogaeth cwsmeriaid broffesiynol gyda rheoli tocynnau, galluoedd sgwrsio byw, a rheolaeth cyfrif pwrpasol ar gyfer defnyddwyr premiwm."
+        },
+        "faq": {
+          "title": "Cronfa Wybodaeth",
+          "description": "Dogfennaeth gynhwysfawr, tiwtorialau, a chwestiynau cyffredin i'ch helpu i wneud y mwyaf o alluoedd y llwyfan."
+        }
+      },
+      "insights": {
+        "title": "Mewnwelediadau",
+        "description": "Dadansoddiad marchnad proffesiynol, mewnwelediadau masnachu, a newyddion y diwydiant gan ein tîm o arbenigwyr ariannol ac ymchwilwyr marchnad."
+      }
+    }
   }
 }

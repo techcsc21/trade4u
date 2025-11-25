@@ -67,10 +67,11 @@ export default function PhaseForm({
           <Input
             type="number"
             step="0.0001"
+            min="0"
             placeholder="e.g. 0.05"
             value={phase.tokenPrice || ""}
             onChange={(e) =>
-              onUpdate(phase.id, "tokenPrice", Number(e.target.value))
+              onUpdate(phase.id, "tokenPrice", e.target.value === "" ? 0 : Number.parseFloat(e.target.value) || 0)
             }
           />
         </div>

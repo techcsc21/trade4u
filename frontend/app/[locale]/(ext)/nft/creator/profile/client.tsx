@@ -72,23 +72,32 @@ export default function CreatorProfileClient() {
 
   const fetchCreatorProfile = useCallback(async () => {
     setLoading(true);
-    
+
     const { data, error } = await $fetch({
       url: "/api/nft/creator/profile",
       method: "GET",
+      silent: true,
     });
 
     if (!error && data) {
       setCreator(data);
       setBannerImageUrl(data.banner || "");
-      
+
       form.reset({
         displayName: data.displayName || "",
         bio: data.bio || "",
         profilePublic: data.profilePublic ?? true,
       });
+    } else if (error && error.includes("404")) {
+      // Profile doesn't exist yet, that's okay - user can create it by filling the form
+      setCreator(null);
+      form.reset({
+        displayName: "",
+        bio: "",
+        profilePublic: true,
+      });
     }
-    
+
     setLoading(false);
   }, [form]);
 
@@ -119,7 +128,9 @@ export default function CreatorProfileClient() {
 
   const onSubmit = async (data: ProfileForm) => {
     setSaving(true);
-    
+
+    const isCreating = !creator;
+
     const { data: updatedCreator, error } = await $fetch({
       url: "/api/nft/creator/profile",
       method: "PUT",
@@ -127,13 +138,13 @@ export default function CreatorProfileClient() {
         ...data,
         banner: bannerImageUrl,
       },
-      successMessage: "Profile updated successfully!",
+      successMessage: isCreating ? "Creator profile created successfully!" : "Profile updated successfully!",
     });
 
     if (!error) {
       setCreator(updatedCreator);
     }
-    
+
     setSaving(false);
   };
 
@@ -148,7 +159,7 @@ export default function CreatorProfileClient() {
         );
       case "SILVER":
         return (
-          <Badge className="bg-gray-400 text-white">
+          <Badge className="bg-zinc-400 text-white">
             <Star className="h-3 w-3 mr-1" />
             Silver Creator
           </Badge>
@@ -179,55 +190,72 @@ export default function CreatorProfileClient() {
 
   if (loading) {
     return (
-      <div className="container mx-auto py-12 px-4">
-        <LoadingSpinner />
+      <div className="min-h-screen bg-background">
+        <div className="container mx-auto pt-32 pb-12 px-4 flex items-center justify-center">
+          <LoadingSpinner />
+        </div>
       </div>
     );
   }
 
   if (!user) {
     return (
-      <div className="container mx-auto py-12 px-4 text-center">
-        <h1 className="text-2xl font-bold mb-4">Creator Profile Settings</h1>
-        <p className="text-muted-foreground mb-6">
-          Please sign in to access creator profile settings
-        </p>
-        <Button onClick={() => setIsAuthModalOpen(true)}>
-          Sign In
-        </Button>
-        <AuthModal
-          isOpen={isAuthModalOpen}
-          onClose={() => setIsAuthModalOpen(false)}
-          initialView="login"
-        />
+      <div className="min-h-screen bg-background">
+        <div className="container mx-auto pt-32 pb-12 px-4 text-center">
+          <h1 className="text-2xl font-bold mb-4">Creator Profile Settings</h1>
+          <p className="text-muted-foreground mb-6">
+            Please sign in to access creator profile settings
+          </p>
+          <Button onClick={() => setIsAuthModalOpen(true)}>
+            Sign In
+          </Button>
+          <AuthModal
+            isOpen={isAuthModalOpen}
+            onClose={() => setIsAuthModalOpen(false)}
+            initialView="login"
+          />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto py-8 px-4 max-w-4xl">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold mb-2">Creator Profile Settings</h1>
-            <p className="text-muted-foreground">
-              Customize your creator profile and showcase your work
-            </p>
-          </div>
-          <Link href={`/nft/creator/${user?.id}`}>
-            <Button variant="outline">
-              <ExternalLink className="h-4 w-4 mr-2" />
-              View Public Profile
-            </Button>
-          </Link>
+    <div className="min-h-screen bg-background">
+      {/* Hero Header Section */}
+      <section className="relative pt-24 pb-12 overflow-hidden bg-gradient-to-b from-primary/5 via-purple-600/5 to-background border-b">
+        {/* Animated background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-purple-600/10 to-transparent rounded-full blur-3xl animate-pulse delay-1000" />
         </div>
-      </div>
 
-      {/* Creator Stats Display */}
-      {creator && (
-        <Card className="mb-8">
-          <CardContent className="pt-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-4xl">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+            <div>
+              <h1 className="text-3xl lg:text-4xl font-bold mb-2 bg-gradient-to-r from-foreground via-primary to-purple-600 bg-clip-text text-transparent">
+                Creator Profile Settings
+              </h1>
+              <p className="text-muted-foreground">
+                Customize your creator profile and showcase your work
+              </p>
+            </div>
+            <Link href="/nft/creator">
+              <Button variant="outline" className="border-2">
+                <ExternalLink className="h-4 w-4 mr-2" />
+                View Dashboard
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 max-w-4xl">
+
+        {/* Creator Stats Display */}
+        {creator && (
+          <Card className="mb-8 bg-card/50 backdrop-blur border-2">
+            <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <Avatar className="h-16 w-16">
@@ -263,20 +291,20 @@ export default function CreatorProfileClient() {
                 </div>
               </div>
             </div>
-          </CardContent>
-        </Card>
-      )}
+            </CardContent>
+          </Card>
+        )}
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {/* Banner Image */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Camera className="h-5 w-5" />
-                Banner Image
-              </CardTitle>
-            </CardHeader>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            {/* Banner Image */}
+            <Card className="bg-card/50 backdrop-blur border-2">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Camera className="h-5 w-5" />
+                  Banner Image
+                </CardTitle>
+              </CardHeader>
             <CardContent>
               <div className="relative w-full h-40 bg-muted rounded-lg overflow-hidden border-2 border-dashed border-muted-foreground/25">
                 {bannerImageUrl ? (
@@ -313,14 +341,14 @@ export default function CreatorProfileClient() {
             </CardContent>
           </Card>
 
-          {/* Profile Information */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <User className="h-5 w-5" />
-                Profile Information
-              </CardTitle>
-            </CardHeader>
+            {/* Profile Information */}
+            <Card className="bg-card/50 backdrop-blur border-2">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <User className="h-5 w-5" />
+                  Profile Information
+                </CardTitle>
+              </CardHeader>
             <CardContent className="space-y-6">
               <FormField
                 control={form.control}
@@ -337,7 +365,7 @@ export default function CreatorProfileClient() {
                     <FormDescription>
                       This is how your name will appear to other users
                     </FormDescription>
-                    <FormMessage />
+                    <FormMessage className="text-destructive" />
                   </FormItem>
                 )}
               />
@@ -358,7 +386,7 @@ export default function CreatorProfileClient() {
                     <FormDescription>
                       Brief description about you and your work
                     </FormDescription>
-                    <FormMessage />
+                    <FormMessage className="text-destructive" />
                   </FormItem>
                 )}
               />
@@ -386,30 +414,36 @@ export default function CreatorProfileClient() {
             </CardContent>
           </Card>
 
-          {/* Submit Button */}
-          <div className="flex justify-end">
-            <Button type="submit" disabled={saving} className="min-w-32">
-              {saving ? (
-                <>
-                  <LoadingSpinner />
-                  Saving...
-                </>
-              ) : (
-                <>
-                  <Save className="h-4 w-4 mr-2" />
-                  Save Profile
-                </>
-              )}
-            </Button>
-          </div>
-        </form>
-      </Form>
+            {/* Submit Button */}
+            <div className="flex gap-4 justify-end">
+              <Link href="/nft/creator">
+                <Button type="button" variant="outline">
+                  Cancel
+                </Button>
+              </Link>
+              <Button type="submit" disabled={saving} className="min-w-32 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                {saving ? (
+                  <>
+                    <LoadingSpinner />
+                    Saving...
+                  </>
+                ) : (
+                  <>
+                    <Save className="h-4 w-4 mr-2" />
+                    Save Profile
+                  </>
+                )}
+              </Button>
+            </div>
+          </form>
+        </Form>
 
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-        initialView="login"
-      />
+        <AuthModal
+          isOpen={isAuthModalOpen}
+          onClose={() => setIsAuthModalOpen(false)}
+          initialView="login"
+        />
+      </div>
     </div>
   );
 } 

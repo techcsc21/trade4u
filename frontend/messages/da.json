@@ -150,6 +150,23 @@
     "top_up": "Fyld op",
     "total_equity": "Egenkapital i alt:"
   },
+  "binary/components/header/market-selector": {
+    "Added": "Tilføjet",
+    "Connecting": "Forbinder",
+    "Discover": "Opdage",
+    "Done": "Gjort",
+    "Hot": "Hed",
+    "Markets": "Markeder",
+    "Trending": "Populært",
+    "add_new_trading_pairs_to_your_workspace": "Tilføj nye handelspar til dit arbejdsområde",
+    "add_to_trading": "Tilføj til handel",
+    "binary_options": "Binære optioner",
+    "clear_filters": "Ryd filtre",
+    "markets_available": "Tilgængelige markeder",
+    "no_markets_found": "Ingen markeder fundet",
+    "select": "vælg",
+    "try_adjusting_your_different_categories": "Prøv at justere din søgning eller gennemse forskellige kategorier"
+  },
   "binary/components/header/market-selector-modal": {
     "Add": "Tilføje",
     "All": "Alle",
@@ -162,23 +179,6 @@
     "active_markets": "Aktive markeder",
     "no_markets_found": "Der blev ikke fundet nogen markeder",
     "try_adjusting_your_search": "Prøv at justere din søgning"
-  },
-  "binary/components/header/market-selector": {
-    "Added": "Tilføjet",
-    "Connecting": "Forbinder",
-    "Discover": "Opdage",
-    "Done": "Gjort",
-    "Hot": "Hed",
-    "Markets": "Markeder",
-    "Trending": "Trending",
-    "add_new_trading_pairs_to_your_workspace": "Tilføj nye handelspar til dit arbejdsområde",
-    "add_to_trading": "Tilføj til handel",
-    "binary_options": "Binære optioner",
-    "clear_filters": "Ryd filtre",
-    "markets_available": "Tilgængelige markeder",
-    "no_markets_found": "Ingen markeder fundet",
-    "select": "vælg",
-    "try_adjusting_your_different_categories": "Prøv at justere din søgning eller gennemse forskellige kategorier"
   },
   "binary/components/header/mobile-header": {
     "balance": "Saldo:"
@@ -811,7 +811,7 @@
     "toggle_columns": "Slå kolonner til/fra"
   },
   "components/blocks/data-table/toolbar/filter-button": {
-    "Filter": "Filter"
+    "Filter": "Filtrér"
   },
   "components/blocks/data-table/toolbar/selected-items-actions": {
     "Actions": "Handlinger",
@@ -876,7 +876,7 @@
   },
   "components/blocks/support/support-chat": {
     "Back": "Tilbage",
-    "support_chat": "Support Chat",
+    "support_chat": "Supportchat",
     "ticket_id": "Billet ID:"
   },
   "components/blocks/support/ticket-details": {
@@ -935,7 +935,7 @@
     "full_screen": "Fuld skærm"
   },
   "components/partials/header/index": {
-    "Admin": "Admin",
+    "Admin": "Administrator",
     "User": "Bruger"
   },
   "components/partials/header/notification-bell": {
@@ -948,7 +948,7 @@
     "Logout": "Log ud"
   },
   "components/partials/header/site-header": {
-    "Admin": "Admin",
+    "Admin": "Administrator",
     "User": "Bruger"
   },
   "components/partials/sidebar/add-block": {
@@ -1037,7 +1037,7 @@
     "Australia": "Australien",
     "Auto-scrolling": "Automatisk rulning",
     "Available": "Tilgængelig",
-    "Avatar": "Avatar",
+    "Avatar": "Profilbillede",
     "Avg": "Gns.",
     "Back": "Tilbage",
     "Banned": "Forbudt",
@@ -1150,13 +1150,6 @@
     "Image": "Billede",
     "Images": "Billeder",
     "Important": "Vigtig",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "Forbedre",
     "Inactive": "Inaktiv",
     "Insights": "Indsigt",
@@ -1179,7 +1172,7 @@
     "Manage binary trading markets imported from exchange spot markets": "Administrer binære handelsmarkeder importeret fra børs spotmarkeder",
     "Manual": "Manuel",
     "Margin": "Margen",
-    "Medium": "Medium",
+    "Medium": "Mellem",
     "Metadata": "Metadata",
     "Middle": "Midte",
     "Migrating": "Overflytning",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "Du har i alt",
     "you_havent_created_any_api_keys_yet": "Du har ikke oprettet nogen API-nøgler endnu",
     "you_havent_saved_any_sections_yet": "Du har ikke gemt nogen sektioner endnu",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "Du skal aktivere og installere udvidelsen til den nyeste version, før du aktiverer den",
     "youll_be_redirected_to_the_login_page_after_logout": "Du vil blive omdirigeret til login-siden efter at have logget ud",
     "youll_need_it_log_in": "Du skal bruge den for at modtage bekræftelseskoder, når du logger ind",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• Migreringshandlinger er irreversible, når de er fuldført",
     "•_monitor_system_data_migrations": "• Overvåg systemets ydeevne under store dataoverførsler",
     "•_some_operations_maintenance_mode": "• Nogle operationer kan kræve systemvedligeholdelsestilstand",
-    "•_using_fallback_mode": "• Brug af fallback-tilstand"
+    "•_using_fallback_mode": "• Brug af fallback-tilstand",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "Gå til hjemmesiden",
@@ -2556,7 +2556,7 @@
     "%_fee": "% gebyr",
     "%_filled": "% fyldt",
     "%_from_last_month": "% fra sidste måned",
-    "%_from_last_period": "% from last period",
+    "%_from_last_period": "% fra sidste periode",
     "%_from_market_price": "% fra markedspris",
     "%_match": "% Match",
     "%_monthly_rate": "% månedlig sats",
@@ -2565,7 +2565,7 @@
     "%_of_target_raised": "% af målet nået",
     "%_of_total_earnings": "% af samlede indtægter",
     "%_penalty_fee": "% bødegebyr",
-    "%_positive": "% positive",
+    "%_positive": "% positiv",
     "%_released": "% Frigivet:",
     "%_sold": "% solgt",
     "%_success_rate": "% succesrate",
@@ -2573,7 +2573,7 @@
     "(price": "(Pris:",
     "(status_can_only_be_changed_when_order_is_pending)": "(Status kan kun ændres, når ordren afventer)",
     ")_has_been_submitted_and_is_now_pending_review": ") er blevet indgivet og afventer nu revision",
-    "+_countries": "+ countries",
+    "+_countries": "+ lande",
     "-Real": "-Reel",
     "-_you_need_a": "- Du har brug for en",
     "-minute_time_limit": "-minut tidsbegrænsning",
@@ -2906,7 +2906,7 @@
     "Resume": "Genoptage",
     "Resumes": "Genoptager",
     "Retention": "Fastholdelse",
-    "Retry": "Retry",
+    "Retry": "Prøv igen",
     "Revenue": "Indtægt",
     "Reward": "Belønning",
     "Rewards": "Belønninger",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "En verden, hvor innovative projekter nemt kan få adgang til kapital, og investorer kan deltage i muligheder med tillid og sikkerhed",
     "accept_offers_that_match_your_needs": "Accepter tilbud, der matcher dine behov",
     "accepted_methods": "Accepterede metoder",
-    "access_denied": "Access Denied",
+    "access_denied": "Adgang nægtet",
     "access_institutional-grade_forex_serious_investors": "Få adgang til forexhandel af institutionel kvalitet med avancerede algoritmer, professionel risikostyring og ensartede afkast for seriøse investorer",
     "access_to_marketing_support_and_security_audits": "Adgang til marketingsupport og sikkerhedsrevisioner",
     "account": "Konto:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "Tilføj ny vedhæftet fil",
     "add_note": "Tilføj note",
     "add_notes_and_terms_for_this_offer": "Tilføj noter og vilkår for dette tilbud",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "Tilføj betalingsmetode",
     "add_phase": "Tilføj fase",
     "add_plan": "Tilføj plan",
     "add_roadmap_item": "Tilføj roadmap-element",
@@ -3108,11 +3108,11 @@
     "additional_verification_requirements_for": "Yderligere verifikationskrav for højværdi NFT-transaktioner",
     "address": "Adresse:",
     "adjust_amount": "Juster beløb",
-    "admin": "Admin",
+    "admin": "Administrator",
     "admin_actions": "Administrator-handlinger",
     "admin_actions_will_appear_here": "Administratorhandlinger vises her",
     "admin_activity": "Admin Aktivitet",
-    "admin_dashboard": "Admin Dashboard",
+    "admin_dashboard": "Administrator dashboard",
     "admin_earnings": "Indtjening fra administratorer",
     "admin_fee": "Administrationsgebyr:",
     "admin_id": "Admin-ID",
@@ -3124,12 +3124,12 @@
     "advanced_algorithmic_strategies_professional_investors": "Avancerede algoritmiske strategier kombineret med dyb markedsekspertise for at levere konsistente, risikojusterede afkast til professionelle investorer",
     "advanced_analytics": "Avanceret analyse",
     "advanced_filters": "Avancerede filtre",
-    "affiliate_dashboard": "Affiliate Dashboard",
+    "affiliate_dashboard": "Affiliate-kontrolpanel",
     "affiliate_id": "Affilieret ID:",
     "affiliate_not_found": "Affiliate ikke fundet",
     "affiliate_program_conditions": "Betingelser for affiliate-program",
     "affiliate_settings": "Affiliate indstillinger",
-    "affiliate_status": "Affiliate Status",
+    "affiliate_status": "Affiliate-status",
     "affiliates": "Datterselskaber",
     "after_1_year": "Efter 1 år",
     "after_investing_youll_your_investment": "Når du har investeret, modtager du en bekræftelses-e-mail med oplysninger om din investering",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "Auto-publicer salg og nye annoncer",
     "auto-release": "Automatisk frigivelse:",
     "auto-verify_new_creators": "Auto-verificer nye skabere",
+    "auto_approve_offers": "Godkend tilbud automatisk",
     "auto_cancel": "Automatisk annullering",
     "auto_cancel_time_(minutes)": "Automatisk annulleringstid (minutter)",
     "automatic_earnings_distribution": "Automatisk indtjeningsfordeling",
     "automatic_escrow_protection_for_all_funds": "Automatisk deponeringsgaranti for alle midler",
     "automatic_release_after_no_dispute)": "Automatisk frigivelse efter 24 timer efter betalingsbekræftelse (hvis der ikke er nogen tvist)",
     "automatically_adjust_amount_to_meet_minimum": "Juster automatisk beløbet for at opfylde minimum",
+    "automatically_approve_new_and_edited_offers": "Godkend automatisk nye og redigerede tilbud",
     "automatically_cancel_the_specified_time": "Annuller automatisk tilbuddet, hvis der ikke er noget svar inden for et bestemt tidsrum",
     "automatically_cancel_trades_payment_window": "Annuller automatisk handler, hvis betalingen ikke bekræftes inden for betalingsvinduet",
     "automatically_extend_auctions_when": "Forlæng automatisk auktioner når bud afgives nær slutningen",
@@ -3307,7 +3309,7 @@
     "bank_statement_(seller)": "Kontoudtog (sælger)",
     "bank_transfer": "Bankoverførsel",
     "bank_transfer_receipt_1130_am": "Bankoverførselskvittering uploadet den 10. jul. 2023 11:30",
-    "banner_url": "Banner URL",
+    "banner_url": "Banner-URL",
     "base_apr": "Basis ÅOP",
     "based_on_current_market_conditions": "Baseret på de nuværende markedsforhold",
     "based_on_current_market_price": "Baseret på den aktuelle markedspris",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "Bekræft din indbetaling",
     "confirm_your_withdrawal": "Bekræft din udbetaling",
     "confirmed_at": "Bekræftet på:",
-    "conflict": "Conflict",
+    "conflict": "Konflikt",
     "connect_with_traders_worldwide": "Kom i kontakt med handlende over hele verden",
     "connections": "Forbindelser",
     "consider_cliff_periods_for_team_tokens": "Overvej klippeperioder for holdtokens",
@@ -3720,7 +3722,7 @@
     "discard_unsaved_changes": "Kassér ændringer, der ikke er gemt?",
     "discord_integration": "Discord-integration",
     "discord_webhook_for_sending": "Discord webhook til afsendelse af markedsplads-notifikationer",
-    "discord_webhook_url": "Discord Webhook URL",
+    "discord_webhook_url": "Discord Webhook-URL",
     "discount_code": "Rabat kode",
     "discover_all_the_affiliate_program": "Opdag alle de måder, du kan optjene belønninger på gennem vores affiliateprogram",
     "discover_and_invest_our_platform": "Opdag og invester i de nyeste token-tilbud på vores platform",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "End-to-end krypteret chat til sikker kommunikation mellem køber og sælger under handlen",
     "end_date": "Slutdato:",
     "end_of_term": "Slutningen af perioden",
+    "ended": "Afsluttet",
     "ending_soon": "Slutter snart",
     "enhance_multiple_faqs_ai-powered_improvements": "Forbedre flere ofte stillede spørgsmål ved hjælp af vores AI-drevne forbedringer",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "Nyd de laveste gebyrer i branchen på kun 0",
@@ -3939,7 +3942,7 @@
     "external_resources": "Eksterne ressourcer",
     "extra_large_(400x400)": "Ekstra stor (400x400)",
     "failed_to_load_admin_dashboard": "Administratordashboardet kunne ikke indlæses:",
-    "failed_to_load_dashboard": "Failed to load dashboard",
+    "failed_to_load_dashboard": "Kunne ikke indlæse dashboard",
     "failed_to_load_offers": "Kunne ikke indlæse tilbud",
     "failed_to_load_performance_data": "Kunne ikke indlæse ydelsesdata",
     "failed_to_load_portfolio_data": "Porteføljedata kunne ikke indlæses",
@@ -4023,7 +4026,7 @@
     "follow_the_guided_trade_safely": "Følg den guidede proces for at udføre din handel sikkert",
     "follow_the_sellers_payment_instructions_carefully": "Følg sælgers betalingsinstruktioner nøje",
     "follow_the_steps_trading_offer": "Følg nedenstående trin for at oprette dit P2P-handelstilbud",
-    "for": "for",
+    "for": "til",
     "for_$": "for $",
     "for_buyers": "For købere",
     "for_example_the_minimum_is": "For eksempel er minimum 0",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "Interne noter om denne tvist",
     "internal_notes_about_this_offer": "Interne bemærkninger om dette tilbud",
     "internal_notes_about_this_position": "Interne noter om denne stilling",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "Ugyldig anmodning",
     "invest_in": "Invester i",
     "invest_in_this_offering": "Invester i dette tilbud",
     "invest_more": "Invester mere",
@@ -4318,7 +4321,7 @@
     "lifetime_earnings": "Livstidsindtjening",
     "limited_functionality": "Begrænset funktionalitet",
     "limits": "Grænser:",
-    "linkedin_url": "LinkedIn URL",
+    "linkedin_url": "LinkedIn-URL",
     "list_view": "Listevisning",
     "listing_fee_(eth)": "Noteringsgebyr (ETH)",
     "live_account": "Live-konto",
@@ -4326,6 +4329,7 @@
     "live_preview": "Live forhåndsvisning",
     "load_id": "Indlæsning ID:",
     "load_more": "Indlæs mere",
+    "loading": "Indlæser",
     "loading_activity_data": "Indlæsning af aktivitetsdata",
     "loading_affiliate_data": "Indlæser affilierede data",
     "loading_analytics_data": "Indlæsning af analysedata",
@@ -4370,7 +4374,7 @@
     "login": "log ind",
     "login_required": "Login påkrævet",
     "login_to_provide_feedback": "Log ind for at give feedback",
-    "logo_url": "Logo URL",
+    "logo_url": "Logo-URL",
     "longer_durations_often_longer_commitment": "Længere varigheder giver ofte højere afkast, men kræver en længere forpligtelse",
     "longest_lock_period": "Længste låseperiode",
     "looks_like_you_cart_yet": "Det ser ud til, at du ikke har tilføjet nogen produkter til din indkøbskurv endnu",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "Administrer og overvåg dine tokentilbud",
     "manage_and_track_your_referred_users": "Administrer og spor dine henviste brugere",
     "manage_conditions": "Administrer betingelser",
+    "manage_rewards": "Administrer belønninger",
     "manage_the_blockchains_token_launches": "Administrer de blockchains, der er tilgængelige for tokenlanceringer",
     "manage_this_trade": "Administrer denne handel",
     "manage_token_release": "Administrer tokenfrigivelse",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "Månedsløn for de seneste 6 måneder",
     "monthly_faq_views_for_the_current_year": "Månedlige FAQ-visninger for indeværende år",
     "monthly_growth_rate_(%)": "Månedlig vækstrate (%)",
+    "monthly_growth_rate_tooltip": "Forventet gennemsnitlig månedlig prisvækstrate. Positive værdier indikerer prisstigning, negative værdier indikerer værdiforringelse. Typisk interval: -50% til +50%",
     "monthly_profit": "Månedlig fortjeneste",
     "more": "mere",
     "most_common_search_terms_used_by_your_users": "De mest almindelige søgetermer, der bruges af dine brugere",
@@ -4569,7 +4575,7 @@
     "no_categories_found": "Ingen kategorier fundet",
     "no_category_data_available": "Ingen kategoridata tilgængelige",
     "no_change": "Ingen ændring",
-    "no_chart_data_available": "No chart data available",
+    "no_chart_data_available": "Ingen diagramdata tilgængelig",
     "no_completed_offerings_match_your_filters": "Ingen færdige tilbud matcher dine filtre",
     "no_completed_positions": "Ingen afsluttede stillinger",
     "no_completed_trades": "Ingen gennemførte handler",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "Der blev ikke fundet nogen advarsler",
     "no_withdrawal_methods_available_for_this_currency": "Ingen udbetalingsmetoder tilgængelige for denne valuta",
     "not_available_for_this_chain": "Ikke tilgængelig for denne kæde",
-    "not_found": "Not Found",
+    "not_found": "Ikke fundet",
     "not_helpful": "Ikke nyttigt",
+    "not_started": "Ikke startet",
     "not_submitted": "Ikke indsendt",
     "notes_and_comments_about_this_transaction": "Noter og kommentarer om denne transaktion",
     "now_accepting_bitcoin_ethereum_&_more": "Accepterer nu Bitcoin, Ethereum og mere",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "Tilbud ikke fundet, eller du har ikke tilladelse til at redigere det",
     "offer_status": "Tilbudsstatus",
     "offer_type": "Tilbud type",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "Tilbud utilgængeligt",
     "offer_updated_successfully_and_is_pending_approval": "Tilbuddet er opdateret og afventer godkendelse",
     "offer_visibility": "Tilbyd synlighed",
     "offering": "Tilbyder:",
@@ -4776,7 +4783,7 @@
     "out_of_5_stars_(": "ud af 5 stjerner (",
     "out_of_stock": "Udsolgt",
     "overall_pool_performance_metrics": "Overordnede målepunkter for puljeydeevne",
-    "p2p_admin": "P2P Admin",
+    "p2p_admin": "P2P-administrator",
     "p2p_shop": "P2P Butik",
     "p2p_trading_activity": "P2P-handelsaktivitet",
     "p2p_trading_disabled": "P2P-handel deaktiveret",
@@ -4791,7 +4798,7 @@
     "password": "kodeord",
     "pay_with_confidence_processing_system": "Betal med tillid ved hjælp af vores sikre betalingsbehandlingssystem",
     "pay_within_time_limit": "Betal inden for tidsgrænsen",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "Betalingsaktiviteter",
     "payment_completed_successfully": "Betalingen er gennemført!",
     "payment_confirmed": "Betaling bekræftet",
     "payment_details": "Betalingsoplysninger",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "Betalingsinstruktioner",
     "payment_marked_as_sent": "Betaling markeret som sendt",
     "payment_method": "Betalingsmetode:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "Betalingsmetode påkrævet",
     "payment_methods": "Betalingsmetoder",
     "payment_methods_summary": "Oversigt over betalingsmetoder",
     "payment_methods_you_prefer": "Betalingsmetoder, du foretrækker",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "Vælg de mål, du vil føje til denne kampagne",
     "please_send_payment_when_done": "Send venligst betaling til sælgeren ved hjælp af den angivne betalingsmetode og bekræft, når du er færdig",
     "please_sign_in_to_view_your_shipping_details": "Log ind for at se dine forsendelsesoplysninger",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "Vær venlig at sænke farten",
     "please_try_again": "Prøv venligst igen",
     "please_try_again_later": "Prøv igen senere",
     "please_try_refreshing_the_page": "Prøv at opdatere siden",
@@ -4924,7 +4931,7 @@
     "pool_timeline": "Tidslinje for poolen",
     "portfolio_overview": "Oversigt over porteføljen",
     "portfolio_performance": "Porteføljeydelse",
-    "position_#": "Position #",
+    "position_#": "Position nr.",
     "position_completed": "Stilling afsluttet",
     "position_details": "Oplysninger om stilling",
     "position_id": "Stillings-ID",
@@ -5015,7 +5022,7 @@
     "qr_code_generator": "QR-kode generator",
     "qr_code_size": "QR-kode størrelse",
     "qty": "Antal:",
-    "quick_actions": "Quick Actions",
+    "quick_actions": "Hurtige handlinger",
     "quick_response": "Hurtigt svar",
     "quick_select": "Hurtigt valg",
     "quick_select_amount": "Hurtigt valg af beløb",
@@ -5351,13 +5358,14 @@
     "social_media_post": "Opslag på sociale medier",
     "solana_(sol)": "Solana (SOL)",
     "sold": "Solgt",
+    "sold_out": "Udsolgt",
     "some_features_may_be_temporarily_unavailable": "Nogle funktioner kan være midlertidigt utilgængelige",
     "some_pools_distribute_staking_period": "Nogle puljer uddeler belønninger dagligt, mens andre gør det ugentligt, månedligt eller i slutningen af indsatsperioden",
     "some_pools_offer_higher_returns": "Nogle puljer tilbyder automatisk sammensætning, som automatisk geninvesterer dine optjente belønninger for at generere endnu højere afkast",
     "some_pools_offer_your_rewards": "Nogle puljer tilbyder automatisk sammensætning, som automatisk geninvesterer dine belønninger",
     "some_settings_like_launch_plans": "Nogle indstillinger som f.eks. grænser for teammedlemmer og oversigtselementer styres nu af lanceringsplaner",
     "some_trade_features_are_currently_disabled": "Nogle handelsfunktioner er i øjeblikket deaktiveret:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "Noget gik galt",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "Vi kunne desværre ikke finde den side, du ledte efter",
     "sort_by": "Sortér efter",
     "source_code_verification": "Verifikation af kildekode",
@@ -5408,7 +5416,7 @@
     "start_staking_now": "Begynd at satse nu",
     "start_the_conversation": "Start samtalen!",
     "start_the_trade": "Start handlen",
-    "start_trading": "Start Trading",
+    "start_trading": "Start handel",
     "start_trading_now": "Begynd at handle nu",
     "start_trading_or_chart_here": "Begynd at handle eller indbetale midler for at se dit porteføljevækstdiagram her",
     "start_trading_safely": "Begynd at handle sikkert",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Abonner på vores nyhedsbrev",
     "subtotal": "Subtotal:",
     "subtotal_(": "Subtotal (",
-    "success": "Success",
+    "success": "Succes",
     "success_rate": "Succesrate",
     "successful_offerings": "Succesfulde tilbud",
     "successful_trades": "Succesfulde handler:",
@@ -5453,7 +5461,7 @@
     "suggested_messages": "Foreslåede beskeder",
     "suggested_solution": "Foreslået løsning",
     "support_the_security_blockchain_networks": "Understøt sikkerheden og driften af blockchain-netværk",
-    "support_url": "Support URL",
+    "support_url": "Support-URL",
     "supported_blockchains": "Understøttede Blockchains",
     "supported_blockchains_are_automatically": "Understøttede blockchains bestemmes automatisk af din økosystem addon-konfiguration. For at tilføje eller fjerne netværk, opdater økosystemindstillingerne.",
     "supported_file_formats": "Understøttede Filformater",
@@ -5652,21 +5660,21 @@
     "token_release_schedule": "Tidsplan for udgivelse af token",
     "token_sale_phases_and_allocations": "Token-salgsfaser og -allokeringer",
     "token_symbol": "Token-symbol",
-    "token_type": "Token Type:",
+    "token_type": "Token-type:",
     "token_type_configuration": "Konfiguration af tokentype",
     "token_types": "Typer af tokens",
     "tokens": "Poletter",
     "tokens_for_sale": "Poletter til salg",
     "tokens_to_receive": "Tokens, der skal modtages:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "For mange anmodninger",
     "top-performing_staking_pools": "Bedst præsterende indsatspuljer",
     "top_performing_affiliates": "Bedst præsterende affiliates",
     "top_performing_faqs": "Ofte stillede spørgsmål om de bedste",
     "top_rated": "Bedst bedømte",
     "top_search_queries": "Mest populære søgeforespørgsler",
     "top_selling_products": "Bedst sælgende produkter",
-    "top_trader": "Top Trader",
-    "total": "total",
+    "top_trader": "Tophandler",
+    "total": "i alt",
     "total_$": "I alt: $",
     "total_(usd)": "I alt (USD)",
     "total_allocation": "Samlet tildeling",
@@ -5688,7 +5696,7 @@
     "total_return": "Samlet afkast:",
     "total_reward_(": "Samlet belønning (",
     "total_rewards": "Samlede belønninger",
-    "total_sales": "Total Sales",
+    "total_sales": "Samlet salg",
     "total_staked": "Samlet satset",
     "total_staked_amount_and_earnings_over_time": "Samlet satset beløb og indtjening over tid",
     "total_supply": "Samlet forsyning",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "Handelsoplysninger er ikke tilgængelige på nuværende tidspunkt",
     "trade_details_are_temporarily_unavailable": "Handelsoplysninger er midlertidigt utilgængelige",
     "trade_disputed": "Handel omstridt",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "Handel udløbet",
     "trade_history_requirements": "Krav til handelshistorik",
     "trade_id": "Handels-ID",
     "trade_information": "Handelsoplysninger",
@@ -5751,7 +5759,7 @@
     "trading_location": "Handelssted",
     "trading_off-platform_removes_to_scams": "Handel uden for platformen fjerner denne beskyttelse og udsætter dig for svindel",
     "trading_safety_tips": "Sikkerhedstips til handel",
-    "trading_volume": "Trading Volume",
+    "trading_volume": "Handelsvolumen",
     "traditional_bank_transfers": "Traditionelle bankoverførsler",
     "traffic_source_(optional)": "Trafikkilde (valgfrit)",
     "transaction_amount_matches_the_investment_record": "Transaktionsbeløbet stemmer overens med investeringsposten",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Venmo mobilbetalinger",
     "verification_badges": "Verifikationsmærker",
     "verification_badges_help_users": "Verifikationsmærker hjælper brugere med at identificere troværdige skabere og autentiske samlinger. De vises på profiler, lister og søgeresultater.",
-    "verification_required": "Verification Required",
+    "verification_required": "Verifikation påkrævet",
     "verification_settings_affect_marketplace": "Verifikationsindstillinger påvirker markedspladsens troværdighed og overholdelse. Overvej dit jurisdiktionsområdes krav.",
     "verified_only": "Kun verificeret",
     "verified_project_teams_and_offerings": "Verificerede projektteams og tilbud",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "Kun verificerede forhandlere",
     "verified_users_have_verification_process": "Verificerede brugere har gennemført vores identitetsbekræftelsesproces",
     "verify_&_approve_transaction": "Bekræft og godkend transaktion",
-    "verify_account": "Verify Account",
+    "verify_account": "Verificer konto",
     "verify_payment_and_release_funds": "Bekræft betaling og frigiv midler",
     "verify_payment_before_releasing": "Bekræft betalingen før frigivelse",
     "verify_payment_first": "Bekræft betaling først",
@@ -5903,7 +5911,7 @@
     "vesting_parameters": "Optjening af parametre",
     "vesting_schedule": "Optjeningsplan",
     "view_activity_log": "Se aktivitetslog",
-    "view_all": "View All",
+    "view_all": "Se alle",
     "view_all_activities": "Se alle aktiviteter",
     "view_all_activity": "Se al aktivitet",
     "view_all_categories": "Se alle kategorier",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "Visualiser og administrer din affiliate netværksstruktur",
     "visualize_distribution_vesting_token_launch": "Visualiser distribution, optjeningsplaner og markedsprognoser for at optimere din token-lancering",
     "volatility_(%)": "Volatilitet (%)",
+    "volatility_tooltip": "Forventet prisudsving interval. Højere volatilitet betyder større prisudsving. 0% betyder stabile priser, 100% betyder ekstreme prisbevægelser.",
     "volume": "Lydstyrke:",
     "volume_(btc)": "Volumen (BTC)",
     "vs": "vs",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "Hvad vil du gerne lave?",
     "what_would_you_like_to_do_next": "Hvad vil du gerne gøre nu?",
     "when_a_trade_into_escrow": "Når en handel begynder, skal du indbetale kryptovalutaen i escrow:",
+    "when_disabled_offers_require_admin_moderation": "Når deaktiveret kræver tilbud administratorgodkendelse",
     "when_disabled_users_can_only_take_existing_offers": "Når den er deaktiveret, kan brugerne kun tage imod eksisterende tilbud",
     "when_disabled_users_cannot_access_p2p_features": "Når den er deaktiveret, kan brugerne ikke få adgang til P2P-funktioner",
     "when_disabled_users_cannot_create_custom_payment_methods": "Når deaktiveret, kan brugere ikke oprette brugerdefinerede betalingsmetoder",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "Du har ikke gennemført nogen handler endnu",
     "you_havent_distributed_any_earnings_yet": "Du har ikke udbetalt nogen indtjening endnu",
     "you_might_want_question_directly": "Du kan prøve vores søgning eller stille et spørgsmål direkte",
+    "you_must_be_logged_in_to_access_the_dashboard": "Du skal være logget ind for at få adgang til dashboardet",
     "you_must_be_logged_in_to_ask_a_question": "Du skal være logget ind for at stille et spørgsmål",
     "you_need": "Du har brug for",
     "you_need_to_a_review": "Du skal købe dette produkt, før du kan skrive en anmeldelse",
@@ -6206,7 +6217,75 @@
     "•_escrow_services_are_unavailable": "• Escrow-tjenester er ikke tilgængelige",
     "•_lock_period": "• Låseperiode:",
     "•_trade_dispute_resolution_is_unavailable": "• Løsning af handelstvister er ikke tilgængelig",
-    "✓_purchased": "✓ Købt"
+    "✓_purchased": "✓ Købt",
+    "Configure NFT metadata requirements": "Konfigurer NFT Metadata Krav",
+    "Configure platform and creator fees": "Konfigurer Platform Og Skaber Gebyrer",
+    "Fixed fee to create a listing (0 = free)": "Fast Gebyr For At Oprette En Annonce (0 = Gratis)",
+    "High-Value Threshold (USD)": "Høj Værdi Tærskel (USD)",
+    "Listing Fee (Optional)": "Annonce Gebyr (Valgfrit)",
+    "Marketplace Fee (%)": "Markedsplads Gebyr (%)",
+    "Marketplace Fees": "Markedsplads Gebyrer",
+    "Maximum Royalty (%)": "Maksimal Royalty (%)",
+    "Maximum royalty creators can set (0-50%)": "Maksimal Royalty Skabere Kan Indstille (0 50%)",
+    "Metadata & IPFS": "Metadata & IPFS",
+    "Percentage fee charged on each sale (0-10%)": "Procentvis Gebyr På Hvert Salg (0 10%)",
+    "Require Metadata Validation": "Kræv Metadata Validering",
+    "Validate IPFS metadata URLs before accepting NFT listings": "Valider IPFS Metadata URLs Før Accept Af NFT Annoncer",
+    "are_you_sure_you_want_to_remove_this_offer": "Er du sikker på, at du vil fjerne dette tilbud",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "Ændringer i pris- og beløbsindstillinger kan kræve administratorgodkendelse, før de træder i kraft",
+    "create_your_first_offer": "Opret dit første tilbud",
+    "dynamic_price_(market_based)": "Dynamisk pris (markedsbaseret)",
+    "edit": "Rediger",
+    "enter_your_fixed_price": "Indtast din faste pris",
+    "failed_to_remove_offer": "Kunne ikke fjerne tilbud",
+    "limit": "Grænse",
+    "market_price_offset_(%)": "Markedsprisforskydning (%)",
+    "max_trade_amount": "Maksimalt handelsbeløb",
+    "maximum_amount": "Maksimalt beløb",
+    "maximum_limit": "Maksimal grænse",
+    "min_trade_amount": "Minimalt handelsbeløb",
+    "minimum_amount": "Minimalt beløb",
+    "minimum_limit": "Minimal grænse",
+    "my_offers": "Mine tilbud",
+    "no_recent_activity": "Ingen nylig aktivitet",
+    "note": "Bemærk",
+    "offer_removed": "Tilbud fjernet",
+    "positive_=_above_market,_negative_=_below_market": "Positiv = Over markedspris, Negativ = Under markedspris",
+    "price_&_amount": "Pris og beløb",
+    "price_&_amount_settings": "Indstillinger for pris og beløb",
+    "pricing_model": "Prismodel",
+    "remove_offer": "Fjern tilbud",
+    "removing": "Fjerner",
+    "the_price_per_unit_of": "Prisen Per Enhed Af",
+    "this_is_the_total_amount_for_this_trade": "Dette Er Det Samlede Beløb For Denne Handel",
+    "total_amount_available": "Samlet Tilgængelig Mængde",
+    "total_available": "Samlet Tilgængelig",
+    "trading_limits": "Handelsgrænser",
+    "update_pricing_model_and_trading_limits": "Opdater Prismodel Og Handelsgrænser",
+    "view": "Vis",
+    "you_dont_have_any_offers_yet": "Du Har Ikke Nogen Tilbud Endnu",
+    "your_offer_has_been_successfully_removed": "Dit Tilbud Er Blevet Fjernet",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "5% over markedspris"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "Annuller",
@@ -6249,6 +6328,8 @@
     "network_fee": "Netværksgebyr",
     "new_balance": "Ny saldo",
     "no_currencies_found": "Ingen valutaer fundet for",
+    "no_wallets_available": "Ingen tilgængelige tegnebøger",
+    "no_wallets_available_description": "Ingen tilgængelige tegnebøger beskrivelse",
     "not_available": "Ikke tilgængelig",
     "of": "af",
     "pay_with": "Betal med",
@@ -6342,6 +6423,8 @@
     "make_another_transfer": "Foretag en ny overførsel",
     "move_funds_between_another_user": "Flyt penge mellem dine tegnebøger eller send til en anden bruger",
     "move_funds_between_your_different_wallet_types": "Flyt penge mellem dine forskellige tegnebogstyper",
+    "no_wallets_available": "Ingen Tilgængelige Tegnebøger",
+    "no_wallets_available_description": "Beskrivelse af Ingen Tilgængelige Tegnebøger",
     "processing_transfer": "Behandling af overførsel",
     "recipient_details": "Oplysninger om modtager",
     "recipient_receives": "Modtageren modtager:",
@@ -6381,12 +6464,12 @@
     "the_wallet_youre_to_it": "Den tegnebog, du leder efter, findes ikke, eller du har ikke adgang til den",
     "wallet_address": "Tegnebogens adresse",
     "wallet_not_found": "Tegnebog ikke fundet",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
+    "wallet_type_ai_investment": "AI-Investering",
+    "wallet_type_derivatives": "Derivater",
+    "wallet_type_eco": "Øko",
     "wallet_type_fiat": "Fiat",
     "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
+    "wallet_type_funding": "Finansiering",
     "wallet_type_futures": "Futures",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
@@ -6429,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(for at modtage",
+    "Amount to Send (before network fees)": "Beløb at Sende (Før Netværksgebyrer)",
     "Free": "Gratis",
+    "Platform Fee": "Platformsgebyr",
     "Processing": "Behandler",
     "Select": "Markere",
     "Withdraw": "Trække",
@@ -6450,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "Ingen valutaer med saldo tilgængelig i",
     "no_currencies_with_balance_in_wallet_type": "Ingen valutaer med saldo i tegnebogstype",
     "no_wallets_available": "Ingen tegnebøger tilgængelige",
+    "no_wallets_available_description": "Alle tegnebogstyper er blevet deaktiveret af administratoren. Kontakt venligst support for assistance eller tjek igen senere.",
     "no_wallets_with_balance_for_withdrawal": "Ingen tegnebøger med saldo til udbetaling",
     "no_withdrawal_methods": "Ingen udbetalingsmetoder tilgængelige",
     "no_withdrawal_methods_available": "Ingen udbetalingsmetoder tilgængelige",
@@ -6721,7 +6807,7 @@
   "nft/collection": {
     "Blockchain": "Blockchain",
     "Created": "Oprettet",
-    "Filter": "Filter",
+    "Filter": "Filtrer",
     "Items": "Varer",
     "Listed": "Opført",
     "New": "Ny",
@@ -6800,7 +6886,7 @@
     "create_nft": "Opret NFT",
     "creating": "Opretter...",
     "creation_summary": "Oprettelsesresumé",
-    "creator_hub": "Creator Hub",
+    "creator_hub": "Skabercenter",
     "describe_your_nft": "Beskriv din NFT",
     "drag_and_drop_your_image_here_or_click_to_browse": "Træk og slip dit billede her, eller klik for at gennemse",
     "enter_nft_name": "Indtast NFT navn",
@@ -6992,8 +7078,11 @@
     "create_nft": "Opret NFT",
     "create_your_first_collection_to_organize_your_nfts": "Opret din første samling for at organisere dine NFT'er",
     "create_your_first_nft_to_get_started": "Opret din første NFT for at komme i gang",
-    "creator_hub": "Creator Hub",
+    "creator_dashboard": "Skaberoversigt",
+    "creator_hub": "Skabercenter",
+    "creator_since": "Skaber siden",
     "explore_nfts": "Udforsk NFT'er",
+    "failed_to_load_dashboard": "Kunne ikke indlæse oversigt",
     "favorite_nfts": "Favorit NFT'er",
     "manage_your_nfts_collections": "Administrer dine NFT'er, samlinger og markedspladsaktivitet",
     "my_collections": "Mine Samlinger",
@@ -7004,6 +7093,7 @@
     "no_favorites_yet": "Ingen favoritter endnu",
     "no_nfts_yet": "Ingen NFT'er Endnu",
     "please_login_to_view_your_dashboard": "Log venligst ind for at se dit kontrolpanel",
+    "please_sign_in_to_access_your_creator_dashboard": "Log venligst ind for at få adgang til din skaberoversigt",
     "please_sign_in_to_view_your_nft_dashboard": "Log venligst ind for at se dit NFT-dashboard",
     "recent_activity": "Seneste Aktivitet",
     "sign_in": "Log ind",
@@ -7011,6 +7101,7 @@
     "total_nfts": "Totale NFT'er",
     "total_value": "Total Værdi",
     "total_views": "Totale Visninger",
+    "try_again": "Prøv igen",
     "your_nft_activities_will_appear_here": "Dine NFT-aktiviteter vil blive vist her"
   },
   "nft/details": {
@@ -7135,7 +7226,7 @@
     "buy_now_price": "Køb nu-pris",
     "end_time": "Sluttidspunkt",
     "fixed_price": "Fast pris",
-    "list_nft": "List NFT",
+    "list_nft": "Angiv NFT",
     "list_nft_for_sale": "Sæt NFT til salg",
     "listing": "Lister...",
     "listing_type": "Listningstype",
@@ -7146,7 +7237,8 @@
     "sell_at_a_fixed_price": "Sælg til en fast pris",
     "sell_to_highest_bidder": "Sælg til højestbydende",
     "start_time": "Starttidspunkt",
-    "starting_price": "Startpris"
+    "starting_price": "Startpris",
+    "Duration": "Varighed"
   },
   "nft/modals/offer": {
     "Cancel": "Annuller",
@@ -7210,7 +7302,8 @@
     "token_details": "Token-detaljer",
     "token_id": "Token-ID",
     "token_standard": "Token-standard",
-    "view_on_explorer": "Vis i Explorer"
+    "view_on_explorer": "Vis i Explorer",
+    "browse_marketplace": "Gennemse Markedsplads"
   },
   "nft/user/profile": {
     "Activity": "Aktivitet",
@@ -7337,7 +7430,7 @@
     "chat_session_has_ended": "Chatsessionen er afsluttet",
     "connect_instantly_with_our_expert_support_team": "Få øjeblikkelig forbindelse til vores ekspertsupportteam",
     "end_chat": "Afslut chat",
-    "position_#": "Position #",
+    "position_#": "Position nr.",
     "press_enter_to_send_shift+enter_for_new_line": "Tryk på Enter for at sende, Shift+Enter for ny linje",
     "start_live_chat": "Start livechat",
     "uploading_image": "Upload af billede",
@@ -7411,7 +7504,7 @@
     "Price": "Pris",
     "Sell": "Sælg",
     "Stop": "Stop",
-    "Total": "Total",
+    "Total": "I alt",
     "Trade": "Handel",
     "advanced_price_chart_will_be_displayed_here": "Avanceret prisdiagram vil blive vist her",
     "buy_btc": "Køb BTC",
@@ -7434,7 +7527,7 @@
   "trade/components/markets/market-item": {
     "Eco": "Øko",
     "Hot": "Hed",
-    "Trending": "Trending",
+    "Trending": "Populært",
     "vol": "Vol:"
   },
   "trade/components/markets/markets-panel": {
@@ -7510,7 +7603,7 @@
     "Duration": "Varighed",
     "Max": "Maks",
     "Min": "Min",
-    "Trending": "Trending",
+    "Trending": "Populært",
     "expected_profit": "Forventet overskud",
     "invested": "Investeret:",
     "select_investment_strategy": "Vælg investeringsstrategi"
@@ -7518,7 +7611,7 @@
   "trade/components/trading/futures/balance-display": {
     "Available": "Tilgængelig",
     "Loading": "Indlæser",
-    "Margin": "Margin",
+    "Margin": "Margen",
     "current_price": "Aktuel Pris",
     "funding_rate": "Finansieringsrente"
   },
@@ -7544,7 +7637,7 @@
     "Fees": "Gebyrer",
     "Leverage": "Gearing",
     "Long": "Lang",
-    "Margin": "Margin",
+    "Margin": "Margen",
     "Optional": "Valgfri",
     "Placing": "Placerer",
     "Price": "Pris",
@@ -7559,7 +7652,7 @@
     "limit_price": "Grænse pris",
     "liquidation_price": "Likvidationspris",
     "long": "Lang",
-    "margin": "Margin",
+    "margin": "Margen",
     "net_potential": "Netto potentiale",
     "order_failed": "Ordre mislykkedes",
     "order_placed_successfully": "Ordre placeret succesfuldt",
@@ -7580,7 +7673,7 @@
     "Fees": "Gebyrer",
     "Leverage": "Gearing",
     "Long": "Lang",
-    "Margin": "Margin",
+    "Margin": "Margen",
     "Optional": "Valgfri",
     "Short": "Kort",
     "Submitting": "Indsender",
@@ -7593,7 +7686,7 @@
     "leverage": "Gearing",
     "liquidation_price": "Likvidationspris",
     "long": "Lang",
-    "margin": "Margin",
+    "margin": "Margen",
     "net_potential": "Nettopotentiale",
     "order_failed": "Ordre mislykkedes",
     "order_placed_successfully": "Ordre placeret succesfuldt",
@@ -7618,7 +7711,7 @@
   },
   "trade/components/trading/futures/stop-loss-take-profit": {
     "stop_loss": "Stop Loss",
-    "take_profit": "Take Profit"
+    "take_profit": "Tag Fortjeneste"
   },
   "trade/components/trading/futures/trading-buttons": {
     "Long": "Lang",
@@ -7627,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "Indlæser",
-    "available": "Tilgængelig:"
+    "available": "Tilgængelig:",
+    "balance": "Saldo",
+    "in_orders": "I Ordrer"
   },
   "trade/components/trading/spot/index": {
     "Limit": "Grænse",
@@ -7644,7 +7739,10 @@
     "Price": "Pris",
     "Processing": "Behandler",
     "Sell": "Sælg",
-    "Total": "Total"
+    "Total": "I alt",
+    "Est": {
+      " Fee": " Gebyr"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "Beløb",
@@ -7654,7 +7752,10 @@
     "estimated_total": "Anslået i alt",
     "market_orders_execute_available_price": "Markedsordrer udføres med det samme til den bedst tilgængelige pris",
     "market_price": "Markedspris",
-    "the_final_execution_estimated_price": "Den endelige udførelsespris kan afvige fra den estimerede pris"
+    "the_final_execution_estimated_price": "Den endelige udførelsespris kan afvige fra den estimerede pris",
+    "Est": {
+      " Fee": " Gebyr"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "Beløb",
@@ -7669,7 +7770,10 @@
     "stop_market_orders_is_reached": "Stop Market-ordrer udføres som markedsordrer, når stopprisen er nået",
     "stop_price": "Stop Pris",
     "the_order_will_available_price": "Ordren vil blive udfyldt til den bedst tilgængelige pris",
-    "the_order_will_or_better": "Ordren vil blive udfyldt til limitprisen eller bedre"
+    "the_order_will_or_better": "Ordren vil blive udfyldt til limitprisen eller bedre",
+    "Est": {
+      " Fee": " Gebyr"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "*Bare rolig, vi spammer dig ikke :)",
@@ -7683,5 +7787,553 @@
     "were_making_the_system_more_awesome": "Vi gør systemet mere fantastisk",
     "we’ll_be_back_shortly": "Vi vender tilbage om kort tid",
     "we’re_making_the_system_more_awesome": "Vi gør systemet mere fantastisk"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "Avanceret finansiel analyse med profitsporing, analyse af indtægtsstrømme og omfattende business intelligence-dashboards.",
+        "title": "Indtægtsanalyse"
+      },
+      "communication": {
+        "description": "Platformkommunikationsstyring inklusive notifikationer, meddelelser og brugerbeskedsystemer.",
+        "title": "Kommunikationsværktøjer"
+      },
+      "compliance": {
+        "description": "Regulatoriske compliance-værktøjer inklusive KYC-behandling, dokumentverifikation og identitetsstyring til juridisk overholdelse.",
+        "title": "Overholdelse og verifikation"
+      },
+      "currencies": {
+        "description": "Multi-valutasupport med realtidsvekselkurser, konfiguration af handelspar og markedsdataintegration.",
+        "title": "Valutastyring"
+      },
+      "dashboard": {
+        "description": "Omfattende administrativt overblik med realtidsanalyse, systemsundhedsovervågning og hurtig adgang til kritiske styringsfunktioner.",
+        "title": "Kontrolpanel"
+      },
+      "monitoring": {
+        "description": "Omfattende systemovervågning med logning, præstationsmålinger og automatiseret opgavestyring.",
+        "title": "Systemovervågning"
+      },
+      "permissions": {
+        "description": "Granulær rettighedsstyring til finindstillet adgangskontrol på tværs af alle systemfunktioner og -funktioner.",
+        "title": "Tilladelser"
+      },
+      "roles": {
+        "title": "Brugerroller",
+        "description": "Opret og administrer brugerroller med tilpasselige rettighedssæt og hierarkiske adgangskontrolstrukturer.",
+        "permissions": {
+          "description": "Avanceret adgangskontrolsystem til definition af brugerroller, styring af rettigheder og implementering af sikkerhedspolitikker på tværs af platformen.",
+          "title": "Roller og tilladelser"
+        }
+      },
+      "support": {
+        "description": "Integreret supportbilletsystem med prioriteringsstyring, svarsporing og kundetilfredshedsovervågning.",
+        "title": "Kundesupport"
+      },
+      "users": {
+        "description": "Omfattende brugerdatabase med avanceret filtrering, masseoperationer, profilstyring og detaljeret aktivitetssporing.",
+        "title": "Brugere"
+      },
+      "affiliate": {
+        "system": {
+          "description": "Flertrins affiliateprogram med provisionssporing, præstationsanalyse og automatiserede udbetalinger.",
+          "title": "Affiliateprogram"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "Konfigurer AI-strategitidsrammer med dynamisk rebalancering og tilpasninger til markedsforhold.",
+          "title": "Strategivarigheder"
+        },
+        "investment": {
+          "description": "Kunstig intelligens-drevet investeringsstyring med maskinlæringsalgoritmer og automatiseret porteføljeoptimering.",
+          "title": "AI-investering"
+        },
+        "performance": {
+          "description": "AI-investeringspræstationsanalyse med nøjagtighedssporing af modeller og målinger af strategieffektivitet.",
+          "title": "AI-præstation"
+        },
+        "strategies": {
+          "description": "Maskinlæringsinvesteringsstrategier med backtesting, risikovurdering og præstationsoptimering.",
+          "title": "AI-strategier"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "API-nøglelivscyklusstyring med brugsovervågning, hastighedsbegrænsning og sikkerhedskontroller til tredjepartsintegrationer.",
+          "title": "API-administration"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "Indstil handelstidsrammer og udbetalingsprocenter for binære optioner med risikostyringskontroller.",
+          "title": "Handelsvarigheder"
+        },
+        "markets": {
+          "description": "Konfigurer binære optionsmarkeder med aktivpar, handelsparametre og markedstider.",
+          "title": "Binære markeder"
+        },
+        "orders": {
+          "description": "Overvåg og administrer binære optionsordrer med eksekveringssporing og afregningsbehandling.",
+          "title": "Binære ordrer"
+        },
+        "trading": {
+          "description": "Binært optionshandelssystem med markedsopsætning, varighedsstyring og udbetalingskonfiguration.",
+          "title": "Binære optioner"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "Uforanderlig hovedbogsstyring med revisionsspor, compliance-rapportering og kriminaltekniske analyseværktøjer.",
+          "title": "Blockchain-hovedbøger"
+        },
+        "networks": {
+          "description": "Multi-chain netværksstyring med nodeovervågning, konsensussporing og netværkssundhedsanalyse.",
+          "title": "Blockchain-netværk"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "Komplet blogstyring med forfatterprofiler, indholdsplanlægning, SEO-optimering og engagementsanalyse.",
+          "title": "Blogsystem"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "Essentielle forretningsværktøjer til marketing, kundesupport og vidensstyring.",
+          "title": "Forretningsværktøjer"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "Omfattende indholdsstyringssystem til blogs, medieaktiver og dynamisk webstedsindhold.",
+          "title": "Indhold"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "Digital aktivstyring med blockchain-integration, tegnebogsforbindelse og realtidsmarkedsdata-feeds.",
+          "title": "Kryptovalutaer"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "Institutionelle forvaringslommebogstjenester med regulatorisk compliance og forsikringsdækning.",
+          "title": "Depottjenester"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "Omfattende indbetalingstransaktionslogs med statussporing, afstemningsværktøjer og revisionsmuligheder.",
+          "title": "Indbetalingsregistreringer"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "Avanceret visuel sidebygger med træk-og-slip-interface, responsive designværktøjer og brandtilpasningsmuligheder.",
+          "title": "Sidebygger"
+        },
+        "customization": {
+          "description": "Tilpas dit websteds udseende og design med avancerede visuelle værktøjer.",
+          "title": "Design"
+        },
+        "default": {
+          "editor": {
+            "description": "Rediger standard frontend-sider inklusive hjem, juridiske sider og layouts med kode-editor-interface.",
+            "title": "Standardsider"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "Komplet e-handelsplatform med lagerstyring, ordrebehandling og understøttelse af flere leverandører.",
+          "title": "E-handelsplatform"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "Decentraliseret markedsstyring med AMM-protokoller, likviditetspuljer og yield farming-integration.",
+          "title": "DeFi-markeder"
+        },
+        "orders": {
+          "description": "Blockchain-økosystem handelsordrer med smart contract-integration og decentraliseret udførelse.",
+          "title": "Økosystemordrer"
+        },
+        "platform": {
+          "description": "Decentraliseret handelsøkosystem med blockchain-integration, DeFi-protokoller og smart contract-automatisering.",
+          "title": "Blockchain-økosystem"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "Opret og administrer e-mailkampagner med segmentering, personalisering og præstationssporing.",
+          "title": "E-mailkampagner"
+        },
+        "marketing": {
+          "description": "Professionel e-mail marketing platform med automatiseringsworkflows, A/B-testning og analyser.",
+          "title": "E-mailmarketing"
+        },
+        "templates": {
+          "description": "Professionelt e-mailskabelonbibliotek med responsivt design og branding-tilpasningsmuligheder.",
+          "title": "E-mailskabeloner"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "Administrer børsintegrationer med likviditetsudbydere, API-konfigurationer og præstationsovervågning.",
+          "title": "Børsudbydere"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "Udvidelseslivscyklusstyring med installation, opdateringer, afhængighedsløsning og kompatibilitetskontrol.",
+          "title": "Udvidelsesstyring"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "Traditionel valutastyring med valutakursovervågning, regionale indstillinger og betalingsgateway-integration.",
+          "title": "Fiatvalutaer"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "Omfattende økonomistyringssuite dækkende omsætningsanalyser, valutastyring, betalingsprocessering og transaktionsoversigt.",
+          "title": "Finans"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "Professionel forex-handel med MetaTrader-integration, algoritmisk handel og institutionel likviditet.",
+          "title": "Forex-handel"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "Futures-markedskonfiguration med kontraktspecifikationer, marginkrav og afviklingsprocedurer.",
+          "title": "Futuresmarkeder"
+        },
+        "orders": {
+          "description": "Futures-kontraktordrestyring med marginsporing og risikovurderingsværktøjer.",
+          "title": "Futuresordrer"
+        },
+        "platform": {
+          "description": "Professionel futures-handelsplatform med marginstyring, risikokontrol og institutionel eksekvering.",
+          "title": "Futures-handel"
+        },
+        "positions": {
+          "description": "Realtidspositionsovervågning med P&L-sporing, marginopkald og automatiseret risikostyring.",
+          "title": "Positionsstyring"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "Dynamisk hjemmesideindholdstyring med responsive slidere, call-to-action-knapper og A/B-testfunktioner.",
+          "title": "Hjemmeside-slidere"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "Initial Coin Offering-platform med KYC-integration, smart contract-implementering og overholdelse af lovgivning.",
+          "title": "Token-salg"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "Administrer interne pengeoverførsler mellem konti med godkendelsesworkflows og compliance-kontrol.",
+          "title": "Interne overførsler"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "Konfigurer investeringsvarigheder, løbetidsperioder og renters rente-beregninger for forskellige produkter.",
+          "title": "Investeringsvarigheder"
+        },
+        "extensions": {
+          "description": "Avancerede investeringsprodukter med AI-drevne strategier, staking-tjenester og tokeniseringsplatforme.",
+          "title": "Investeringsprodukter"
+        },
+        "history": {
+          "description": "Omfattende investeringspræstationsanalyser med ROI-sporing og porteføljestyringsindsigt.",
+          "title": "Investeringsanalyse"
+        },
+        "management": {
+          "description": "Investeringsproduktstyring med planoprettelse, præstationssporing og porteføljetilsynsværktøjer.",
+          "title": "Investeringsstyring"
+        },
+        "plans": {
+          "description": "Opret og administrer investeringsprodukter med risikoprofiler, afkastberegninger og termskonfigurationer.",
+          "title": "Investeringsplaner"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "Omfattende vidensstyringssystem med AI-drevet søgning og indholdsoptimering.",
+          "title": "Vidensbase"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "Gennemgå og behandl kend-din-kunde-ansøgninger med dokumentverifikation, risikovurdering og godkendelsesworkflows.",
+          "title": "KYC-ansøgninger"
+        },
+        "levels": {
+          "description": "Konfigurer verifikationsniveauer med tilpasselige krav, grænser og adgangsprivilegier for forskellige brugerkategorier.",
+          "title": "Verifikationsniveauer"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "Systemvedligeholdelsesværktøjer inklusiv databaseoptimering, cache-styring og migreringsværktøjer.",
+          "title": "Vedligeholdelsesværktøjer"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "E-handels- og digitale markedspladsplatforme med omfattende sælgerværktøjer og køberbeskyttelse.",
+          "title": "Markedspladsløsninger"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "Enterprise-grad master wallet-styring med multi-signatur sikkerhed og cold storage-integration.",
+          "title": "Hovedtegnebøger"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "Centraliseret mediestyring med cloud-lagring, billedoptimering og CDN-integration for optimal ydeevne.",
+          "title": "Mediebibliotek"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "Professionel NFT-markedsplads med minting-værktøjer, royalty-styring og auktionsfunktioner.",
+          "title": "NFT-markedsplads"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "Tilpasselige notifikationsskabeloner med levering på flere kanaler og personaliseringsvariabler.",
+          "title": "Notifikationsskabeloner"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "Centraliseret ordrebehandling og -styring på tværs af alle handelsplatforme og aktivklasser.",
+          "title": "Ordrestyring"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "Peer-to-peer handelsplatform med escrow-tjenester, tvistløsning og understøttelse af flere betalingsgateways.",
+          "title": "P2P-børs"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "Konfigurer og overvåg betalingsgateways med svindeldetektion, compliance-kontrol og præstationsanalyser.",
+          "title": "Betalingsgateways"
+        },
+        "methods": {
+          "description": "Administrer tilgængelige betalingsmuligheder inklusiv kort, bankoverførsler, digitale tegnebøger og kryptovalutabetalinger.",
+          "title": "Betalingsmetoder"
+        },
+        "systems": {
+          "description": "Komplet betalingsinfrastrukturstyring inklusiv gateways, metoder og transaktionsbehandlingstilsyn.",
+          "title": "Betalingssystemer"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "Avancerede platformudvidelser, der leverer specialiseret funktionalitet til handel, markedsplads og forretningsdrift.",
+          "title": "Udvidelser"
+        },
+        "settings": {
+          "description": "Kernekonfiguration af platform, herunder branding, lokalisering, sikkerhedspolitikker og funktionsskift.",
+          "title": "Platformindstillinger"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "Automatiseret opgaveplanlægger med jobbovervågning, fejlhåndtering og præstationsoptimering.",
+          "title": "Planlagte opgaver"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "Spot-handelsordrestyring med realtidsudførelsesovervågning og markedspåvirkningsanalyse.",
+          "title": "Spotordrer"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "Omfattende staking-platform med validatorstyring, belønningsdistribution og beskyttelse mod slashing.",
+          "title": "Staking-tjenester"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "Komplet systemadministrationssuite til platformkonfiguration, overvågning og vedligeholdelsesoperationer.",
+          "title": "System"
+        },
+        "announcements": {
+          "description": "Platformsdækkende bekendtgørelsessystem med planlægning, målretning og engagement-sporingsfunktioner.",
+          "title": "Systemmeddelelser"
+        },
+        "logs": {
+          "description": "Centraliseret logningssystem med realtidsovervågning, log-aggregering og avancerede søgefunktioner.",
+          "title": "Systemlogfiler"
+        },
+        "updates": {
+          "description": "Automatiserede systemopdateringer med rollback-funktioner, sikkerhedsrettelser og funktionsudrulningsstyring.",
+          "title": "Systemopdateringer"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "Omfattende token-livscyklusstyring med minting, burning og governance-funktioner.",
+          "title": "Token-styring"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "Professionelle handelsplatforme med avancerede ordretyper, markedsanalyseværktøjer og udførelse af institutionel kvalitet.",
+          "title": "Handelsplatforme"
+        },
+        "infrastructure": {
+          "description": "Handelsplatformsstyring inklusiv børsudbydere, markedskonfigurationer og ordrebehandlingssystemer.",
+          "title": "Handelsinfrastruktur"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "Omfattende transaktionshistorik med avanceret filtrering, eksportfunktioner og revisionsspor.",
+          "title": "Transaktionslogfiler"
+        },
+        "management": {
+          "description": "Komplet transaktionsoversigt med detaljeret logning, afstemning og overførselsstyringsfunktioner.",
+          "title": "Transaktionsstyring"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "Komplet administration af brugerlivscyklus, herunder registrering, verificering, rolletildeling og værktøjer til kunderelationer for omfattende brugeradministration.",
+          "title": "Brugere"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "Avanceret UTXO-styring med transaktionsgrafanalyse og privatlivsbevarende funktioner.",
+          "title": "UTXO-sporing"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "Multi-valuta wallet-administration med saldoovervågning, sikkerhedskontrol og backup-styring.",
+          "title": "Tegnebogstyring"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "Overvåg udbetalingsanmodninger med statussporing, godkendelsesworkflows og compliance-verifikation.",
+          "title": "Udbetalingsregistreringer"
+        },
+        "management": {
+          "description": "Omfattende styring af udbetalingssystem med automatiseret behandling, forebyggelse af svindel og overholdelseskontrol.",
+          "title": "Udbetalingsstyring"
+        },
+        "methods": {
+          "description": "Konfigurer udbetalingsmuligheder herunder bankoverførsler, kryptoudbetalinger og tredjepartsbehandlere.",
+          "title": "Udbetalingsmetoder"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "Handel",
+        "description": "Få adgang til omfattende handelsplatforme med avancerede diagramværktøjer, markedsdata i realtid og professionelle udførelsesmuligheder for alle aktivklasser.",
+        "spot": {
+          "title": "Spothandel",
+          "description": "Udfør øjeblikkelige købs- og salgsordrer til aktuelle markedspriser med avancerede ordretyper, dybdediagrammer og professionelle handelsværktøjer."
+        },
+        "binary": {
+          "title": "Binære Optioner",
+          "description": "Handel med binære optioner med sofistikeret analyse, risikostyringsværktøjer og strømlinet udførelse til tidsfølsomme strategier."
+        },
+        "forex": {
+          "title": "Forex",
+          "description": "Få adgang til globale valutamarkeder med MetaTrader 4/5 integration, avancerede diagrammer og udførelse i institutionel kvalitet."
+        },
+        "p2p": {
+          "title": "P2P-Børs",
+          "description": "Deltag i sikker peer-to-peer kryptovalutahandel med escrow-beskyttelse, fleksible betalingsmetoder og konkurrencedygtige kurser."
+        }
+      },
+      "portfolio": {
+        "title": "Portefølje",
+        "description": "Omfattende porteføljestyringspakke til sporing af aktiver, analyse af præstation og styring af dine finansielle instrumenter på tværs af alle platforme.",
+        "wallet": {
+          "title": "Tegnebogsstyring",
+          "description": "Sikker multi-valuta tegnebog med realtidssaldosporing, transaktionshistorik og problemfri indbetaling/udbetalingsmuligheder."
+        },
+        "transactions": {
+          "title": "Transaktionshistorik",
+          "description": "Detaljerede transaktionsoptegnelser med avanceret filtrering, eksportmuligheder og omfattende revisionsspor for alle finansielle aktiviteter."
+        },
+        "transfers": {
+          "title": "Overførsler",
+          "description": "Interne og eksterne overførselstjenester med øjeblikkelig behandling, konkurrencedygtige gebyrer og multi-valuta support."
+        }
+      },
+      "investments": {
+        "title": "Investeringer",
+        "description": "Diversificerede investeringsmuligheder med professionel analyse, risikovurderingsværktøjer og præstationssporing på tværs af flere aktivklasser.",
+        "plans": {
+          "title": "Investeringsplaner",
+          "description": "Kuraterede investeringsstrategier med detaljerede risikoprofiler, historiske præstationsdata og fleksible vilkår, der matcher dine økonomiske mål."
+        },
+        "staking": {
+          "title": "Staking-belønninger",
+          "description": "Tjen passiv indkomst gennem cryptocurrency-staking med konkurrencedygtige APY-satser, fleksible låseperioder og automatisk belønningsudbetaling."
+        },
+        "ico": {
+          "title": "Token-salg",
+          "description": "Tidlig adgang til verificerede Initial Coin Offerings med omfattende due diligence-rapporter, tokenomics-analyse og investeringssporing."
+        }
+      },
+      "marketplace": {
+        "title": "Markedsplads",
+        "description": "Udforsk premium digitale og fysiske markedspladser med sikre transaktioner, verificerede sælgere og omfattende køberbeskyttelse.",
+        "nft": {
+          "title": "NFT-galleri",
+          "description": "Opdag, skab og handl unikke digitale aktiver på vores kuraterede NFT-markedsplads med auktionsmuligheder og skaber-royalties."
+        },
+        "store": {
+          "title": "Butik",
+          "description": "Premium markedsplads med både digitale og fysiske produkter med sikker betalingsbehandling, verdensomspændende forsendelse og køberbeskyttelse."
+        }
+      },
+      "services": {
+        "title": "Tjenester",
+        "description": "Professionelle tjenester og værktøjer til at forbedre din handelsoplevelse, herunder affiliate-programmer, undervisningsmateriale og premium support.",
+        "affiliate": {
+          "title": "Affiliate-program",
+          "description": "Monetiser dit netværk gennem vores omfattende affiliate-program med konkurrencedygtige provisioner, realtidssporing og marketingværktøjer."
+        },
+        "support": {
+          "title": "Supportcenter",
+          "description": "Professionel kundesupport med ticket-håndtering, live chat-funktioner og dedikeret kontostyring for premium-brugere."
+        },
+        "faq": {
+          "title": "Vidensbase",
+          "description": "Omfattende dokumentation, tutorials og ofte stillede spørgsmål for at hjælpe dig med at maksimere platformens muligheder."
+        }
+      },
+      "insights": {
+        "title": "Indsigter",
+        "description": "Professionel markedsanalyse, handelsindsigter og branchenyheder fra vores team af finansielle eksperter og markedsforskere."
+      }
+    }
   }
 }

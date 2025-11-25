@@ -47,6 +47,17 @@ export default function EditOfferClient() {
 
   // Form state
   const [formData, setFormData] = useState({
+    priceConfig: {
+      model: "fixed" as "fixed" | "dynamic",
+      fixedPrice: 0,
+      dynamicOffset: 0,
+      currency: "USD",
+    },
+    amountConfig: {
+      min: 0,
+      max: 0,
+      total: 0,
+    },
     tradeSettings: {
       autoCancel: 15,
       kycRequired: false,
@@ -107,18 +118,31 @@ export default function EditOfferClient() {
         setOffer(offerData);
 
         // Parse and set form data with safe defaults
+        const priceConfig = safeJsonParse(offerData.priceConfig, {});
+        const amountConfig = safeJsonParse(offerData.amountConfig, {});
         const tradeSettings = safeJsonParse(offerData.tradeSettings, {});
         const locationSettings = safeJsonParse(offerData.locationSettings, {});
         const userRequirements = safeJsonParse(offerData.userRequirements, {});
 
         // Extract payment method IDs safely
-        const paymentMethodIds = Array.isArray(offerData.paymentMethods) 
+        const paymentMethodIds = Array.isArray(offerData.paymentMethods)
           ? offerData.paymentMethods.map((pm: any) => pm.id)
           : [];
-        
+
         setSelectedPaymentMethods(paymentMethodIds);
 
         setFormData({
+          priceConfig: {
+            model: (priceConfig?.model || "fixed") as "fixed" | "dynamic",
+            fixedPrice: Number(priceConfig?.fixedPrice || priceConfig?.value || 0),
+            dynamicOffset: Number(priceConfig?.dynamicOffset || 0),
+            currency: String(offerData?.priceCurrency || priceConfig?.currency || "USD"),
+          },
+          amountConfig: {
+            min: Number(amountConfig?.min || 0),
+            max: Number(amountConfig?.max || 0),
+            total: Number(amountConfig?.total || 0),
+          },
           tradeSettings: {
             autoCancel: Number(tradeSettings?.autoCancel) || 15,
             kycRequired: Boolean(tradeSettings?.kycRequired),
@@ -283,13 +307,12 @@ export default function EditOfferClient() {
         </Link>
       </div>
 
-      {/* Security Notice */}
+      {/* Info Notice */}
       <Alert className="mb-6">
         <Info className="h-4 w-4" />
         <AlertDescription>
-          <strong>{t("security_notice")}:</strong>{" "}
-          {t("for_security_reasons_you")}. 
-          {t("core_offer_details_like")}.
+          <strong>{t("note")}:</strong>{" "}
+          {t("changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect")}.
         </AlertDescription>
       </Alert>
 
@@ -335,14 +358,139 @@ export default function EditOfferClient() {
 
       {/* Edit Form */}
       <form onSubmit={handleSubmit}>
-        <Tabs defaultValue="trade-settings" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5">
+        <Tabs defaultValue="price-amount" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-6">
+            <TabsTrigger value="price-amount">{t("price_&_amount")}</TabsTrigger>
             <TabsTrigger value="trade-settings">{t("trade_settings")}</TabsTrigger>
             <TabsTrigger value="payment-methods">{t("payment_methods")}</TabsTrigger>
             <TabsTrigger value="location">{t("Location")}</TabsTrigger>
             <TabsTrigger value="requirements">{t("Requirements")}</TabsTrigger>
             <TabsTrigger value="status">{t("Status")}</TabsTrigger>
           </TabsList>
+
+          {/* Price & Amount Settings */}
+          <TabsContent value="price-amount">
+            <Card>
+              <CardHeader>
+                <CardTitle>{t("price_&_amount_settings")}</CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  {t("update_pricing_model_and_trading_limits")}
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Price Model */}
+                <div className="space-y-4">
+                  <Label>{t("pricing_model")}</Label>
+                  <RadioGroup
+                    value={formData?.priceConfig?.model || "fixed"}
+                    onValueChange={(value) => updateFormData("priceConfig", "model", value)}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="fixed" id="fixed" />
+                      <Label htmlFor="fixed">{t("fixed_price")}</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="dynamic" id="dynamic" />
+                      <Label htmlFor="dynamic">{t("dynamic_price_(market_based)")}</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+
+                {/* Fixed Price */}
+                {formData?.priceConfig?.model === "fixed" && (
+                  <div className="space-y-2">
+                    <Label htmlFor="fixedPrice">
+                      {t("fixed_price")} ({formData?.priceConfig?.currency || "USD"})
+                    </Label>
+                    <Input
+                      id="fixedPrice"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      value={formData?.priceConfig?.fixedPrice || 0}
+                      onChange={(e) => updateFormData("priceConfig", "fixedPrice", parseFloat(e.target.value) || 0)}
+                      placeholder={t("enter_your_fixed_price")}
+                    />
+                    <p className="text-sm text-muted-foreground">
+                      {t("the_price_per_unit_of")} {offer?.currency}
+                    </p>
+                  </div>
+                )}
+
+                {/* Dynamic Offset */}
+                {formData?.priceConfig?.model === "dynamic" && (
+                  <div className="space-y-2">
+                    <Label htmlFor="dynamicOffset">{t("market_price_offset_(%)")}</Label>
+                    <Input
+                      id="dynamicOffset"
+                      type="number"
+                      min="-50"
+                      max="50"
+                      step="0.1"
+                      value={formData?.priceConfig?.dynamicOffset || 0}
+                      onChange={(e) => updateFormData("priceConfig", "dynamicOffset", parseFloat(e.target.value) || 0)}
+                      placeholder={t("e.g.,_2.5_for_2.5%_above_market")}
+                    />
+                    <p className="text-sm text-muted-foreground">
+                      {t("positive_=_above_market,_negative_=_below_market")}
+                    </p>
+                  </div>
+                )}
+
+                {/* Amount Limits */}
+                <div className="border-t pt-6 space-y-4">
+                  <h3 className="text-lg font-medium">{t("trading_limits")}</h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="minAmount">
+                        {t("minimum_amount")} ({formData?.priceConfig?.currency || "USD"})
+                      </Label>
+                      <Input
+                        id="minAmount"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={formData?.amountConfig?.min || 0}
+                        onChange={(e) => updateFormData("amountConfig", "min", parseFloat(e.target.value) || 0)}
+                        placeholder={t("min_trade_amount")}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="maxAmount">
+                        {t("maximum_amount")} ({formData?.priceConfig?.currency || "USD"})
+                      </Label>
+                      <Input
+                        id="maxAmount"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={formData?.amountConfig?.max || 0}
+                        onChange={(e) => updateFormData("amountConfig", "max", parseFloat(e.target.value) || 0)}
+                        placeholder={t("max_trade_amount")}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="totalAmount">
+                        {t("total_available")} ({offer?.currency})
+                      </Label>
+                      <Input
+                        id="totalAmount"
+                        type="number"
+                        min="0"
+                        step="0.00000001"
+                        value={formData?.amountConfig?.total || 0}
+                        onChange={(e) => updateFormData("amountConfig", "total", parseFloat(e.target.value) || 0)}
+                        placeholder={t("total_amount_available")}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
 
           {/* Trade Settings */}
           <TabsContent value="trade-settings">

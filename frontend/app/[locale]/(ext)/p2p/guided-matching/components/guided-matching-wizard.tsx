@@ -752,12 +752,12 @@ export function GuidedMatchingWizard({
           >
             <div className="space-y-4">
               <h3 className="text-lg font-medium">
-                Select cryptocurrency and amount
+                Select {formData.walletType === "FIAT" ? "currency" : "asset"} and amount
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <Label>Cryptocurrency</Label>
+                  <Label>{formData.walletType === "FIAT" ? "Currency" : "Asset"}</Label>
                   {loading.currencies || !formData.walletType ? (
                     <Skeleton className="h-10 w-full" />
                   ) : (
@@ -768,7 +768,7 @@ export function GuidedMatchingWizard({
                       }
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="Select cryptocurrency" />
+                        <SelectValue placeholder={formData.walletType === "FIAT" ? "Select currency" : "Select asset"} />
                       </SelectTrigger>
                       <SelectContent>
                         {getAvailableCryptocurrencies().map((crypto) => (
@@ -782,7 +782,7 @@ export function GuidedMatchingWizard({
                   {formData.walletType &&
                     getAvailableCryptocurrencies().length === 0 && (
                       <p className="text-sm text-muted-foreground">
-                        No cryptocurrencies available for{" "}
+                        No {formData.walletType === "FIAT" ? "currencies" : "assets"} available for{" "}
                         {
                           walletOptions.find(
                             (w) => w.id === formData.walletType
@@ -1330,7 +1330,7 @@ export function GuidedMatchingWizard({
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">
-                        Cryptocurrency:
+                        {formData.walletType === "FIAT" ? "Currency:" : "Asset:"}
                       </span>
                       {loading.currencies ? (
                         <Skeleton className="h-4 w-20" />

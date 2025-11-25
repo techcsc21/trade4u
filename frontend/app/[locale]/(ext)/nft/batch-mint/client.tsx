@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
-import { useRouter } from "@/i18n/routing";
+import { useRouter, Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,7 +37,8 @@ import {
   Copy,
   Trash2,
   Save,
-  Send
+  Send,
+  ArrowLeft
 } from "lucide-react";
 import { useUserStore } from "@/store/user";
 import { useNftStore } from "@/store/nft/nft-store";
@@ -340,8 +341,38 @@ Cool NFT #2,Another NFT,https://example.com/image2.jpg,Art,"tag3,tag4",Backgroun
     return badges[status];
   };
 
+  // Filter deployed collections
+  const deployedCollections = collections.filter(
+    (c: any) => c.contractAddress && c.status === "ACTIVE"
+  );
+
   return (
     <div className="container mx-auto py-8 max-w-7xl">
+      {/* Back Button */}
+      <div className="mb-6">
+        <Button
+          variant="ghost"
+          onClick={() => router.push("/nft/creator?tab=nfts")}
+        >
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Back to NFTs
+        </Button>
+      </div>
+
+      {/* No Deployed Collections Warning */}
+      {deployedCollections.length === 0 && (
+        <Alert className="mb-6 border-amber-200 bg-amber-50 dark:bg-amber-950/20">
+          <AlertCircle className="h-4 w-4 text-amber-600" />
+          <AlertDescription className="text-amber-800 dark:text-amber-200">
+            You need at least one deployed collection to batch mint NFTs.{" "}
+            <Link href="/nft/collection/create" className="font-medium underline">
+              Create a collection
+            </Link>{" "}
+            first, then deploy it to the blockchain.
+          </AlertDescription>
+        </Alert>
+      )}
+
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Batch Mint NFTs</h1>
@@ -391,17 +422,23 @@ Cool NFT #2,Another NFT,https://example.com/image2.jpg,Art,"tag3,tag4",Backgroun
                 <SelectValue placeholder="Select a collection" />
               </SelectTrigger>
               <SelectContent>
-                {collections.map(collection => (
-                  <SelectItem key={collection.id} value={collection.id}>
-                    <div className="flex items-center gap-2">
-                      <Package className="h-4 w-4" />
-                      {collection.name}
-                      <Badge variant="outline" className="ml-2">
-                        {collection.totalSupply}/{collection.maxSupply || "∞"}
-                      </Badge>
-                    </div>
-                  </SelectItem>
-                ))}
+                {deployedCollections.length > 0 ? (
+                  deployedCollections.map((collection: any) => (
+                    <SelectItem key={collection.id} value={collection.id}>
+                      <div className="flex items-center gap-2">
+                        <Package className="h-4 w-4" />
+                        {collection.name}
+                        <Badge variant="outline" className="ml-2">
+                          {collection.tokenCount || 0}/{collection.maxSupply || "∞"}
+                        </Badge>
+                      </div>
+                    </SelectItem>
+                  ))
+                ) : (
+                  <div className="p-4 text-sm text-muted-foreground text-center">
+                    No deployed collections available
+                  </div>
+                )}
               </SelectContent>
             </Select>
             

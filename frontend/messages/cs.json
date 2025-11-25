@@ -150,19 +150,6 @@
     "top_up": "Dobít",
     "total_equity": "Celkový vlastní kapitál:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "Přidat",
-    "All": "Vše",
-    "Binary": "Binární",
-    "Favorites": "Oblíbené",
-    "Hot": "Horký",
-    "Loading": "Načítání",
-    "Market": "Trh",
-    "Trending": "Populární",
-    "active_markets": "Aktivní trhy",
-    "no_markets_found": "Nebyly nalezeny žádné trhy",
-    "try_adjusting_your_search": "Zkuste upravit vyhledávání"
-  },
   "binary/components/header/market-selector": {
     "Added": "Přidán",
     "Connecting": "Připojování",
@@ -179,6 +166,19 @@
     "no_markets_found": "Nebyly nalezeny žádné trhy",
     "select": "vybrat",
     "try_adjusting_your_different_categories": "Zkuste upravit vyhledávání nebo procházet různé kategorie"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "Přidat",
+    "All": "Vše",
+    "Binary": "Binární",
+    "Favorites": "Oblíbené",
+    "Hot": "Horký",
+    "Loading": "Načítání",
+    "Market": "Trh",
+    "Trending": "Populární",
+    "active_markets": "Aktivní trhy",
+    "no_markets_found": "Nebyly nalezeny žádné trhy",
+    "try_adjusting_your_search": "Zkuste upravit vyhledávání"
   },
   "binary/components/header/mobile-header": {
     "balance": "Rovnováha:"
@@ -1150,13 +1150,6 @@
     "Image": "Obraz",
     "Images": "Obrazy",
     "Important": "Důležitý",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "Zlepšování",
     "Inactive": "Neaktivní",
     "Insights": "Vhledy",
@@ -1267,7 +1260,7 @@
     "Suspended": "Pozastavený",
     "Swing": "Výkyv",
     "Tablet": "Tableta",
-    "Tada": "Tada",
+    "Tada": "Hurá",
     "Template": "Šablona",
     "Templates": "Šablony",
     "Testimonials": "Posudky",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "Máte k dispozici celkem",
     "you_havent_created_any_api_keys_yet": "Zatím jste nevytvořili žádné klíče API",
     "you_havent_saved_any_sections_yet": "Zatím jste neuložili žádné sekce",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "Před povolením je nutné rozšíření aktivovat a nainstalovat na nejnovější verzi",
     "youll_be_redirected_to_the_login_page_after_logout": "Po odhlášení budete přesměrováni na přihlašovací stránku",
     "youll_need_it_log_in": "Budete jej potřebovat k obdržení ověřovacích kódů při každém přihlášení",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• Operace migrace jsou po dokončení nevratné",
     "•_monitor_system_data_migrations": "• Sledování výkonu systému při migracích velkých dat",
     "•_some_operations_maintenance_mode": "• Některé operace mohou vyžadovat režim údržby systému",
-    "•_using_fallback_mode": "• Použití záložního režimu"
+    "•_using_fallback_mode": "• Použití záložního režimu",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "Přejít na domovskou stránku",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "Svět, kde inovativní projekty mají snadný přístup ke kapitálu a investoři se mohou podílet na příležitostech s důvěrou a bezpečností",
     "accept_offers_that_match_your_needs": "Přijměte nabídky, které odpovídají vašim potřebám",
     "accepted_methods": "Přijímané metody",
-    "access_denied": "Access Denied",
+    "access_denied": "Přístup odepřen",
     "access_institutional-grade_forex_serious_investors": "Získejte přístup k obchodování na forexu na institucionální úrovni s pokročilými algoritmy, profesionálním řízením rizik a konzistentními výnosy pro seriózní investory",
     "access_to_marketing_support_and_security_audits": "Přístup k marketingové podpoře a bezpečnostním auditům",
     "account": "Účet:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "Přidat novou přílohu",
     "add_note": "Přidat poznámku",
     "add_notes_and_terms_for_this_offer": "Přidejte poznámky a podmínky k této nabídce",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "Přidat platební metodu",
     "add_phase": "Přidat fázi",
     "add_plan": "Přidat plán",
     "add_roadmap_item": "Přidat položku plánu",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "Dodatečné požadavky na ověření pro NFT transakce s vysokou hodnotou",
     "address": "Adresa:",
     "adjust_amount": "Upravit částku",
-    "admin": "Admin",
+    "admin": "Administrátor",
     "admin_actions": "Akce správce",
     "admin_actions_will_appear_here": "Zde se zobrazí akce správce",
     "admin_activity": "Aktivita správce",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "Automaticky zveřejňovat prodeje a nové nabídky",
     "auto-release": "Automatické vydání:",
     "auto-verify_new_creators": "Automaticky ověřovat nové tvůrce",
+    "auto_approve_offers": "Automaticky schvalovat nabídky",
     "auto_cancel": "Automatické zrušení",
     "auto_cancel_time_(minutes)": "Čas automatického zrušení (minuty)",
     "automatic_earnings_distribution": "Automatické rozdělení výdělků",
     "automatic_escrow_protection_for_all_funds": "Automatická ochrana úschovy pro všechny prostředky",
     "automatic_release_after_no_dispute)": "Automatické uvolnění po 24 hodinách od potvrzení platby (pokud není spor)",
     "automatically_adjust_amount_to_meet_minimum": "Automaticky upravit částku tak, aby splňovala minimum",
+    "automatically_approve_new_and_edited_offers": "Automaticky schvalovat nové a upravené nabídky",
     "automatically_cancel_the_specified_time": "Automaticky zrušit nabídku, pokud do určité doby nepřijde žádná odpověď",
     "automatically_cancel_trades_payment_window": "Automaticky zrušit obchody, pokud není platba potvrzena v platebním okně",
     "automatically_extend_auctions_when": "Automaticky prodloužit aukce při podání nabídek těsně před koncem",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "Potvrďte svůj vklad",
     "confirm_your_withdrawal": "Potvrďte svůj výběr",
     "confirmed_at": "Potvrzeno na:",
-    "conflict": "Conflict",
+    "conflict": "Konflikt",
     "connect_with_traders_worldwide": "Spojte se s obchodníky po celém světě",
     "connections": "konexe",
     "consider_cliff_periods_for_team_tokens": "Zvažte období útesů pro žetony týmů",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "End-to-end šifrovaný chat pro bezpečnou komunikaci mezi kupujícím a prodávajícím během obchodu",
     "end_date": "Datum ukončení:",
     "end_of_term": "Konec semestru",
+    "ended": "Ukončeno",
     "ending_soon": "Brzy končí",
     "enhance_multiple_faqs_ai-powered_improvements": "Vylepšete několik častých dotazů pomocí našich vylepšení založených na umělé inteligenci",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "Užijte si nejnižší poplatky v oboru za pouhých 0",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "Uveďte všechna požadovaná referenční čísla",
     "include_company_logo": "Zahrnout logo společnosti",
     "include_the_trade_payment_description": "Uveďte referenční číslo obchodu v popisu platby",
-    "info": "Info",
+    "info": "Informace",
     "information_about_the_dispute": "Informace o sporu",
     "information_about_the_disputed_trade": "Informace o sporném obchodu",
     "initial_holder": "Počáteční držák:",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "Interní poznámky k tomuto sporu",
     "internal_notes_about_this_offer": "Interní poznámky k této nabídce",
     "internal_notes_about_this_position": "Interní poznámky k této pozici",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "Neplatný požadavek",
     "invest_in": "Investovat do",
     "invest_in_this_offering": "Investujte do této nabídky",
     "invest_more": "Investujte více",
@@ -4326,6 +4329,7 @@
     "live_preview": "Živý náhled",
     "load_id": "ID zatížení:",
     "load_more": "Načíst více",
+    "loading": "Načítání",
     "loading_activity_data": "Načítání dat o aktivitě",
     "loading_affiliate_data": "Načítání údajů o partnerech",
     "loading_analytics_data": "Načítání analytických dat",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "Správa a monitorování nabídek tokenů",
     "manage_and_track_your_referred_users": "Spravujte a sledujte své doporučené uživatele",
     "manage_conditions": "Spravovat podmínky",
+    "manage_rewards": "Spravovat odměny",
     "manage_the_blockchains_token_launches": "Spravujte blockchainy dostupné pro spuštění tokenů",
     "manage_this_trade": "Spravovat tento obchod",
     "manage_token_release": "Správa vydání tokenu",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "Měsíční výdělky za posledních 6 měsíců",
     "monthly_faq_views_for_the_current_year": "Měsíční zobrazení nejčastějších dotazů pro aktuální rok",
     "monthly_growth_rate_(%)": "Měsíční tempo růstu (%)",
+    "monthly_growth_rate_tooltip": "Očekávaná průměrná měsíční míra růstu ceny. Kladné hodnoty označují zhodnocení ceny, záporné hodnoty označují znehodnocení. Typický rozsah: -50% až +50%",
     "monthly_profit": "Měsíční zisk",
     "more": "více",
     "most_common_search_terms_used_by_your_users": "Nejčastěji vyhledávané výrazy používané uživateli",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "Nebyla nalezena žádná varování",
     "no_withdrawal_methods_available_for_this_currency": "Pro tuto měnu nejsou k dispozici žádné metody výběru",
     "not_available_for_this_chain": "Není k dispozici pro tento řetězec",
-    "not_found": "Not Found",
+    "not_found": "Nenalezeno",
     "not_helpful": "Neužitečné",
+    "not_started": "Nezahájeno",
     "not_submitted": "Neodesláno",
     "notes_and_comments_about_this_transaction": "Poznámky a komentáře k této transakci",
     "now_accepting_bitcoin_ethereum_&_more": "Nyní přijímáme Bitcoin, Ethereum a další",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "Nabídka nebyla nalezena nebo nemáte oprávnění ji upravovat",
     "offer_status": "Stav nabídky",
     "offer_type": "Typ nabídky",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "Nabídka nedostupná",
     "offer_updated_successfully_and_is_pending_approval": "Nabídka byla úspěšně aktualizována a čeká na schválení",
     "offer_visibility": "Viditelnost nabídky",
     "offering": "Oběť:",
@@ -4791,7 +4798,7 @@
     "password": "heslo",
     "pay_with_confidence_processing_system": "Plaťte s důvěrou pomocí našeho zabezpečeného systému zpracování plateb",
     "pay_within_time_limit": "Zaplaťte ve stanoveném časovém limitu",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "Platební aktivity",
     "payment_completed_successfully": "Platba byla úspěšně dokončena!",
     "payment_confirmed": "Platba potvrzena",
     "payment_details": "Podrobnosti o platbě",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "Pokyny k platbě",
     "payment_marked_as_sent": "Platba označena jako odeslaná",
     "payment_method": "Způsob platby:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "Vyžadována platební metoda",
     "payment_methods": "Platební metody",
     "payment_methods_summary": "Souhrn platebních metod",
     "payment_methods_you_prefer": "Platební metody, které preferujete",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "Vyberte cíle, které chcete přidat do této kampaně",
     "please_send_payment_when_done": "Platbu zašlete prodávajícímu pomocí uvedeného způsobu platby a po dokončení potvrďte",
     "please_sign_in_to_view_your_shipping_details": "Pro zobrazení dodacích údajů se prosím přihlaste",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "Zpomalte prosím",
     "please_try_again": "Zkuste to prosím znovu",
     "please_try_again_later": "Zkuste to prosím znovu později",
     "please_try_refreshing_the_page": "Zkuste prosím obnovit stránku",
@@ -5351,13 +5358,14 @@
     "social_media_post": "Příspěvek na sociálních sítích",
     "solana_(sol)": "Solana (SOL)",
     "sold": "prodal",
+    "sold_out": "Vyprodáno",
     "some_features_may_be_temporarily_unavailable": "Některé funkce mohou být dočasně nedostupné",
     "some_pools_distribute_staking_period": "Některé pooly rozdělují odměny denně, zatímco jiné tak činí týdně, měsíčně nebo na konci období sázek",
     "some_pools_offer_higher_returns": "Některé pooly nabízejí automatické skládání, které automaticky reinvestuje vaše získané odměny a generuje ještě vyšší výnosy",
     "some_pools_offer_your_rewards": "Některé pooly nabízejí automatické skládání, které automaticky reinvestuje vaše odměny",
     "some_settings_like_launch_plans": "Některá nastavení, jako jsou členové týmu a limity položek plánu, jsou nyní řízena plány spuštění",
     "some_trade_features_are_currently_disabled": "Některé funkce pro obchodování jsou v současné době zakázány:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "Něco se pokazilo",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "Je nám líto, ale nemohli jsme najít stránku, kterou hledáte.",
     "sort_by": "Seřadit podle",
     "source_code_verification": "Ověření zdrojového kódu",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Přihlásit k odběru bulletinu",
     "subtotal": "Mezisoučet:",
     "subtotal_(": "Mezisoučet (",
-    "success": "Success",
+    "success": "Úspěch",
     "success_rate": "Úspěšnost",
     "successful_offerings": "Úspěšné nabídky",
     "successful_trades": "Úspěšné obchody:",
@@ -5658,7 +5666,7 @@
     "tokens": "odznaky",
     "tokens_for_sale": "Tokeny na prodej",
     "tokens_to_receive": "Žetony k získání:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "Příliš mnoho požadavků",
     "top-performing_staking_pools": "Nejvýkonnější sázkové pooly",
     "top_performing_affiliates": "Nejvýkonnější affiliate partneři",
     "top_performing_faqs": "Nejvýkonnější nejčastější dotazy",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "Podrobnosti o obchodu nejsou v tuto chvíli dostupné",
     "trade_details_are_temporarily_unavailable": "Podrobnosti o obchodu jsou dočasně nedostupné",
     "trade_disputed": "Sporný obchod",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "Obchod vypršel",
     "trade_history_requirements": "Požadavky na obchodní historii",
     "trade_id": "Obchodní ID",
     "trade_information": "Obchodní informace",
@@ -5795,7 +5803,7 @@
     "twitter_api_key": "API klíč Twitter",
     "twitter_api_key_for_automatic_posting": "Twitter API klíč pro automatické příspěvky",
     "twitter_integration": "Integrace Twitter",
-    "twitter_url": "Twitter URL",
+    "twitter_url": "URL Twitteru",
     "type": "Typ:",
     "ui_&_display": "Uživatelské rozhraní a displej",
     "unable_to_load_platform_statistics": "Nelze načíst statistiky platformy",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Mobilní platby Venmo",
     "verification_badges": "Odznaky ověření",
     "verification_badges_help_users": "Ověřovací odznaky pomáhají uživatelům identifikovat důvěryhodné tvůrce a autentické kolekce. Objevují se na profilech, výpisech a ve výsledcích vyhledávání.",
-    "verification_required": "Verification Required",
+    "verification_required": "Vyžadováno ověření",
     "verification_settings_affect_marketplace": "Nastavení ověření ovlivňuje důvěryhodnost a soulad s předpisy na trhu. Zvažte požadavky vaší jurisdikce.",
     "verified_only": "Pouze ověřeno",
     "verified_project_teams_and_offerings": "Ověřené projektové týmy a nabídky",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "Pouze ověření obchodníci",
     "verified_users_have_verification_process": "Ověření uživatelé dokončili náš proces ověření identity",
     "verify_&_approve_transaction": "Ověřte a schvalte transakci",
-    "verify_account": "Verify Account",
+    "verify_account": "Ověřit účet",
     "verify_payment_and_release_funds": "Ověřte platbu a uvolněte prostředky",
     "verify_payment_before_releasing": "Ověřte platbu před vydáním",
     "verify_payment_first": "Nejprve ověřte platbu",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "Vizualizujte a spravujte strukturu své partnerské sítě",
     "visualize_distribution_vesting_token_launch": "Vizualizujte distribuci, harmonogramy přidělování a tržní projekce pro optimalizaci spuštění tokenu",
     "volatility_(%)": "Volatilita (%)",
+    "volatility_tooltip": "Očekávaný rozsah kolísání ceny. Vyšší volatilita znamená větší výkyvy cen. 0% znamená stabilní ceny, 100% znamená extrémní pohyby cen.",
     "volume": "Hlasitost:",
     "volume_(btc)": "Objem (BTC)",
     "vs": "Vs",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "Co byste chtěli udělat?",
     "what_would_you_like_to_do_next": "Co byste chtěli dělat dál?",
     "when_a_trade_into_escrow": "Když obchod začne, budete muset kryptoměnu vložit do úschovy:",
+    "when_disabled_offers_require_admin_moderation": "Pokud je zakázáno, nabídky vyžadují schválení administrátorem",
     "when_disabled_users_can_only_take_existing_offers": "Pokud je tato možnost vypnutá, uživatelé mohou využívat pouze stávající nabídky",
     "when_disabled_users_cannot_access_p2p_features": "Pokud je tato možnost vypnutá, uživatelé nemají přístup k funkcím P2P",
     "when_disabled_users_cannot_create_custom_payment_methods": "Když je zakázáno, uživatelé nemohou vytvářet vlastní platební metody",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "Ještě jste nedokončili žádné obchody",
     "you_havent_distributed_any_earnings_yet": "Zatím jste nerozdělili žádné výdělky",
     "you_might_want_question_directly": "Možná budete chtít vyzkoušet naše vyhledávání nebo se přímo zeptat",
+    "you_must_be_logged_in_to_access_the_dashboard": "Pro přístup k ovládacímu panelu musíte být přihlášeni",
     "you_must_be_logged_in_to_ask_a_question": "Abyste mohli položit dotaz, musíte být přihlášeni",
     "you_need": "Potřebuješ",
     "you_need_to_a_review": "Než budete moci napsat recenzi, musíte si tento produkt zakoupit",
@@ -6206,7 +6217,75 @@
     "•_escrow_services_are_unavailable": "• Služby úschovy nejsou k dispozici",
     "•_lock_period": "• Doba uzamčení:",
     "•_trade_dispute_resolution_is_unavailable": "• Řešení obchodních sporů není k dispozici",
-    "✓_purchased": "✓ Zakoupeno"
+    "✓_purchased": "✓ Zakoupeno",
+    "Configure NFT metadata requirements": "Konfigurovat požadavky na metadata NFT",
+    "Configure platform and creator fees": "Konfigurovat poplatky platformy a tvůrce",
+    "Fixed fee to create a listing (0 = free)": "Fixní poplatek za vytvoření nabídky (0 = zdarma)",
+    "High-Value Threshold (USD)": "Práh vysoké hodnoty (USD)",
+    "Listing Fee (Optional)": "Poplatek za nabídku (volitelné)",
+    "Marketplace Fee (%)": "Poplatek tržiště (%)",
+    "Marketplace Fees": "Poplatky tržiště",
+    "Maximum Royalty (%)": "Maximální licenční poplatek (%)",
+    "Maximum royalty creators can set (0-50%)": "Maximální licenční poplatek, který mohou tvůrci nastavit (0-50%)",
+    "Metadata & IPFS": "Metadata a IPFS",
+    "Percentage fee charged on each sale (0-10%)": "Procentuální poplatek účtovaný z každého prodeje (0-10%)",
+    "Require Metadata Validation": "Vyžadovat validaci metadat",
+    "Validate IPFS metadata URLs before accepting NFT listings": "Ověřit URL metadat IPFS před přijetím nabídek NFT",
+    "are_you_sure_you_want_to_remove_this_offer": "Opravdu chcete tuto nabídku odstranit",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "Změny nastavení ceny a množství mohou vyžadovat schválení administrátora před nabytím účinnosti",
+    "create_your_first_offer": "Vytvořte svou první nabídku",
+    "dynamic_price_(market_based)": "Dynamická cena (založená na trhu)",
+    "edit": "Upravit",
+    "enter_your_fixed_price": "Zadejte svou pevnou cenu",
+    "failed_to_remove_offer": "Nepodařilo se odstranit nabídku",
+    "limit": "Limit",
+    "market_price_offset_(%)": "Odchylka od tržní ceny (%)",
+    "max_trade_amount": "Maximální částka obchodu",
+    "maximum_amount": "Maximální částka",
+    "maximum_limit": "Maximální limit",
+    "min_trade_amount": "Minimální částka obchodu",
+    "minimum_amount": "Minimální částka",
+    "minimum_limit": "Minimální limit",
+    "my_offers": "Moje nabídky",
+    "no_recent_activity": "Žádná nedávná aktivita",
+    "note": "Poznámka",
+    "offer_removed": "Nabídka odstraněna",
+    "positive_=_above_market,_negative_=_below_market": "Kladná = nad trhem, záporná = pod trhem",
+    "price_&_amount": "Cena a částka",
+    "price_&_amount_settings": "Nastavení ceny a částky",
+    "pricing_model": "Cenový model",
+    "remove_offer": "Odstranit nabídku",
+    "removing": "Odstraňování",
+    "the_price_per_unit_of": "Cena za jednotku",
+    "this_is_the_total_amount_for_this_trade": "Toto je celková částka pro tento obchod",
+    "total_amount_available": "Celková dostupná částka",
+    "total_available": "Celkem dostupné",
+    "trading_limits": "Limity obchodování",
+    "update_pricing_model_and_trading_limits": "Aktualizovat cenový model a limity obchodování",
+    "view": "Zobrazit",
+    "you_dont_have_any_offers_yet": "Zatím nemáte žádné nabídky",
+    "your_offer_has_been_successfully_removed": "Vaše nabídka byla úspěšně odstraněna",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "5% nad trhem"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "Zrušit",
@@ -6249,6 +6328,8 @@
     "network_fee": "Síťový poplatek",
     "new_balance": "Nový zůstatek",
     "no_currencies_found": "Nebyly nalezeny žádné měny pro",
+    "no_wallets_available": "Žádné peněženky k dispozici",
+    "no_wallets_available_description": "Popis nedostupnosti peněženek",
     "not_available": "Není k dispozici",
     "of": "z",
     "pay_with": "Platit přes",
@@ -6342,6 +6423,8 @@
     "make_another_transfer": "Proveďte další převod",
     "move_funds_between_another_user": "Přesouvejte prostředky mezi peněženkami nebo je posílejte jinému uživateli",
     "move_funds_between_your_different_wallet_types": "Přesouvejte prostředky mezi různými typy peněženek",
+    "no_wallets_available": "Žádné peněženky k dispozici",
+    "no_wallets_available_description": "Popis nedostupnosti peněženek",
     "processing_transfer": "Zpracování přenosu",
     "recipient_details": "Údaje o příjemci",
     "recipient_receives": "Příjemce obdrží:",
@@ -6381,12 +6464,12 @@
     "the_wallet_youre_to_it": "Peněženka, kterou hledáte, neexistuje nebo k ní nemáte přístup",
     "wallet_address": "Adresa peněženky",
     "wallet_not_found": "Peněženka nenalezena",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
+    "wallet_type_ai_investment": "AI investice",
+    "wallet_type_derivatives": "Deriváty",
+    "wallet_type_eco": "Eko",
     "wallet_type_fiat": "Fiat",
     "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
+    "wallet_type_funding": "Financování",
     "wallet_type_futures": "Futures",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
@@ -6429,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(pro příjem",
+    "Amount to Send (before network fees)": "Částka k odeslání (před síťovými poplatky)",
     "Free": "Zdarma",
+    "Platform Fee": "Poplatek platformy",
     "Processing": "Zpracovává se",
     "Select": "Vybrat",
     "Withdraw": "Stáhnout",
@@ -6450,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "Žádné měny se zůstatkem dostupným v",
     "no_currencies_with_balance_in_wallet_type": "Žádné měny se zůstatkem v typu peněženky",
     "no_wallets_available": "Žádné peněženky nejsou k dispozici",
+    "no_wallets_available_description": "Všechny typy peněženek byly zakázány administrátorem. Kontaktujte prosím podporu nebo se vraťte později.",
     "no_wallets_with_balance_for_withdrawal": "Žádné peněženky s zůstatkem pro výběr",
     "no_withdrawal_methods": "Žádné metody výběru nejsou k dispozici",
     "no_withdrawal_methods_available": "Žádné metody výběru nejsou k dispozici",
@@ -6809,7 +6895,7 @@
     "free_(lazy_mint)": "Zdarma (Lazy Mint)",
     "immediately_mint_to_blockchain_on_creation": "Okamžitě vyrazit na blockchain při vytvoření",
     "it_will_appear_in_your_dashboard": "Objeví se ve vašem dashboardu",
-    "lazy_minting": "Lazy Minting",
+    "lazy_minting": "Líná Razba",
     "leave_empty_to_mint_to_your_address": "Ponechte prázdné pro vyražení na vaši adresu",
     "loading": "Načítání...",
     "loading_collections": "Načítání kolekcí...",
@@ -6992,8 +7078,11 @@
     "create_nft": "Vytvořit NFT",
     "create_your_first_collection_to_organize_your_nfts": "Vytvořte svou první kolekci pro organizaci vašich NFT",
     "create_your_first_nft_to_get_started": "Vytvořte své první NFT a začněte",
+    "creator_dashboard": "Kreátorský Přehled",
     "creator_hub": "Centrum pro tvůrce",
+    "creator_since": "Kreátor Od",
     "explore_nfts": "Prozkoumejte NFT",
+    "failed_to_load_dashboard": "Nepodařilo Se Načíst Přehled",
     "favorite_nfts": "Oblíbené NFT",
     "manage_your_nfts_collections": "Spravujte své NFT, kolekce a aktivitu na tržišti",
     "my_collections": "Moje kolekce",
@@ -7004,6 +7093,7 @@
     "no_favorites_yet": "Zatím žádné oblíbené",
     "no_nfts_yet": "Zatím žádné NFT",
     "please_login_to_view_your_dashboard": "Pro zobrazení dashboardu se prosím přihlaste",
+    "please_sign_in_to_access_your_creator_dashboard": "Přihlaste Se Pro Přístup K Vašemu Kreátorskému Přehledu",
     "please_sign_in_to_view_your_nft_dashboard": "Pro zobrazení vašeho NFT dashboardu se prosím přihlaste",
     "recent_activity": "Nedávná aktivita",
     "sign_in": "Přihlásit se",
@@ -7011,6 +7101,7 @@
     "total_nfts": "Celkem NFT",
     "total_value": "Celková hodnota",
     "total_views": "Celkový počet zobrazení",
+    "try_again": "Zkusit Znovu",
     "your_nft_activities_will_appear_here": "Vaše NFT aktivity se zobrazí zde"
   },
   "nft/details": {
@@ -7033,7 +7124,7 @@
     "Overview": "Přehled",
     "Refresh": "Obnovit",
     "Share": "Sdílet",
-    "Standard": "Standard",
+    "Standard": "Standardní",
     "Updated": "Aktualizováno",
     "are_you_sure_you_want_to_buy": "Opravdu chcete koupit",
     "auction_ended": "Aukce skončila",
@@ -7146,7 +7237,8 @@
     "sell_at_a_fixed_price": "Prodej za pevnou cenu",
     "sell_to_highest_bidder": "Prodej nejvyšší nabídce",
     "start_time": "Čas zahájení",
-    "starting_price": "Počáteční cena"
+    "starting_price": "Počáteční cena",
+    "Duration": "Trvání"
   },
   "nft/modals/offer": {
     "Cancel": "Zrušit",
@@ -7183,7 +7275,7 @@
     "Price": "Cena",
     "Rarity": "Vzácnost",
     "Share": "Sdílet",
-    "Standard": "Standard",
+    "Standard": "Standardní",
     "View": "Zobrazit",
     "Views": "Zobrazení",
     "You": "Vy",
@@ -7210,7 +7302,8 @@
     "token_details": "Podrobnosti tokenu",
     "token_id": "ID tokenu",
     "token_standard": "Tokenový standard",
-    "view_on_explorer": "Zobrazit v průzkumníku"
+    "view_on_explorer": "Zobrazit v průzkumníku",
+    "browse_marketplace": "Procházet tržiště"
   },
   "nft/user/profile": {
     "Activity": "Aktivita",
@@ -7570,7 +7663,7 @@
     "risk_reward_analysis": "Analýza rizika/odměny",
     "short": "Krátká pozice",
     "stop_loss": "Stop Loss",
-    "take_profit": "Take Profit"
+    "take_profit": "Realizace zisku"
   },
   "trade/components/trading/futures/limit-price-input": {
     "limit_price": "Limitní cena"
@@ -7627,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "Načítání",
-    "available": "K dispozici:"
+    "available": "K dispozici:",
+    "balance": "Zůstatek",
+    "in_orders": "V objednávkách"
   },
   "trade/components/trading/spot/index": {
     "Limit": "Limit",
@@ -7644,7 +7739,10 @@
     "Price": "Cena",
     "Processing": "Zpracovává se",
     "Sell": "Prodat",
-    "Total": "Totální"
+    "Total": "Totální",
+    "Est": {
+      " Fee": "Poplatek"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "Množství",
@@ -7654,7 +7752,10 @@
     "estimated_total": "Odhadovaný součet",
     "market_orders_execute_available_price": "Tržní příkazy se realizují okamžitě za nejlepší dostupnou cenu",
     "market_price": "Tržní cena",
-    "the_final_execution_estimated_price": "Konečná realizační cena se může lišit od odhadované ceny"
+    "the_final_execution_estimated_price": "Konečná realizační cena se může lišit od odhadované ceny",
+    "Est": {
+      " Fee": "Poplatek"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "Množství",
@@ -7669,7 +7770,10 @@
     "stop_market_orders_is_reached": "Příkazy Stop Market se po dosažení stop ceny provádějí jako tržní příkazy",
     "stop_price": "Stop cena",
     "the_order_will_available_price": "Objednávka bude vyřízena za nejlepší dostupnou cenu",
-    "the_order_will_or_better": "Pokyn bude realizován za limitní cenu nebo lepší"
+    "the_order_will_or_better": "Pokyn bude realizován za limitní cenu nebo lepší",
+    "Est": {
+      " Fee": "Poplatek"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "*Nebojte se, nebudeme vás spamovat :)",
@@ -7683,5 +7787,553 @@
     "were_making_the_system_more_awesome": "Děláme systém úžasnější",
     "we’ll_be_back_shortly": "Brzy se vrátíme",
     "we’re_making_the_system_more_awesome": "Děláme systém úžasnější"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "Pokročilá finanční analytika se sledováním zisku, analýzou příjmových toků a komplexními přehledy business intelligence.",
+        "title": "Analýza výnosů"
+      },
+      "communication": {
+        "description": "Správa komunikace platformy včetně notifikací, oznámení a systémů uživatelských zpráv.",
+        "title": "Komunikační nástroje"
+      },
+      "compliance": {
+        "description": "Nástroje pro dodržování předpisů včetně zpracování KYC, ověřování dokumentů a správy identit pro právní soulad.",
+        "title": "Compliance a ověření"
+      },
+      "currencies": {
+        "description": "Podpora více měn s výměnnými kurzy v reálném čase, konfigurací obchodních párů a integrací tržních dat.",
+        "title": "Správa měn"
+      },
+      "dashboard": {
+        "description": "Komplexní administrativní přehled s analýzou v reálném čase, monitorováním stavu systému a rychlým přístupem ke kritickým funkcím správy.",
+        "title": "Přehled"
+      },
+      "monitoring": {
+        "description": "Komplexní monitorování systému s logováním, metrikami výkonu a automatizovanou správou úloh.",
+        "title": "Monitorování systému"
+      },
+      "permissions": {
+        "description": "Detailní správa oprávnění pro jemné doladění řízení přístupu napříč všemi systémovými funkcemi a vlastnostmi.",
+        "title": "Oprávnění"
+      },
+      "roles": {
+        "title": "Uživatelské Role",
+        "description": "Vytvářejte a spravujte uživatelské role s přizpůsobitelnými sadami oprávnění a hierarchickými strukturami řízení přístupu.",
+        "permissions": {
+          "description": "Pokročilý systém řízení přístupu pro definování uživatelských rolí, správu oprávnění a implementaci bezpečnostních zásad napříč platformou.",
+          "title": "Role a oprávnění"
+        }
+      },
+      "support": {
+        "description": "Integrovaný systém zákaznických lístků s řízením priorit, sledováním odpovědí a monitorováním spokojenosti zákazníků.",
+        "title": "Zákaznická podpora"
+      },
+      "users": {
+        "description": "Komplexní databáze uživatelů s pokročilým filtrováním, hromadnými operacemi, správou profilů a podrobným sledováním aktivit.",
+        "title": "Uživatelé"
+      },
+      "affiliate": {
+        "system": {
+          "description": "Víceúrovňový partnerský program se sledováním provizí, analytickými údaji o výkonu a automatizovanými výplatami.",
+          "title": "Affiliate Program"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "Konfigurace časových rámců AI strategie s dynamickým vyvažováním a přizpůsobením tržním podmínkám.",
+          "title": "Doby trvání strategií"
+        },
+        "investment": {
+          "description": "Správa investic poháněná umělou inteligencí s algoritmy strojového učení a automatizovanou optimalizací portfolia.",
+          "title": "AI investice"
+        },
+        "performance": {
+          "description": "Analytika výkonnosti AI investic se sledováním přesnosti modelu a metrikami efektivity strategie.",
+          "title": "Výkonnost AI"
+        },
+        "strategies": {
+          "description": "Investiční strategie strojového učení s backtestingem, hodnocením rizik a optimalizací výkonu.",
+          "title": "AI strategie"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "Správa životního cyklu API klíčů s monitorováním využití, omezením rychlosti a bezpečnostními kontrolami pro integrace třetích stran.",
+          "title": "Správa API"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "Nastavení časových rámců obchodování a procent výplat pro binární opce s kontrolou řízení rizik.",
+          "title": "Délka obchodování"
+        },
+        "markets": {
+          "description": "Konfigurace trhů binárních opcí s páry aktiv, obchodními parametry a obchodními hodinami.",
+          "title": "Binární trhy"
+        },
+        "orders": {
+          "description": "Sledování a správa objednávek binárních opcí s trasováním exekuce a zpracováním vypořádání.",
+          "title": "Binární příkazy"
+        },
+        "trading": {
+          "description": "Systém obchodování binárních opcí s nastavením trhu, správou trvání a konfigurací výplat.",
+          "title": "Binární opce"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "Správa neměnné účetní knihy s revizními záznamy, compliance reportingem a nástroji forenzní analýzy.",
+          "title": "Blockchainové registry"
+        },
+        "networks": {
+          "description": "Správa multi-chain sítí s monitorováním uzlů, sledováním konsenzu a analýzou stavu sítě.",
+          "title": "Blockchainové sítě"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "Kompletní správa blogu s profily autorů, plánováním obsahu, SEO optimalizací a analýzou zapojení.",
+          "title": "Blogový systém"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "Základní obchodní nástroje pro marketing, zákaznickou podporu a správu znalostí.",
+          "title": "Obchodní nástroje"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "Komplexní systém správy obsahu pro blogy, mediální aktiva a dynamický obsah webu.",
+          "title": "Obsah"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "Správa digitálních aktiv s blockchain integrací, připojením peněženek a datovými kanály tržních dat v reálném čase.",
+          "title": "Kryptoměny"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "Institucionální služby úschovných peněženek s dodržováním předpisů a pojistným krytím.",
+          "title": "Úschovní služby"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "Komplexní záznamy vkladových transakcí se sledováním stavu, nástroji pro odsouhlasení a možnostmi auditu.",
+          "title": "Záznamy vkladů"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "Pokročilý vizuální nástroj pro tvorbu stránek s rozhraním drag-and-drop, nástroji pro responzivní design a možnostmi přizpůsobení značky.",
+          "title": "Tvůrce stránek"
+        },
+        "customization": {
+          "description": "Přizpůsobte vzhled a design svého webu pomocí pokročilých vizuálních nástrojů.",
+          "title": "Design"
+        },
+        "default": {
+          "editor": {
+            "description": "Upravte výchozí frontend stránky včetně domovské stránky, právních stránek a rozvržení pomocí rozhraní editoru kódu.",
+            "title": "Výchozí stránky"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "Plně vybavená e-commerce platforma se správou inventáře, zpracováním objednávek a podporou více prodejců.",
+          "title": "E-commerce platforma"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "Správa decentralizovaného trhu s AMM protokoly, likviditními fondy a integrací yield farmingu.",
+          "title": "DeFi trhy"
+        },
+        "orders": {
+          "description": "Obchodní příkazy blockchainového ekosystému s integrací chytrých kontraktů a decentralizovanou exekucí.",
+          "title": "Ekosystémové příkazy"
+        },
+        "platform": {
+          "description": "Decentralizovaný obchodní ekosystém s integrací blockchainu, DeFi protokoly a automatizací chytrých kontraktů.",
+          "title": "Blockchainový ekosystém"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "Vytváření a správa e-mailových kampaní se segmentací, personalizací a sledováním výkonu.",
+          "title": "E-mailové kampaně"
+        },
+        "marketing": {
+          "description": "Profesionální platforma pro e-mail marketing s automatizačními workflow, A/B testováním a analýzou.",
+          "title": "E-mailový marketing"
+        },
+        "templates": {
+          "description": "Profesionální knihovna e-mailových šablon s responzivním designem a možnostmi přizpůsobení značky.",
+          "title": "E-mailové šablony"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "Správa integrací burz s poskytovateli likvidity, konfiguracemi API a monitorováním výkonu.",
+          "title": "Poskytovatelé burz"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "Správa životního cyklu rozšíření s instalací, aktualizacemi, řešením závislostí a kontrolou kompatibility.",
+          "title": "Správce rozšíření"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "Správa tradičních měn s monitorováním směnných kurzů, regionálními nastaveními a integrací platebních bran.",
+          "title": "Fiatové měny"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "Komplexní sada finančního řízení pokrývající analýzu příjmů, správu měn, zpracování plateb a dohled nad transakcemi.",
+          "title": "Finance"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "Profesionální forexové obchodování s integrací MetaTrader, algoritmickým obchodováním a institucionální likviditou.",
+          "title": "Forexové obchodování"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "Konfigurace futures trhu se specifikacemi kontraktů, požadavky na marži a procedurami vypořádání.",
+          "title": "Futures trhy"
+        },
+        "orders": {
+          "description": "Správa objednávek futures kontraktů se sledováním marže a nástroji pro hodnocení rizik.",
+          "title": "Futures příkazy"
+        },
+        "platform": {
+          "description": "Profesionální platforma pro obchodování s futures se správou marží, kontrolou rizik a institucionálním prováděním.",
+          "title": "Obchodování s futures"
+        },
+        "positions": {
+          "description": "Monitorování pozic v reálném čase se sledováním P&L, margin calls a automatizovanou správou rizik.",
+          "title": "Správa pozic"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "Správa dynamického obsahu domovské stránky s responzivními posuvníky, call-to-action tlačítky a možnostmi A/B testování.",
+          "title": "Slidery domovské stránky"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "Platforma pro nabídku ICO s integrací KYC, nasazením chytrých kontraktů a dodržováním regulací.",
+          "title": "Prodej tokenů"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "Správa interních převodů prostředků mezi účty s workflow schvalování a kontrolami compliance.",
+          "title": "Interní převody"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "Konfigurace investičních dob trvání, období splatnosti a výpočtů složeného úroku pro různé produkty.",
+          "title": "Délka investic"
+        },
+        "extensions": {
+          "description": "Pokročilé investiční produkty se strategiemi řízenými AI, staking službami a platformami pro tokenizaci.",
+          "title": "Investiční produkty"
+        },
+        "history": {
+          "description": "Komplexní analýza investičního výkonu se sledováním ROI a přehledy správy portfolia.",
+          "title": "Analýza investic"
+        },
+        "management": {
+          "description": "Správa investičních produktů s vytvářením plánů, sledováním výkonu a nástroji pro dohled nad portfoliem.",
+          "title": "Správa investic"
+        },
+        "plans": {
+          "description": "Vytváření a správa investičních produktů s rizikovými profily, výpočty výnosů a konfiguracemi podmínek.",
+          "title": "Investiční plány"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "Komplexní systém správy znalostí s vyhledáváním řízeným AI a optimalizací obsahu.",
+          "title": "Znalostní báze"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "Kontrola a zpracování žádostí o ověření zákazníka s ověřováním dokumentů, hodnocením rizik a workflow schvalování.",
+          "title": "KYC žádosti"
+        },
+        "levels": {
+          "description": "Konfigurace úrovní ověření s přizpůsobitelnými požadavky, limity a přístupovými oprávněními pro různé kategorie uživatelů.",
+          "title": "Úrovně ověření"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "Nástroje systémové údržby včetně optimalizace databáze, správy mezipaměti a migračních nástrojů.",
+          "title": "Nástroje údržby"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "E-commerce a platformy digitálních tržišť s komplexními nástroji pro prodejce a ochranou kupujících.",
+          "title": "Tržištní řešení"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "Správa master peněženky na podnikové úrovni s multi-signature zabezpečením a integrací cold storage.",
+          "title": "Hlavní peněženky"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "Centralizovaná správa médií s cloudovým úložištěm, optimalizací obrázků a integrací CDN pro optimální výkon.",
+          "title": "Knihovna médií"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "Profesionální NFT tržiště s nástroji pro mintování, správou royalty a možnostmi dražeb.",
+          "title": "NFT tržiště"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "Přizpůsobitelné šablony notifikací s doručováním více kanály a personalizačními proměnnými.",
+          "title": "Šablony oznámení"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "Centralizované zpracování a správa objednávek napříč všemi obchodními platformami a třídami aktiv.",
+          "title": "Správa příkazů"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "Peer-to-peer obchodní platforma s eskrou službami, řešením sporů a podporou více platebních bran.",
+          "title": "P2P směnárna"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "Konfigurace a monitorování platebních bran s detekcí podvodů, kontrolami compliance a analýzou výkonu.",
+          "title": "Platební brány"
+        },
+        "methods": {
+          "description": "Správa dostupných platebních možností včetně karet, bankovních převodů, digitálních peněženek a kryptoměnových plateb.",
+          "title": "Platební metody"
+        },
+        "systems": {
+          "description": "Kompletní správa platební infrastruktury včetně platebních bran, metod a dohledu nad zpracováním transakcí.",
+          "title": "Platební systémy"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "Pokročilá rozšíření platformy poskytující specializovanou funkcionalitu pro obchodování, tržiště a obchodní operace.",
+          "title": "Rozšíření"
+        },
+        "settings": {
+          "description": "Základní konfigurace platformy včetně brandingu, lokalizace, bezpečnostních zásad a přepínačů funkcí.",
+          "title": "Nastavení platformy"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "Automatizovaný plánovač úloh s monitorováním úloh, řešením selhání a optimalizací výkonu.",
+          "title": "Naplánované úlohy"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "Správa spotových obchodních příkazů s monitorováním provádění v reálném čase a analýzou dopadu na trh.",
+          "title": "Spotové příkazy"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "Komplexní stakovací platforma se správou validátorů, distribucí odměn a ochranou proti slashingu.",
+          "title": "Stakovací služby"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "Kompletní sada nástrojů pro správu systému pro konfiguraci, monitorování a údržbové operace platformy.",
+          "title": "Systém"
+        },
+        "announcements": {
+          "description": "Systém oznámení pro celou platformu s možnostmi plánování, cílení a sledování zapojení.",
+          "title": "Systémová oznámení"
+        },
+        "logs": {
+          "description": "Centralizovaný systém protokolování s monitorováním v reálném čase, agregací protokolů a pokročilými možnostmi vyhledávání.",
+          "title": "Systémové protokoly"
+        },
+        "updates": {
+          "description": "Automatizované systémové aktualizace s možnostmi vrácení zpět, bezpečnostními záplatami a správou nasazení funkcí.",
+          "title": "Systémové aktualizace"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "Komplexní správa životního cyklu tokenů s možnostmi razby, vyřazování a správy.",
+          "title": "Správa tokenů"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "Profesionální obchodní platformy s pokročilými typy příkazů, nástroji pro analýzu trhu a prováděním institucionální úrovně.",
+          "title": "Obchodní platformy"
+        },
+        "infrastructure": {
+          "description": "Správa obchodní platformy včetně poskytovatelů burz, konfigurací trhu a systémů zpracování příkazů.",
+          "title": "Obchodní infrastruktura"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "Komplexní historie transakcí s pokročilým filtrováním, možnostmi exportu a audiovými stopami.",
+          "title": "Protokoly transakcí"
+        },
+        "management": {
+          "description": "Kompletní dohled nad transakcemi s podrobným protokolováním, reconciliací a možnostmi správy převodů.",
+          "title": "Správa transakcí"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "Kompletní správa životního cyklu uživatelů včetně registrace, ověření, přiřazení rolí a nástrojů pro vztahy se zákazníky pro komplexní správu uživatelů.",
+          "title": "Uživatelé"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "Pokročilá správa UTXO s analýzou grafu transakcí a funkcemi zachovávajícími soukromí.",
+          "title": "Sledování UTXO"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "Správa peněženek s více měnami s monitorováním zůstatků, bezpečnostními kontrolami a správou záloh.",
+          "title": "Správa peněženek"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "Monitorujte žádosti o výběr se sledováním stavu, pracovními postupy schvalování a ověřováním dodržování předpisů.",
+          "title": "Záznamy výběrů"
+        },
+        "management": {
+          "description": "Komplexní správa systému výběrů s automatizovaným zpracováním, prevencí podvodů a kontrolami dodržování předpisů.",
+          "title": "Správa výběrů"
+        },
+        "methods": {
+          "description": "Nakonfigurujte možnosti výběru včetně bankovních převodů, krypto výběrů a zpracovatelů třetích stran.",
+          "title": "Metody výběru"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "Obchodování",
+        "description": "Přístup ke komplexním obchodním platformám s pokročilými grafickými nástroji, tržními daty v reálném čase a profesionálními možnostmi provádění obchodů pro všechny třídy aktiv.",
+        "spot": {
+          "title": "Spotové obchodování",
+          "description": "Prováďte okamžité nákupní a prodejní příkazy za aktuální tržní ceny s pokročilými typy příkazů, grafy hloubky trhu a profesionálními obchodními nástroji."
+        },
+        "binary": {
+          "title": "Binární opce",
+          "description": "Obchodujte binární opce se sofistikovanou analytikou, nástroji pro řízení rizik a zjednodušeným prováděním pro časově citlivé strategie."
+        },
+        "forex": {
+          "title": "Forex",
+          "description": "Přístup ke globálním devizovým trhům s integrací MetaTrader 4/5, pokročilými grafy a prováděním obchodů na institucionální úrovni."
+        },
+        "p2p": {
+          "title": "P2P burza",
+          "description": "Zapojte se do bezpečného peer-to-peer obchodování s kryptoměnami s ochranou eskro, flexibilními platebními metodami a konkurenceschopnými sazbami."
+        }
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "Komplexní sada nástrojů pro správu portfolia pro sledování aktiv, analýzu výkonnosti a správu vašich finančních nástrojů napříč všemi platformami.",
+        "wallet": {
+          "title": "Správa peněženek",
+          "description": "Bezpečná multi-měnová peněženka se sledováním zůstatků v reálném čase, historií transakcí a bezproblémovými možnostmi vkladu/výběru."
+        },
+        "transactions": {
+          "title": "Historie transakcí",
+          "description": "Podrobné záznamy transakcí s pokročilým filtrováním, možnostmi exportu a komplexními auditními záznamy pro všechny finanční aktivity."
+        },
+        "transfers": {
+          "title": "Převody",
+          "description": "Služby interních a externích převodů s okamžitým zpracováním, konkurenceschopnými poplatky a podporou více měn."
+        }
+      },
+      "investments": {
+        "title": "Investice",
+        "description": "Diverzifikované investiční příležitosti s profesionální analytikou, nástroji pro hodnocení rizik a sledováním výkonnosti napříč více třídami aktiv.",
+        "plans": {
+          "title": "Investiční plány",
+          "description": "Kurátorované investiční strategie s podrobnými rizikovými profily, historickými údaji o výkonnosti a flexibilními podmínkami odpovídajícími vašim finančním cílům."
+        },
+        "staking": {
+          "title": "Odměny ze stakingu",
+          "description": "Získávejte pasivní příjem prostřednictvím stakingu kryptoměn s konkurenceschopnými sazbami APY, flexibilními obdobími uzamčení a automatizovaným rozdělováním odměn."
+        },
+        "ico": {
+          "title": "Prodej tokenů",
+          "description": "Přednostní přístup k prověřeným počátečním nabídkám mincí s komplexními zprávami o due diligence, analýzou tokenomiky a sledováním investic."
+        }
+      },
+      "marketplace": {
+        "title": "Tržiště",
+        "description": "Prozkoumejte prémiová digitální a fyzická tržiště s bezpečnými transakcemi, ověřenými prodejci a komplexní ochranou kupujících.",
+        "nft": {
+          "title": "NFT galerie",
+          "description": "Objevujte, vytvářejte a obchodujte s jedinečnými digitálními aktivy v naší kurátorované NFT tržnici s aukčními možnostmi a tantiémami pro tvůrce."
+        },
+        "store": {
+          "title": "Obchod",
+          "description": "Prémiové tržiště nabízející digitální i fyzické produkty s bezpečným zpracováním plateb, celosvětovou dopravou a ochranou kupujících."
+        }
+      },
+      "services": {
+        "title": "Služby",
+        "description": "Profesionální služby a nástroje pro zlepšení vaší obchodní zkušenosti, včetně affiliate programů, vzdělávacích zdrojů a prémiové podpory.",
+        "affiliate": {
+          "title": "Affiliate Program",
+          "description": "Zpeněžte svou síť prostřednictvím našeho komplexního affiliate programu s konkurenceschopnými provizemi, sledováním v reálném čase a marketingovými nástroji."
+        },
+        "support": {
+          "title": "Centrum podpory",
+          "description": "Profesionální zákaznická podpora se správou tiketů, možnostmi živého chatu a dedikovanou správou účtu pro prémiové uživatele."
+        },
+        "faq": {
+          "title": "Znalostní báze",
+          "description": "Komplexní dokumentace, tutoriály a často kladené otázky, které vám pomohou maximalizovat možnosti platformy."
+        }
+      },
+      "insights": {
+        "title": "Poznatky",
+        "description": "Profesionální tržní analýzy, obchodní poznatky a zprávy z odvětví od našeho týmu finančních expertů a tržních analytiků."
+      }
+    }
   }
 }

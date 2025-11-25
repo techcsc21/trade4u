@@ -24,6 +24,23 @@ export const metadata = {
         schema: {
           type: "object",
           properties: {
+            priceConfig: {
+              type: "object",
+              properties: {
+                model: { type: "string", enum: ["fixed", "dynamic"] },
+                fixedPrice: { type: "number", minimum: 0 },
+                dynamicOffset: { type: "number", minimum: -50, maximum: 50 },
+                currency: { type: "string" },
+              },
+            },
+            amountConfig: {
+              type: "object",
+              properties: {
+                min: { type: "number", minimum: 0 },
+                max: { type: "number", minimum: 0 },
+                total: { type: "number", minimum: 0 },
+              },
+            },
             tradeSettings: {
               type: "object",
               properties: {
@@ -93,6 +110,8 @@ export const metadata = {
 };
 
 interface UpdateData {
+  priceConfig?: any;
+  amountConfig?: any;
   tradeSettings?: any;
   locationSettings?: any;
   userRequirements?: any;
@@ -153,12 +172,30 @@ export default async (data: { user?: any; params: any; body: any }) => {
   }
 
   // Validate and prepare update data
-  const allowedFields = ["tradeSettings", "locationSettings", "userRequirements", "paymentMethodIds", "status"];
+  const allowedFields = ["priceConfig", "amountConfig", "tradeSettings", "locationSettings", "userRequirements", "paymentMethodIds", "status"];
+  const jsonFields = ["priceConfig", "amountConfig", "tradeSettings", "locationSettings", "userRequirements"];
   const updateData: UpdateData = {};
 
   for (const field of allowedFields) {
     if (body[field] !== undefined) {
-      (updateData as any)[field] = body[field];
+      // Ensure JSON fields are objects, not strings (prevent double-encoding)
+      if (jsonFields.includes(field)) {
+        const value = body[field];
+        if (typeof value === 'string') {
+          try {
+            (updateData as any)[field] = JSON.parse(value);
+          } catch (e) {
+            throw createError({
+              statusCode: 400,
+              message: `Invalid JSON for field ${field}`,
+            });
+          }
+        } else if (typeof value === 'object' && value !== null) {
+          (updateData as any)[field] = value;
+        }
+      } else {
+        (updateData as any)[field] = body[field];
+      }
     }
   }
 
@@ -213,6 +250,139 @@ export default async (data: { user?: any; params: any; body: any }) => {
       ...offer.tradeSettings,
       ...settings,
     };
+  }
+
+  // Validate and process priceConfig
+  if (updateData.priceConfig) {
+    const priceConfig = updateData.priceConfig;
+    const existingPriceConfig = typeof offer.priceConfig === "string"
+      ? JSON.parse(offer.priceConfig)
+      : offer.priceConfig || {};
+
+    // Validate price model
+    if (priceConfig.model && !["fixed", "dynamic"].includes(priceConfig.model)) {
+      throw createError({
+        statusCode: 400,
+        message: "Invalid price model. Must be 'fixed' or 'dynamic'",
+      });
+    }
+
+    // Validate fixed price
+    if (priceConfig.model === "fixed") {
+      // When switching to fixed, ensure fixedPrice is provided
+      const fixedPrice = priceConfig.fixedPrice !== undefined
+        ? priceConfig.fixedPrice
+        : existingPriceConfig.fixedPrice || existingPriceConfig.finalPrice || 0;
+
+      if (fixedPrice < 0) {
+        throw createError({
+          statusCode: 400,
+          message: "Fixed price must be greater than or equal to 0",
+        });
+      }
+
+      // Set fixedPrice in the incoming config
+      priceConfig.fixedPrice = fixedPrice;
+    }
+
+    // Validate dynamic offset
+    if (priceConfig.model === "dynamic") {
+      // When switching to dynamic, ensure dynamicOffset is provided
+      const dynamicOffset = priceConfig.dynamicOffset !== undefined
+        ? Number(priceConfig.dynamicOffset)
+        : Number(existingPriceConfig.dynamicOffset) || 0;
+
+      if (dynamicOffset < -50 || dynamicOffset > 50) {
+        throw createError({
+          statusCode: 400,
+          message: "Dynamic offset must be between -50% and +50%",
+        });
+      }
+
+      // Set dynamicOffset in the incoming config with explicit number type
+      priceConfig.dynamicOffset = dynamicOffset;
+    }
+
+    // Merge with existing priceConfig and ensure finalPrice is updated
+    const mergedPriceConfig = {
+      ...existingPriceConfig,
+      ...priceConfig,
+    };
+
+    // Calculate finalPrice based on model
+    if (mergedPriceConfig.model === "fixed") {
+      // Use the fixedPrice we validated above
+      mergedPriceConfig.finalPrice = mergedPriceConfig.fixedPrice;
+      mergedPriceConfig.value = mergedPriceConfig.finalPrice;
+    } else if (mergedPriceConfig.model === "dynamic") {
+      // For dynamic pricing, keep existing finalPrice or marketPrice logic
+      // The actual market price calculation should happen elsewhere
+      if (!mergedPriceConfig.finalPrice) {
+        mergedPriceConfig.finalPrice = mergedPriceConfig.marketPrice || existingPriceConfig.finalPrice || 0;
+      }
+    }
+
+    updateData.priceConfig = mergedPriceConfig;
+
+    // Also update priceCurrency at the top level
+    if (priceConfig.currency) {
+      (updateData as any).priceCurrency = priceConfig.currency;
+    }
+  }
+
+  // Validate and process amountConfig
+  if (updateData.amountConfig) {
+    const amountConfig = updateData.amountConfig;
+    const existingAmountConfig = typeof offer.amountConfig === "string"
+      ? JSON.parse(offer.amountConfig)
+      : offer.amountConfig || {};
+
+    // Validate amounts
+    if (amountConfig.min !== undefined && amountConfig.min < 0) {
+      throw createError({
+        statusCode: 400,
+        message: "Minimum amount must be greater than or equal to 0",
+      });
+    }
+
+    if (amountConfig.max !== undefined && amountConfig.max < 0) {
+      throw createError({
+        statusCode: 400,
+        message: "Maximum amount must be greater than or equal to 0",
+      });
+    }
+
+    if (amountConfig.total !== undefined && amountConfig.total < 0) {
+      throw createError({
+        statusCode: 400,
+        message: "Total amount must be greater than or equal to 0",
+      });
+    }
+
+    // Validate min <= max
+    const finalMin = amountConfig.min !== undefined ? amountConfig.min : existingAmountConfig.min;
+    const finalMax = amountConfig.max !== undefined ? amountConfig.max : existingAmountConfig.max;
+
+    if (finalMin > finalMax) {
+      throw createError({
+        statusCode: 400,
+        message: "Minimum amount cannot be greater than maximum amount",
+      });
+    }
+
+    // Merge with existing amountConfig
+    updateData.amountConfig = {
+      ...existingAmountConfig,
+      ...amountConfig,
+    };
+
+    // Also update top-level min/max limits for compatibility
+    if (amountConfig.min !== undefined) {
+      (updateData as any).minLimit = amountConfig.min;
+    }
+    if (amountConfig.max !== undefined) {
+      (updateData as any).maxLimit = amountConfig.max;
+    }
   }
 
   // Validate user requirements
@@ -314,60 +484,89 @@ export default async (data: { user?: any; params: any; body: any }) => {
   const autoApprove = await cacheManager.getSetting("p2pAutoApproveOffers");
   const shouldAutoApprove = autoApprove === true || autoApprove === "true";
 
-  // Set offer to PENDING_APPROVAL or ACTIVE after editing (except for status-only changes)
+  // Set offer to PENDING_APPROVAL or ACTIVE after editing, BUT preserve user's status choice if explicitly provided
   const isStatusOnlyChange = Object.keys(updateData).length === 1 && updateData.status;
-  if (!isStatusOnlyChange) {
+  const userExplicitlySetStatus = updateData.status !== undefined;
+
+  if (!isStatusOnlyChange && !userExplicitlySetStatus) {
+    // Only auto-set status if user didn't explicitly set it
     updateData.status = shouldAutoApprove ? "ACTIVE" : "PENDING_APPROVAL";
   }
+  // If user explicitly set status (ACTIVE or PAUSED), preserve it even with other changes
+
+  let transaction: any;
 
   try {
     // Start transaction for atomic updates
-    const transaction = await sequelize.transaction();
+    transaction = await sequelize.transaction();
 
-    try {
-      // Remove paymentMethodIds from updateData before updating the offer
-      const { paymentMethodIds, ...offerUpdateData } = updateData;
+    // Remove paymentMethodIds from updateData before updating the offer
+    const { paymentMethodIds, ...offerUpdateData } = updateData;
 
-      // Update the offer
-      await offer.update(offerUpdateData, { transaction });
+    // Update the offer - model setters will handle JSON serialization
+    await offer.update(offerUpdateData, { transaction });
 
-      // Update payment methods if provided
-      if (paymentMethodIds) {
-        await offer.setPaymentMethods(paymentMethodIds, { transaction });
-      }
-
-      // Commit transaction
-      await transaction.commit();
-
-      // Fetch updated offer with relations
-      const updatedOffer = await p2pOffer.findByPk(offer.id, {
-        include: [
-          {
-            model: p2pPaymentMethod,
-            as: "paymentMethods",
-            attributes: ["id", "name", "icon"],
-            through: { attributes: [] },
-          },
-        ],
-      });
-
-      const message = shouldAutoApprove
-        ? "Offer updated successfully. Your offer is now active."
-        : "Offer updated successfully. Your offer is now pending approval.";
-
-      return {
-        message,
-        data: updatedOffer,
-      };
-    } catch (error) {
-      await transaction.rollback();
-      throw error;
+    // Update payment methods if provided
+    if (paymentMethodIds) {
+      await offer.setPaymentMethods(paymentMethodIds, { transaction });
     }
-  } catch (error) {
-    console.error("Error updating P2P offer:", error);
+
+    // Commit transaction
+    await transaction.commit();
+
+    // Fetch updated offer with relations
+    const updatedOffer = await p2pOffer.findByPk(offer.id, {
+      include: [
+        {
+          model: p2pPaymentMethod,
+          as: "paymentMethods",
+          attributes: ["id", "name", "icon"],
+          through: { attributes: [] },
+        },
+      ],
+    });
+
+    const message = shouldAutoApprove
+      ? "Offer updated successfully. Your offer is now active."
+      : "Offer updated successfully. Your offer is now pending approval.";
+
+    return {
+      message,
+      data: updatedOffer,
+    };
+  } catch (error: any) {
+    // Only rollback if transaction exists and hasn't been committed/rolled back
+    if (transaction) {
+      try {
+        if (!transaction.finished) {
+          await transaction.rollback();
+        }
+      } catch (rollbackError: any) {
+        // Ignore rollback errors if transaction is already finished
+        if (!rollbackError.message?.includes("already been finished")) {
+          console.error("Transaction rollback failed:", rollbackError.message || rollbackError);
+        }
+      }
+    }
+
+    // Provide more specific error messages
+    if (error.name === 'SequelizeValidationError') {
+      throw createError({
+        statusCode: 400,
+        message: `Validation error: ${error.message}`,
+      });
+    }
+
+    if (error.name === 'SequelizeDatabaseError') {
+      throw createError({
+        statusCode: 500,
+        message: `Database error: ${error.message}`,
+      });
+    }
+
     throw createError({
-      statusCode: 500,
-      message: "Failed to update offer",
+      statusCode: error.statusCode || 500,
+      message: error.message || "Failed to update offer",
     });
   }
 }; 

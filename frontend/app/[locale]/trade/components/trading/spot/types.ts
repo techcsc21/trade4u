@@ -1,11 +1,17 @@
+export interface WalletBalance {
+  balance: number;      // Available/spendable balance
+  inOrder: number;      // Amount locked in orders
+  total: number;        // Total owned (balance + inOrder)
+}
+
 export interface WalletData {
   balance: number;
   availableBalance?: number;
   marginBalance?: number;
   unrealizedPnl?: number;
   currency: string;
-  currencyBalance?: number; // BTC balance
-  pairBalance?: number; // USDT balance
+  currencyBalance?: number | WalletBalance; // BTC balance (can be number or detailed object)
+  pairBalance?: number | WalletBalance; // USDT balance (can be number or detailed object)
 }
 
 export interface TickerData {
@@ -46,4 +52,6 @@ export interface OrderFormProps {
   onOrderSubmit?: (orderData: any) => Promise<any>;
   fetchWalletData: () => Promise<void>;
   isEco?: boolean;
+  takerFee?: number;
+  makerFee?: number;
 }

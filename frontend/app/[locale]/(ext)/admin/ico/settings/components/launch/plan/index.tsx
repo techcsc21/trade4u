@@ -17,6 +17,7 @@ import LaunchPlansList from "./launch-plans-list";
 import AddLaunchPlanForm from "./add-launch-plan-form";
 import EditLaunchPlanForm from "./edit-launch-plan-form";
 import { useTranslations } from "next-intl";
+import { useDirtyForm } from "@/context/dirty-form-context";
 
 export default function LaunchPlansConfiguration({
   isActive,
@@ -24,6 +25,7 @@ export default function LaunchPlansConfiguration({
   isActive: boolean;
 }) {
   const t = useTranslations("ext");
+  const { setDirty } = useDirtyForm();
   const [plans, setPlans] = useState<icoLaunchPlanAttributes[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -72,6 +74,7 @@ export default function LaunchPlansConfiguration({
       setError("Failed to add launch plan");
     } else {
       await fetchPlans();
+      setDirty(false);
     }
     setSaving(false);
     setShowAddForm(false);
@@ -90,6 +93,7 @@ export default function LaunchPlansConfiguration({
       setError("Failed to update launch plan");
     } else {
       await fetchPlans();
+      setDirty(false);
     }
     setSaving(false);
     setEditingPlan(null);

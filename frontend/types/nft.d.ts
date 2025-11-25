@@ -68,6 +68,7 @@ interface NftToken {
   name: string;
   description?: string;
   image?: string;
+  imageUrl?: string; // Frontend transformation of image field
   animationUrl?: string;
   externalUrl?: string;
   attributes?: NftAttribute[];

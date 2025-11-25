@@ -117,13 +117,28 @@ export async function getCurrencies(): Promise<currencyAttributes[]> {
 }
 
 export const getFiatPriceInUSD = async (currency) => {
+  // USD is 1:1
+  if (currency === "USD") {
+    return 1;
+  }
+
   const fiatCurrency = await models.currency.findOne({
     where: { id: currency, status: true },
   });
+
   if (!fiatCurrency) {
     throw createError(404, `Currency ${currency} not found`);
   }
-  return parseFloat(fiatCurrency.price);
+
+  const price = parseFloat(fiatCurrency.price);
+
+  // If price is 0, NaN, or invalid, default to 1 for FIAT (assume 1:1 with USD as fallback)
+  if (!price || isNaN(price) || price <= 0) {
+    console.warn(`Invalid price for FIAT currency ${currency}, defaulting to 1`);
+    return 1;
+  }
+
+  return price;
 };
 
 export const getSpotPriceInUSD = async (currency) => {
@@ -141,19 +156,28 @@ export const getSpotPriceInUSD = async (currency) => {
 
   try {
     const unblockTime = await loadBanStatus();
+
     if (await handleBanStatus(unblockTime)) {
       throw createError(
         503,
         "Service temporarily unavailable. Please try again later."
       );
     }
-    const ticker = await exchange.fetchTicker(`${currency}/USDT`);
+
+    const symbol = `${currency}/USDT`;
+    const ticker = await exchange.fetchTicker(symbol);
+
     const price = ticker.last;
-    if (!price) {
+    if (price === null || price === undefined) {
       throw new Error("Error fetching ticker data");
     }
+
+    // Allow 0 as a valid price (though unusual, it's technically valid)
+    // If price is 0, it means there's no trading activity or the token has no value
     return price;
-  } catch (error) {
+  } catch (error: any) {
+    console.error(`[getSpotPriceInUSD] Error fetching price for ${currency}:`, error.message);
+
     if (error.statusCode === 503) {
       throw error;
     }
@@ -167,14 +191,21 @@ export const getEcoPriceInUSD = async (currency) => {
   }
 
   const engine = await getMatchingEngine();
+
   try {
-    const ticker = await engine.getTicker(`${currency}/USDT`);
+    const symbol = `${currency}/USDT`;
+    const ticker = await engine.getTicker(symbol);
+
     const price = ticker.last;
-    if (!price) {
+    if (price === null || price === undefined) {
       throw new Error("Error fetching ticker data");
     }
+
+    // Allow 0 as a valid price (though unusual, it's technically valid)
+    // If price is 0, it means there's no trading activity or the token has no value
     return price;
-  } catch (error) {
+  } catch (error: any) {
+    console.error(`[getEcoPriceInUSD] Error fetching price for ${currency}:`, error.message);
     throw new Error("Error fetching market data");
   }
 };

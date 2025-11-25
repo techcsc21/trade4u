@@ -1,12 +1,16 @@
-import { redirect } from "@/i18n/routing";
+import type { Metadata } from "next";
+import NFTDashboardClient from "./client";
+import WalletProvider from "@/context/wallet";
 
-/**
- * NFT creator page - redirects to main NFT page
- * This page is required for Next.js App Router to properly handle the [id] dynamic route
- */
+export const metadata: Metadata = {
+  title: "Creator Dashboard - NFT Marketplace",
+  description: "Manage your NFT portfolio, track your creations, and view your earnings",
+};
+
 export default function NFTCreatorPage() {
-  const defaultLocale = process.env.NEXT_PUBLIC_DEFAULT_LANGUAGE || "en";
-  
-  // Redirect to the main NFT page since we don't have a standalone creator list
-  redirect({ href: "/nft", locale: defaultLocale });
+  return (
+    <WalletProvider cookies="">
+      <NFTDashboardClient />
+    </WalletProvider>
+  );
 } 

@@ -239,7 +239,6 @@ export default function TradingHeader({
         unsubscribeRef.current = null;
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSymbol, marketType, mounted]);
 
   // Check if the current symbol is in the wishlist

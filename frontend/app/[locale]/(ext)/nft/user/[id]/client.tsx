@@ -334,7 +334,7 @@ export default function UserPortfolioClient({ initialUser }: UserPortfolioClient
                       {token.currentListing.type === "AUCTION" ? t("current_bid") : t("Price")}
                     </div>
                     <div className="font-medium">
-                      {formatCurrency(token.currentListing.price)} {token.currentListing.currency}
+                      {formatCurrency(token.currentListing.price, token.currentListing.currency)}
                     </div>
                   </div>
                 )}
@@ -429,7 +429,7 @@ export default function UserPortfolioClient({ initialUser }: UserPortfolioClient
                   <div className="text-sm text-gray-300">{t("Following")}</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold">{formatCurrency(user.totalVolume || 0)}</div>
+                  <div className="text-2xl font-bold">{formatCurrency(user.totalVolume || 0, user.currency || "ETH")}</div>
                   <div className="text-sm text-gray-300">{t("Volume")}</div>
                 </div>
               </div>
@@ -660,7 +660,7 @@ export default function UserPortfolioClient({ initialUser }: UserPortfolioClient
                           </p>
                           <div className="flex items-center justify-between text-xs text-muted-foreground">
                             <span>{formatNumber(collection.totalSupply || 0)} {t("items")}</span>
-                            <span>{t("Floor")}: {formatCurrency(collection.floorPrice || 0)}</span>
+                            <span>{t("Floor")}: {formatCurrency(collection.floorPrice || 0, collection.currency || "ETH")}</span>
                           </div>
                         </div>
                       </CardContent>
@@ -700,7 +700,7 @@ export default function UserPortfolioClient({ initialUser }: UserPortfolioClient
                             )}
                             {activity.price && (
                               <span>
-                                {formatCurrency(activity.price)} {activity.currency}
+                                {formatCurrency(activity.price, activity.currency)}
                               </span>
                             )}
                           </div>

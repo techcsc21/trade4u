@@ -87,8 +87,6 @@ export function TradingWizard({
   );
 
   const handleComplete = async (data: any) => {
-    console.log("Submitting offer with data:", data);
-
     try {
       // Update the store with the final form data
       updateOfferFormData(data);
@@ -99,13 +97,9 @@ export function TradingWizard({
       if (success) {
         // If successful, redirect to the offers page
         router.push("/p2p/offer");
-      } else {
-        // Handle submission error
-        console.error("Failed to submit offer");
-        // You could show an error toast or message here
       }
     } catch (error) {
-      console.error("Error submitting offer:", error);
+      // Error submitting offer
     }
   };
 
@@ -129,11 +123,8 @@ export function TradingWizard({
   }, [currentStep]);
 
   const updateTradeData = useCallback((data: any) => {
-    console.log("Updating trade data:", data);
-
     // Special handling for payment methods to ensure they're properly saved
     if (data.paymentMethods !== undefined) {
-      console.log("Updating payment methods:", data.paymentMethods);
 
       // Ensure paymentMethods is always an array
       const paymentMethods = Array.isArray(data.paymentMethods)

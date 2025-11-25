@@ -150,19 +150,6 @@
     "top_up": "تعبئة الرصيد",
     "total_equity": "إجمالي حقوق الملكية:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "جمع",
-    "All": "الكل",
-    "Binary": "ثنائي",
-    "Favorites": "المفضلات",
-    "Hot": "حار",
-    "Loading": "جاري التحميل",
-    "Market": "السوق",
-    "Trending": "الرائج",
-    "active_markets": "الأسواق النشطة",
-    "no_markets_found": "لم يتم العثور على أسواق",
-    "try_adjusting_your_search": "حاول تعديل البحث"
-  },
   "binary/components/header/market-selector": {
     "Added": "مضاف",
     "Connecting": "الاتصال",
@@ -179,6 +166,19 @@
     "no_markets_found": "لم يتم العثور على أسواق",
     "select": "اختر",
     "try_adjusting_your_different_categories": "حاول تعديل بحثك أو تصفح فئات مختلفة"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "جمع",
+    "All": "الكل",
+    "Binary": "ثنائي",
+    "Favorites": "المفضلات",
+    "Hot": "حار",
+    "Loading": "جاري التحميل",
+    "Market": "السوق",
+    "Trending": "الرائج",
+    "active_markets": "الأسواق النشطة",
+    "no_markets_found": "لم يتم العثور على أسواق",
+    "try_adjusting_your_search": "حاول تعديل البحث"
   },
   "binary/components/header/mobile-header": {
     "balance": "توازن:"
@@ -1150,13 +1150,6 @@
     "Image": "صورة",
     "Images": "الصور",
     "Important": "مهم",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "تحسين",
     "Inactive": "كسلان",
     "Insights": "البصائر",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "لديك ما مجموعه",
     "you_havent_created_any_api_keys_yet": "لم تقم بإنشاء أي مفاتيح واجهة برمجة تطبيقات حتى الآن",
     "you_havent_saved_any_sections_yet": "لم تقم بحفظ أي أقسام بعد",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "تحت��ج إلى تنشيط الامتداد وتثبيته على أحدث إصدار قبل تمكينه",
     "youll_be_redirected_to_the_login_page_after_logout": "ستتم إعادة توجيهك إلى صفحة تسجيل الدخول بعد تسجيل الخروج",
     "youll_need_it_log_in": "ستحتاج إليه لتلقي رموز التحقق عند تسجيل الدخول",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• عمليات الترحيل لا رجعة فيها بمجرد اكتمالها",
     "•_monitor_system_data_migrations": "• مراقبة أداء النظام أثناء عمليات ترحيل البيانات الكبيرة",
     "•_some_operations_maintenance_mode": "• قد تتطلب بعض العمليات وضع صيانة النظام",
-    "•_using_fallback_mode": "• استخدام الوضع الاحتياطي"
+    "•_using_fallback_mode": "• استخدام الوضع الاحتياطي",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "اذهب إلى الصفحة الرئيسية",
@@ -2543,7 +2543,7 @@
     "the_page_you_removed_had": "ربما تمت إزالة الصفحة التي تبحث عنها"
   },
   "ext": {
-    "#affiliate_#rewards": "#affiliate #rewards",
+    "#affiliate_#rewards": "#التسويق_بالعمولة #المكافآت",
     "%_actual_apr": "% APR الفعلي",
     "%_apr_is_market_conditions": "% APR غير مضمون وقد يتم تعديله بناءً على ظروف السوق",
     "%_apr_on_your_staked": "% معدل سنوي على رصيدك المحجوز",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "عالم يمكن فيه للمشاريع المبتكرة الوصول بسهولة إلى رأس المال ، ويمكن للمستثمرين المشاركة في الفرص بثقة وأمان.",
     "accept_offers_that_match_your_needs": "اقبل العروض التي تتناسب مع احتياجاتك",
     "accepted_methods": "الطرق المقبولة",
-    "access_denied": "Access Denied",
+    "access_denied": "تم رفض الوصول",
     "access_institutional-grade_forex_serious_investors": "الوصول إلى تداول العملات الأجنبية على مستوى المؤسسات باستخدام خوارزميات متقدمة وإدارة مخاطر احترافية وعوائد ثابتة للمستثمرين الجادين",
     "access_to_marketing_support_and_security_audits": "الوصول إلى دعم التسويق وعمليات تدقيق الأمان",
     "account": "حساب:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "إضافة مرفق جديد",
     "add_note": "إضافة ملاحظة",
     "add_notes_and_terms_for_this_offer": "أضف ملاحظات وشروط لهذا العرض",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "إضافة طريقة الدفع",
     "add_phase": "إضافة مرحلة",
     "add_plan": "إضافة خطة",
     "add_roadmap_item": "إضافة عنصر خارطة الطريق",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "متطلبات تحقق إضافية لمعاملات NFT عالية القيمة",
     "address": "عنوان:",
     "adjust_amount": "تعديل المبلغ",
-    "admin": "Admin",
+    "admin": "المسؤول",
     "admin_actions": "إجراءات المسؤول",
     "admin_actions_will_appear_here": "ستظهر إجراءات المسؤول هنا",
     "admin_activity": "نشاط المسؤول",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "نشر المبيعات والقوائم الجديدة تلقائيًا",
     "auto-release": "الإصدار التلقائي:",
     "auto-verify_new_creators": "التحقق التلقائي من المبدعين الجدد",
+    "auto_approve_offers": "الموافقة التلقائية على العروض",
     "auto_cancel": "إلغاء تلقائي",
     "auto_cancel_time_(minutes)": "وقت الإلغاء التلقائي (بالدقائق)",
     "automatic_earnings_distribution": "التوزيع التلقائي للأرباح",
     "automatic_escrow_protection_for_all_funds": "حماية تلقائية للضمان لجميع الأموال",
     "automatic_release_after_no_dispute)": "الإفراج التلقائي بعد 24 ساعة من تأكيد الدفع (في حالة عدم وجود نزاع)",
     "automatically_adjust_amount_to_meet_minimum": "ضبط المبلغ تلقائيا لتلبية الحد الأدنى",
+    "automatically_approve_new_and_edited_offers": "الموافقة التلقائية على العروض الجديدة والمعدلة",
     "automatically_cancel_the_specified_time": "إلغاء العرض تلقائيا إذا لم يكن هناك رد خلال فترة زمنية محددة",
     "automatically_cancel_trades_payment_window": "إلغاء الصفقات تلقائيا إذا لم يتم تأكيد الدفع خلال نافذة الدفع",
     "automatically_extend_auctions_when": "تمديد المزادات تلقائيًا عند وضع المزايدات قرب النهاية",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "قم بتأكيد الإيداع الخاص بك",
     "confirm_your_withdrawal": "قم بتأكيد السحب الخاص بك",
     "confirmed_at": "تم التأكيد في:",
-    "conflict": "Conflict",
+    "conflict": "تعارض",
     "connect_with_traders_worldwide": "تواصل مع المتداولين في جميع أنحاء العالم",
     "connections": "اتصالات",
     "consider_cliff_periods_for_team_tokens": "ضع في اعتبارك فترات الهاوية لرموز الفريق",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "دردشة مشفرة من طرف إلى طرف للتواصل الآمن بين المشتري والبائع أثناء التداول",
     "end_date": "تاريخ الانتهاء:",
     "end_of_term": "نهاية المدة",
+    "ended": "انتهى",
     "ending_soon": "ينتهي قريباً",
     "enhance_multiple_faqs_ai-powered_improvements": "تحسين الأسئلة الشائعة المتعددة باستخدام تحسيناتنا التي تعمل بنظام الذكاء الاصطناعي",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "استمتع بأقل الرسوم في الصناعة بسعر 0 فقط",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "قم بتضمين أي أرقام مرجعية مطلوبة",
     "include_company_logo": "تضمين شعار الشركة",
     "include_the_trade_payment_description": "قم بتضمين الرقم المرجعي للتداول في وصف الدفع الخاص بك",
-    "info": "Info",
+    "info": "معلومات",
     "information_about_the_dispute": "معلومات حول النزاع",
     "information_about_the_disputed_trade": "معلومات حول التجارة المتنا��ع عليها",
     "initial_holder": "الحامل الأولي:",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "ملاحظات داخلية حول هذا النزاع",
     "internal_notes_about_this_offer": "ملاحظات داخلية حول هذا العرض",
     "internal_notes_about_this_position": "ملاحظات داخلية حول هذا المنصب",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "طلب غير صالح",
     "invest_in": "استثمر في",
     "invest_in_this_offering": "استثمر في هذا العرض",
     "invest_more": "استثمر أكثر",
@@ -4326,6 +4329,7 @@
     "live_preview": "معاينة حية",
     "load_id": "معرف التحميل:",
     "load_more": "تحميل المزيد",
+    "loading": "جاري التحميل",
     "loading_activity_data": "تحميل بيانات النشاط",
     "loading_affiliate_data": "تحميل بيانات الشركاء التابعين",
     "loading_analytics_data": "تحميل بيانات التحليلات",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "إدارة عروض الرموز المميزة الخاصة بك ومراقبتها",
     "manage_and_track_your_referred_users": "إدارة المستخدمين المحالين وتتبعهم",
     "manage_conditions": "إدارة الشروط",
+    "manage_rewards": "إدارة المكافآت",
     "manage_the_blockchains_token_launches": "إدارة سلاسل الكتل ��لمتاحة لإطلاق الرمز المميز",
     "manage_this_trade": "إدارة هذه التجارة",
     "manage_token_release": "إدارة إصدار الرمز المميز",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "الأرباح الشهرية لآخر 6 أشهر",
     "monthly_faq_views_for_the_current_year": "مشاهدات الأسئلة الشائعة الشهرية للعام الحالي",
     "monthly_growth_rate_(%)": "معدل النمو الشهري (٪)",
+    "monthly_growth_rate_tooltip": "معدل نمو السعر الشهري المتوقع. القيم الموجبة تشير إلى ارتفاع السعر، والقيم السالبة تشير إلى انخفاض السعر. النطاق النموذجي: -50% إلى +50%",
     "monthly_profit": "الربح الشهري",
     "more": "أكثر",
     "most_common_search_terms_used_by_your_users": "عبارات البحث الأكثر شيوعا التي يستخدمها المستخدمون",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "لم يتم العثور على تحذيرات",
     "no_withdrawal_methods_available_for_this_currency": "لا توجد طرق سحب متاحة لهذه العملة",
     "not_available_for_this_chain": "غير متوفر لهذه السلسلة",
-    "not_found": "Not Found",
+    "not_found": "غير موجود",
     "not_helpful": "غير مفيد",
+    "not_started": "لم يبدأ",
     "not_submitted": "لم يتم التقديم",
     "notes_and_comments_about_this_transaction": "ملاحظات وتعليقات حول هذه المعاملة",
     "now_accepting_bitcoin_ethereum_&_more": "الآن قبول Bitcoin و Ethereum والمزيد",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "العرض غير موجود أو ليس لديك إذن لتعديله",
     "offer_status": "حالة العرض",
     "offer_type": "نوع العرض",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "العرض غير متاح",
     "offer_updated_successfully_and_is_pending_approval": "تم تحديث العرض بنجاح وهو في انتظار الموافقة",
     "offer_visibility": "عرض الرؤية",
     "offering": "تقديم:",
@@ -4791,7 +4798,7 @@
     "password": "شعار",
     "pay_with_confidence_processing_system": "ادفع بثقة باستخدام نظام معالجة الدفع الآمن الخاص بنا",
     "pay_within_time_limit": "ادفع في غضون مهلة زمنية",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "أنشطة الدفع",
     "payment_completed_successfully": "تم الانتهاء من الدفع بنجاح!",
     "payment_confirmed": "تم تأكيد الدفع",
     "payment_details": "تفاصيل الدفع",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "تعليمات الدفع",
     "payment_marked_as_sent": "تم وضع علامة على الدفع على أنه تم إرساله",
     "payment_method": "طريقة الدفع:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "طريقة الدفع مطلوبة",
     "payment_methods": "طرق الدفع",
     "payment_methods_summary": "ملخص طرق الدفع",
     "payment_methods_you_prefer": "طرق الدفع التي تفضلها",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "يرجى تحديد الأهداف التي تريد إضافتها إلى هذه الحملة",
     "please_send_payment_when_done": "يرجى إرسال الدفع إلى البائع باستخدام طريقة الدفع المحددة والتأكيد عند الانتهاء",
     "please_sign_in_to_view_your_shipping_details": "يرجى تسجيل الدخول لعرض تفاصيل الشحن الخاصة بك",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "يرجى التباطؤ",
     "please_try_again": "يرجى المحاولة مرة أخرى",
     "please_try_again_later": "يرجى المحاولة مرة أخرى لاحقا",
     "please_try_refreshing_the_page": "يرجى محاولة تحديث الصفحة",
@@ -5351,13 +5358,14 @@
     "social_media_post": "منشور على وسائل التواصل الاجتماعي",
     "solana_(sol)": "سولا��ا (SOL)",
     "sold": "مباع",
+    "sold_out": "نفذت الكمية",
     "some_features_may_be_temporarily_unavailable": "قد تكون بعض الميزات غير متوفرة مؤقتا",
     "some_pools_distribute_staking_period": "توزع بعض المجمعات المكافآت يوميا ، بينما يقوم ��لب��ض الآخر بذلك أسبوعيا أو شهريا أو في نهاية فترة التخزين",
     "some_pools_offer_higher_returns": "تقدم بعض المجمعات المضاعفة التلقائية ، والتي تعيد استثمار المكافآت المكتسبة تلقائيا لتحقيق عوائد أعلى",
     "some_pools_offer_your_rewards": "تقدم بعض المجمعات التركيب التلقائي ، والذي يعيد استثمار مكافآتك تلقائيا",
     "some_settings_like_launch_plans": "يتم الآن التحكم في بعض الإعدادات مثل أعضاء الفريق وحدود عناصر خارطة الطريق بواسطة خطط الإطلاق",
     "some_trade_features_are_currently_disabled": "بعض ميزات التداول معطلة حاليا:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "حدث خطأ ما",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "عذرا، لم نتمكن من العثور على الصفحة التي تبحث عنها",
     "sort_by": "ترتيب حسب",
     "source_code_verification": "التحقق من كود المصدر",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "اشترك في نشرتنا الإخبارية",
     "subtotal": "المجموع الفرعي:",
     "subtotal_(": "المجموع الفرعي (",
-    "success": "Success",
+    "success": "نجح",
     "success_rate": "معدل النجاح",
     "successful_offerings": "عروض ناجحة",
     "successful_trades": "الصفقات الناجحة:",
@@ -5658,7 +5666,7 @@
     "tokens": "الرموز",
     "tokens_for_sale": "التوكنات للبيع",
     "tokens_to_receive": "الرموز المميزة التي يجب استلامها:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "طلبات كثيرة جداً",
     "top-performing_staking_pools": "مجمعات التخزين الأفضل أداء",
     "top_performing_affiliates": "الشركات التابعة الأفضل أداء",
     "top_performing_faqs": "الأس��لة الشائعة الأفضل أداء",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "لا يمكن الوصول إلى تفاصيل التداول في الوقت الحالي",
     "trade_details_are_temporarily_unavailable": "تفاصيل التداول غير متوفرة مؤقتا",
     "trade_disputed": "التجارة المتنازع عليها",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "انتهت صلاحية الصفقة",
     "trade_history_requirements": "متطلبات تاريخ التداول",
     "trade_id": "معرف التجارة",
     "trade_information": "معلومات التجارة",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "مدفوعات Venmo عبر الهاتف المحمول",
     "verification_badges": "شارات التحقق",
     "verification_badges_help_users": "شارات التحقق تساعد المستخدمين في تحديد المبدعين الموثوقين والمجموعات الأصلية. تظهر على الملفات الشخصية والقوائم ونتائج البحث.",
-    "verification_required": "Verification Required",
+    "verification_required": "التحقق مطلوب",
     "verification_settings_affect_marketplace": "إعدادات التحقق تؤثر على الثقة والامتثال في السوق. ضع في اعتبارك متطلبات ولايتك القضائية.",
     "verified_only": "تم التحقق فقط",
     "verified_project_teams_and_offerings": "فرق وعروض مشروع تم التحقق منها",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "متداولون معتمدون فقط",
     "verified_users_have_verification_process": "أكمل المستخدمون الذين تم إثبات ملكيتهم عملية إثبات الهوية",
     "verify_&_approve_transaction": "التحقق من المعاملة والموافقة عليها",
-    "verify_account": "Verify Account",
+    "verify_account": "تحقق من الحساب",
     "verify_payment_and_release_funds": "التحقق من أموال الدفع والإفراج عنها",
     "verify_payment_before_releasing": "التحقق من الدفع قبل الإفراج",
     "verify_payment_first": "تحقق من الدفع أولا",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "تصور وإدارة هيكل الشبكة التابعة لك",
     "visualize_distribution_vesting_token_launch": "تصور التوزيع وجداول الاستحقاق وتوقعات السوق لتحسين إطلاق الرمز المميز الخاص بك",
     "volatility_(%)": "التقلب (٪)",
+    "volatility_tooltip": "نطاق تقلب السعر المتوقع. التقلب الأعلى يعني تقلبات أكبر في السعر. 0% تعني أسعار مستقرة، 100% تعني تحركات سعرية شديدة.",
     "volume": "حجم:",
     "volume_(btc)": "الحجم (BTC)",
     "vs": "مقابل",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "ماذا تحب أن تفعل؟",
     "what_would_you_like_to_do_next": "ماذا تريد أن تفعل بعد ذلك؟",
     "when_a_trade_into_escrow": "عندما تبدأ الصفقة ، ستحتاج إلى إيداع العملة المشفرة في الضمان:",
+    "when_disabled_offers_require_admin_moderation": "عند التعطيل تتطلب العروض موافقة المسؤول",
     "when_disabled_users_can_only_take_existing_offers": "عند التعطيل، يمكن للمستخدمين فقط الحصول على العروض الحالية",
     "when_disabled_users_cannot_access_p2p_features": "عند التعطيل ، لا يمكن للمستخدمين الوصول إلى ميزات P2P",
     "when_disabled_users_cannot_create_custom_payment_methods": "عند التعطيل، لا يمكن للمستخدمين إنشاء طرق دفع مخصصة",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "لم تكمل أي صفقات بعد",
     "you_havent_distributed_any_earnings_yet": "لم توزع أي أرباح حتى الآن",
     "you_might_want_question_directly": "قد ترغب في تجربة بحثنا أو طرح سؤال مباشرة",
+    "you_must_be_logged_in_to_access_the_dashboard": "يجب عليك تسجيل الدخول للوصول إلى لوحة التحكم",
     "you_must_be_logged_in_to_ask_a_question": "يجب أن تكون قد سجلت الدخول لطرح سؤال",
     "you_need": "تحتاج",
     "you_need_to_a_review": "تحتاج إلى شراء هذا المنتج قبل أن تتمكن من كتابة تعليق",
@@ -6207,10 +6218,74 @@
     "•_lock_period": "• فترة القفل:",
     "•_trade_dispute_resolution_is_unavailable": "• حل المنازعات التجارية غير متاح",
     "✓_purchased": "✓ تم شراؤها",
-    "not_started": "Not Started",
-    "ended": "Ended",
-    "sold_out": "Sold Out",
-    "manage_rewards": "Manage Rewards"
+    "Configure NFT metadata requirements": "تكوين متطلبات البيانات الوصفية للرموز غير القابلة للاستبدال",
+    "Configure platform and creator fees": "تكوين رسوم المنصة والمنشئ",
+    "Fixed fee to create a listing (0 = free)": "رسوم ثابتة لإنشاء قائمة (0 = مجاني)",
+    "High-Value Threshold (USD)": "عتبة القيمة العالية (بالدولار الأمريكي)",
+    "Listing Fee (Optional)": "رسوم القائمة (اختياري)",
+    "Marketplace Fee (%)": "رسوم السوق (%)",
+    "Marketplace Fees": "رسوم السوق",
+    "Maximum Royalty (%)": "الحد الأقصى للإتاوات (%)",
+    "Maximum royalty creators can set (0-50%)": "الحد الأقصى للإتاوات التي يمكن للمنشئين تحديدها (0-50%)",
+    "Metadata & IPFS": "البيانات الوصفية ونظام الملفات بين الكواكب",
+    "Percentage fee charged on each sale (0-10%)": "نسبة الرسوم المحصلة على كل عملية بيع (0-10%)",
+    "Require Metadata Validation": "طلب التحقق من البيانات الوصفية",
+    "Validate IPFS metadata URLs before accepting NFT listings": "التحقق من عناوين URL للبيانات الوصفية على نظام الملفات بين الكواكب قبل قبول قوائم الرموز غير القابلة للاستبدال",
+    "are_you_sure_you_want_to_remove_this_offer": "هل أنت متأكد من رغبتك في حذف هذا العرض",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "قد تتطلب التغييرات في إعدادات السعر والكمية موافقة المسؤول قبل دخولها حيز التنفيذ",
+    "create_your_first_offer": "أنشئ عرضك الأول",
+    "dynamic_price_(market_based)": "السعر الديناميكي (بناءً على السوق)",
+    "edit": "تعديل",
+    "enter_your_fixed_price": "أدخل السعر الثابت الخاص بك",
+    "failed_to_remove_offer": "فشل حذف العرض",
+    "limit": "الحد",
+    "market_price_offset_(%)": "إزاحة سعر السوق (%)",
+    "max_trade_amount": "الحد الأقصى لمبلغ التداول",
+    "maximum_amount": "الحد الأقصى للكمية",
+    "maximum_limit": "الحد الأقصى",
+    "min_trade_amount": "الحد الأدنى لمبلغ التداول",
+    "minimum_amount": "الحد الأدنى للكمية",
+    "minimum_limit": "الحد الأدنى",
+    "my_offers": "عروضي",
+    "no_recent_activity": "لا يوجد نشاط حديث",
+    "note": "ملاحظة",
+    "offer_removed": "تم حذف العرض",
+    "positive_=_above_market,_negative_=_below_market": "موجب = أعلى من السوق، سالب = أقل من السوق",
+    "price_&_amount": "السعر والكمية",
+    "price_&_amount_settings": "إعدادات السعر والكمية",
+    "pricing_model": "نموذج التسعير",
+    "remove_offer": "حذف العرض",
+    "removing": "جاري الحذف",
+    "the_price_per_unit_of": "السعر لكل وحدة من",
+    "this_is_the_total_amount_for_this_trade": "هذا هو المبلغ الإجمالي لهذه الصفقة",
+    "total_amount_available": "المبلغ الإجمالي المتاح",
+    "total_available": "الإجمالي المتاح",
+    "trading_limits": "حدود التداول",
+    "update_pricing_model_and_trading_limits": "تحديث نموذج التسعير وحدود التداول",
+    "view": "عرض",
+    "you_dont_have_any_offers_yet": "ليس لديك أي عروض بعد",
+    "your_offer_has_been_successfully_removed": "تم حذف عرضك بنجاح",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "5% أعلى من السوق"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "إلغاء",
@@ -6253,6 +6328,8 @@
     "network_fee": "رسوم الشبكة",
     "new_balance": "الرصيد الجديد",
     "no_currencies_found": "لم يتم العثور على عملات لـ",
+    "no_wallets_available": "لا توجد محافظ متاحة",
+    "no_wallets_available_description": "وصف عدم توفر المحافظ",
     "not_available": "غير متاح",
     "of": "من",
     "pay_with": "الدفع باستخدام",
@@ -6346,6 +6423,8 @@
     "make_another_transfer": "قم بإجراء نقل آخر",
     "move_funds_between_another_user": "نقل الأموال بين محافظك أو إرسالها إلى مستخدم آخر",
     "move_funds_between_your_different_wallet_types": "نقل الأموال بين أنواع محفظتك المختلفة",
+    "no_wallets_available": "لا توجد محافظ متاحة",
+    "no_wallets_available_description": "وصف عدم توفر المحافظ",
     "processing_transfer": "معالجة النقل",
     "recipient_details": "تفاصيل المستلم",
     "recipient_receives": "يتلقى المستلم:",
@@ -6385,17 +6464,17 @@
     "the_wallet_youre_to_it": "المحفظة التي تبحث عنها غير موجودة أو لا يمكنك الوصول إليها",
     "wallet_address": "عنوان المحفظة",
     "wallet_not_found": "لم يتم العثور على المحفظة",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
-    "wallet_type_fiat": "Fiat",
-    "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
-    "wallet_type_futures": "Futures",
+    "wallet_type_ai_investment": "الاستثمار بالذكاء الاصطناعي",
+    "wallet_type_derivatives": "المشتقات",
+    "wallet_type_eco": "إيكو",
+    "wallet_type_fiat": "العملات الورقية",
+    "wallet_type_forex": "الفوركس",
+    "wallet_type_funding": "التمويل",
+    "wallet_type_futures": "العقود الآجلة",
     "wallet_type_ico": "ICO",
-    "wallet_type_p2p": "P2P",
-    "wallet_type_spot": "Spot",
-    "wallet_type_staking": "Staking"
+    "wallet_type_p2p": "نظير إلى نظير",
+    "wallet_type_spot": "الفوري",
+    "wallet_type_staking": "الستاكينج"
   },
   "finance/wallet/client": {
     "add_funds": "إضافة أموال",
@@ -6433,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(لتلقي",
+    "Amount to Send (before network fees)": "المبلغ المراد إرساله (قبل رسوم الشبكة)",
     "Free": "مجاني",
+    "Platform Fee": "رسوم المنصة",
     "Processing": "جارٍ المعالجة",
     "Select": "اختار",
     "Withdraw": "سحب",
@@ -6454,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "لا توجد عملات برصيد متاح في",
     "no_currencies_with_balance_in_wallet_type": "لا توجد عملات برصيد في نوع المحفظة",
     "no_wallets_available": "لا توجد محافظ متاحة",
+    "no_wallets_available_description": "تم تعطيل جميع أنواع المحافظ من قبل المسؤول. يرجى الاتصال بالدعم للحصول على المساعدة أو المحاولة لاحقاً.",
     "no_wallets_with_balance_for_withdrawal": "لا توجد محافظ برصيد للسحب",
     "no_withdrawal_methods": "لا توجد طرق سحب متاحة",
     "no_withdrawal_methods_available": "لا توجد طرق سحب متاحة",
@@ -6996,8 +7078,11 @@
     "create_nft": "إنشاء NFT",
     "create_your_first_collection_to_organize_your_nfts": "أنشئ مجموعتك الأولى لتنظيم NFTs الخاصة بك",
     "create_your_first_nft_to_get_started": "أنشئ أول NFT لك للبدء",
+    "creator_dashboard": "لوحة تحكم المنشئ",
     "creator_hub": "مركز المبدعين",
+    "creator_since": "منشئ منذ",
     "explore_nfts": "استكشف NFTs",
+    "failed_to_load_dashboard": "فشل تحميل لوحة التحكم",
     "favorite_nfts": "NFTs المفضلة",
     "manage_your_nfts_collections": "إدارة NFTs والمجموعات ونشاط السوق الخاص بك",
     "my_collections": "مجموعاتي",
@@ -7008,6 +7093,7 @@
     "no_favorites_yet": "لا توجد مفضلات بعد",
     "no_nfts_yet": "لا توجد NFTs بعد",
     "please_login_to_view_your_dashboard": "يرجى تسجيل الدخول لعرض لوحة التحكم الخاصة بك",
+    "please_sign_in_to_access_your_creator_dashboard": "يرجى تسجيل الدخول للوصول إلى لوحة تحكم المنشئ الخاصة بك",
     "please_sign_in_to_view_your_nft_dashboard": "يرجى تسجيل الدخول لعرض لوحة تحكم NFT الخاصة بك",
     "recent_activity": "النشاط الأخير",
     "sign_in": "تسجيل الدخول",
@@ -7015,6 +7101,7 @@
     "total_nfts": "إجمالي NFTs",
     "total_value": "القيمة الإجمالية",
     "total_views": "إجمالي المشاهدات",
+    "try_again": "حاول مرة أخرى",
     "your_nft_activities_will_appear_here": "ستظهر أنشطة NFT الخاصة بك هنا"
   },
   "nft/details": {
@@ -7150,7 +7237,8 @@
     "sell_at_a_fixed_price": "البيع بسعر ثابت",
     "sell_to_highest_bidder": "البيع لصاحب أعلى سعر",
     "start_time": "وقت البداية",
-    "starting_price": "سعر البداية"
+    "starting_price": "سعر البداية",
+    "Duration": "المدة"
   },
   "nft/modals/offer": {
     "Cancel": "إلغاء",
@@ -7214,7 +7302,8 @@
     "token_details": "تفاصيل الرمز المميز",
     "token_id": "معرف الرمز المميز",
     "token_standard": "معيار الرمز",
-    "view_on_explorer": "عرض في المستكشف"
+    "view_on_explorer": "عرض في المستكشف",
+    "browse_marketplace": "تصفح السوق"
   },
   "nft/user/profile": {
     "Activity": "النشاط",
@@ -7379,7 +7468,7 @@
     "Save": "أنقذ",
     "save_current_layout": "حفظ التخطيط الحالي",
     "save_layout_preset": "حفظ الإعداد المسبق للتخطيط",
-    "trading_pro": "Trading Pro"
+    "trading_pro": "التداول الاحترافي"
   },
   "trade/components/layout/layout-dropdown": {
     "Alerts": "تنبيهات",
@@ -7631,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "جاري التحميل",
-    "available": "متوفر:"
+    "available": "متوفر:",
+    "balance": "الرصيد",
+    "in_orders": "في الطلبات"
   },
   "trade/components/trading/spot/index": {
     "Limit": "حد",
@@ -7648,7 +7739,10 @@
     "Price": "السعر",
     "Processing": "جاري المعالجة",
     "Sell": "بيع",
-    "Total": "مجموع"
+    "Total": "مجموع",
+    "Est": {
+      " Fee": "رسوم"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "الكمية",
@@ -7658,7 +7752,10 @@
     "estimated_total": "المجموع المقدر",
     "market_orders_execute_available_price": "يتم تنفيذ أوامر السوق على الفور بأفضل سعر متاح",
     "market_price": "سعر السوق",
-    "the_final_execution_estimated_price": "قد يختلف سعر التنفيذ النهائي عن السعر المقدر"
+    "the_final_execution_estimated_price": "قد يختلف سعر التنفيذ النهائي عن السعر المقدر",
+    "Est": {
+      " Fee": "رسوم"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "الكمية",
@@ -7673,7 +7770,10 @@
     "stop_market_orders_is_reached": "��تم تنفيذ أوامر إيقاف السوق كأوامر السوق عند الوصول إلى سعر الإيقاف",
     "stop_price": "سعر الإيقاف",
     "the_order_will_available_price": "سيتم تنفيذ الطلب بأفضل سعر متاح",
-    "the_order_will_or_better": "سيتم تنفيذ الأمر بالسعر المحدد أو أفضل"
+    "the_order_will_or_better": "سيتم تنفيذ الأمر بالسعر المحدد أو أفضل",
+    "Est": {
+      " Fee": "رسوم"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "* لا تقلق ، لن نرسل لك رسائل غير مرغوب فيها :)",
@@ -7687,5 +7787,553 @@
     "were_making_the_system_more_awesome": "نحن نجعل النظام أكثر روعة",
     "we’ll_be_back_shortly": "سنعود قريبا",
     "we’re_making_the_system_more_awesome": "نحن نجعل النظام أكثر روعة"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "تحليلات مالية متقدمة مع تتبع الأرباح وتحليل تدفقات الإيرادات ولوحات معلومات ذكاء الأعمال الشاملة.",
+        "title": "تحليلات الإيرادات"
+      },
+      "communication": {
+        "description": "إدارة اتصالات المنصة بما في ذلك الإشعارات والإعلانات وأنظمة المراسلة للمستخدمين.",
+        "title": "أدوات الاتصال"
+      },
+      "compliance": {
+        "description": "أدوات الامتثال التنظيمي بما في ذلك معالجة اعرف عميلك والتحقق من المستندات وإدارة الهوية للالتزام القانوني.",
+        "title": "الامتثال والتحقق"
+      },
+      "currencies": {
+        "description": "دعم متعدد العملات مع أسعار الصرف في الوقت الفعلي وإعداد أزواج التداول وتكامل بيانات السوق.",
+        "title": "إدارة العملات"
+      },
+      "dashboard": {
+        "description": "نظرة عامة إدارية شاملة مع تحليلات في الوقت الفعلي ومراقبة صحة النظام ووصول سريع إلى وظائف الإدارة الحرجة.",
+        "title": "لوحة التحكم"
+      },
+      "monitoring": {
+        "description": "مراقبة شاملة للنظام مع التسجيل ومقاييس الأداء وإدارة المهام الآلية.",
+        "title": "مراقبة النظام"
+      },
+      "permissions": {
+        "description": "إدارة الأذونات التفصيلية للتحكم الدقيق في الوصول عبر جميع وظائف النظام وميزاته.",
+        "title": "الأذونات"
+      },
+      "roles": {
+        "title": "أدوار المستخدمين",
+        "description": "إنشاء وإدارة أدوار المستخدمين مع مجموعات أذونات قابلة للتخصيص وهياكل تحكم في الوصول الهرمي.",
+        "permissions": {
+          "description": "نظام تحكم في الوصول المتقدم لتحديد أدوار المستخدمين وإدارة الأذونات وتنفيذ سياسات الأمان عبر المنصة.",
+          "title": "الأدوار والأذونات"
+        }
+      },
+      "support": {
+        "description": "نظام تذاكر الدعم المتكامل مع إدارة الأولويات وتتبع الاستجابة ومراقبة رضا العملاء.",
+        "title": "دعم العملاء"
+      },
+      "users": {
+        "description": "قاعدة بيانات مستخدمين شاملة مع تصفية متقدمة، وعمليات جماعية، وإدارة الملفات الشخصية، وتتبع تفصيلي للأنشطة.",
+        "title": "المستخدمون"
+      },
+      "affiliate": {
+        "system": {
+          "description": "برنامج تسويق بالعمولة متعدد المستويات مع تتبع العمولات وتحليلات الأداء والمدفوعات التلقائية.",
+          "title": "برنامج الإحالة"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "تكوين أطر زمنية لاستراتيجية الذكاء الاصطناعي مع إعادة التوازن الديناميكي والتكيف مع ظروف السوق.",
+          "title": "فترات الاستراتيجية"
+        },
+        "investment": {
+          "description": "إدارة الاستثمار المدعومة بالذكاء الاصطناعي مع خوارزميات التعلم الآلي وتحسين المحفظة التلقائي.",
+          "title": "الاستثمار بالذكاء الاصطناعي"
+        },
+        "performance": {
+          "description": "تحليلات أداء استثمار الذكاء الاصطناعي مع تتبع دقة النموذج ومقاييس فعالية الاستراتيجية.",
+          "title": "أداء الذكاء الاصطناعي"
+        },
+        "strategies": {
+          "description": "استراتيجيات الاستثمار بالتعلم الآلي مع الاختبار الرجعي وتقييم المخاطر وتحسين الأداء.",
+          "title": "استراتيجيات الذكاء الاصطناعي"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "إدارة دورة حياة مفاتيح API مع مراقبة الاستخدام وتحديد المعدل وضوابط الأمان لعمليات التكامل مع الأطراف الثالثة.",
+          "title": "إدارة واجهة برمجة التطبيقات"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "تعيين الأطر الزمنية للتداول ونسب الدفع للخيارات الثنائية مع ضوابط إدارة المخاطر.",
+          "title": "فترات التداول"
+        },
+        "markets": {
+          "description": "إعداد أسواق الخيارات الثنائية مع أزواج الأصول ومعاملات التداول وساعات السوق.",
+          "title": "أسواق الخيارات الثنائية"
+        },
+        "orders": {
+          "description": "مراقبة وإدارة أوامر الخيارات الثنائية مع تتبع التنفيذ ومعالجة التسوية.",
+          "title": "طلبات الخيارات الثنائية"
+        },
+        "trading": {
+          "description": "نظام تداول الخيارات الثنائية مع إعداد السوق وإدارة المدة وإعداد العوائد.",
+          "title": "الخيارات الثنائية"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "إدارة السجل الثابت مع مسارات التدقيق وتقارير الامتثال وأدوات التحليل الجنائي.",
+          "title": "دفاتر البلوكشين"
+        },
+        "networks": {
+          "description": "إدارة الشبكات متعددة السلاسل مع مراقبة العقد وتتبع الإجماع وتحليلات صحة الشبكة.",
+          "title": "شبكات البلوكشين"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "إدارة مدونة كاملة مع ملفات تعريف المؤلفين وجدولة المحتوى وتحسين محركات البحث وتحليلات التفاعل.",
+          "title": "نظام المدونة"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "أدوات أعمال أساسية للتسويق ودعم العملاء وإدارة المعرفة.",
+          "title": "أدوات الأعمال"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "نظام إدارة محتوى شامل للمدونات وأصول الوسائط ومحتوى الموقع الديناميكي.",
+          "title": "المحتوى"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "إدارة الأصول الرقمية مع تكامل البلوكشين واتصال المحافظ وموجزات بيانات السوق في الوقت الفعلي.",
+          "title": "العملات المشفرة"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "خدمات المحافظ الاستئمانية المؤسسية مع الامتثال التنظيمي والتغطية التأمينية.",
+          "title": "خدمات الحفظ"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "سجلات معاملات الإيداع الشاملة مع تتبع الحالة وأدوات التسوية وإمكانيات التدقيق.",
+          "title": "سجلات الإيداع"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "أداة إنشاء صفحات مرئية متقدمة مع واجهة السحب والإفلات وأدوات التصميم سريع الاستجابة وخيارات تخصيص العلامة التجارية.",
+          "title": "منشئ الصفحات"
+        },
+        "customization": {
+          "description": "تخصيص مظهر وتصميم موقعك الإلكتروني باستخدام أدوات مرئية متقدمة.",
+          "title": "التصميم"
+        },
+        "default": {
+          "editor": {
+            "description": "تحرير صفحات الواجهة الأمامية الافتراضية بما في ذلك الصفحة الرئيسية والصفحات القانونية والتخطيطات مع واجهة محرر الأكواد.",
+            "title": "الصفحات الافتراضية"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "منصة تجارة إلكترونية كاملة المميزات مع إدارة المخزون، ومعالجة الطلبات، ودعم البائعين المتعددين.",
+          "title": "منصة التجارة الإلكترونية"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "إدارة السوق اللامركزية مع بروتوكولات صانع السوق الآلي ومجمعات السيولة وتكامل زراعة العوائد.",
+          "title": "أسواق التمويل اللامركزي"
+        },
+        "orders": {
+          "description": "أوامر تداول النظام البيئي للبلوكشين مع تكامل العقود الذكية والتنفيذ اللامركزي.",
+          "title": "طلبات النظام البيئي"
+        },
+        "platform": {
+          "description": "نظام تداول لامركزي مع تكامل البلوكشين، وبروتوكولات DeFi، وأتمتة العقود الذكية.",
+          "title": "نظام البلوكشين البيئي"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "إنشاء وإدارة حملات البريد الإلكتروني مع التقسيم والتخصيص وتتبع الأداء.",
+          "title": "حملات البريد الإلكتروني"
+        },
+        "marketing": {
+          "description": "منصة تسويق احترافية عبر البريد الإلكتروني مع سير عمل الأتمتة واختبار A/B والتحليلات.",
+          "title": "التسويق عبر البريد الإلكتروني"
+        },
+        "templates": {
+          "description": "مكتبة قوالب بريد إلكتروني احترافية مع تصميم سريع الاستجابة وخيارات تخصيص العلامة التجارية.",
+          "title": "قوالب البريد الإلكتروني"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "إدارة تكاملات البورصة مع مزودي السيولة وإعدادات API ومراقبة الأداء.",
+          "title": "مزودو البورصة"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "إدارة دورة حياة الإضافات مع التثبيت والتحديثات وحل التبعيات والتحقق من التوافق.",
+          "title": "مدير الإضافات"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "إدارة العملات التقليدية مع مراقبة أسعار الصرف والإعدادات الإقليمية وتكامل بوابات الدفع.",
+          "title": "العملات الورقية"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "مجموعة إدارة مالية شاملة تغطي تحليلات الإيرادات وإدارة العملات ومعالجة المدفوعات والإشراف على المعاملات.",
+          "title": "المالية"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "تداول فوركس احترافي مع تكامل MetaTrader، والتداول الخوارزمي، والسيولة المؤسسية.",
+          "title": "تداول الفوركس"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "إعداد سوق العقود المستقبلية مع مواصفات العقود ومتطلبات الهامش وإجراءات التسوية.",
+          "title": "أسواق العقود الآجلة"
+        },
+        "orders": {
+          "description": "إدارة أوامر عقود العقود المستقبلية مع تتبع الهامش وأدوات تقييم المخاطر.",
+          "title": "طلبات العقود الآجلة"
+        },
+        "platform": {
+          "description": "منصة تداول عقود آجلة احترافية مع إدارة الهامش، وضوابط المخاطر، والتنفيذ المؤسسي.",
+          "title": "تداول العقود الآجلة"
+        },
+        "positions": {
+          "description": "مراقبة المراكز في الوقت الفعلي مع تتبع الأرباح والخسائر ونداءات الهامش وإدارة المخاطر الآلية.",
+          "title": "إدارة المراكز"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "إدارة محتوى الصفحة الرئيسية الديناميكي مع شرائح سريعة الاستجابة وأزرار دعوة لاتخاذ إجراء وإمكانيات اختبار A/B.",
+          "title": "شرائح الصفحة الرئيسية"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "منصة طرح العملات الأولي مع تكامل التحقق من الهوية، ونشر العقود الذكية، والامتثال التنظيمي.",
+          "title": "مبيعات الرموز"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "إدارة تحويلات الأموال الداخلية بين الحسابات مع سير عمل الموافقة وفحوصات الامتثال.",
+          "title": "التحويلات الداخلية"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "إعداد مدد الاستثمار وفترات الاستحقاق وحسابات الفائدة المركبة لمختلف المنتجات.",
+          "title": "فترات الاستثمار"
+        },
+        "extensions": {
+          "description": "منتجات استثمارية متقدمة مع استراتيجيات مدعومة بالذكاء الاصطناعي وخدمات الرهان ومنصات الترميز.",
+          "title": "منتجات الاستثمار"
+        },
+        "history": {
+          "description": "تحليلات أداء استثماري شاملة مع تتبع عائد الاستثمار ورؤى إدارة المحفظة.",
+          "title": "تحليلات الاستثمار"
+        },
+        "management": {
+          "description": "إدارة منتجات الاستثمار مع إنشاء الخطط وتتبع الأداء وأدوات الإشراف على المحفظة.",
+          "title": "إدارة الاستثمار"
+        },
+        "plans": {
+          "description": "إنشاء وإدارة منتجات الاستثمار مع ملفات تعريف المخاطر وحسابات العائد وإعدادات المدة.",
+          "title": "خطط الاستثمار"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "نظام إدارة معرفة شامل مع بحث مدعوم بالذكاء الاصطناعي وتحسين المحتوى.",
+          "title": "قاعدة المعرفة"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "مراجعة ومعالجة طلبات اعرف عميلك مع التحقق من المستندات وتقييم المخاطر وسير عمل الموافقة.",
+          "title": "طلبات التحقق من الهوية"
+        },
+        "levels": {
+          "description": "إعداد مستويات التحقق مع متطلبات قابلة للتخصيص وحدود وامتيازات الوصول لفئات المستخدمين المختلفة.",
+          "title": "مستويات التحقق"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "أدوات صيانة النظام بما في ذلك تحسين قاعدة البيانات وإدارة ذاكرة التخزين المؤقت وأدوات الترحيل.",
+          "title": "أدوات الصيانة"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "منصات التجارة الإلكترونية والسوق الرقمية مع أدوات شاملة للبائعين وحماية المشترين.",
+          "title": "حلول السوق"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "إدارة المحفظة الرئيسية على مستوى المؤسسات مع أمان التوقيع المتعدد وتكامل التخزين البارد.",
+          "title": "المحافظ الرئيسية"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "إدارة وسائط مركزية مع تخزين سحابي وتحسين الصور وتكامل CDN للأداء الأمثل.",
+          "title": "مكتبة الوسائط"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "سوق NFT احترافي مع أدوات السك وإدارة الإتاوات وإمكانيات المزادات.",
+          "title": "سوق NFT"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "قوالب إشعارات قابلة للتخصيص مع التسليم متعدد القنوات ومتغيرات التخصيص.",
+          "title": "قوالب الإشعارات"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "معالجة وإدارة الأوامر المركزية عبر جميع منصات التداول وفئات الأصول.",
+          "title": "إدارة الطلبات"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "منصة تداول من نظير إلى نظير مع خدمات الضمان، وحل النزاعات، ودعم بوابات الدفع المتعددة.",
+          "title": "التبادل من نظير إلى نظير"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "إعداد ومراقبة بوابات الدفع مع الكشف عن الاحتيال وفحوصات الامتثال وتحليلات الأداء.",
+          "title": "بوابات الدفع"
+        },
+        "methods": {
+          "description": "إدارة خيارات الدفع المتاحة بما في ذلك البطاقات والتحويلات المصرفية والمحافظ الرقمية ومدفوعات العملات المشفرة.",
+          "title": "طرق الدفع"
+        },
+        "systems": {
+          "description": "البنية التحتية الكاملة لإدارة الدفع بما في ذلك البوابات والطرق والإشراف على معالجة المعاملات.",
+          "title": "أنظمة الدفع"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "إضافات متقدمة للمنصة توفر وظائف متخصصة للتداول والسوق والعمليات التجارية.",
+          "title": "الإضافات"
+        },
+        "settings": {
+          "description": "تكوين المنصة الأساسي بما في ذلك العلامة التجارية، والترجمة، وسياسات الأمان، وتبديل الميزات.",
+          "title": "إعدادات المنصة"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "جدولة المهام الآلية مع مراقبة المهام ومعالجة الفشل وتحسين الأداء.",
+          "title": "المهام المجدولة"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "إدارة أوامر التداول الفوري مع مراقبة التنفيذ في الوقت الفعلي وتحليل تأثير السوق.",
+          "title": "الطلبات الفورية"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "منصة تخزين شاملة مع إدارة المدققين، وتوزيع المكافآت، وحماية العقوبات.",
+          "title": "خدمات التخزين"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "مجموعة إدارة النظام الكاملة لتكوين المنصة ومراقبتها وعمليات الصيانة.",
+          "title": "النظام"
+        },
+        "announcements": {
+          "description": "نظام الإعلانات على مستوى المنصة مع إمكانيات الجدولة والاستهداف وتتبع المشاركة.",
+          "title": "إعلانات النظام"
+        },
+        "logs": {
+          "description": "نظام تسجيل مركزي مع مراقبة في الوقت الفعلي وتجميع السجلات وقدرات البحث المتقدمة.",
+          "title": "سجلات النظام"
+        },
+        "updates": {
+          "description": "تحديثات النظام الآلية مع إمكانيات التراجع والتصحيحات الأمنية وإدارة نشر الميزات.",
+          "title": "تحديثات النظام"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "إدارة شاملة لدورة حياة الرمز المميز مع إمكانيات السك والحرق والحوكمة.",
+          "title": "إدارة الرموز"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "منصات تداول احترافية مع أنواع أوامر متقدمة وأدوات تحليل السوق وتنفيذ من الدرجة المؤسسية.",
+          "title": "منصات التداول"
+        },
+        "infrastructure": {
+          "description": "إدارة منصة التداول بما في ذلك مزودي البورصة وتكوينات السوق وأنظمة معالجة الأوامر.",
+          "title": "البنية التحتية للتداول"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "سجل المعاملات الشامل مع تصفية متقدمة وقدرات التصدير ومسارات التدقيق.",
+          "title": "سجلات المعاملات"
+        },
+        "management": {
+          "description": "إشراف كامل على المعاملات مع تسجيل تفصيلي والمصالحة وقدرات إدارة التحويل.",
+          "title": "إدارة المعاملات"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "إدارة كاملة لدورة حياة المستخدم بما في ذلك التسجيل، والتحقق، وتعيين الأدوار، وأدوات إدارة علاقات العملاء لإدارة شاملة للمستخدمين.",
+          "title": "المستخدمون"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "إدارة UTXO المتقدمة مع تحليل رسم المعاملات وميزات الحفاظ على الخصوصية.",
+          "title": "تتبع UTXO"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "إدارة المحفظة متعددة العملات مع مراقبة الرصيد وضوابط الأمان وإدارة النسخ الاحتياطي.",
+          "title": "إدارة المحفظة"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "مراقبة طلبات السحب مع تتبع الحالة وسير عمل الموافقة والتحقق من الامتثال.",
+          "title": "سجلات السحب"
+        },
+        "management": {
+          "description": "إدارة نظام السحب الشامل مع المعالجة الآلية ومنع الاحتيال وضوابط الامتثال.",
+          "title": "إدارة السحب"
+        },
+        "methods": {
+          "description": "تكوين خيارات السحب بما في ذلك التحويلات المصرفية وعمليات سحب العملات المشفرة ومعالجات الطرف الثالث.",
+          "title": "طرق السحب"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "التداول",
+        "description": "الوصول إلى منصات تداول شاملة مع أدوات رسوم بيانية متقدمة وبيانات سوق فورية وقدرات تنفيذ احترافية لجميع فئات الأصول.",
+        "spot": {
+          "title": "التداول الفوري",
+          "description": "تنفيذ أوامر الشراء والبيع الفورية بأسعار السوق الحالية مع أنواع أوامر متقدمة ومخططات العمق وأدوات تداول احترافية."
+        },
+        "binary": {
+          "title": "الخيارات الثنائية",
+          "description": "تداول الخيارات الثنائية مع تحليلات متطورة وأدوات إدارة المخاطر وتنفيذ مبسط للاستراتيجيات الحساسة للوقت."
+        },
+        "forex": {
+          "title": "الفوركس",
+          "description": "الوصول إلى أسواق الصرف الأجنبي العالمية مع تكامل ميتاتريدر 4/5 ورسوم بيانية متقدمة وتنفيذ بمستوى مؤسسي."
+        },
+        "p2p": {
+          "title": "تبادل النظير للنظير",
+          "description": "الانخراط في تداول آمن للعملات الرقمية من نظير إلى نظير مع حماية الضمان وطرق دفع مرنة وأسعار تنافسية."
+        }
+      },
+      "portfolio": {
+        "title": "المحفظة",
+        "description": "مجموعة إدارة محفظة شاملة لتتبع الأصول وتحليل الأداء وإدارة أدواتك المالية عبر جميع المنصات.",
+        "wallet": {
+          "title": "إدارة المحفظة",
+          "description": "محفظة متعددة العملات آمنة مع تتبع الرصيد في الوقت الفعلي وسجل المعاملات وإمكانيات إيداع/سحب سلسة."
+        },
+        "transactions": {
+          "title": "سجل المعاملات",
+          "description": "سجلات معاملات مفصلة مع تصفية متقدمة وإمكانيات التصدير ومسارات تدقيق شاملة لجميع الأنشطة المالية."
+        },
+        "transfers": {
+          "title": "التحويلات",
+          "description": "خدمات التحويل الداخلي والخارجي مع معالجة فورية ورسوم تنافسية ودعم متعدد العملات."
+        }
+      },
+      "investments": {
+        "title": "الاستثمارات",
+        "description": "فرص استثمارية متنوعة مع تحليلات احترافية وأدوات تقييم المخاطر وتتبع الأداء عبر فئات أصول متعددة.",
+        "plans": {
+          "title": "خطط الاستثمار",
+          "description": "استراتيجيات استثمارية منسقة مع ملفات تعريف مخاطر مفصلة وبيانات أداء تاريخية وشروط مرنة لتتناسب مع أهدافك المالية."
+        },
+        "staking": {
+          "title": "مكافآت التخزين",
+          "description": "احصل على دخل سلبي من خلال تخزين العملات الرقمية مع معدلات عائد سنوية تنافسية وفترات قفل مرنة وتوزيع مكافآت تلقائي."
+        },
+        "ico": {
+          "title": "مبيعات الرموز",
+          "description": "وصول مبكر إلى عروض العملات الأولية المفحوصة مع تقارير العناية الواجبة الشاملة وتحليل اقتصاديات الرموز وتتبع الاستثمار."
+        }
+      },
+      "marketplace": {
+        "title": "السوق",
+        "description": "استكشف أسواق رقمية ومادية متميزة مع معاملات آمنة وبائعين موثقين وحماية شاملة للمشترين.",
+        "nft": {
+          "title": "معرض الرموز غير القابلة للاستبدال",
+          "description": "اكتشف وأنشئ وتداول أصولًا رقمية فريدة في سوق الرموز غير القابلة للاستبدال المنسق لدينا مع إمكانيات المزاد وحقوق المبدعين."
+        },
+        "store": {
+          "title": "المتجر",
+          "description": "سوق متميز يضم منتجات رقمية ومادية مع معالجة دفع آمنة وشحن عالمي وحماية للمشترين."
+        }
+      },
+      "services": {
+        "title": "الخدمات",
+        "description": "خدمات وأدوات احترافية لتحسين تجربة التداول الخاصة بك، بما في ذلك برامج التسويق بالعمولة والموارد التعليمية والدعم المتميز.",
+        "affiliate": {
+          "title": "برنامج التسويق بالعمولة",
+          "description": "استثمر شبكتك من خلال برنامج التسويق بالعمولة الشامل لدينا مع عمولات تنافسية وتتبع في الوقت الفعلي وأدوات تسويق."
+        },
+        "support": {
+          "title": "مركز الدعم",
+          "description": "دعم عملاء احترافي مع إدارة التذاكر وإمكانيات الدردشة المباشرة وإدارة حسابات مخصصة للمستخدمين المتميزين."
+        },
+        "faq": {
+          "title": "قاعدة المعرفة",
+          "description": "توثيق شامل ودروس تعليمية وأسئلة متكررة لمساعدتك على تعظيم قدرات المنصة."
+        }
+      },
+      "insights": {
+        "title": "رؤى",
+        "description": "تحليلات سوق احترافية ورؤى تداول وأخبار الصناعة من فريقنا من الخبراء الماليين وباحثي السوق."
+      }
+    }
   }
 }

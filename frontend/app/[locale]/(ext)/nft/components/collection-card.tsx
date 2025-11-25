@@ -19,6 +19,7 @@ import {
 import { Link } from "@/i18n/routing";
 import { useNftStore } from "@/store/nft/nft-store";
 import type { NftCollection } from "@/types/nft";
+import { formatCurrency } from "@/utils/format";
 
 interface CollectionCardProps {
   collection: NftCollection;
@@ -174,7 +175,7 @@ export default function CollectionCard({
               <TrendingUp className="h-3 w-3" />
             </div>
             <p className="text-sm font-medium">
-              {(collection as any).floorPrice ? `${(collection as any).floorPrice} ETH` : "—"}
+              {(collection as any).floorPrice ? formatCurrency((collection as any).floorPrice, collection.currency || "ETH") : "—"}
             </p>
             <p className="text-xs text-muted-foreground">{t("Floor")}</p>
           </div>

@@ -84,7 +84,7 @@ export function TopBar() {
         <div className="relative">
           <Input
             placeholder="Search extensions"
-            className="pl-9 w-full sm:w-[300px]"
+            className="w-full sm:w-[300px]"
             onChange={(e) => setFilter(e.target.value)}
             icon="mdi:search"
           />

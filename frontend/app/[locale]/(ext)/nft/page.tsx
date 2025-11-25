@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import NFTExploreClient from "./client";
+import NFTClient from "./client";
 
 export const metadata: Metadata = {
-  title: "NFT Marketplace - Explore",
-  description: "Discover, buy, and sell unique digital assets on our NFT marketplace",
+  title: "NFT Marketplace - Discover, Collect & Sell Extraordinary NFTs",
+  description: "The world's first and largest digital marketplace for crypto collectibles and non-fungible tokens. Buy, sell, and discover exclusive digital items.",
 };
 
 export default function NFTExplorePage() {
-  return <NFTExploreClient />;
+  return <NFTClient />;
 } 

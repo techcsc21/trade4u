@@ -94,6 +94,11 @@ interface NFTStore {
   activities: NftActivity[];
   selectedToken: NftToken | null;
   selectedCollection: NftCollection | null;
+  featuredTokens: NftToken[];
+  trendingCollections: NftCollection[];
+  topCreators: any[];
+  marketplaceStats: any;
+  chainStats: any[];
   loading: boolean;
   error: string | null;
   filters: NFTFilters;
@@ -104,7 +109,12 @@ interface NFTStore {
   fetchCategories: () => Promise<void>;
   fetchListings: (filters?: NFTFilters) => Promise<void>;
   fetchActivities: (filters?: NFTFilters) => Promise<void>;
-  
+  fetchFeaturedTokens: (limit?: number, category?: string) => Promise<void>;
+  fetchTrendingCollections: (limit?: number, timeframe?: string) => Promise<void>;
+  fetchTopCreators: (limit?: number, timeframe?: string, sortBy?: string) => Promise<void>;
+  fetchMarketplaceStats: (timeframe?: string) => Promise<void>;
+  fetchChainStats: () => Promise<void>;
+
   fetchTokenById: (id: string) => Promise<void>;
   fetchCollectionById: (id: string) => Promise<void>;
   
@@ -142,6 +152,11 @@ export const useNftStore = create<NFTStore>((set, get) => ({
   activities: [],
   selectedToken: null,
   selectedCollection: null,
+  featuredTokens: [],
+  trendingCollections: [],
+  topCreators: [],
+  chainStats: [],
+  marketplaceStats: null,
   loading: false,
   error: null,
   filters: {},
@@ -184,12 +199,17 @@ export const useNftStore = create<NFTStore>((set, get) => ({
         }
       );
 
-      // Cache the result
-      if (result) {
-        tokenCache.set(cacheKey, result);
+      // Transform and cache the result
+      const transformedResult = (result || []).map((token: any) => ({
+        ...token,
+        imageUrl: token.image,
+      }));
+
+      if (transformedResult) {
+        tokenCache.set(cacheKey, transformedResult);
       }
 
-      set({ tokens: result || [], loading: false, error: null });
+      set({ tokens: transformedResult, loading: false, error: null });
     } catch (error: any) {
       set({ 
         error: error.message || "Failed to fetch tokens", 
@@ -198,21 +218,22 @@ export const useNftStore = create<NFTStore>((set, get) => ({
     }
   },
 
-  // Fetch collections
+  // Fetch collections (for marketplace display)
   fetchCollections: async (filters = {}) => {
     set({ loading: true, error: null, filters: { ...get().filters, ...filters } });
-    
+
     const { data, error } = await $fetch({
       url: "/api/nft/collection",
       method: "GET",
       params: cleanFilters(filters),
-      silentSuccess: true,
+      silent: true,
     });
 
     if (error) {
       set({ error, loading: false });
     } else {
-      set({ collections: data || [], loading: false });
+      // API returns {items: [...], pagination: {...}}
+      set({ collections: data?.items || data || [], loading: false });
     }
   },
 
@@ -221,13 +242,14 @@ export const useNftStore = create<NFTStore>((set, get) => ({
     const { data, error } = await $fetch({
       url: "/api/nft/category",
       method: "GET",
-      silentSuccess: true,
+      silent: true,
     });
 
     if (error) {
       set({ error });
     } else {
-      set({ categories: data || [] });
+      // API returns {items: [...], pagination: {...}}
+      set({ categories: data?.items || data || [] });
     }
   },
 
@@ -253,7 +275,7 @@ export const useNftStore = create<NFTStore>((set, get) => ({
   // Fetch activities
   fetchActivities: async (filters = {}) => {
     const { data, error } = await $fetch({
-      url: "/api/nft/activity",
+      url: "/api/nft/activity/recent",
       method: "GET",
       params: cleanFilters(filters),
       silentSuccess: true,
@@ -269,7 +291,7 @@ export const useNftStore = create<NFTStore>((set, get) => ({
   // Fetch single token
   fetchTokenById: async (id: string) => {
     set({ loading: true, error: null });
-    
+
     const { data, error } = await $fetch({
       url: `/api/nft/token/${id}`,
       method: "GET",
@@ -279,7 +301,12 @@ export const useNftStore = create<NFTStore>((set, get) => ({
     if (error) {
       set({ error, loading: false });
     } else {
-      set({ selectedToken: data, loading: false });
+      // Transform backend `image` to frontend `imageUrl`
+      const transformedData = data ? {
+        ...data,
+        imageUrl: data.image,
+      } : null;
+      set({ selectedToken: transformedData, loading: false });
     }
   },
 
@@ -399,26 +426,29 @@ export const useNftStore = create<NFTStore>((set, get) => ({
   // List token for sale
   listToken: async (tokenId: string, data: any) => {
     set({ loading: true, error: null });
-    
+
     const { data: listing, error } = await $fetch({
       url: "/api/nft/listing",
       method: "POST",
       body: { tokenId, ...data },
-      successMessage: "NFT listed for sale!",
+      silent: true, // Don't show automatic toasts - let the component handle it
+      silentSuccess: true,
     });
 
     if (error) {
       set({ error, loading: false });
+      return { error, data: null };
     } else {
       // Update token status
       const currentTokens = get().tokens;
-      const updatedTokens = currentTokens.map(token => 
+      const updatedTokens = currentTokens.map(token =>
         token.id === tokenId ? { ...token, isListed: true } : token
       );
-      set({ 
+      set({
         tokens: updatedTokens,
-        loading: false 
+        loading: false
       });
+      return { error: null, data: listing };
     }
   },
 
@@ -614,6 +644,162 @@ export const useNftStore = create<NFTStore>((set, get) => ({
     }
   },
 
+  // Fetch featured tokens
+  fetchFeaturedTokens: async (limit = 12, category?) => {
+    const cacheKey = `featured-tokens-${limit}-${category || 'all'}`;
+    const cached = tokenCache.get(cacheKey);
+
+    if (cached) {
+      set({ featuredTokens: cached, loading: false });
+      return;
+    }
+
+    set({ loading: true, error: null });
+
+    try {
+      const params: any = { limit };
+      if (category) params.category = category;
+
+      const { data, error } = await $fetch({
+        url: "/api/nft/featured/tokens",
+        method: "GET",
+        params,
+        silentSuccess: true,
+      });
+
+      if (error) {
+        set({ error, loading: false });
+      } else {
+        // Transform backend `image` to frontend `imageUrl`
+        const transformedData = (data || []).map((token: any) => ({
+          ...token,
+          imageUrl: token.image,
+        }));
+
+        tokenCache.set(cacheKey, transformedData);
+        set({ featuredTokens: transformedData, loading: false });
+      }
+    } catch (error: any) {
+      set({ error: error.message || "Failed to fetch featured tokens", loading: false });
+    }
+  },
+
+  // Fetch trending collections
+  fetchTrendingCollections: async (limit = 10, timeframe = "24h") => {
+    const cacheKey = `trending-collections-${limit}-${timeframe}`;
+    const cached = collectionCache.get(cacheKey);
+
+    if (cached) {
+      set({ trendingCollections: cached, loading: false });
+      return;
+    }
+
+    set({ loading: true, error: null });
+
+    try {
+      const { data, error } = await $fetch({
+        url: "/api/nft/trending/collections",
+        method: "GET",
+        params: { limit, timeframe },
+        silentSuccess: true,
+      });
+
+      if (error) {
+        set({ error, loading: false });
+      } else {
+        // Ensure we extract the array from the response
+        const collections = Array.isArray(data) ? data : (data?.data || []);
+        collectionCache.set(cacheKey, collections);
+        set({ trendingCollections: collections, loading: false });
+      }
+    } catch (error: any) {
+      set({ error: error.message || "Failed to fetch trending collections", loading: false });
+    }
+  },
+
+  // Fetch top creators
+  fetchTopCreators: async (limit = 10, timeframe = "all", sortBy = "volume") => {
+    const cacheKey = `top-creators-${limit}-${timeframe}-${sortBy}`;
+    const cached = categoryCache.get(cacheKey);
+
+    if (cached) {
+      set({ topCreators: cached });
+      return;
+    }
+
+    try {
+      const { data, error } = await $fetch({
+        url: "/api/nft/top/creators",
+        method: "GET",
+        params: { limit, timeframe, sortBy },
+        silentSuccess: true,
+      });
+
+      if (!error && data) {
+        // Extract array from response - API returns { data: [...], metadata: {...} }
+        const creators = Array.isArray(data) ? data : (data?.data || []);
+        categoryCache.set(cacheKey, creators);
+        set({ topCreators: creators });
+      }
+    } catch (error: any) {
+      console.error("Failed to fetch top creators:", error);
+    }
+  },
+
+  // Fetch marketplace stats
+  fetchMarketplaceStats: async (timeframe = "24h") => {
+    const cacheKey = `marketplace-stats-${timeframe}`;
+    const cached = categoryCache.get(cacheKey);
+
+    if (cached) {
+      set({ marketplaceStats: cached });
+      return;
+    }
+
+    try {
+      const { data, error } = await $fetch({
+        url: "/api/nft/stats",
+        method: "GET",
+        params: { timeframe },
+        silentSuccess: true,
+      });
+
+      if (!error && data) {
+        categoryCache.set(cacheKey, data);
+        set({ marketplaceStats: data });
+      }
+    } catch (error: any) {
+      console.error("Failed to fetch marketplace stats:", error);
+    }
+  },
+
+  // Fetch chain stats
+  fetchChainStats: async () => {
+    const cacheKey = "chain-stats";
+    const cached = categoryCache.get(cacheKey);
+
+    if (cached) {
+      set({ chainStats: cached });
+      return;
+    }
+
+    try {
+      const { data, error } = await $fetch({
+        url: "/api/nft/chains/stats",
+        method: "GET",
+        silentSuccess: true,
+      });
+
+      if (!error && data) {
+        const chains = Array.isArray(data) ? data : (data?.data || []);
+        categoryCache.set(cacheKey, chains);
+        set({ chainStats: chains });
+      }
+    } catch (error: any) {
+      console.error("Failed to fetch chain stats:", error);
+    }
+  },
+
   // Set filters
   setFilters: (filters: NFTFilters) => {
     set({ filters: { ...get().filters, ...filters } });
@@ -634,6 +820,10 @@ export const useNftStore = create<NFTStore>((set, get) => ({
       activities: [],
       selectedToken: null,
       selectedCollection: null,
+      featuredTokens: [],
+      trendingCollections: [],
+      topCreators: [],
+      marketplaceStats: null,
       loading: false,
       error: null,
       filters: {},

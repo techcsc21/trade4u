@@ -34,7 +34,8 @@ import {
   Target,
   Timer,
   Star,
-  Workflow
+  Workflow,
+  ChevronDown
 } from "lucide-react";
 
 interface OnboardingTask {
@@ -67,11 +68,44 @@ export default function NFTAdminOnboardingClient() {
   const [loading, setLoading] = useState(true);
   const [completedTasks, setCompletedTasks] = useState<Set<string>>(new Set());
   const [currentPhase, setCurrentPhase] = useState("infrastructure");
+  const [expandedTasks, setExpandedTasks] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    initializeOnboarding();
-    loadProgress();
+    const init = async () => {
+      initializeOnboarding();
+      await fetchRealProgress();
+    };
+    init();
   }, []);
+
+  const fetchRealProgress = async () => {
+    try {
+      const response = await $fetch({
+        url: "/api/nft/onboarding/status",
+        method: "GET",
+        silent: true
+      });
+
+      console.log('Onboarding progress response:', response);
+
+      // Handle both response.data and direct response
+      const data = response?.data || response;
+
+      if (data && data.completedTasks) {
+        const realCompleted = new Set(data.completedTasks);
+
+        // Use only backend data - all tasks are now auto-detectable
+        // No need to merge localStorage since we removed manual testing tasks
+        console.log('Completed tasks:', Array.from(realCompleted));
+        setCompletedTasks(realCompleted);
+        saveProgress(realCompleted);
+      }
+    } catch (error) {
+      console.error('Failed to fetch real onboarding progress:', error);
+      // Fall back to localStorage only
+      loadProgress();
+    }
+  };
 
   const initializeOnboarding = () => {
     const onboardingPhases: OnboardingPhase[] = [
@@ -83,10 +117,10 @@ export default function NFTAdminOnboardingClient() {
         color: "bg-blue-500",
         tasks: [
           {
-            id: "deploy-eth-marketplace",
-            title: "Deploy Ethereum Marketplace Contract",
-            description: "Deploy your primary marketplace contract to Ethereum mainnet",
-            importance: "Critical foundation for your NFT marketplace. Ethereum provides the highest liquidity and user base.",
+            id: "deploy-primary-marketplace",
+            title: "Deploy Primary Marketplace Contract",
+            description: "Deploy your first marketplace contract to any supported blockchain (ETH, BSC, Polygon, Arbitrum, etc.)",
+            importance: "Critical foundation for your NFT marketplace. Choose the chain that best fits your target audience and budget.",
             estimatedTime: "10-15 minutes",
             category: "Blockchain",
             priority: "critical",
@@ -94,34 +128,14 @@ export default function NFTAdminOnboardingClient() {
             actionUrl: "/admin/nft/marketplace",
             actionText: "Deploy Contract",
             requirements: [
-              "Ethereum wallet with sufficient ETH for gas fees (~0.05 ETH)",
+              "Wallet with native tokens for gas fees on your chosen chain",
               "Master wallet configured in system settings"
             ],
             tips: [
+              "BSC and Polygon offer lower gas fees for testing and early launch",
+              "Ethereum provides highest liquidity but higher gas costs",
               "Start with 2.5% marketplace fee as industry standard",
-              "Use a dedicated treasury wallet for fee collection",
-              "Deploy during low gas periods (weekends/nights UTC)"
-            ]
-          },
-          {
-            id: "deploy-secondary-chains",
-            title: "Deploy to Secondary Chains",
-            description: "Deploy marketplace contracts to BSC, Polygon, Arbitrum for broader reach",
-            importance: "Expands your market reach and provides cheaper alternatives for users. 80% of NFT volume comes from multi-chain support.",
-            estimatedTime: "20-30 minutes",
-            category: "Blockchain",
-            priority: "important",
-            completed: false,
-            actionUrl: "/admin/nft/marketplace",
-            actionText: "Deploy Multi-Chain",
-            requirements: [
-              "Native tokens for each chain (BNB, MATIC, ETH for L2s)",
-              "Same fee structure across all chains for consistency"
-            ],
-            tips: [
-              "Deploy in order: BSC → Polygon → Arbitrum → Optimism",
-              "Use same fee recipient address across all chains",
-              "Test with small amounts first"
+              "Use a dedicated treasury wallet for fee collection"
             ]
           },
           {
@@ -150,95 +164,73 @@ export default function NFTAdminOnboardingClient() {
       {
         id: "configuration",
         title: "Marketplace Configuration",
-        description: "Configure marketplace settings, fees, and policies",
+        description: "Configure marketplace settings and content policies",
         icon: Settings,
         color: "bg-purple-500",
         tasks: [
           {
-            id: "configure-marketplace-fees",
-            title: "Configure Marketplace Fees",
-            description: "Set optimal marketplace fee rates and recipient addresses",
-            importance: "Directly impacts your revenue. Well-optimized fees balance profitability with user attraction. Industry standard is 2.5%.",
-            estimatedTime: "15-20 minutes",
-            category: "Financial",
-            priority: "critical",
-            completed: false,
-            actionUrl: "/admin/nft/settings",
-            actionText: "Configure Fees",
-            requirements: [
-              "Treasury wallet address for fee collection",
-              "Market research on competitor pricing"
-            ],
-            tips: [
-              "Start with 2.5% marketplace fee (industry standard)",
-              "Set maximum royalty at 10% to attract creators",
-              "Consider dynamic fees based on transaction volume",
-              "Use multi-signature wallet for fee collection"
-            ]
-          },
-          {
-            id: "setup-payment-methods",
-            title: "Configure Payment Methods",
-            description: "Enable cryptocurrency payment options and set up payment processing",
-            importance: "More payment options = higher conversion rates. Support for popular cryptocurrencies increases user adoption by 40%.",
+            id: "configure-trading-settings",
+            title: "Configure Trading Settings",
+            description: "Enable auction features, offers, and configure bidding rules",
+            importance: "Trading flexibility increases marketplace activity. Auctions can increase final sale prices by 30-50%.",
             estimatedTime: "10-15 minutes",
-            category: "Financial",
+            category: "Trading",
             priority: "important",
             completed: false,
             actionUrl: "/admin/nft/settings",
-            actionText: "Setup Payments",
+            actionText: "Configure Trading",
             requirements: [
-              "Supported cryptocurrency list",
-              "Price oracle integration for USD conversion"
+              "Understand different sale types (fixed price, auctions, offers)"
             ],
             tips: [
-              "Enable ETH, WETH, USDC, USDT as minimum",
-              "Add native tokens for each chain (BNB, MATIC)",
-              "Set minimum listing prices to prevent spam"
-            ]
-          },
-          {
-            id: "configure-gas-settings",
-            title: "Configure Gas Optimization",
-            description: "Set up gas estimation and optimization settings for better user experience",
-            importance: "High gas costs are the #1 barrier to NFT adoption. Good gas management improves user satisfaction and reduces failed transactions.",
-            estimatedTime: "10-15 minutes",
-            category: "Technical",
-            priority: "important",
-            completed: false,
-            actionUrl: "/admin/nft/settings",
-            actionText: "Configure Gas",
-            requirements: [
-              "RPC provider connections",
-              "Gas tracking service integration"
-            ],
-            tips: [
-              "Enable gas optimization features",
-              "Set up gas price alerts for users",
-              "Configure automatic gas estimation",
-              "Implement batching for multiple operations"
+              "Enable both fixed price sales and auctions for flexibility",
+              "Set reasonable auction durations (24h-7d)",
+              "Configure anti-snipe extension to prevent last-second bids",
+              "Set minimum bid increments to prevent spam bidding"
             ]
           },
           {
             id: "setup-content-policies",
-            title: "Establish Content Policies",
-            description: "Define content moderation rules, DMCA procedures, and community guidelines",
-            importance: "Protects your platform from legal issues and maintains quality standards. Clear policies reduce disputes by 60%.",
-            estimatedTime: "30-45 minutes",
-            category: "Legal",
-            priority: "critical",
+            title: "Configure Content Settings",
+            description: "Set file size limits, supported formats, and content moderation rules",
+            importance: "Proper content policies protect your platform and ensure quality standards.",
+            estimatedTime: "15-20 minutes",
+            category: "Content",
+            priority: "important",
             completed: false,
             actionUrl: "/admin/nft/settings",
-            actionText: "Setup Policies",
+            actionText: "Configure Content",
             requirements: [
-              "Legal consultation on content policies",
-              "DMCA takedown procedure documentation"
+              "Storage capacity planning",
+              "Content moderation strategy"
             ],
             tips: [
-              "Prohibit copyrighted content without permission",
-              "Ban explicit content unless age-gated",
-              "Require creator identity verification for high-value items",
-              "Implement automated content scanning"
+              "Set max file size based on your storage (100MB is standard)",
+              "Support common formats: JPG, PNG, GIF, MP4, MP3, WebP",
+              "Enable content moderation to filter inappropriate content",
+              "Enable IPFS storage for decentralized hosting"
+            ]
+          },
+          {
+            id: "configure-verification",
+            title: "Configure Creator Verification",
+            description: "Set up creator verification requirements and KYC rules",
+            importance: "Verified creators build trust and reduce fraud. Consider KYC for high-value transactions.",
+            estimatedTime: "10-15 minutes",
+            category: "Trust & Safety",
+            priority: "important",
+            completed: false,
+            actionUrl: "/admin/nft/settings",
+            actionText: "Configure Verification",
+            requirements: [
+              "Verification badge system understanding",
+              "KYC requirements (if enabled)"
+            ],
+            tips: [
+              "Enable verification badges to highlight trusted creators",
+              "Require manual review for new creators initially",
+              "Configure KYC for high-value sales (if KYC enabled)",
+              "Don't auto-verify creators unless you trust the source"
             ]
           }
         ]
@@ -253,322 +245,94 @@ export default function NFTAdminOnboardingClient() {
           {
             id: "create-categories",
             title: "Create NFT Categories",
-            description: "Set up comprehensive category system for NFT organization",
-            importance: "Good categorization improves discoverability by 300%. Users find relevant NFTs faster, leading to more sales.",
-            estimatedTime: "20-30 minutes",
+            description: "Create at least 2 categories to organize NFTs on your marketplace",
+            importance: "Categories help users discover NFTs. Start with basic categories relevant to your marketplace focus.",
+            estimatedTime: "10-15 minutes",
             category: "Content",
             priority: "important",
             completed: false,
             actionUrl: "/admin/nft/category",
             actionText: "Manage Categories",
             requirements: [
-              "Market research on popular NFT types",
-              "Category icon assets prepared"
+              "At least 2 categories created"
             ],
             tips: [
-              "Start with: Art, Gaming, Music, Sports, Photography, Collectibles",
-              "Use clear, recognizable category names",
-              "Add subcategories for popular types (Digital Art, Pixel Art, etc.)",
-              "Include trending categories like AI Art, Utility NFTs"
+              "Popular categories: Art, Gaming, Music, Sports, Photography, Collectibles",
+              "Use clear, simple category names",
+              "Add category descriptions to help users",
+              "You can add more categories as your marketplace grows"
             ]
           },
           {
             id: "approve-first-collections",
-            title: "Approve Initial Collections",
-            description: "Review and approve the first batch of NFT collections for marketplace launch",
-            importance: "Quality first impressions are crucial. Well-curated launch collections establish your marketplace's reputation and attract more creators.",
-            estimatedTime: "45-60 minutes",
+            title: "Approve First Collection",
+            description: "Review and approve at least one NFT collection to get started",
+            importance: "You need at least one active collection for users to mint and trade NFTs.",
+            estimatedTime: "15-20 minutes",
             category: "Curation",
             priority: "important",
             completed: false,
             actionUrl: "/admin/nft/collection",
             actionText: "Review Collections",
             requirements: [
-              "Collection review criteria established",
-              "Quality assessment checklist"  
+              "At least 1 collection with status 'ACTIVE'"
             ],
             tips: [
-              "Start with 10-20 high-quality collections",
-              "Verify creator authenticity and portfolio",
-              "Check for originality and copyright compliance",
-              "Balance different art styles and price points"
+              "Review collection details and creator information",
+              "Verify the collection has proper metadata",
+              "Check that contract addresses are valid",
+              "Start with 1-3 collections, add more over time"
             ]
           },
           {
             id: "setup-featured-content",
-            title: "Configure Featured Content",
-            description: "Set up homepage featured collections and trending algorithms",
-            importance: "Featured content drives 40% of marketplace traffic. Strategic featuring increases sales for promoted collections by 250%.",
-            estimatedTime: "25-35 minutes",
-            category: "Marketing",
+            title: "Ensure Collections Have NFTs",
+            description: "Make sure approved collections have at least one minted NFT",
+            importance: "Active collections with minted NFTs are what users come to buy. Empty collections don't generate revenue.",
+            estimatedTime: "Varies",
+            category: "Content",
             priority: "important",
             completed: false,
             actionUrl: "/admin/nft/collection",
-            actionText: "Feature Collections",
+            actionText: "View Collections",
             requirements: [
-              "Analytics system for tracking performance",
-              "Featured content rotation schedule"
+              "At least 1 collection with minted NFTs"
             ],
             tips: [
-              "Rotate featured collections weekly",
-              "Feature diverse art styles and price ranges",
-              "Promote new and established creators equally",
-              "Use data-driven featuring based on engagement"
+              "Creators mint NFTs through the user-facing platform",
+              "Check collection pages to see how many tokens are minted",
+              "Encourage early creators to mint their first NFTs",
+              "You can also create test collections and mint NFTs yourself"
             ]
           }
         ]
       },
       {
         id: "users",
-        title: "User Management",
-        description: "Configure user roles, creator verification, and community features",
+        title: "User & Creator Management",
+        description: "Manage creators and review their submissions",
         icon: Users,
-        color: "bg-orange-500",
+        color: "bg-amber-500",
         tasks: [
           {
             id: "setup-creator-verification",
-            title: "Establish Creator Verification Program",
-            description: "Create verification criteria and process for authenticating creators",
-            importance: "Verified creators generate 3x more sales than unverified ones. Verification builds trust and reduces fraud by 85%.",
-            estimatedTime: "40-50 minutes",
+            title: "Verify First Creator",
+            description: "Review and verify at least one creator to establish trust on your marketplace",
+            importance: "Verified creators build trust and attract buyers. Start with your first quality creator.",
+            estimatedTime: "10-15 minutes",
             category: "Trust & Safety",
-            priority: "critical",
+            priority: "important",
             completed: false,
             actionUrl: "/admin/nft/creator",
-            actionText: "Setup Verification",
+            actionText: "Manage Creators",
             requirements: [
-              "Verification criteria document",
-              "Identity verification process",
-              "Portfolio review guidelines"
+              "At least 1 verified creator"
             ],
             tips: [
-              "Require social media verification (Twitter, Instagram)",
-              "Check portfolio consistency across platforms",
-              "Verify identity for high-value creators",
-              "Create tiered verification (Basic, Premium, Elite)"
-            ]
-          },
-          {
-            id: "configure-user-roles",
-            title: "Configure User Roles & Permissions",
-            description: "Set up user role hierarchy and administrative permissions",
-            importance: "Proper role management prevents security breaches and enables efficient team management. Clear permissions reduce errors by 70%.",
-            estimatedTime: "20-30 minutes",
-            category: "Security",
-            priority: "important",
-            completed: false,
-            actionUrl: "/admin/user",
-            actionText: "Manage Roles",
-            requirements: [
-              "Team structure planning",
-              "Permission matrix documentation"
-            ],
-            tips: [
-              "Create roles: Super Admin, Admin, Moderator, Support",
-              "Limit Super Admin access to 1-2 people",
-              "Give moderators collection approval rights only",
-              "Enable activity logging for all admin actions"
-            ]
-          },
-          {
-            id: "setup-kyc-system",
-            title: "Configure KYC/Identity Verification",
-            description: "Set up Know Your Customer procedures for high-value transactions",
-            importance: "KYC compliance is required for large transactions in many jurisdictions. Prevents money laundering and builds institutional trust.",
-            estimatedTime: "30-40 minutes",
-            category: "Compliance",
-            priority: "important",
-            completed: false,
-            actionUrl: "/admin/kyc",
-            actionText: "Setup KYC",
-            requirements: [
-              "KYC service provider integration",
-              "Legal compliance requirements research"
-            ],
-            tips: [
-              "Require KYC for transactions > $10,000",
-              "Use automated document verification when possible",
-              "Store KYC data securely and encrypted",
-              "Implement regular KYC status reviews"
-            ]
-          }
-        ]
-      },
-      {
-        id: "launch",
-        title: "Launch Preparation",
-        description: "Final testing, monitoring setup, and go-live preparation",
-        icon: Rocket,
-        color: "bg-red-500",
-        tasks: [
-          {
-            id: "conduct-full-testing",
-            title: "Conduct Comprehensive Testing",
-            description: "Test all marketplace functions: minting, listing, buying, transfers",
-            importance: "Bugs in production can cost thousands in lost transactions and damage reputation. Thorough testing prevents 90% of launch issues.",
-            estimatedTime: "2-3 hours",
-            category: "Testing",
-            priority: "critical",
-            completed: false,
-            actionUrl: "/admin/nft",
-            actionText: "Start Testing",
-            requirements: [
-              "Test wallet with funds on all chains",
-              "Test NFT collections prepared",
-              "Testing checklist prepared"
-            ],
-            tips: [
-              "Test complete user journey: register → mint → list → buy",
-              "Try edge cases: high gas fees, network congestion",
-              "Test on all supported chains and devices",
-              "Verify all payment methods work correctly"
-            ]
-          },
-          {
-            id: "setup-monitoring",
-            title: "Configure Monitoring & Alerts",
-            description: "Set up system monitoring, error tracking, and performance alerts",
-            importance: "Early detection of issues prevents user frustration and revenue loss. Good monitoring reduces downtime by 80%.",
-            estimatedTime: "45-60 minutes",
-            category: "Operations",
-            priority: "critical",
-            completed: false,
-            actionUrl: "/admin/nft/analytics",
-            actionText: "Setup Monitoring",
-            requirements: [
-              "Error tracking service account",
-              "Performance monitoring tools",
-              "Alert notification channels"
-            ],
-            tips: [
-              "Monitor blockchain connection health",
-              "Set alerts for failed transactions > 5%",
-              "Track gas estimation accuracy",
-              "Monitor marketplace contract balances"
-            ]
-          },
-          {
-            id: "prepare-launch-content",
-            title: "Prepare Launch Marketing Content",
-            description: "Create launch announcements, tutorials, and promotional materials",
-            importance: "Strong launch marketing determines initial adoption. Good launch content increases day-1 registrations by 400%.",
-            estimatedTime: "60-90 minutes",
-            category: "Marketing",
-            priority: "important",
-            completed: false,
-            actionUrl: "/admin/nft",
-            actionText: "Review Content",
-            requirements: [
-              "Marketing materials prepared",
-              "Tutorial videos created",
-              "Social media accounts ready"
-            ],
-            tips: [
-              "Create step-by-step user guides",
-              "Prepare FAQ addressing common questions",
-              "Design eye-catching launch graphics",
-              "Plan social media announcement schedule"
-            ]
-          },
-          {
-            id: "backup-and-security",
-            title: "Configure Backup & Security Measures",
-            description: "Set up data backups, security measures, and disaster recovery",
-            importance: "Data loss or security breaches can destroy a marketplace. Proper security measures prevent 95% of potential attacks.",
-            estimatedTime: "30-45 minutes",
-            category: "Security",
-            priority: "critical",
-            completed: false,
-            actionUrl: "/admin/nft/settings",
-            actionText: "Configure Security",
-            requirements: [
-              "Backup storage system",
-              "Security audit checklist",
-              "Emergency response procedures"
-            ],
-            tips: [
-              "Enable 2FA for all admin accounts",
-              "Set up automated database backups",
-              "Create emergency pause procedures",
-              "Document recovery procedures"
-            ]
-          }
-        ]
-      },
-      {
-        id: "operations",
-        title: "Ongoing Operations",
-        description: "Daily maintenance, community management, and growth optimization",
-        icon: Monitor,
-        color: "bg-indigo-500",
-        tasks: [
-          {
-            id: "daily-health-checks",
-            title: "Establish Daily Health Checks",
-            description: "Create routine for monitoring marketplace health and performance",
-            importance: "Regular monitoring prevents small issues from becoming major problems. Daily checks reduce critical incidents by 60%.",
-            estimatedTime: "15-20 minutes daily",
-            category: "Maintenance",
-            priority: "important",
-            completed: false,
-            actionUrl: "/admin/nft/analytics",
-            actionText: "View Dashboard",
-            requirements: [
-              "Monitoring dashboard access",
-              "Health check checklist",
-              "Alert response procedures"
-            ],
-            tips: [
-              "Check transaction success rates",
-              "Monitor gas estimation accuracy",
-              "Review new collection submissions",
-              "Track revenue and fee collection"
-            ]
-          },
-          {
-            id: "community-moderation",
-            title: "Set Up Community Moderation",
-            description: "Establish content moderation workflow and community management",
-            importance: "Active moderation maintains marketplace quality and safety. Well-moderated platforms have 50% higher user retention.",
-            estimatedTime: "30-45 minutes setup",
-            category: "Community",
-            priority: "important",
-            completed: false,
-            actionUrl: "/admin/nft/review",
-            actionText: "Setup Moderation",
-            requirements: [
-              "Moderation team hired/assigned",
-              "Moderation guidelines documented",
-              "Escalation procedures established"
-            ],
-            tips: [
-              "Review new collections within 24 hours",
-              "Respond to reports within 48 hours",
-              "Maintain clear communication with creators",
-              "Use automated tools for initial screening"
-            ]
-          },
-          {
-            id: "analytics-and-optimization",
-            title: "Configure Analytics & Optimization",
-            description: "Set up data tracking for continuous marketplace improvement",
-            importance: "Data-driven decisions improve marketplace performance by 200%. Analytics help identify growth opportunities and user pain points.",
-            estimatedTime: "40-60 minutes",
-            category: "Growth",
-            priority: "important",
-            completed: false,
-            actionUrl: "/admin/nft/analytics",
-            actionText: "Setup Analytics",
-            requirements: [
-              "Analytics tools configured",
-              "KPI tracking dashboard",
-              "Regular reporting schedule"
-            ],
-            tips: [
-              "Track user acquisition and retention",
-              "Monitor sales conversion rates",
-              "Analyze popular categories and price points",
-              "Measure creator satisfaction and activity"
+              "Verify creators who have good portfolios and active collections",
+              "Check their social media presence if available",
+              "Use KYC verification for high-value creators (if KYC enabled)",
+              "You can verify more creators as your marketplace grows"
             ]
           }
         ]
@@ -621,10 +385,10 @@ export default function NFTAdminOnboardingClient() {
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case "critical": return "text-red-600 border-red-200 bg-red-50";
-      case "important": return "text-orange-600 border-orange-200 bg-orange-50";
-      case "optional": return "text-blue-600 border-blue-200 bg-blue-50";
-      default: return "text-gray-600 border-gray-200 bg-gray-50";
+      case "critical": return "text-red-700 dark:text-red-400 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30";
+      case "important": return "text-yellow-700 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-950/30";
+      case "optional": return "text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30";
+      default: return "text-gray-700 dark:text-gray-400 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/30";
     }
   };
 
@@ -632,12 +396,20 @@ export default function NFTAdminOnboardingClient() {
     const incompleteTasks = phases.flatMap(phase => phase.tasks).filter(task => !completedTasks.has(task.id));
     const totalMinutes = incompleteTasks.reduce((sum, task) => {
       const time = task.estimatedTime;
-      const minutes = time.includes('hour') 
-        ? parseInt(time) * 60 
+
+      // Skip tasks with non-numeric estimates like "Varies"
+      if (time.toLowerCase().includes('varies') || time.toLowerCase().includes('variable')) {
+        return sum;
+      }
+
+      const minutes = time.includes('hour')
+        ? parseInt(time) * 60
         : parseInt(time);
-      return sum + minutes;
+
+      // Only add if it's a valid number
+      return !isNaN(minutes) ? sum + minutes : sum;
     }, 0);
-    
+
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
     return hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
@@ -676,11 +448,23 @@ export default function NFTAdminOnboardingClient() {
             Complete setup guide to get your NFT marketplace fully operational
           </p>
         </div>
-        <div className="text-right">
-          <div className="text-2xl font-bold text-primary">{Math.round(getTotalProgress())}%</div>
-          <p className="text-sm text-muted-foreground">
-            {completedTasks.size} of {phases.reduce((sum, phase) => sum + phase.tasks.length, 0)} tasks
-          </p>
+        <div className="text-right flex items-center gap-4">
+          <div>
+            <div className="text-2xl font-bold text-primary">{Math.round(getTotalProgress())}%</div>
+            <p className="text-sm text-muted-foreground">
+              {completedTasks.size} of {phases.reduce((sum, phase) => sum + phase.tasks.length, 0)} tasks
+            </p>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              fetchRealProgress();
+              toast.success("Progress refreshed!");
+            }}
+          >
+            Refresh Progress
+          </Button>
         </div>
       </div>
 
@@ -741,18 +525,6 @@ export default function NFTAdminOnboardingClient() {
 
       {/* Phase Tasks */}
       <Tabs value={currentPhase} onValueChange={setCurrentPhase}>
-        <TabsList className="grid w-full grid-cols-6">
-          {phases.map((phase) => {
-            const Icon = phase.icon;
-            return (
-              <TabsTrigger key={phase.id} value={phase.id} className="flex items-center gap-1">
-                <Icon className="h-4 w-4" />
-                <span className="hidden sm:inline">{phase.title}</span>
-              </TabsTrigger>
-            );
-          })}
-        </TabsList>
-
         {phases.map((phase) => (
           <TabsContent key={phase.id} value={phase.id} className="space-y-4">
             <Card>
@@ -774,53 +546,82 @@ export default function NFTAdminOnboardingClient() {
             <div className="space-y-4">
               {phase.tasks.map((task) => {
                 const isCompleted = completedTasks.has(task.id);
-                
+                const isExpanded = expandedTasks.has(task.id);
+
                 return (
-                  <Card key={task.id} className={`transition-all ${isCompleted ? "opacity-75 bg-green-50/50 border-green-200" : ""}`}>
-                    <CardHeader>
+                  <Card key={task.id} className={`transition-all ${isCompleted ? "bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-900/50" : ""}`}>
+                    <CardHeader
+                      className={isCompleted && !isExpanded ? "cursor-pointer" : ""}
+                      onClick={() => {
+                        if (isCompleted) {
+                          const newExpanded = new Set(expandedTasks);
+                          if (isExpanded) {
+                            newExpanded.delete(task.id);
+                          } else {
+                            newExpanded.add(task.id);
+                          }
+                          setExpandedTasks(newExpanded);
+                        }
+                      }}
+                    >
                       <div className="flex items-start gap-3">
                         <Checkbox
                           checked={isCompleted}
                           onCheckedChange={() => toggleTask(task.id)}
                           className="mt-1"
+                          onClick={(e) => e.stopPropagation()}
                         />
                         <div className="flex-1 space-y-2">
                           <div className="flex items-center gap-2">
-                            <CardTitle className={`text-lg ${isCompleted ? "line-through text-muted-foreground" : ""}`}>
+                            <CardTitle className={`text-lg ${isCompleted ? "line-through text-green-700 dark:text-green-400" : ""}`}>
                               {task.title}
                             </CardTitle>
                             <Badge variant="outline" className={getPriorityColor(task.priority)}>
                               {task.priority}
                             </Badge>
+                            {isCompleted && (
+                              <Badge variant="outline" className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300">
+                                ✓ Completed
+                              </Badge>
+                            )}
                           </div>
-                          <CardDescription className="text-sm">
-                            {task.description}
-                          </CardDescription>
-                          
-                          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                            <div className="flex items-center gap-1">
-                              <Timer className="h-3 w-3" />
-                              {task.estimatedTime}
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Workflow className="h-3 w-3" />
-                              {task.category}
-                            </div>
-                          </div>
+                          {(!isCompleted || isExpanded) && (
+                            <>
+                              <CardDescription className="text-sm">
+                                {task.description}
+                              </CardDescription>
+
+                              <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                                <div className="flex items-center gap-1">
+                                  <Timer className="h-3 w-3" />
+                                  {task.estimatedTime}
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <Workflow className="h-3 w-3" />
+                                  {task.category}
+                                </div>
+                              </div>
+                            </>
+                          )}
                         </div>
-                        
-                        {task.actionUrl && (
-                          <Link href={task.actionUrl}>
+
+                        {task.actionUrl && !isCompleted && (
+                          <Link href={task.actionUrl} onClick={(e) => e.stopPropagation()}>
                             <Button variant="outline" size="sm">
                               {task.actionText}
                               <ArrowRight className="h-3 w-3 ml-1" />
                             </Button>
                           </Link>
                         )}
+
+                        {isCompleted && (
+                          <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+                        )}
                       </div>
                     </CardHeader>
-                    
-                    <CardContent className="pt-0">
+
+                    {(!isCompleted || isExpanded) && (
+                      <CardContent className="pt-0">
                       <Alert>
                         <Info className="h-4 w-4" />
                         <AlertDescription className="text-sm">
@@ -855,7 +656,8 @@ export default function NFTAdminOnboardingClient() {
                           </ul>
                         </div>
                       )}
-                    </CardContent>
+                      </CardContent>
+                    )}
                   </Card>
                 );
               })}
@@ -883,10 +685,10 @@ export default function NFTAdminOnboardingClient() {
                 .filter(task => !completedTasks.has(task.id) && task.priority === "critical")
                 .slice(0, 4)
                 .map((task) => (
-                  <div key={task.id} className="p-3 border rounded-lg bg-red-50/50 border-red-200">
+                  <div key={task.id} className="p-3 border rounded-lg bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-900/50">
                     <div className="flex items-center gap-2 mb-1">
-                      <AlertCircle className="h-4 w-4 text-red-600" />
-                      <span className="font-medium text-sm">{task.title}</span>
+                      <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
+                      <span className="font-medium text-sm text-red-900 dark:text-red-100">{task.title}</span>
                     </div>
                     <p className="text-xs text-muted-foreground mb-2">{task.description}</p>
                     {task.actionUrl && (
@@ -905,21 +707,21 @@ export default function NFTAdminOnboardingClient() {
 
       {/* Completion Celebration */}
       {getTotalProgress() === 100 && (
-        <Card className="border-green-200 bg-green-50">
+        <Card>
           <CardContent className="pt-6">
             <div className="text-center space-y-4">
               <div className="mx-auto w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
                 <CheckCircle2 className="h-8 w-8 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-green-800">Congratulations! 🎉</h3>
-                <p className="text-green-700 mt-2">
+                <h3 className="text-2xl font-bold">Congratulations! 🎉</h3>
+                <p className="text-muted-foreground mt-2">
                   Your NFT marketplace is fully configured and ready for launch!
                 </p>
               </div>
               <div className="flex gap-2 justify-center">
                 <Link href="/nft">
-                  <Button className="bg-green-600 hover:bg-green-700">
+                  <Button className="bg-green-600 hover:bg-green-700 text-white">
                     <Eye className="h-4 w-4 mr-2" />
                     View Live Marketplace
                   </Button>

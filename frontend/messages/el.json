@@ -150,19 +150,6 @@
     "top_up": "Ανανέωση",
     "total_equity": "Σύνολο ιδίων κεφαλαίων:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "Προσθέτω",
-    "All": "Όλα",
-    "Binary": "Δυαδικός",
-    "Favorites": "Αγαπημένα",
-    "Hot": "Ζεστός",
-    "Loading": "Φόρτωση",
-    "Market": "Αγορά",
-    "Trending": "Τάσεις",
-    "active_markets": "Ενεργές αγορές",
-    "no_markets_found": "Δεν βρέθηκαν αγορές",
-    "try_adjusting_your_search": "Δοκιμάστε να προσαρμόσετε την αναζήτησή σας"
-  },
   "binary/components/header/market-selector": {
     "Added": "Πρόσθεσαν",
     "Connecting": "Σύνδεση",
@@ -179,6 +166,19 @@
     "no_markets_found": "Δεν βρέθηκαν αγορές",
     "select": "επιλογή",
     "try_adjusting_your_different_categories": "Δοκιμάστε να προσαρμόσετε την αναζήτησή σας ή περιηγηθείτε σε διαφορετικές κατηγορίες"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "Προσθέτω",
+    "All": "Όλα",
+    "Binary": "Δυαδικός",
+    "Favorites": "Αγαπημένα",
+    "Hot": "Ζεστός",
+    "Loading": "Φόρτωση",
+    "Market": "Αγορά",
+    "Trending": "Τάσεις",
+    "active_markets": "Ενεργές αγορές",
+    "no_markets_found": "Δεν βρέθηκαν αγορές",
+    "try_adjusting_your_search": "Δοκιμάστε να προσαρμόσετε την αναζήτησή σας"
   },
   "binary/components/header/mobile-header": {
     "balance": "Ισορροπία:"
@@ -839,10 +839,10 @@
     "current_sort": "Τρέχουσα ταξινόμηση:"
   },
   "components/blocks/docs/DocumentationHeader": {
-    "%_complete": "% Complete"
+    "%_complete": "% Ολοκληρώθηκε"
   },
   "components/blocks/docs/DocumentationSection": {
-    "Read": "Read"
+    "Read": "Διαβάστε"
   },
   "components/blocks/kyc/built-in-fields": {
     "Enabled": "Ενεργοποιημένη",
@@ -1150,13 +1150,6 @@
     "Image": "Εικόνα",
     "Images": "Εικόνες",
     "Important": "Σημαντικός",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "Βελτίωση",
     "Inactive": "Αδρανής",
     "Insights": "Ιδέες",
@@ -1238,7 +1231,7 @@
     "Scale": "Κλίμακα",
     "Schedule": "Πρόγραμμα",
     "Secure": "Ασφαλής",
-    "Selfie": "Selfie",
+    "Selfie": "Φωτογραφία Εγγράφου Ταυτότητας",
     "Services": "Υπηρεσίες",
     "Settings": "Ρυθμίσεις",
     "Setup": "Εγκατάστασης",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "Έχετε συνολικά",
     "you_havent_created_any_api_keys_yet": "Δεν έχετε δημιουργήσει ακόμα κλειδιά API",
     "you_havent_saved_any_sections_yet": "Δεν έχετε αποθηκεύσει ακόμα καμία ενότητα",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "Πρέπει να ενεργοποιήσετε και να εγκαταστήσετε την επέκταση στην πιο πρόσφατη έκδοση πριν την ενεργοποιήσετε",
     "youll_be_redirected_to_the_login_page_after_logout": "Θα ανακατευθυνθείτε στη σελίδα σύνδεσης μετά την αποσύνδεση",
     "youll_need_it_log_in": "Θα το χρειαστείτε για να λαμβάνετε κωδικούς επαλήθευσης κάθε φορά που συνδέεστε",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• Οι επιχειρήσεις μετανάστευσης είναι μη αναστρέψιμες μόλις ολοκληρωθούν",
     "•_monitor_system_data_migrations": "• Παρακολουθήστε την απόδοση του συστήματος κατά τη διάρκεια μεγάλων μετεγκαταστάσεων δεδομένων",
     "•_some_operations_maintenance_mode": "• Ορισμένες λειτουργίες ενδέχεται να απαιτούν λειτουργία συντήρησης συστήματος",
-    "•_using_fallback_mode": "• Χρήση εναλλακτικής λειτουργίας"
+    "•_using_fallback_mode": "• Χρήση εναλλακτικής λειτουργίας",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "Μετάβαση στην αρχική σελίδα",
@@ -2543,7 +2543,7 @@
     "the_page_you_removed_had": "Η σελίδα που αναζητάτε ενδέχεται να έχει καταργηθεί είχε"
   },
   "ext": {
-    "#affiliate_#rewards": "#affiliate #rewards",
+    "#affiliate_#rewards": "#προμήθειες #ανταμοιβές",
     "%_actual_apr": "% πραγματικό ΕΣΕ",
     "%_apr_is_market_conditions": "% APR δεν είναι εγγυημένο και μπορεί να προσαρμοστεί με βάση τις συνθήκες της αγοράς",
     "%_apr_on_your_staked": "% APR στο στοιχηματισμένο σας",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "Ένας κόσμος όπου τα καινοτόμα έργα μπορούν εύκολα να έχουν πρόσβαση σε κεφάλαια και οι επενδυτές μπορούν να συμμετέχουν σε ευκαιρίες με εμπιστοσύνη και ασφάλεια",
     "accept_offers_that_match_your_needs": "Αποδεχτείτε προσφορές που ταιριάζουν στις ανάγκες σας",
     "accepted_methods": "Αποδεκτές μέθοδοι",
-    "access_denied": "Access Denied",
+    "access_denied": "Απαγορεύεται η Πρόσβαση",
     "access_institutional-grade_forex_serious_investors": "Αποκτήστε πρόσβαση σε συναλλαγές forex θεσμικού επιπέδου με προηγμένους αλγόριθμους, επαγγελματική διαχείριση κινδύνου και συνεπείς αποδόσεις για σοβαρούς επενδυτές",
     "access_to_marketing_support_and_security_audits": "Πρόσβαση σε υποστήριξη μάρκετινγκ και ελέγχους ασφαλείας",
     "account": "Λογαριασμός:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "Προσθήκη νέου συνημμένου",
     "add_note": "Προσθήκη σημείωσης",
     "add_notes_and_terms_for_this_offer": "Προσθήκη σημειώσεων και όρων για αυτήν την προσφορά",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "Προσθήκη Μεθόδου Πληρωμής",
     "add_phase": "Προσθήκη φάσης",
     "add_plan": "Προσθήκη σχεδίου",
     "add_roadmap_item": "Προσθήκη στοιχείου χάρτη πορείας",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "Πρόσθετες απαιτήσεις επαλήθευσης για συναλλαγές NFT υψηλής αξίας",
     "address": "Διεύθυνση:",
     "adjust_amount": "Προσαρμογή ποσού",
-    "admin": "Admin",
+    "admin": "Διαχειριστής",
     "admin_actions": "Ενέργειες διαχειριστή",
     "admin_actions_will_appear_here": "Οι ενέργειες διαχειριστή θα εμφανιστούν εδώ",
     "admin_activity": "Δραστηριότητα διαχειριστή",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "Αυτόματη δημοσίευση πωλήσεων και νέων καταχωρίσεων",
     "auto-release": "Αυτόματη απελευθέρωση:",
     "auto-verify_new_creators": "Αυτόματη Επαλήθευση Νέων Δημιουργών",
+    "auto_approve_offers": "Αυτόματη Έγκριση Προσφορών",
     "auto_cancel": "Αυτόματη Ακύρωση",
     "auto_cancel_time_(minutes)": "Χρόνος Αυτόματης Ακύρωσης (λεπτά)",
     "automatic_earnings_distribution": "Αυτόματη διανομή κερδών",
     "automatic_escrow_protection_for_all_funds": "Αυτόματη προστασία μεσεγγύησης για όλα τα κεφάλαια",
     "automatic_release_after_no_dispute)": "Αυτόματη αποδέσμευση μετά από 24 ώρες από την επιβεβαίωση πληρωμής (εάν δεν υπάρχει αμφισβήτηση)",
     "automatically_adjust_amount_to_meet_minimum": "Αυτόματη προσαρμογή του ποσού ώστε να ανταποκρίνεται στο ελάχιστο",
+    "automatically_approve_new_and_edited_offers": "Αυτόματη Έγκριση Νέων και Επεξεργασμένων Προσφορών",
     "automatically_cancel_the_specified_time": "Αυτόματη ακύρωση της προσφοράς αν δεν υπάρξει απάντηση εντός καθορισμένου χρονικού διαστήματος",
     "automatically_cancel_trades_payment_window": "Αυτόματη ακύρωση συναλλαγών εάν η πληρωμή δεν επιβεβαιωθεί εντός του παραθύρου πληρωμής",
     "automatically_extend_auctions_when": "Αυτόματη επέκταση δημοπρασιών όταν γίνονται προσφορές κοντά στο τέλος",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "Επιβεβαιώστε την κατάθεσή σας",
     "confirm_your_withdrawal": "Επιβεβαιώστε την ανάληψή σας",
     "confirmed_at": "Επιβεβαιώθηκε στις:",
-    "conflict": "Conflict",
+    "conflict": "Σύγκρουση",
     "connect_with_traders_worldwide": "Συνδεθείτε με εμπόρους σε όλο τον κόσμο",
     "connections": "Συνδέσεις",
     "consider_cliff_periods_for_team_tokens": "Εξετάστε τις περιόδους γκρεμού για μάρκες ομάδας",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "Κρυπτογραφημένη συνομιλία από άκρο σε άκρο για ασφαλή επικοινωνία μεταξύ αγοραστή και πωλητή κατά τη διάρκεια της συναλλαγής",
     "end_date": "Ημερομηνία λήξης:",
     "end_of_term": "Τέλος θητείας",
+    "ended": "Ολοκληρώθηκε",
     "ending_soon": "Λήγει Σύντομα",
     "enhance_multiple_faqs_ai-powered_improvements": "Βελτιώστε πολλές συχνές ερωτήσεις χρησιμοποιώντας τις βελτιώσεις που υποστηρίζονται από AI",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "Απολαύστε τις χαμηλότερες χρεώσεις στον κλάδο με μόλις 0",
@@ -4071,7 +4074,7 @@
     "get_started_with_simple_steps": "Ξεκινήστε με το TokenLaunch με λίγα απλά βήματα",
     "get_your_products_your_doorstep": "Παραδώστε τα προϊόντα σας γρήγορα και αποτελεσματικά στο κατώφλι σας",
     "getting_started": "Ξεκινώντας",
-    "github_url": "GitHub URL",
+    "github_url": "Διεύθυνση URL GitHub",
     "give_clear_payment_instructions_to_the_buyer": "Δώστε σαφείς οδηγίες πληρωμής στον αγοραστή:",
     "give_detailed_payment_and_delays": "Δώστε λεπτομερείς οδηγίες πληρωμής για να αποφύγετε σύγχυση και καθυστερήσεις",
     "global_community": "Παγκόσμια κοινότητα",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "Συμπεριλάβετε τυχόν απαιτούμενους αριθμούς αναφοράς",
     "include_company_logo": "Συμπεριλάβετε το λογότυπο της εταιρείας",
     "include_the_trade_payment_description": "Συμπεριλάβετε τον αριθμό αναφοράς συναλλαγής στην περιγραφή πληρωμής σας",
-    "info": "Info",
+    "info": "Πληροφορίες",
     "information_about_the_dispute": "Πληροφορίες σχετικά με τη διαφορά",
     "information_about_the_disputed_trade": "Πληροφορίες σχετικά με το αμφισβητούμενο εμπόριο",
     "initial_holder": "Αρχικός κάτοχος:",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "Εσωτερικές σημειώσεις σχετικά με αυτήν τη διαφωνία",
     "internal_notes_about_this_offer": "Εσωτερικές σημειώσεις σχετικά με αυτήν την προσφορά",
     "internal_notes_about_this_position": "Εσωτερικές σημειώσεις σχετικά με αυτή τη θέση",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "Μη Έγκυρο Αίτημα",
     "invest_in": "Επενδύστε σε",
     "invest_in_this_offering": "Επενδύστε σε αυτήν την προσφορά",
     "invest_more": "Επενδύστε περισσότερα",
@@ -4318,7 +4321,7 @@
     "lifetime_earnings": "Αποδοχές εφ' όρου ζωής",
     "limited_functionality": "Περιορισμένη λειτουργικότητα",
     "limits": "Όρια:",
-    "linkedin_url": "LinkedIn URL",
+    "linkedin_url": "Διεύθυνση URL LinkedIn",
     "list_view": "Προ��ολή λίστας",
     "listing_fee_(eth)": "Τέλος Καταχώρισης (ETH)",
     "live_account": "Πραγματικός Λογαριασμός",
@@ -4326,6 +4329,7 @@
     "live_preview": "Ζωντανή προεπισκόπηση",
     "load_id": "Φόρτωση ID:",
     "load_more": "Φόρτωση Περισσότερων",
+    "loading": "Φόρτωση",
     "loading_activity_data": "Φόρτωση δεδομένων δραστηριότητας",
     "loading_affiliate_data": "Φόρτωση δεδομένων συνεργατών",
     "loading_analytics_data": "Φόρτωση δεδομένων αναλυτικών στοιχείων",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "Διαχειριστείτε και παρακολουθήστε τις προσφορές διακριτικών σας",
     "manage_and_track_your_referred_users": "Διαχειριστείτε και παρακολουθήστε τους χρήστες που συστήσατε",
     "manage_conditions": "Διαχείριση συνθηκών",
+    "manage_rewards": "Διαχείριση Ανταμοιβών",
     "manage_the_blockchains_token_launches": "Διαχειριστείτε τις αλυσίδες μπλοκ που είναι διαθέσιμες για εκκινήσεις διακριτικών",
     "manage_this_trade": "Διαχειριστείτε αυτό το εμπόριο",
     "manage_token_release": "Διαχείριση έκδοσης διακριτικού",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "Μηνιαίες αποδοχές για τους τελευταίους 6 μήνες",
     "monthly_faq_views_for_the_current_year": "Μηνιαίες προβολές συχνών ερωτήσεων για το τρέχον έτος",
     "monthly_growth_rate_(%)": "Μηνιαίος ρυθμός αύξησης (%)",
+    "monthly_growth_rate_tooltip": "Αναμενόμενος μέσος μηνιαίος ρυθμός αύξησης τιμής. Θετικές τιμές υποδεικνύουν ανατίμηση, αρνητικές τιμές υποδεικνύουν υποτίμηση. Τυπικό εύρος: -50% έως +50%",
     "monthly_profit": "Μηνιαίο κέρδος",
     "more": "περισσότερο",
     "most_common_search_terms_used_by_your_users": "Οι πιο συνηθισμένοι όροι αναζήτησης που χρησιμοποιούνται από τους χρήστες σας",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "Δεν βρέθηκαν προειδοποιήσεις",
     "no_withdrawal_methods_available_for_this_currency": "Δεν υπάρχουν διαθέσιμες μέθοδοι ανάληψης για αυτό το νόμισμα",
     "not_available_for_this_chain": "Δεν διατίθεται για αυτήν την αλυσίδα",
-    "not_found": "Not Found",
+    "not_found": "Δεν Βρέθηκε",
     "not_helpful": "Δεν είναι χρήσιμο",
+    "not_started": "Δεν Ξεκίνησε",
     "not_submitted": "Δεν υποβλήθηκε",
     "notes_and_comments_about_this_transaction": "Σημειώσεις και σχόλια σχετικά με αυτήν τη συναλλαγή",
     "now_accepting_bitcoin_ethereum_&_more": "Τώρα δέχεται Bitcoin, Ethereum και άλλα",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "Η προσφορά δεν βρέθηκε ή δεν έχετε άδεια να την επεξεργαστείτε",
     "offer_status": "Κατάσταση Προσφοράς",
     "offer_type": "Τύπος προσφοράς",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "Μη Διαθέσιμη Προσφορά",
     "offer_updated_successfully_and_is_pending_approval": "Η προσφορά ενημερώθηκε επιτυχώς και εκκρεμεί η έγκριση",
     "offer_visibility": "Προσφέρετε ορατότητα",
     "offering": "Προσφορά:",
@@ -4791,7 +4798,7 @@
     "password": "κωδικός πρόσβασης",
     "pay_with_confidence_processing_system": "Πληρώστε με σιγουριά χρησιμοποιώντας το ασφαλές σύστημα επεξεργασίας πληρωμών μας",
     "pay_within_time_limit": "Πληρώστε εντός προθεσμίας",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "Δραστηριότητες Πληρωμών",
     "payment_completed_successfully": "Η πληρωμή ολοκληρώθηκε με επιτυχία!",
     "payment_confirmed": "Η πληρωμή επιβεβαιώθηκε",
     "payment_details": "Λεπτομέρειες πληρωμής",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "Οδηγίες Πληρωμής",
     "payment_marked_as_sent": "Πληρωμή που έχει επισημανθεί ως απεσταλμένη",
     "payment_method": "Τρόπος πληρωμής:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "Απαιτείται Μέθοδος Πληρωμής",
     "payment_methods": "Μέθοδοι Πληρωμής",
     "payment_methods_summary": "Σύνοψη μεθόδων πληρωμής",
     "payment_methods_you_prefer": "Τρόποι πληρωμής που προτιμάτε",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "Επιλέξτε τους στόχους που θέλετε να προσθέσετε σε αυτήν την καμπάνια",
     "please_send_payment_when_done": "Στείλτε την πληρωμή στον πωλητή χρησιμοποιώντας τον καθορισμένο τρόπο πληρωμής και επιβεβαιώστε όταν τελειώσετε",
     "please_sign_in_to_view_your_shipping_details": "Συνδεθείτε για να δείτε τα στοιχεία αποστολής σας",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "Παρακαλώ Επιβραδύνετε",
     "please_try_again": "Παρακαλώ δοκιμάστε ξανά",
     "please_try_again_later": "Προσπαθήστε ξανά αργότερα",
     "please_try_refreshing_the_page": "Δοκιμάστε να ανανεώσετε τη σελίδα",
@@ -5351,13 +5358,14 @@
     "social_media_post": "Ανάρτηση στα μέσα κοινωνικής δικτύωσης",
     "solana_(sol)": "Σολάνα (SOL)",
     "sold": "πωλήθηκε",
+    "sold_out": "Εξαντλήθηκε",
     "some_features_may_be_temporarily_unavailable": "Ορισμένες λειτουργίες ενδέχεται να μην είναι διαθέσιμες προσωρινά",
     "some_pools_distribute_staking_period": "Ορισμένες ομάδες διανέμουν ανταμοιβές καθημερινά, ενώ άλλες το κάνουν εβδομαδιαίως, μηνιαίως ή στο τέλος της περιόδου πονταρίσματος",
     "some_pools_offer_higher_returns": "Ορισμένες ομάδες προσφέρουν αυτόματη σύνθεση, η οποία επανεπενδύει αυτόματα τις κερδισμένες ανταμοιβές σας για να δημιουργήσει ακόμη υψηλότερες αποδόσεις",
     "some_pools_offer_your_rewards": "Ορισμένες ομάδες προσφέρουν αυτόματη σύνθεση, η οποία επανεπενδύει αυτόματα τις ανταμοιβές σας",
     "some_settings_like_launch_plans": "Ορισμένες ρυθμίσεις, όπως τα μέλη της ομάδας και τα όρια στοιχείων οδικού χάρτη, ελέγχονται πλέον από σχέδια εκκίνησης",
     "some_trade_features_are_currently_disabled": "Ορισμένες λειτουργίες συναλλαγών είναι προς το παρόν απενεργοποιημένες:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "Κάτι Πήγε Στραβά",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "Λυπούμαστε, δεν μπορέσαμε να βρούμε τη σελίδα που αναζητάτε",
     "sort_by": "Ταξινόμηση κατά",
     "source_code_verification": "Επαλήθευση πηγαίου κώδικα",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Εγγράψου στο ενημερωτικό email μας",
     "subtotal": "Μερικό άθροισμα:",
     "subtotal_(": "Μερικό σύνολο (",
-    "success": "Success",
+    "success": "Επιτυχία",
     "success_rate": "Ποσοστό επιτυχίας",
     "successful_offerings": "Επιτυχημένες προσφορές",
     "successful_trades": "Επιτυχημένες συναλλαγές:",
@@ -5658,7 +5666,7 @@
     "tokens": "Διακριτικά",
     "tokens_for_sale": "Μάρκες προς πώληση",
     "tokens_to_receive": "Μάρκες για λήψη:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "Πάρα Πολλά Αιτήματα",
     "top-performing_staking_pools": "Πισίνες πονταρίσματος με κορυφαίες επιδόσεις",
     "top_performing_affiliates": "Συνεργάτες με κορυφαίες επιδόσεις",
     "top_performing_faqs": "Συχνές ερωτήσεις για την κορυφαία απόδοση",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "Τα στοιχεία του εμπορίου δεν είναι προσβάσιμα προς το παρόν",
     "trade_details_are_temporarily_unavailable": "Τα στοιχεία συναλλαγής δεν είναι διαθέσιμα προσωρινά",
     "trade_disputed": "Αμφισβητούμενο εμπόριο",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "Η Συναλλαγή Έληξε",
     "trade_history_requirements": "Απαιτήσεις ιστορικού συναλλαγών",
     "trade_id": "Αναγνωριστικό συναλλαγής",
     "trade_information": "Εμπορικές πληροφορίες",
@@ -5795,7 +5803,7 @@
     "twitter_api_key": "Κλειδί API Twitter",
     "twitter_api_key_for_automatic_posting": "Κλειδί API Twitter για αυτόματη δημοσίευση",
     "twitter_integration": "Ενσωμάτωση Twitter",
-    "twitter_url": "Twitter URL",
+    "twitter_url": "Διεύθυνση URL Twitter",
     "type": "Δακτυλογραφώ:",
     "ui_&_display": "Διεπαφή χρήστη & οθόνη",
     "unable_to_load_platform_statistics": "Δεν είναι δυνατή η φόρτωση στατιστικών στοιχείων πλατφόρμας",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Πληρωμές μέσω κινητού Venmo",
     "verification_badges": "Σήματα Επαλήθευσης",
     "verification_badges_help_users": "Τα σήματα επαλήθευσης βοηθούν τους χρήστες να αναγνωρίζουν αξιόπιστους δημιουργούς και αυθεντικές συλλογές. Εμφανίζονται σε προφίλ, καταχωρίσεις και αποτελέσματα αναζήτησης.",
-    "verification_required": "Verification Required",
+    "verification_required": "Απαιτείται Επαλήθευση",
     "verification_settings_affect_marketplace": "Οι ρυθμίσεις επαλήθευσης επηρεάζουν την εμπιστοσύνη και τη συμμόρφωση της αγοράς. Λάβετε υπόψη τις απαιτήσεις της δικαιοδοσίας σας.",
     "verified_only": "Μόνο επαληθευμένο",
     "verified_project_teams_and_offerings": "Επαληθευμένες ομάδες έργου και προσφορές",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "Μόνο επαληθευμένοι έμποροι",
     "verified_users_have_verification_process": "Οι επαληθευμένοι χρήστες έχουν ολοκληρώσει τη διαδικασία επαλήθευσης ταυτότητας",
     "verify_&_approve_transaction": "Επαλήθευση και έγκριση συναλλαγής",
-    "verify_account": "Verify Account",
+    "verify_account": "Επαλήθευση Λογαριασμού",
     "verify_payment_and_release_funds": "Επαλήθευση πληρωμής και αποδέσμευση χρημάτων",
     "verify_payment_before_releasing": "Επαλήθευση πληρωμής πριν από την αποδέσμευση",
     "verify_payment_first": "Επαληθεύστε πρώτα την πληρωμή",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "Οπτικοποιήστε και διαχειριστείτε τη δομή του δικτύου συνεργατών σας",
     "visualize_distribution_vesting_token_launch": "Οπτικοποιήστε τη διανομή, τα χρονοδιαγράμματα κατοχύρωσης και τις προβλέψεις της αγοράς για να βελτιστοποιήσετε την εκκίνηση του διακριτικού σας",
     "volatility_(%)": "Μεταβλητότητα (%)",
+    "volatility_tooltip": "Αναμενόμενο εύρος διακύμανσης τιμής. Υψηλότερη μεταβλητότητα σημαίνει μεγαλύτερες αυξομειώσεις τιμής. 0% σημαίνει σταθερές τιμές, 100% σημαίνει ακραίες κινήσεις τιμής.",
     "volume": "Τόμος:",
     "volume_(btc)": "Όγκος (BTC)",
     "vs": "έναντι",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "Τι θα θέλατε να κάνετε;",
     "what_would_you_like_to_do_next": "Τι θα θέλατε να κάνετε στη συνέχεια;",
     "when_a_trade_into_escrow": "Όταν ξεκινήσει μια συναλλαγή, θα πρέπει να καταθέσετε το κρυπτονόμισμα σε μεσεγγύηση:",
+    "when_disabled_offers_require_admin_moderation": "Όταν Απενεργοποιηθεί οι Προσφορές Απαιτούν Έγκριση Διαχειριστή",
     "when_disabled_users_can_only_take_existing_offers": "Όταν είναι απενεργοποιημένοι, οι χρήστες μπορούν να λάβουν μόνο υπάρχουσες προσφορές",
     "when_disabled_users_cannot_access_p2p_features": "Όταν είναι απενεργοποιημένοι, οι χρήστες δεν μπορούν να έχουν πρόσβαση σε δυνατότητες P2P",
     "when_disabled_users_cannot_create_custom_payment_methods": "Όταν απενεργοποιηθεί, οι χρήστες δεν μπορούν να δημιουργήσουν προσαρμοσμένες μεθόδους πληρωμής",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "Δεν έχετε ολοκληρώσει ακόμα καμία συναλλαγή",
     "you_havent_distributed_any_earnings_yet": "Δεν έχετε διανείμει ακόμα κέρδη",
     "you_might_want_question_directly": "Ίσως θελήσετε να δοκιμάσετε την αναζήτησή μας ή να κάνετε μια ερώτηση απευθείας",
+    "you_must_be_logged_in_to_access_the_dashboard": "Πρέπει να Είστε Συνδεδεμένοι για να Αποκτήσετε Πρόσβαση στον Πίνακα Ελέγχου",
     "you_must_be_logged_in_to_ask_a_question": "Πρέπει να είστε συνδεδεμένοι για να κάνετε μια ερώτηση",
     "you_need": "Χρειάζεσαι",
     "you_need_to_a_review": "Πρέπει να αγοράσετε αυτό το προϊόν για να μπορέσετε να γράψετε μια κριτική",
@@ -6206,7 +6217,75 @@
     "•_escrow_services_are_unavailable": "• Οι υπηρεσίες μεσεγγύησης δεν είναι διαθέσιμες",
     "•_lock_period": "• Περίοδος κλειδώματος:",
     "•_trade_dispute_resolution_is_unavailable": "• Η επίλυση εμπορικών διαφορών δεν είναι διαθέσιμη",
-    "✓_purchased": "✓ Αγοράστηκε"
+    "✓_purchased": "✓ Αγοράστηκε",
+    "Configure NFT metadata requirements": "Διαμόρφωση Απαιτήσεων Μεταδεδομένων NFT",
+    "Configure platform and creator fees": "Διαμόρφωση Τελών Πλατφόρμας και Δημιουργού",
+    "Fixed fee to create a listing (0 = free)": "Σταθερό Τέλος για Δημιουργία Καταχώρισης (0 = Δωρεάν)",
+    "High-Value Threshold (USD)": "Όριο Υψηλής Αξίας (USD)",
+    "Listing Fee (Optional)": "Τέλος Καταχώρισης (Προαιρετικό)",
+    "Marketplace Fee (%)": "Τέλος Αγοράς (%)",
+    "Marketplace Fees": "Τέλη Αγοράς",
+    "Maximum Royalty (%)": "Μέγιστα Δικαιώματα (%)",
+    "Maximum royalty creators can set (0-50%)": "Μέγιστα Δικαιώματα που Μπορούν να Ορίσουν οι Δημιουργοί (0-50%)",
+    "Metadata & IPFS": "Μεταδεδομένα & IPFS",
+    "Percentage fee charged on each sale (0-10%)": "Ποσοστιαίο Τέλος που Χρεώνεται σε Κάθε Πώληση (0-10%)",
+    "Require Metadata Validation": "Απαίτηση Επικύρωσης Μεταδεδομένων",
+    "Validate IPFS metadata URLs before accepting NFT listings": "Επικύρωση URL Μεταδεδομένων IPFS Πριν την Αποδοχή Καταχωρίσεων NFT",
+    "are_you_sure_you_want_to_remove_this_offer": "Είστε Σίγουροι Ότι Θέλετε Να Αφαιρέσετε Αυτήν Την Προσφορά",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "Οι Αλλαγές Στις Ρυθμίσεις Τιμής Και Ποσού Μπορεί Να Απαιτούν Έγκριση Διαχειριστή Πριν Τεθούν Σε Ισχύ",
+    "create_your_first_offer": "Δημιουργήστε Την Πρώτη Σας Προσφορά",
+    "dynamic_price_(market_based)": "Δυναμική Τιμή (Βάσει Αγοράς)",
+    "edit": "Επεξεργασία",
+    "enter_your_fixed_price": "Εισάγετε Την Σταθερή Σας Τιμή",
+    "failed_to_remove_offer": "Αποτυχία Αφαίρεσης Προσφοράς",
+    "limit": "Όριο",
+    "market_price_offset_(%)": "Απόκλιση Τιμής Αγοράς (%)",
+    "max_trade_amount": "Μέγιστο Ποσό Συναλλαγής",
+    "maximum_amount": "Μέγιστο Ποσό",
+    "maximum_limit": "Μέγιστο Όριο",
+    "min_trade_amount": "Ελάχιστο Ποσό Συναλλαγής",
+    "minimum_amount": "Ελάχιστο Ποσό",
+    "minimum_limit": "Ελάχιστο Όριο",
+    "my_offers": "Οι Προσφορές Μου",
+    "no_recent_activity": "Καμία Πρόσφατη Δραστηριότητα",
+    "note": "Σημείωση",
+    "offer_removed": "Η Προσφορά Αφαιρέθηκε",
+    "positive_=_above_market,_negative_=_below_market": "Θετικό = Πάνω Από Την Αγορά, Αρνητικό = Κάτω Από Την Αγορά",
+    "price_&_amount": "Τιμή & Ποσό",
+    "price_&_amount_settings": "Ρυθμίσεις Τιμής & Ποσού",
+    "pricing_model": "Μοντέλο Τιμολόγησης",
+    "remove_offer": "Αφαίρεση Προσφοράς",
+    "removing": "Αφαίρεση",
+    "the_price_per_unit_of": "Η Τιμή Ανά Μονάδα Του",
+    "this_is_the_total_amount_for_this_trade": "Αυτό Είναι Το Συνολικό Ποσό Για Αυτή Την Συναλλαγή",
+    "total_amount_available": "Συνολικό Διαθέσιμο Ποσό",
+    "total_available": "Συνολικό Διαθέσιμο",
+    "trading_limits": "Όρια Συναλλαγών",
+    "update_pricing_model_and_trading_limits": "Ενημέρωση Μοντέλου Τιμολόγησης Και Ορίων Συναλλαγών",
+    "view": "Προβολή",
+    "you_dont_have_any_offers_yet": "Δεν Έχετε Ακόμα Καμία Προσφορά",
+    "your_offer_has_been_successfully_removed": "Η Προσφορά Σας Αφαιρέθηκε Με Επιτυχία",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "5% Πάνω Από Την Αγορά"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "Ακύρωση",
@@ -6249,6 +6328,8 @@
     "network_fee": "Τέλος Δικτύου",
     "new_balance": "Νέο Υπόλοιπο",
     "no_currencies_found": "Δεν βρέθηκαν νομίσματα για",
+    "no_wallets_available": "Δεν Υπάρχουν Διαθέσιμα Πορτοφόλια",
+    "no_wallets_available_description": "Περιγραφή Μη Διαθέσιμων Πορτοφολιών",
     "not_available": "Μη Διαθέσιμο",
     "of": "από",
     "pay_with": "Πληρωμή με",
@@ -6342,6 +6423,8 @@
     "make_another_transfer": "Κάντε άλλη μεταφορά",
     "move_funds_between_another_user": "Μεταφέρετε χρήματα μεταξύ των πορτοφολιών σας ή στείλτε τα σε άλλο χρήστη",
     "move_funds_between_your_different_wallet_types": "Μεταφέρετε χρήματα μεταξύ των διαφορετικών τύπων πορτοφολιού σας",
+    "no_wallets_available": "Δεν Υπάρχουν Διαθέσιμα Πορτοφόλια",
+    "no_wallets_available_description": "Περιγραφή Μη Διαθέσιμων Πορτοφολιών",
     "processing_transfer": "Μεταφορά επεξεργασίας",
     "recipient_details": "Στοιχεία παραλήπτη",
     "recipient_receives": "Ο παραλήπτης λαμβάνει:",
@@ -6381,13 +6464,13 @@
     "the_wallet_youre_to_it": "Το πορτοφόλι που ψάχνετε δεν υπάρχει ή δεν έχετε πρόσβαση σε αυτό",
     "wallet_address": "Διεύθυνση πορτοφολιού",
     "wallet_not_found": "Το πορτοφόλι δεν βρέθηκε",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
-    "wallet_type_fiat": "Fiat",
-    "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
-    "wallet_type_futures": "Futures",
+    "wallet_type_ai_investment": "Επένδυση με AI",
+    "wallet_type_derivatives": "Παράγωγα",
+    "wallet_type_eco": "Οικολογικό",
+    "wallet_type_fiat": "Νόμισμα Fiat",
+    "wallet_type_forex": "Συναλλάγματα",
+    "wallet_type_funding": "Χρηματοδότηση",
+    "wallet_type_futures": "Μελλοντικά Συμβόλαια",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
     "wallet_type_spot": "Spot",
@@ -6429,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(για να λάβετε",
+    "Amount to Send (before network fees)": "Ποσό προς Αποστολή (Πριν τις Χρεώσεις Δικτύου)",
     "Free": "Δωρεάν",
+    "Platform Fee": "Χρέωση Πλατφόρμας",
     "Processing": "Επεξεργασία",
     "Select": "Διαλέγω",
     "Withdraw": "Αποσύρω",
@@ -6450,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "Δεν υπάρχουν νομίσματα με διαθέσιμο υπόλοιπο σε",
     "no_currencies_with_balance_in_wallet_type": "Δεν υπάρχουν νομίσματα με υπόλοιπο σε αυτόν τον τύπο πορτοφολιού",
     "no_wallets_available": "Δεν υπάρχουν διαθέσιμα πορτοφόλια",
+    "no_wallets_available_description": "Όλοι οι τύποι πορτοφολιών έχουν απενεργοποιηθεί από τον διαχειριστή. Παρακαλούμε επικοινωνήστε με την υποστήριξη για βοήθεια ή ελέγξτε ξανά αργότερα.",
     "no_wallets_with_balance_for_withdrawal": "Δεν υπάρχουν πορτοφόλια με υπόλοιπο για ανάληψη",
     "no_withdrawal_methods": "Δεν υπάρχουν διαθέσιμες μέθοδοι ανάληψης",
     "no_withdrawal_methods_available": "Δεν υπάρχουν διαθέσιμες μέθοδοι ανάληψης",
@@ -6674,7 +6760,7 @@
   },
   "nft": {
     "Collections": "Συλλογές",
-    "NFTs": "NFTs",
+    "NFTs": "Μη Ανταλλάξιμα Κρυπτονομίσματα",
     "Search": "Αναζήτηση",
     "Users": "Χρήστες",
     "all_categories": "Όλες οι Κατηγορίες",
@@ -6719,41 +6805,41 @@
     "why_choose_our_marketplace": "Γιατί να Επιλέξετε την Αγορά μας"
   },
   "nft/collection": {
-    "Blockchain": "Blockchain",
-    "Created": "Created",
-    "Filter": "Filter",
-    "Items": "Items",
-    "Listed": "Listed",
-    "New": "New",
-    "Owners": "Owners",
-    "Price": "Price",
-    "Sales": "Sales",
-    "Verified": "Verified",
-    "Website": "Website",
-    "all_items": "All Items",
-    "buy_now": "Buy Now",
-    "collection_details": "Collection Details",
-    "contract_standard": "Contract Standard",
-    "creator_royalty": "Creator Royalty",
-    "current_bid": "Current bid",
-    "floor_price": "Floor Price",
-    "has_offers": "Has Offers",
-    "load_more": "Load More",
-    "most_liked": "Most Liked",
-    "most_viewed": "Most Viewed",
-    "no_nfts_found_matching_your_search": "No NFTs found matching your search",
-    "no_nfts_in_this_collection_yet": "No NFTs in this collection yet",
-    "no_recent_activity": "No recent activity",
-    "on_auction": "On Auction",
-    "price_high_to_low": "Price: High to Low",
-    "price_low_to_high": "Price: Low to High",
-    "recent_activity": "Recent Activity",
-    "recently_created": "Recently Created",
-    "recently_listed": "Recently Listed",
-    "search_nfts_in_this_collection": "Search NFTs in this collection",
-    "sort_by": "Sort by",
-    "total_supply": "Total Supply",
-    "total_volume": "Total Volume"
+    "Blockchain": "Αλυσίδα Συστοιχιών",
+    "Created": "Δημιουργήθηκε",
+    "Filter": "Φίλτρο",
+    "Items": "Στοιχεία",
+    "Listed": "Καταχωρημένα",
+    "New": "Νέο",
+    "Owners": "Ιδιοκτήτες",
+    "Price": "Τιμή",
+    "Sales": "Πωλήσεις",
+    "Verified": "Επαληθευμένο",
+    "Website": "Ιστοσελίδα",
+    "all_items": "Όλα τα Στοιχεία",
+    "buy_now": "Αγοράστε Τώρα",
+    "collection_details": "Λεπτομέρειες Συλλογής",
+    "contract_standard": "Πρότυπο Συμβολαίου",
+    "creator_royalty": "Δικαιώματα Δημιουργού",
+    "current_bid": "Τρέχουσα προσφορά",
+    "floor_price": "Τιμή Βάσης",
+    "has_offers": "Έχει Προσφορές",
+    "load_more": "Φόρτωση Περισσότερων",
+    "most_liked": "Περισσότερα Αρέσει",
+    "most_viewed": "Περισσότερες Προβολές",
+    "no_nfts_found_matching_your_search": "Δεν βρέθηκαν NFTs που να ταιριάζουν με την αναζήτησή σας",
+    "no_nfts_in_this_collection_yet": "Δεν υπάρχουν ακόμα NFTs σε αυτή τη συλλογή",
+    "no_recent_activity": "Καμία πρόσφατη δραστηριότητα",
+    "on_auction": "Σε Δημοπρασία",
+    "price_high_to_low": "Τιμή: Από Υψηλή σε Χαμηλή",
+    "price_low_to_high": "Τιμή: Από Χαμηλή σε Υψηλή",
+    "recent_activity": "Πρόσφατη Δραστηριότητα",
+    "recently_created": "Πρόσφατα Δημιουργημένα",
+    "recently_listed": "Πρόσφατα Καταχωρημένα",
+    "search_nfts_in_this_collection": "Αναζήτηση NFTs σε αυτή τη συλλογή",
+    "sort_by": "Ταξινόμηση κατά",
+    "total_supply": "Συνολική Προσφορά",
+    "total_volume": "Συνολικός Όγκος"
   },
   "nft/components/collection-card": {
     "Floor": "Κατώτατη Τιμή",
@@ -6904,85 +6990,85 @@
     "sales": "πωλήσεις",
     "setup_profile": "Ρύθμιση Προφίλ",
     "setup_your_creator_profile": "Ρυθμίστε το Προφίλ Δημιουργού σας",
-    "sign_in": "Sign In",
+    "sign_in": "Σύνδεση",
     "top_collections": "Κορυφαίες Συλλογές",
     "total_nfts": "Συνολικά NFTs",
     "total_sales": "Συνολικές Πωλήσεις",
     "total_volume": "Συνολικός Όγκος",
     "try_again": "Δοκιμάστε Ξανά",
     "view_all": "Προβολή Όλων",
-    "view_public_profile": "View Public Profile",
+    "view_public_profile": "Προβολή Δημόσιου Προφίλ",
     "welcome_to_creator_hub": "Καλώς ήρθατε στο Κέντρο Δημιουργών"
   },
   "nft/creator/profile": {
-    "Auction": "Auction",
-    "Collections": "Collections",
-    "Created": "Created",
-    "Fixed": "Fixed",
-    "Floor": "Floor",
-    "Follow": "Follow",
-    "Items": "Items",
-    "Joined": "Joined",
-    "Price": "Price",
-    "Share": "Share",
-    "Volume": "Volume",
-    "add_bio_now": "Add Bio Now",
-    "bronze_creator": "Bronze Creator",
-    "browse_nfts": "Browse NFTs",
-    "copy_link": "Copy Link",
-    "creator_not_found": "Creator Not Found",
-    "current_bid": "Current Bid",
-    "edit_profile": "Edit Profile",
-    "followers": "followers",
-    "gold_creator": "Gold Creator",
-    "nfts_created": "NFTs Created",
-    "no_bio_own_profile": "You haven't added a bio to your profile yet",
-    "no_collections_created_yet": "No collections created yet",
-    "no_nfts_created_yet": "No NFTs created yet",
-    "silver_creator": "Silver Creator",
-    "the_creator_profile_youre": "The creator profile you're looking for doesn't exist.",
-    "total_sales": "Total Sales",
-    "total_volume": "Total Volume",
-    "verified_creator": "Verified Creator"
+    "Auction": "Δημοπρασία",
+    "Collections": "Συλλογές",
+    "Created": "Δημιουργήθηκε",
+    "Fixed": "Σταθερή",
+    "Floor": "Βάση",
+    "Follow": "Ακολουθήστε",
+    "Items": "Στοιχεία",
+    "Joined": "Εντάχθηκε",
+    "Price": "Τιμή",
+    "Share": "Κοινοποίηση",
+    "Volume": "Όγκος",
+    "add_bio_now": "Προσθέστε Βιογραφικό Τώρα",
+    "bronze_creator": "Χάλκινος Δημιουργός",
+    "browse_nfts": "Περιήγηση NFTs",
+    "copy_link": "Αντιγραφή Συνδέσμου",
+    "creator_not_found": "Ο Δημιουργός Δεν Βρέθηκε",
+    "current_bid": "Τρέχουσα Προσφορά",
+    "edit_profile": "Επεξεργασία Προφίλ",
+    "followers": "ακόλουθοι",
+    "gold_creator": "Χρυσός Δημιουργός",
+    "nfts_created": "NFTs που Δημιουργήθηκαν",
+    "no_bio_own_profile": "Δεν έχετε προσθέσει ακόμα βιογραφικό στο προφίλ σας",
+    "no_collections_created_yet": "Δεν έχουν δημιουργηθεί ακόμα συλλογές",
+    "no_nfts_created_yet": "Δεν έχουν δημιουργηθεί ακόμα NFTs",
+    "silver_creator": "Δημιουργός Αργύρου",
+    "the_creator_profile_youre": "Το προφίλ δημιουργού που αναζητάτε δεν υπάρχει.",
+    "total_sales": "Συνολικές Πωλήσεις",
+    "total_volume": "Συνολικός Όγκος",
+    "verified_creator": "Επαληθευμένος Δημιουργός"
   },
   "nft/creator/profile/edit": {
-    "Bio": "Bio",
-    "Unverified": "Unverified",
-    "Website": "Website",
-    "apply_for_verification": "Apply for Verification",
-    "banner_image": "Banner Image",
+    "Bio": "Βιογραφικό",
+    "Unverified": "Μη Επαληθευμένος",
+    "Website": "Ιστότοπος",
+    "apply_for_verification": "Αίτηση για Επαλήθευση",
+    "banner_image": "Εικόνα Πανό",
     "basic_information": "Βασικές Πληροφορίες",
-    "brief_description_about_you": "Brief description about you and your work (max 500 characters)",
-    "bronze_creator": "Bronze Creator",
-    "choose_a_custom_url_for_your_creator_profile": "Choose a custom URL for your creator profile",
-    "complete_your_profile_to_apply_for_verification": "Complete your profile to apply for verification",
-    "creator_profile_settings": "Creator Profile Settings",
-    "current_status": "Current Status",
-    "custom_url": "Custom URL",
-    "customize_your_creator_profile": "Customize your creator profile and manage your verification status",
-    "display_name": "Display Name",
-    "email_notifications": "Email Notifications",
-    "gold_creator": "Gold Creator",
-    "make_your_profile_visible_to_everyone": "Make your profile visible to everyone",
-    "please_sign_in_to_access_creator_profile_settings": "Please sign in to access creator profile settings",
-    "privacy_&_notifications": "Privacy & Notifications",
-    "profile_image": "Profile Image",
-    "profile_images": "Profile Images",
-    "public_profile": "Public Profile",
-    "receive_email_notifications_for": "Receive email notifications for sales, offers, and updates",
-    "recommended_size_1200x400px_max_file_size_5mb": "Recommended size: 1200x400px. Max file size: 5MB",
-    "recommended_size_400x400px_max_file_size_2mb": "Recommended size: 400x400px. Max file size: 2MB",
-    "save_changes": "Save Changes",
-    "sign_in": "Sign In",
-    "silver_creator": "Silver Creator",
-    "social_links": "Social Links",
-    "tell_people_about_yourself_and_your_art": "Tell people about yourself and your art...",
+    "brief_description_about_you": "Σύντομη περιγραφή για εσάς και τη δουλειά σας (μέγιστο 500 χαρακτήρες)",
+    "bronze_creator": "Δημιουργός Χαλκού",
+    "choose_a_custom_url_for_your_creator_profile": "Επιλέξτε ένα προσαρμοσμένο URL για το προφίλ δημιουργού σας",
+    "complete_your_profile_to_apply_for_verification": "Ολοκληρώστε το προφίλ σας για να υποβάλετε αίτηση επαλήθευσης",
+    "creator_profile_settings": "Ρυθμίσεις Προφίλ Δημιουργού",
+    "current_status": "Τρέχουσα Κατάσταση",
+    "custom_url": "Προσαρμοσμένο URL",
+    "customize_your_creator_profile": "Προσαρμόστε το προφίλ δημιουργού σας και διαχειριστείτε την κατάσταση επαλήθευσής σας",
+    "display_name": "Όνομα Εμφάνισης",
+    "email_notifications": "Ειδοποιήσεις Email",
+    "gold_creator": "Δημιουργός Χρυσού",
+    "make_your_profile_visible_to_everyone": "Κάντε το προφίλ σας ορατό σε όλους",
+    "please_sign_in_to_access_creator_profile_settings": "Παρακαλώ συνδεθείτε για να αποκτήσετε πρόσβαση στις ρυθμίσεις προφίλ δημιουργού",
+    "privacy_&_notifications": "Απόρρητο & Ειδοποιήσεις",
+    "profile_image": "Εικόνα Προφίλ",
+    "profile_images": "Εικόνες Προφίλ",
+    "public_profile": "Δημόσιο Προφίλ",
+    "receive_email_notifications_for": "Λάβετε ειδοποιήσεις email για πωλήσεις, προσφορές και ενημερώσεις",
+    "recommended_size_1200x400px_max_file_size_5mb": "Προτεινόμενο μέγεθος: 1200x400px. Μέγιστο μέγεθος αρχείου: 5MB",
+    "recommended_size_400x400px_max_file_size_2mb": "Προτεινόμενο μέγεθος: 400x400px. Μέγιστο μέγεθος αρχείου: 2MB",
+    "save_changes": "Αποθήκευση Αλλαγών",
+    "sign_in": "Σύνδεση",
+    "silver_creator": "Δημιουργός Αργύρου",
+    "social_links": "Σύνδεσμοι Κοινωνικών Δικτύων",
+    "tell_people_about_yourself_and_your_art": "Πείτε στους ανθρώπους για τον εαυτό σας και την τέχνη σας...",
     "this_is_how_your_name_will_appear_to_other_users": "Έτσι θα εμφανίζεται το όνομά σας στους άλλους χρήστες",
-    "upload_banner_image": "Upload banner image",
-    "upload_image": "Upload Image",
-    "verification_status": "Verification Status",
-    "verified_creator": "Verified Creator",
-    "your_creator_profile_is_verified": "Your creator profile is verified"
+    "upload_banner_image": "Μεταφόρτωση εικόνας πανό",
+    "upload_image": "Μεταφόρτωση Εικόνας",
+    "verification_status": "Κατάσταση Επαλήθευσης",
+    "verified_creator": "Επαληθευμένος Δημιουργός",
+    "your_creator_profile_is_verified": "Το προφίλ δημιουργού σας είναι επαληθευμένο"
   },
   "nft/dashboard": {
     "Activity": "Δραστηριότητα",
@@ -6992,8 +7078,11 @@
     "create_nft": "Δημιουργία NFT",
     "create_your_first_collection_to_organize_your_nfts": "Δημιουργήστε την πρώτη σας συλλογή για να οργανώσετε τα NFT σας",
     "create_your_first_nft_to_get_started": "Δημιουργήστε το πρώτο σας NFT για να ξεκινήσετε",
+    "creator_dashboard": "Πίνακας Ελέγχου Δημιουργού",
     "creator_hub": "Κέντρο Δημιουργών",
+    "creator_since": "Δημιουργός Από",
     "explore_nfts": "Εξερευνήστε NFT",
+    "failed_to_load_dashboard": "Αποτυχία Φόρτωσης Πίνακα Ελέγχου",
     "favorite_nfts": "Αγαπημένα NFT",
     "manage_your_nfts_collections": "Διαχειριστείτε τα NFT σας, τις συλλογές και τη δραστηριότητα στην αγορά",
     "my_collections": "Οι Συλλογές μου",
@@ -7004,6 +7093,7 @@
     "no_favorites_yet": "Δεν Υπάρχουν Αγαπημένα Ακόμη",
     "no_nfts_yet": "Κανένα NFT Ακόμα",
     "please_login_to_view_your_dashboard": "Παρακαλώ συνδεθείτε για να δείτε τον πίνακα ελέγχου σας",
+    "please_sign_in_to_access_your_creator_dashboard": "Παρακαλώ Συνδεθείτε για να Αποκτήσετε Πρόσβαση στον Πίνακα Ελέγχου Δημιουργού σας",
     "please_sign_in_to_view_your_nft_dashboard": "Παρακαλώ συνδεθείτε για να δείτε τον πίνακα ελέγχου NFT σας",
     "recent_activity": "Πρόσφατη Δραστηριότητα",
     "sign_in": "Σύνδεση",
@@ -7011,6 +7101,7 @@
     "total_nfts": "Συνολικά NFT",
     "total_value": "Συνολική Αξία",
     "total_views": "Συνολικές Προβολές",
+    "try_again": "Δοκιμάστε Ξανά",
     "your_nft_activities_will_appear_here": "Οι δραστηριότητες NFT σας θα εμφανίζονται εδώ"
   },
   "nft/details": {
@@ -7125,92 +7216,94 @@
     "try_adjusting_your_filters_or_search_terms": "Δοκιμάστε να προσαρμόσετε τα φίλτρα ή τους όρους αναζήτησης"
   },
   "nft/modals/list": {
-    "Auction": "Auction",
-    "Cancel": "Cancel",
-    "Currency": "Currency",
-    "Description": "Description",
-    "Optional": "Optional",
-    "Price": "Price",
-    "add_details_about_your_listing": "Add details about your listing",
-    "buy_now_price": "Buy Now Price",
-    "end_time": "End Time",
-    "fixed_price": "Fixed Price",
-    "list_nft": "List NFT",
-    "list_nft_for_sale": "List NFT for Sale",
-    "listing": "Listing...",
-    "listing_type": "Listing Type",
-    "minimum_price_to_accept": "Minimum price to accept",
-    "pick_a_date": "Pick a date",
-    "price_for_instant_purchase": "Price for instant purchase",
-    "reserve_price": "Reserve Price",
-    "sell_at_a_fixed_price": "Sell at a fixed price",
-    "sell_to_highest_bidder": "Sell to highest bidder",
-    "start_time": "Start Time",
-    "starting_price": "Starting Price"
+    "Auction": "Δημοπρασία",
+    "Cancel": "Ακύρωση",
+    "Currency": "Νόμισμα",
+    "Description": "Περιγραφή",
+    "Optional": "Προαιρετικό",
+    "Price": "Τιμή",
+    "add_details_about_your_listing": "Προσθέστε λεπτομέρειες για την καταχώρησή σας",
+    "buy_now_price": "Τιμή Άμεσης Αγοράς",
+    "end_time": "Ώρα Λήξης",
+    "fixed_price": "Σταθερή Τιμή",
+    "list_nft": "Καταχώριση NFT",
+    "list_nft_for_sale": "Καταχώριση NFT προς Πώληση",
+    "listing": "Καταχώριση...",
+    "listing_type": "Τύπος Καταχώρισης",
+    "minimum_price_to_accept": "Ελάχιστη τιμή προς αποδοχή",
+    "pick_a_date": "Επιλέξτε μια ημερομηνία",
+    "price_for_instant_purchase": "Τιμή για άμεση αγορά",
+    "reserve_price": "Τιμή Ελάχιστης Προσφοράς",
+    "sell_at_a_fixed_price": "Πώληση σε σταθερή τιμή",
+    "sell_to_highest_bidder": "Πώληση στον υψηλότερο προσφέροντα",
+    "start_time": "Ώρα Έναρξης",
+    "starting_price": "Αρχική Τιμή",
+    "Duration": "Διάρκεια"
   },
   "nft/modals/offer": {
-    "Cancel": "Cancel",
-    "Currency": "Currency",
-    "Expires": "Expires",
-    "Message": "Message",
-    "Optional": "Optional",
-    "add_a_personal_message_to_the_seller": "Add a personal message to the seller",
-    "by_making_this_offer": "By making this offer, you agree to purchase this NFT if the seller accepts. Make sure you have sufficient balance in your wallet.",
-    "collection_floor": "Collection Floor",
-    "current_price": "Current Price",
-    "custom_expiry_date": "Custom Expiry Date",
-    "make_an_offer": "Make an Offer",
-    "make_offer": "Make Offer",
-    "making_offer": "Making Offer...",
-    "offer_amount": "Offer Amount",
-    "offer_below_floor_price": "Offer below floor price",
-    "offer_expires_in": "Offer Expires In",
-    "offer_summary": "Offer Summary",
-    "pick_a_date": "Pick a date",
-    "your_offer_is_below": "Your offer is below the collection floor price. It may not be accepted."
+    "Cancel": "Ακύρωση",
+    "Currency": "Νόμισμα",
+    "Expires": "Λήγει",
+    "Message": "Μήνυμα",
+    "Optional": "Προαιρετικό",
+    "add_a_personal_message_to_the_seller": "Προσθέστε ένα προσωπικό μήνυμα στον πωλητή",
+    "by_making_this_offer": "Κάνοντας αυτή την προσφορά, συμφωνείτε να αγοράσετε αυτό το NFT εάν ο πωλητής αποδεχτεί. Βεβαιωθείτε ότι έχετε επαρκές υπόλοιπο στο πορτοφόλι σας.",
+    "collection_floor": "Ελάχιστη Τιμή Συλλογής",
+    "current_price": "Τρέχουσα Τιμή",
+    "custom_expiry_date": "Προσαρμοσμένη Ημερομηνία Λήξης",
+    "make_an_offer": "Υποβολή Προσφοράς",
+    "make_offer": "Υποβολή Προσφοράς",
+    "making_offer": "Υποβολή Προσφοράς...",
+    "offer_amount": "Ποσό Προσφοράς",
+    "offer_below_floor_price": "Προσφορά κάτω από την ελάχιστη τιμή",
+    "offer_expires_in": "Η Προσφορά Λήγει Σε",
+    "offer_summary": "Σύνοψη Προσφοράς",
+    "pick_a_date": "Επιλέξτε μια ημερομηνία",
+    "your_offer_is_below": "Η προσφορά σας είναι κάτω από την ελάχιστη τιμή της συλλογής. Ενδέχεται να μην γίνει αποδεκτή."
   },
   "nft/token": {
-    "Accept": "Accept",
-    "Activity": "Activity",
-    "Attributes": "Attributes",
+    "Accept": "Αποδοχή",
+    "Activity": "Δραστηριότητα",
+    "Attributes": "Χαρακτηριστικά",
     "Blockchain": "Blockchain",
-    "Creator": "Creator",
-    "Details": "Details",
-    "Expires": "Expires",
-    "Metadata": "Metadata",
-    "Offers": "Offers",
-    "Owner": "Owner",
-    "Price": "Price",
-    "Rarity": "Rarity",
-    "Share": "Share",
-    "Standard": "Standard",
-    "View": "View",
-    "Views": "Views",
-    "You": "You",
-    "auction_ended": "Auction ended",
-    "browse_nfts": "Browse NFTs",
-    "buy_now": "Buy Now",
+    "Creator": "Δημιουργός",
+    "Details": "Λεπτομέρειες",
+    "Expires": "Λήγει",
+    "Metadata": "Μεταδεδομένα",
+    "Offers": "Προσφορές",
+    "Owner": "Ιδιοκτήτης",
+    "Price": "Τιμή",
+    "Rarity": "Σπανιότητα",
+    "Share": "Κοινοποίηση",
+    "Standard": "Πρότυπο",
+    "View": "Προβολή",
+    "Views": "Προβολές",
+    "You": "Εσείς",
+    "auction_ended": "Η δημοπρασία έληξε",
+    "browse_nfts": "Περιήγηση NFTs",
+    "buy_now": "Αγορά Τώρα",
     "by": "by",
-    "contract_address": "Contract Address",
-    "copy_link": "Copy Link",
-    "current_bid": "Current Bid",
-    "list_for_sale": "List for Sale",
-    "make_offer": "Make Offer",
-    "manage_listing": "Manage Listing",
-    "more_from_this_collection": "More from this collection",
-    "nft_not_found": "NFT Not Found",
-    "no_activity_yet": "No activity yet",
-    "no_offers_yet": "No offers yet",
-    "place_bid": "Place Bid",
-    "please_sign_in_to_add_to_favorites": "Please sign in to add to favorites",
-    "please_sign_in_to_make_offers": "Please sign in to make offers",
-    "please_sign_in_to_purchase_nfts": "Please sign in to purchase NFTs",
-    "the_nft_youre_looking": "The NFT you're looking for doesn't exist or has been removed.",
-    "time_left": "Time left",
-    "token_details": "Token Details",
-    "token_id": "Token ID",
-    "token_standard": "Token Standard",
-    "view_on_explorer": "View on Explorer"
+    "contract_address": "Διεύθυνση Συμβολαίου",
+    "copy_link": "Αντιγραφή Συνδέσμου",
+    "current_bid": "Τρέχουσα Προσφορά",
+    "list_for_sale": "Καταχώριση προς Πώληση",
+    "make_offer": "Υποβολή Προσφοράς",
+    "manage_listing": "Διαχείριση Καταχώρισης",
+    "more_from_this_collection": "Περισσότερα από αυτή τη συλλογή",
+    "nft_not_found": "Το NFT δεν Βρέθηκε",
+    "no_activity_yet": "Καμία δραστηριότητα ακόμα",
+    "no_offers_yet": "Καμία προσφορά ακόμα",
+    "place_bid": "Υποβολή Πλειοδοτικής Προσφοράς",
+    "please_sign_in_to_add_to_favorites": "Παρακαλούμε συνδεθείτε για να προσθέσετε στα αγαπημένα",
+    "please_sign_in_to_make_offers": "Παρακαλούμε συνδεθείτε για να κάνετε προσφορές",
+    "please_sign_in_to_purchase_nfts": "Παρακαλούμε συνδεθείτε για να αγοράσετε NFTs",
+    "the_nft_youre_looking": "Το NFT που αναζητάτε δεν υπάρχει ή έχει αφαιρεθεί.",
+    "time_left": "Υπολειπόμενος χρόνος",
+    "token_details": "Λεπτομέρειες Token",
+    "token_id": "Αναγνωριστικό Token",
+    "token_standard": "Πρότυπο Token",
+    "view_on_explorer": "Προβολή στον Explorer",
+    "browse_marketplace": "Περιήγηση Αγοράς"
   },
   "nft/user/profile": {
     "Activity": "Δραστηριότητα",
@@ -7617,8 +7710,8 @@
     "position_value": "Αξία θέσης:"
   },
   "trade/components/trading/futures/stop-loss-take-profit": {
-    "stop_loss": "Stop Loss",
-    "take_profit": "Take Profit"
+    "stop_loss": "Όριο Ζημίας",
+    "take_profit": "Λήψη Κέρδους"
   },
   "trade/components/trading/futures/trading-buttons": {
     "Long": "Αγορά",
@@ -7627,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "Φόρτωση",
-    "available": "Διαθέσιμος:"
+    "available": "Διαθέσιμος:",
+    "balance": "Υπόλοιπο",
+    "in_orders": "Σε Παραγγελίες"
   },
   "trade/components/trading/spot/index": {
     "Limit": "Όριο",
@@ -7644,7 +7739,10 @@
     "Price": "Τιμή",
     "Processing": "Επεξεργασία",
     "Sell": "Πώληση",
-    "Total": "Σύνολο"
+    "Total": "Σύνολο",
+    "Est": {
+      " Fee": "Τέλος"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "Ποσό",
@@ -7654,7 +7752,10 @@
     "estimated_total": "Εκτιμώμενο σύνολο",
     "market_orders_execute_available_price": "Οι εντολές αγοράς εκτελούνται άμεσα στην καλύτερη διαθέσιμη τιμή",
     "market_price": "Τιμή αγοράς",
-    "the_final_execution_estimated_price": "Η τελική τιμή εκτέλεσης μπορεί να διαφέρει από την εκτιμώμενη τιμή"
+    "the_final_execution_estimated_price": "Η τελική τιμή εκτέλεσης μπορεί να διαφέρει από την εκτιμώμενη τιμή",
+    "Est": {
+      " Fee": "Τέλος"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "Ποσό",
@@ -7669,7 +7770,10 @@
     "stop_market_orders_is_reached": "Οι εντολές διακοπής αγοράς εκτελούνται ως εντολές αγοράς όταν επιτευχθεί η τιμή διακοπής",
     "stop_price": "Τιμή διακοπής",
     "the_order_will_available_price": "Η παραγγελία θα εκτελεστεί στην καλύτερη διαθέσιμη τιμή",
-    "the_order_will_or_better": "Η παραγγελία θα εκτελεστεί στην οριακή τιμή ή καλύτερα"
+    "the_order_will_or_better": "Η παραγγελία θα εκτελεστεί στην οριακή τιμή ή καλύτερα",
+    "Est": {
+      " Fee": "Τέλος"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "*Μην ανησυχείτε, δεν θα σας στείλουμε spam :)",
@@ -7683,5 +7787,553 @@
     "were_making_the_system_more_awesome": "Κάνουμε το σύστημα πιο φοβερό",
     "we’ll_be_back_shortly": "Θα επιστρέψουμε σύντομα",
     "we’re_making_the_system_more_awesome": "Κάνουμε το σύστημα πιο φοβερό"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "Προηγμένα χρηματοοικονομικά αναλυτικά στοιχεία με παρακολούθηση κερδών, ανάλυση ροών εσόδων και ολοκληρωμένους πίνακες επιχειρηματικής νοημοσύνης.",
+        "title": "Αναλυτικά Εσόδων"
+      },
+      "communication": {
+        "description": "Διαχείριση επικοινωνίας πλατφόρμας συμπεριλαμβανομένων ειδοποιήσεων, ανακοινώσεων και συστημάτων μηνυμάτων χρηστών.",
+        "title": "Εργαλεία Επικοινωνίας"
+      },
+      "compliance": {
+        "description": "Εργαλεία κανονιστικής συμμόρφωσης συμπεριλαμβανομένης της επεξεργασίας KYC, επαλήθευσης εγγράφων και διαχείρισης ταυτότητας για νομική συμμόρφωση.",
+        "title": "Συμμόρφωση & Επαλήθευση"
+      },
+      "currencies": {
+        "description": "Υποστήριξη πολλαπλών νομισμάτων με συναλλαγματικές ισοτιμίες σε πραγματικό χρόνο, διαμόρφωση ζευγών συναλλαγών και ενσωμάτωση δεδομένων αγοράς.",
+        "title": "Διαχείριση Νομισμάτων"
+      },
+      "dashboard": {
+        "description": "Ολοκληρωμένη διοικητική επισκόπηση με αναλυτικά στοιχεία σε πραγματικό χρόνο, παρακολούθηση υγείας συστήματος και γρήγορη πρόσβαση σε κρίσιμες λειτουργίες διαχείρισης.",
+        "title": "Πίνακας Ελέγχου"
+      },
+      "monitoring": {
+        "description": "Ολοκληρωμένη παρακολούθηση συστήματος με καταγραφή, μετρήσεις απόδοσης και αυτοματοποιημένη διαχείριση εργασιών.",
+        "title": "Παρακολούθηση Συστήματος"
+      },
+      "permissions": {
+        "description": "Λεπτομερής διαχείριση δικαιωμάτων για ακριβή έλεγχο πρόσβασης σε όλες τις λειτουργίες και δυνατότητες του συστήματος.",
+        "title": "Δικαιώματα"
+      },
+      "roles": {
+        "title": "Ρόλοι Χρηστών",
+        "description": "Δημιουργία και διαχείριση ρόλων χρηστών με προσαρμόσιμα σύνολα δικαιωμάτων και ιεραρχικές δομές ελέγχου πρόσβασης.",
+        "permissions": {
+          "description": "Προηγμένο σύστημα ελέγχου πρόσβασης για τον καθορισμό ρόλων χρηστών, διαχείριση δικαιωμάτων και εφαρμογή πολιτικών ασφαλείας σε όλη την πλατφόρμα.",
+          "title": "Ρόλοι & Δικαιώματα"
+        }
+      },
+      "support": {
+        "description": "Ενσωματωμένο σύστημα δελτίων υποστήριξης με διαχείριση προτεραιότητας, παρακολούθηση απαντήσεων και παρακολούθηση ικανοποίησης πελατών.",
+        "title": "Υποστήριξη Πελατών"
+      },
+      "users": {
+        "description": "Ολοκληρωμένη βάση δεδομένων χρηστών με προηγμένο φιλτράρισμα, μαζικές λειτουργίες, διαχείριση προφίλ και λεπτομερή παρακολούθηση δραστηριότητας.",
+        "title": "Χρήστες"
+      },
+      "affiliate": {
+        "system": {
+          "description": "Πρόγραμμα συνεργατών πολλαπλών επιπέδων με παρακολούθηση προμηθειών, αναλυτικά στοιχεία απόδοσης και αυτοματοποιημένες πληρωμές.",
+          "title": "Πρόγραμμα Συνεργατών"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "Διαμόρφωση χρονικών πλαισίων στρατηγικής AI με δυναμική επανεξισορρόπηση και προσαρμογές στις συνθήκες αγοράς.",
+          "title": "Διάρκειες Στρατηγικών"
+        },
+        "investment": {
+          "description": "Διαχείριση επενδύσεων με τεχνητή νοημοσύνη με αλγόριθμους μηχανικής μάθησης και αυτοματοποιημένη βελτιστοποίηση χαρτοφυλακίου.",
+          "title": "Επένδυση με AI"
+        },
+        "performance": {
+          "description": "Αναλυτικά απόδοσης επενδύσεων AI με παρακολούθηση ακρίβειας μοντέλου και μετρήσεις αποτελεσματικότητας στρατηγικής.",
+          "title": "Απόδοση AI"
+        },
+        "strategies": {
+          "description": "Επενδυτικές στρατηγικές μηχανικής μάθησης με δοκιμές παλινδρόμησης, αξιολόγηση κινδύνου και βελτιστοποίηση απόδοσης.",
+          "title": "Στρατηγικές AI"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "Διαχείριση κύκλου ζωής κλειδιών API με παρακολούθηση χρήσης, περιορισμό ρυθμού και ελέγχους ασφαλείας για ενσωματώσεις τρίτων.",
+          "title": "Διαχείριση API"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "Ορισμός χρονικών πλαισίων συναλλαγών και ποσοστών πληρωμής για δυαδικές επιλογές με ελέγχους διαχείρισης κινδύνου.",
+          "title": "Διάρκειες Συναλλαγών"
+        },
+        "markets": {
+          "description": "Διαμόρφωση αγορών δυαδικών επιλογών με ζεύγη περιουσιακών στοιχείων, παραμέτρους συναλλαγών και ώρες αγοράς.",
+          "title": "Δυαδικές Αγορές"
+        },
+        "orders": {
+          "description": "Παρακολούθηση και διαχείριση εντολών δυαδικών επιλογών με παρακολούθηση εκτέλεσης και επεξεργασία διακανονισμού.",
+          "title": "Εντολές Δυαδικών Επιλογών"
+        },
+        "trading": {
+          "description": "Σύστημα συναλλαγών δυαδικών επιλογών με ρύθμιση αγοράς, διαχείριση διάρκειας και διαμόρφωση πληρωμής.",
+          "title": "Δυαδικές Επιλογές"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "Διαχείριση αμετάβλητου καθολικού με ίχνη ελέγχου, αναφορές συμμόρφωσης και εργαλεία εγκληματολογικής ανάλυσης.",
+          "title": "Καθολικά Blockchain"
+        },
+        "networks": {
+          "description": "Διαχείριση δικτύου πολλαπλών αλυσίδων με παρακολούθηση κόμβων, παρακολούθηση συναίνεσης και αναλυτικά στοιχεία υγείας δικτύου.",
+          "title": "Δίκτυα Blockchain"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "Πλήρης διαχείριση ιστολογίου με προφίλ συγγραφέων, προγραμματισμό περιεχομένου, βελτιστοποίηση SEO και αναλυτικά στοιχεία αλληλεπίδρασης.",
+          "title": "Σύστημα Ιστολογίου"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "Βασικά επιχειρηματικά εργαλεία για μάρκετινγκ, υποστήριξη πελατών και διαχείριση γνώσης.",
+          "title": "Επαγγελματικά Εργαλεία"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "Ολοκληρωμένο σύστημα διαχείρισης περιεχομένου για ιστολόγια, πολυμεσικά στοιχεία και δυναμικό περιεχόμενο ιστότοπου.",
+          "title": "Περιεχόμενο"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "Διαχείριση ψηφιακών περιουσιακών στοιχείων με ενσωμάτωση blockchain, συνδεσιμότητα πορτοφολιού και ροές δεδομένων αγοράς σε πραγματικό χρόνο.",
+          "title": "Κρυπτονομίσματα"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "Υπηρεσίες θεματοφυλακής θεσμικών πορτοφολιών με κανονιστική συμμόρφωση και ασφαλιστική κάλυψη.",
+          "title": "Υπηρεσίες Φύλαξης"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "Ολοκληρωμένα αρχεία συναλλαγών κατάθεσης με παρακολούθηση κατάστασης, εργαλεία συμφωνίας και δυνατότητες ελέγχου.",
+          "title": "Αρχεία Καταθέσεων"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "Προηγμένος οπτικός δημιουργός σελίδων με διεπαφή μεταφοράς και απόθεσης, εργαλεία σχεδιασμού με δυνατότητα απόκρισης και επιλογές προσαρμογής επωνυμίας.",
+          "title": "Δημιουργός Σελίδων"
+        },
+        "customization": {
+          "description": "Προσαρμόστε την εμφάνιση και τον σχεδιασμό του ιστότοπού σας με προηγμένα οπτικά εργαλεία.",
+          "title": "Σχεδιασμός"
+        },
+        "default": {
+          "editor": {
+            "description": "Επεξεργασία προεπιλεγμένων σελίδων προσκηνίου συμπεριλαμβανομένης της αρχικής σελίδας, νομικών σελίδων και διατάξεων με διεπαφή επεξεργαστή κώδικα.",
+            "title": "Προεπιλεγμένες Σελίδες"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "Πλατφόρμα ηλεκτρονικού εμπορίου με πλήρη χαρακτηριστικά, διαχείριση αποθέματος, επεξεργασία παραγγελιών και υποστήριξη πολλαπλών προμηθευτών.",
+          "title": "Πλατφόρμα Ηλεκτρονικού Εμπορίου"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "Διαχείριση αποκεντρωμένης αγοράς με πρωτόκολλα AMM, δεξαμενές ρευστότητας και ενσωμάτωση yield farming.",
+          "title": "Αγορές DeFi"
+        },
+        "orders": {
+          "description": "Εντολές συναλλαγών οικοσυστήματος blockchain με ενσωμάτωση έξυπνων συμβολαίων και αποκεντρωμένη εκτέλεση.",
+          "title": "Εντολές Οικοσυστήματος"
+        },
+        "platform": {
+          "description": "Αποκεντρωμένο οικοσύστημα συναλλαγών με ενσωμάτωση blockchain, πρωτόκολλα DeFi και αυτοματοποίηση έξυπνων συμβολάιων.",
+          "title": "Οικοσύστημα Blockchain"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "Δημιουργία και διαχείριση εκστρατειών email με κατάτμηση, εξατομίκευση και παρακολούθηση απόδοσης.",
+          "title": "Καμπάνιες Email"
+        },
+        "marketing": {
+          "description": "Επαγγελματική πλατφόρμα μάρκετινγκ email με ροές εργασίας αυτοματισμού, δοκιμές A/B και αναλυτικά στοιχεία.",
+          "title": "Μάρκετινγκ μέσω Email"
+        },
+        "templates": {
+          "description": "Επαγγελματική βιβλιοθήκη προτύπων email με σχεδιασμό με δυνατότητα απόκρισης και επιλογές προσαρμογής επωνυμίας.",
+          "title": "Πρότυπα Email"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "Διαχείριση ενσωματώσεων ανταλλακτηρίων με παρόχους ρευστότητας, διαμορφώσεις API και παρακολούθηση απόδοσης.",
+          "title": "Πάροχοι Ανταλλαγών"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "Διαχείριση κύκλου ζωής επεκτάσεων με εγκατάσταση, ενημερώσεις, επίλυση εξαρτήσεων και έλεγχο συμβατότητας.",
+          "title": "Διαχειριστής Επεκτάσεων"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "Διαχείριση παραδοσιακών νομισμάτων με παρακολούθηση συναλλαγματικών ισοτιμιών, περιφερειακές ρυθμίσεις και ενσωμάτωση πύλης πληρωμών.",
+          "title": "Νομίσματα Fiat"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "Ολοκληρωμένη σουίτα χρηματοοικονομικής διαχείρισης που καλύπτει αναλυτικά στοιχεία εσόδων, διαχείριση νομισμάτων, επεξεργασία πληρωμών και εποπτεία συναλλαγών.",
+          "title": "Οικονομικά"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "Επαγγελματικές συναλλαγές forex με ενσωμάτωση MetaTrader, αλγοριθμική διαπραγμάτευση και θεσμική ρευστότητα.",
+          "title": "Συναλλαγές Forex"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "Διαμόρφωση αγοράς μελλοντικών συμβολαίων με προδιαγραφές συμβολαίων, απαιτήσεις περιθωρίου και διαδικασίες διακανονισμού.",
+          "title": "Αγορές Συμβολαίων Μελλοντικής Εκπλήρωσης"
+        },
+        "orders": {
+          "description": "Διαχείριση εντολών συμβολαίων μελλοντικής εκπλήρωσης με παρακολούθηση περιθωρίου και εργαλεία αξιολόγησης κινδύνου.",
+          "title": "Εντολές Συμβολαίων Μελλοντικής Εκπλήρωσης"
+        },
+        "platform": {
+          "description": "Επαγγελματική πλατφόρμα συναλλαγών προθεσμιακών συμβολάιων με διαχείριση περιθωρίου, ελέγχους κινδύνου και θεσμική εκτέλεση.",
+          "title": "Συναλλαγές Προθεσμιακών Συμβολάιων"
+        },
+        "positions": {
+          "description": "Παρακολούθηση θέσεων σε πραγματικό χρόνο με παρακολούθηση κερδών και ζημιών, κλήσεις περιθωρίου και αυτοματοποιημένη διαχείριση κινδύνου.",
+          "title": "Διαχείριση Θέσεων"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "Διαχείριση δυναμικού περιεχομένου αρχικής σελίδας με ρυθμιστικά εργαλεία με δυνατότητα απόκρισης, κουμπιά κλήσης σε δράση και δυνατότητες δοκιμών A/B.",
+          "title": "Διαφάνειες Αρχικής Σελίδας"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "Πλατφόρμα Initial Coin Offering με ενσωμάτωση KYC, ανάπτυξη έξυπνων συμβολάιων και κανονιστική συμμόρφωση.",
+          "title": "Πωλήσεις Tokens"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "Διαχείριση εσωτερικών μεταφορών κεφαλαίων μεταξύ λογαριασμών με ροές εργασιών έγκρισης και ελέγχους συμμόρφωσης.",
+          "title": "Εσωτερικές Μεταφορές"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "Διαμόρφωση διαρκειών επενδύσεων, περιόδων λήξης και υπολογισμών ανατοκισμού για διάφορα προϊόντα.",
+          "title": "Διάρκειες Επενδύσεων"
+        },
+        "extensions": {
+          "description": "Προηγμένα επενδυτικά προϊόντα με στρατηγικές που βασίζονται σε AI, υπηρεσίες staking και πλατφόρμες τοκενοποίησης.",
+          "title": "Επενδυτικά Προϊόντα"
+        },
+        "history": {
+          "description": "Αναλυτικά στοιχεία επενδυτικής απόδοσης με παρακολούθηση απόδοσης επένδυσης και πληροφορίες διαχείρισης χαρτοφυλακίου.",
+          "title": "Αναλυτικά Στοιχεία Επενδύσεων"
+        },
+        "management": {
+          "description": "Διαχείριση επενδυτικών προϊόντων με δημιουργία σχεδίων, παρακολούθηση απόδοσης και εργαλεία επίβλεψης χαρτοφυλακίου.",
+          "title": "Διαχείριση Επενδύσεων"
+        },
+        "plans": {
+          "description": "Δημιουργία και διαχείριση επενδυτικών προϊόντων με προφίλ κινδύνου, υπολογισμούς απόδοσης και διαμορφώσεις διάρκειας.",
+          "title": "Επενδυτικά Σχέδια"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "Ολοκληρωμένο σύστημα διαχείρισης γνώσης με αναζήτηση τεχνητής νοημοσύνης και βελτιστοποίηση περιεχομένου.",
+          "title": "Βάση Γνώσεων"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "Αξιολόγηση και επεξεργασία αιτήσεων Γνωρίστε τον Πελάτη σας με επαλήθευση εγγράφων, αξιολόγηση κινδύνου και ροές εργασίας έγκρισης.",
+          "title": "Αιτήσεις KYC"
+        },
+        "levels": {
+          "description": "Διαμόρφωση βαθμίδων επαλήθευσης με προσαρμόσιμες απαιτήσεις, όρια και δικαιώματα πρόσβασης για διαφορετικές κατηγορίες χρηστών.",
+          "title": "Επίπεδα Επαλήθευσης"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "Βοηθητικά προγράμματα συντήρησης συστήματος που περιλαμβάνουν βελτιστοποίηση βάσης δεδομένων, διαχείριση προσωρινής μνήμης και εργαλεία μετεγκατάστασης.",
+          "title": "Εργαλεία Συντήρησης"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "Πλατφόρμες ηλεκτρονικού εμπορίου και ψηφιακής αγοράς με ολοκληρωμένα εργαλεία πωλητών και προστασία αγοραστών.",
+          "title": "Λύσεις Αγοράς"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "Διαχείριση κύριου πορτοφολιού επιχειρηματικού επιπέδου με ασφάλεια πολλαπλών υπογραφών και ενσωμάτωση ψυχρής αποθήκευσης.",
+          "title": "Κύρια Πορτοφόλια"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "Κεντρική διαχείριση πολυμέσων με αποθήκευση cloud, βελτιστοποίηση εικόνων και ενσωμάτωση CDN για βέλτιστη απόδοση.",
+          "title": "Βιβλιοθήκη Πολυμέσων"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "Επαγγελματική αγορά NFT με εργαλεία δημιουργίας, διαχείριση δικαιωμάτων και δυνατότητες δημοπρασίας.",
+          "title": "Αγορά NFT"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "Προσαρμόσιμα πρότυπα ειδοποιήσεων με παράδοση πολλαπλών καναλιών και μεταβλητές εξατομίκευσης.",
+          "title": "Πρότυπα Ειδοποιήσεων"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "Κεντρική επεξεργασία και διαχείριση παραγγελιών σε όλες τις πλατφόρμες συναλλαγών και κατηγορίες περιουσιακών στοιχείων.",
+          "title": "Διαχείριση Εντολών"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "Πλατφόρμα συναλλαγών peer-to-peer με υπηρεσίες escrow, επίλυση διαφορών και υποστήριξη πολλαπλών πυλών πληρωμών.",
+          "title": "Ανταλλακτήριο P2P"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "Διαμόρφωση και παρακολούθηση πυλών πληρωμών με ανίχνευση απάτης, ελέγχους συμμόρφωσης και αναλύσεις απόδοσης.",
+          "title": "Πύλες Πληρωμών"
+        },
+        "methods": {
+          "description": "Διαχείριση διαθέσιμων επιλογών πληρωμής που περιλαμβάνουν κάρτες, τραπεζικές μεταφορές, ψηφιακά πορτοφόλια και πληρωμές κρυπτονομισμάτων.",
+          "title": "Μέθοδοι Πληρωμής"
+        },
+        "systems": {
+          "description": "Πλήρης διαχείριση υποδομής πληρωμών που περιλαμβάνει πύλες, μεθόδους και επίβλεψη επεξεργασίας συναλλαγών.",
+          "title": "Συστήματα Πληρωμών"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "Προηγμένες επεκτάσεις πλατφόρμας που παρέχουν εξειδικευμένη λειτουργικότητα για συναλλαγές, αγορά και επιχειρηματικές λειτουργίες.",
+          "title": "Επεκτάσεις"
+        },
+        "settings": {
+          "description": "Βασική διαμόρφωση πλατφόρμας που περιλαμβάνει branding, τοπικοποίηση, πολιτικές ασφαλείας και εναλλαγές χαρακτηριστικών.",
+          "title": "Ρυθμίσεις Πλατφόρμας"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "Αυτοματοποιημένος προγραμματιστής εργασιών με παρακολούθηση εργασιών, διαχείριση αποτυχιών και βελτιστοποίηση απόδοσης.",
+          "title": "Προγραμματισμένες Εργασίες"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "Διαχείριση παραγγελιών άμεσων συναλλαγών με παρακολούθηση εκτέλεσης σε πραγματικό χρόνο και ανάλυση επίδρασης αγοράς.",
+          "title": "Εντολές Spot"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "Ολοκληρωμένη πλατφόρμα staking με διαχείριση επικυρωτών, διανομή ανταμοιβών και προστασία από slashing.",
+          "title": "Υπηρεσίες Staking"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "Πλήρης σουίτα διαχείρισης συστήματος για διαμόρφωση, παρακολούθηση και λειτουργίες συντήρησης πλατφόρμας.",
+          "title": "Σύστημα"
+        },
+        "announcements": {
+          "description": "Σύστημα ανακοινώσεων σε όλη την πλατφόρμα με προγραμματισμό, στόχευση και δυνατότητες παρακολούθησης δέσμευσης.",
+          "title": "Ανακοινώσεις Συστήματος"
+        },
+        "logs": {
+          "description": "Κεντρικό σύστημα καταγραφής με παρακολούθηση σε πραγματικό χρόνο, συγκέντρωση αρχείων καταγραφής και προηγμένες δυνατότητες αναζήτησης.",
+          "title": "Αρχεία Καταγραφής Συστήματος"
+        },
+        "updates": {
+          "description": "Αυτοματοποιημένες ενημερώσεις συστήματος με δυνατότητες επαναφοράς, ενημερώσεις ασφαλείας και διαχείριση ανάπτυξης λειτουργιών.",
+          "title": "Ενημερώσεις Συστήματος"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "Ολοκληρωμένη διαχείριση κύκλου ζωής κρυπτονομισμάτων με δυνατότητες δημιουργίας, καταστροφής και διακυβέρνησης.",
+          "title": "Διαχείριση Tokens"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "Επαγγελματικές πλατφόρμες συναλλαγών με προηγμένους τύπους παραγγελιών, εργαλεία ανάλυσης αγοράς και εκτέλεση θεσμικού επιπέδου.",
+          "title": "Πλατφόρμες Συναλλαγών"
+        },
+        "infrastructure": {
+          "description": "Διαχείριση πλατφόρμας συναλλαγών που περιλαμβάνει παρόχους ανταλλαγής, διαμορφώσεις αγοράς και συστήματα επεξεργασίας παραγγελιών.",
+          "title": "Υποδομή Συναλλαγών"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "Ολοκληρωμένο ιστορικό συναλλαγών με προηγμένο φιλτράρισμα, δυνατότητες εξαγωγής και ίχνη ελέγχου.",
+          "title": "Αρχεία Καταγραφής Συναλλαγών"
+        },
+        "management": {
+          "description": "Πλήρης επίβλεψη συναλλαγών με λεπτομερή καταγραφή, συμφωνία και δυνατότητες διαχείρισης μεταφορών.",
+          "title": "Διαχείριση Συναλλαγών"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "Πλήρης διαχείριση κύκλου ζωής χρήστη που περιλαμβάνει εγγραφή, επαλήθευση, ανάθεση ρόλων και εργαλεία διαχείρισης πελατειακών σχέσεων για ολοκληρωμένη διαχείριση χρηστών.",
+          "title": "Χρήστες"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "Προηγμένη διαχείριση UTXO με ανάλυση γραφήματος συναλλαγών και χαρακτηριστικά διατήρησης απορρήτου.",
+          "title": "Παρακολούθηση UTXO"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "Διαχείριση πορτοφολιού πολλαπλών νομισμάτων με παρακολούθηση υπολοίπου, ελέγχους ασφαλείας και διαχείριση αντιγράφων ασφαλείας.",
+          "title": "Διαχείριση Πορτοφολιού"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "Παρακολούθηση αιτημάτων ανάληψης με παρακολούθηση κατάστασης, ροές εργασίας έγκρισης και επαλήθευση συμμόρφωσης.",
+          "title": "Αρχεία Αναλήψεων"
+        },
+        "management": {
+          "description": "Ολοκληρωμένη διαχείριση συστήματος αναλήψεων με αυτοματοποιημένη επεξεργασία, πρόληψη απάτης και ελέγχους συμμόρφωσης.",
+          "title": "Διαχείριση Αναλήψεων"
+        },
+        "methods": {
+          "description": "Διαμόρφωση επιλογών ανάληψης που περιλαμβάνουν τραπεζικές μεταφορές, αναλήψεις κρυπτονομισμάτων και επεξεργαστές τρίτων.",
+          "title": "Μέθοδοι Ανάληψης"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "Συναλλαγές",
+        "description": "Αποκτήστε πρόσβαση σε ολοκληρωμένες πλατφόρμες συναλλαγών με προηγμένα εργαλεία γραφημάτων, δεδομένα αγοράς σε πραγματικό χρόνο και επαγγελματικές δυνατότητες εκτέλεσης για όλες τις κατηγορίες περιουσιακών στοιχείων.",
+        "spot": {
+          "title": "Άμεσες Συναλλαγές",
+          "description": "Εκτελέστε άμεσες εντολές αγοράς και πώλησης σε τρέχουσες τιμές αγοράς με προηγμένους τύπους εντολών, γραφήματα βάθους και επαγγελματικά εργαλεία συναλλαγών."
+        },
+        "binary": {
+          "title": "Δυαδικές Επιλογές",
+          "description": "Πραγματοποιήστε συναλλαγές δυαδικών επιλογών με εξελιγμένα αναλυτικά στοιχεία, εργαλεία διαχείρισης κινδύνου και βελτιστοποιημένη εκτέλεση για χρονικά ευαίσθητες στρατηγικές."
+        },
+        "forex": {
+          "title": "Συνάλλαγμα",
+          "description": "Αποκτήστε πρόσβαση στις παγκόσμιες αγορές συναλλάγματος με ενσωμάτωση MetaTrader 4/5, προηγμένα γραφήματα και εκτέλεση θεσμικού επιπέδου."
+        },
+        "p2p": {
+          "title": "Ανταλλαγή P2P",
+          "description": "Συμμετάσχετε σε ασφαλείς συναλλαγές κρυπτονομισμάτων μεταξύ ομότιμων με προστασία εγγυοδοσίας, ευέλικτες μεθόδους πληρωμής και ανταγωνιστικές τιμές."
+        }
+      },
+      "portfolio": {
+        "title": "Χαρτοφυλάκιο",
+        "description": "Ολοκληρωμένη σουίτα διαχείρισης χαρτοφυλακίου για παρακολούθηση περιουσιακών στοιχείων, ανάλυση απόδοσης και διαχείριση των χρηματοοικονομικών σας μέσων σε όλες τις πλατφόρμες.",
+        "wallet": {
+          "title": "Διαχείριση Πορτοφολιού",
+          "description": "Ασφαλές πορτοφόλι πολλαπλών νομισμάτων με παρακολούθηση υπολοίπου σε πραγματικό χρόνο, ιστορικό συναλλαγών και απρόσκοπτες δυνατότητες κατάθεσης/ανάληψης."
+        },
+        "transactions": {
+          "title": "Ιστορικό Συναλλαγών",
+          "description": "Λεπτομερή αρχεία συναλλαγών με προηγμένο φιλτράρισμα, δυνατότητες εξαγωγής και ολοκληρωμένα ίχνη ελέγχου για όλες τις χρηματοοικονομικές δραστηριότητες."
+        },
+        "transfers": {
+          "title": "Μεταφορές",
+          "description": "Υπηρεσίες εσωτερικών και εξωτερικών μεταφορών με άμεση επεξεργασία, ανταγωνιστικά τέλη και υποστήριξη πολλαπλών νομισμάτων."
+        }
+      },
+      "investments": {
+        "title": "Επενδύσεις",
+        "description": "Διαφοροποιημένες επενδυτικές ευκαιρίες με αναλυτικά στοιχεία επαγγελματικού επιπέδου, εργαλεία αξιολόγησης κινδύνου και παρακολούθηση απόδοσης σε πολλαπλές κατηγορίες περιουσιακών στοιχείων.",
+        "plans": {
+          "title": "Επενδυτικά Πλάνα",
+          "description": "Επιμελημένες επενδυτικές στρατηγικές με λεπτομερή προφίλ κινδύνου, ιστορικά δεδομένα απόδοσης και ευέλικτους όρους που ταιριάζουν στους οικονομικούς σας στόχους."
+        },
+        "staking": {
+          "title": "Ανταμοιβές Staking",
+          "description": "Κερδίστε παθητικό εισόδημα μέσω staking κρυπτονομισμάτων με ανταγωνιστικά ποσοστά APY, ευέλικτες περιόδους κλειδώματος και αυτοματοποιημένη διανομή ανταμοιβών."
+        },
+        "ico": {
+          "title": "Πωλήσεις Tokens",
+          "description": "Πρώιμη πρόσβαση σε ελεγμένες Αρχικές Προσφορές Νομισμάτων με ολοκληρωμένες αναφορές δέουσας επιμέλειας, ανάλυση tokenomics και παρακολούθηση επενδύσεων."
+        }
+      },
+      "marketplace": {
+        "title": "Αγορά",
+        "description": "Εξερευνήστε premium ψηφιακές και φυσικές αγορές με ασφαλείς συναλλαγές, επαληθευμένους πωλητές και ολοκληρωμένη προστασία αγοραστών.",
+        "nft": {
+          "title": "Συλλογή NFT",
+          "description": "Ανακαλύψτε, δημιουργήστε και πραγματοποιήστε συναλλαγές μοναδικών ψηφιακών περιουσιακών στοιχείων στην επιμελημένη αγορά NFT μας με δυνατότητες δημοπρασίας και δικαιώματα δημιουργών."
+        },
+        "store": {
+          "title": "Κατάστημα",
+          "description": "Premium αγορά με ψηφιακά και φυσικά προϊόντα με ασφαλή επεξεργασία πληρωμών, παγκόσμια αποστολή και προστασία αγοραστών."
+        }
+      },
+      "services": {
+        "title": "Υπηρεσίες",
+        "description": "Επαγγελματικές υπηρεσίες και εργαλεία για τη βελτίωση της εμπειρίας συναλλαγών σας, συμπεριλαμβανομένων προγραμμάτων συνεργατών, εκπαιδευτικών πόρων και premium υποστήριξης.",
+        "affiliate": {
+          "title": "Πρόγραμμα Συνεργατών",
+          "description": "Κερδοφορήστε το δίκτυό σας μέσω του ολοκληρωμένου προγράμματος συνεργατών μας με ανταγωνιστικές προμήθειες, παρακολούθηση σε πραγματικό χρόνο και εργαλεία μάρκετινγκ."
+        },
+        "support": {
+          "title": "Κέντρο Υποστήριξης",
+          "description": "Επαγγελματική υποστήριξη πελατών με διαχείριση εισιτηρίων, δυνατότητες ζωντανής συνομιλίας και αποκλειστική διαχείριση λογαριασμού για premium χρήστες."
+        },
+        "faq": {
+          "title": "Βάση Γνώσεων",
+          "description": "Ολοκληρωμένη τεκμηρίωση, σεμινάρια και συχνές ερωτήσεις για να σας βοηθήσουν να μεγιστοποιήσετε τις δυνατότητες της πλατφόρμας."
+        }
+      },
+      "insights": {
+        "title": "Πληροφορίες",
+        "description": "Επαγγελματική ανάλυση αγοράς, πληροφορίες συναλλαγών και νέα του κλάδου από την ομάδα χρηματοοικονομικών ειδικών και ερευνητών αγοράς μας."
+      }
+    }
   }
 }

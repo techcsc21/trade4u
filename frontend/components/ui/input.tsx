@@ -141,7 +141,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const inputElement = (
       <div className={containerClasses}>
-        {prefix && <div className="mr-2 flex-shrink-0">{prefix}</div>}
+        {prefix && <div className="ltr:mr-2 rtl:ml-2 flex-shrink-0">{prefix}</div>}
         {renderLeftIcon && (
           <div className="mr-2 pointer-events-none flex-shrink-0">
             {renderLeftIcon}
@@ -161,7 +161,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {renderRightIcon}
           </div>
         )}
-        {postfix && <div className="ml-2 flex-shrink-0">{postfix}</div>}
+        {postfix && <div className="ltr:ml-2 rtl:mr-2 flex-shrink-0">{postfix}</div>}
       </div>
     );
 

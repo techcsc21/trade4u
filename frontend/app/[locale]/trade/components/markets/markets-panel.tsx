@@ -281,9 +281,8 @@ export default function MarketsPanel({
       
       // Check if this is the currently active market
       const isActiveMarket = symbol === (marketType === "spot" ? spotSelectedMarket : futuresSelectedMarket) && marketType === "spot";
-      
+
       let tickerData: any;
-      let isEco = false;
 
       if (isActiveMarket && activeMarketData) {
         // ⚡ Use high-frequency market data for active market
@@ -305,17 +304,14 @@ export default function MarketsPanel({
           change: 0,
           quoteVolume: 0,
         };
-        // Use the isEco flag from the market data (set by the backend)
-        isEco = market.isEco || false;
       }
 
       const hasData = !!tickerData.last;
 
+      // Only update ticker-specific fields, preserve all original market properties
       return {
-        symbol: symbol,
-        displaySymbol: market.displaySymbol,
-        currency: market.currency,
-        pair: market.pair || "USDT",
+        ...market, // Spread all original market properties first (preserves isEco, isTrending, isHot, metadata, etc.)
+        // Override only ticker data fields
         price: hasData ? formatPrice(tickerData.last!, market.metadata) : null,
         rawPrice: tickerData.last || 0,
         change: hasData ? (tickerData.change || 0).toFixed(2) + "%" : null,
@@ -323,10 +319,6 @@ export default function MarketsPanel({
         volume: hasData ? formatVolume(tickerData.quoteVolume || 0) : null,
         rawVolume: tickerData.quoteVolume || 0,
         isPositive: (tickerData.change || 0) >= 0,
-        isTrending: market.isTrending || false,
-        isHot: market.isHot || false,
-        isEco,
-        metadata: market.metadata || { precision: { price: 2, amount: 2 } },
         hasData,
       };
     });

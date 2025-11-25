@@ -83,12 +83,14 @@ export default async function handler(data: {
     });
   }
 
-  const transaction = await sequelize.transaction();
+  let transaction;
 
   try {
+    transaction = await sequelize.transaction();
+
     // 1. Find and lock the offer
     const offer = await models.p2pOffer.findOne({
-      where: { 
+      where: {
         id,
         status: "ACTIVE",
         userId: { [Op.ne]: user.id } // Can't trade with yourself
@@ -110,36 +112,33 @@ export default async function handler(data: {
     });
 
     if (!offer) {
-      await transaction.rollback();
-      throw createError({ 
-        statusCode: 404, 
-        message: "Offer not found or unavailable" 
+      throw createError({
+        statusCode: 404,
+        message: "Offer not found or unavailable"
       });
     }
 
     // 2. Validate amount against offer limits
     const { min, max, total } = offer.amountConfig;
     if (amount < (min || 0) || amount > (max || total) || amount > total) {
-      await transaction.rollback();
-      throw createError({ 
-        statusCode: 400, 
-        message: `Amount must be between ${min || 0} and ${Math.min(max || total, total)}` 
+      throw createError({
+        statusCode: 400,
+        message: `Amount must be between ${min || 0} and ${Math.min(max || total, total)}`
       });
     }
 
     // 3. Verify payment method is allowed
     const allowedPaymentMethodIds = offer.paymentMethods.map((pm: any) => pm.id);
     if (!allowedPaymentMethodIds.includes(paymentMethodId)) {
-      await transaction.rollback();
-      throw createError({ 
-        statusCode: 400, 
-        message: "Selected payment method not allowed for this offer" 
+      throw createError({
+        statusCode: 400,
+        message: "Selected payment method not allowed for this offer"
       });
     }
 
     // 4. Verify user's payment method exists
     const userPaymentMethod = await models.p2pPaymentMethod.findOne({
-      where: { 
+      where: {
         id: paymentMethodId,
         userId: user.id,
         available: true
@@ -148,10 +147,9 @@ export default async function handler(data: {
     });
 
     if (!userPaymentMethod) {
-      await transaction.rollback();
-      throw createError({ 
-        statusCode: 400, 
-        message: "Invalid or unavailable payment method" 
+      throw createError({
+        statusCode: 400,
+        message: "Invalid or unavailable payment method"
       });
     }
 
@@ -160,52 +158,70 @@ export default async function handler(data: {
     const buyerId = isBuyOffer ? offer.userId : user.id;
     const sellerId = isBuyOffer ? user.id : offer.userId;
 
-    // 6. Lock seller's balance
-    const sellerWallet = await getWalletSafe(
-      sellerId, 
-      offer.walletType, 
-      offer.currency
-    );
+    // 6. Lock seller's balance (only for non-FIAT wallets)
+    // Note: FIAT transfers happen peer-to-peer off-platform, so we don't escrow FIAT
+    // We only escrow crypto (SPOT/ECO wallets)
+    if (offer.walletType !== "FIAT") {
+      const sellerWallet = await getWalletSafe(
+        sellerId,
+        offer.walletType,
+        offer.currency
+      );
 
-    if (!sellerWallet) {
-      await transaction.rollback();
-      throw createError({ 
-        statusCode: 400, 
-        message: "Seller wallet not found" 
+      if (!sellerWallet) {
+        throw createError({
+          statusCode: 400,
+          message: "Seller wallet not found"
+        });
+      }
+
+      const availableBalance = sellerWallet.balance - sellerWallet.inOrder;
+      if (availableBalance < amount) {
+        throw createError({
+          statusCode: 409,
+          message: "Insufficient seller balance"
+        });
+      }
+
+      // Update wallet to lock the amount
+      await sellerWallet.update({
+        inOrder: sellerWallet.inOrder + amount
+      }, { transaction });
+
+      // Audit log for balance locking
+      await createP2PAuditLog({
+        userId: sellerId,
+        eventType: P2PAuditEventType.FUNDS_LOCKED,
+        entityType: "WALLET",
+        entityId: sellerWallet.id,
+        metadata: {
+          offerId: offer.id,
+          amount,
+          currency: offer.currency,
+          previousInOrder: sellerWallet.inOrder - amount,
+          newInOrder: sellerWallet.inOrder,
+          availableBalance: availableBalance - amount,
+          initiatedBy: user.id,
+        },
+        riskLevel: P2PRiskLevel.HIGH,
+      });
+    } else {
+      // For FIAT trades, we don't lock funds but still create audit log
+      await createP2PAuditLog({
+        userId: sellerId,
+        eventType: P2PAuditEventType.TRADE_INITIATED,
+        entityType: "TRADE",
+        entityId: offer.id,
+        metadata: {
+          offerId: offer.id,
+          amount,
+          currency: offer.currency,
+          note: "FIAT trade - no escrow required, payment sent directly peer-to-peer",
+          initiatedBy: user.id,
+        },
+        riskLevel: P2PRiskLevel.MEDIUM,
       });
     }
-
-    const availableBalance = sellerWallet.balance - sellerWallet.inOrder;
-    if (availableBalance < amount) {
-      await transaction.rollback();
-      throw createError({ 
-        statusCode: 409, 
-        message: "Insufficient seller balance" 
-      });
-    }
-
-    // Update wallet to lock the amount
-    await sellerWallet.update({
-      inOrder: sellerWallet.inOrder + amount
-    }, { transaction });
-    
-    // Audit log for balance locking
-    await createP2PAuditLog({
-      userId: sellerId,
-      eventType: P2PAuditEventType.FUNDS_LOCKED,
-      entityType: "WALLET",
-      entityId: sellerWallet.id,
-      metadata: {
-        offerId: offer.id,
-        amount,
-        currency: offer.currency,
-        previousInOrder: sellerWallet.inOrder - amount,
-        newInOrder: sellerWallet.inOrder,
-        availableBalance: availableBalance - amount,
-        initiatedBy: user.id,
-      },
-      riskLevel: P2PRiskLevel.HIGH,
-    });
 
     // 7. Calculate fees
     const { calculateTradeFees, calculateEscrowFee } = await import("../../utils/fees");
@@ -317,13 +333,25 @@ export default async function handler(data: {
     };
 
   } catch (error: any) {
-    await transaction.rollback();
-    
+    // Only rollback if transaction exists and hasn't been committed/rolled back
+    if (transaction) {
+      try {
+        if (!transaction.finished) {
+          await transaction.rollback();
+        }
+      } catch (rollbackError: any) {
+        // Ignore rollback errors if transaction is already finished
+        if (!rollbackError.message?.includes("already been finished")) {
+          console.error("Transaction rollback failed:", rollbackError.message);
+        }
+      }
+    }
+
     // If it's already a createError, rethrow it
     if (error.statusCode) {
       throw error;
     }
-    
+
     // Otherwise, wrap it in a generic error
     throw createError({
       statusCode: 500,

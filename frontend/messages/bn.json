@@ -150,19 +150,6 @@
     "top_up": "টপ আপ",
     "total_equity": "মোট ইক্যুইটি:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "যুক্ত",
-    "All": "সব",
-    "Binary": "বাইনারি",
-    "Favorites": "পছন্দের",
-    "Hot": "হট",
-    "Loading": "লোড হচ্ছে",
-    "Market": "বাজার",
-    "Trending": "ট্রেন্ডিং",
-    "active_markets": "সক্রিয় বাজার",
-    "no_markets_found": "কোনো বাজার পাওয়া যায়নি",
-    "try_adjusting_your_search": "আপনার অনুসন্ধান সামঞ্জস্য করার চেষ্টা করুন"
-  },
   "binary/components/header/market-selector": {
     "Added": "যুক্ত",
     "Connecting": "সংযোগ",
@@ -179,6 +166,19 @@
     "no_markets_found": "কোন বাজার পাওয়া যায়নি",
     "select": "নির্বাচন করুন",
     "try_adjusting_your_different_categories": "আপনার অনুসন্ধান সামঞ্জস্য করার চেষ্টা করুন বা বিভিন্ন বিভাগ ব্রাউজ করুন"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "যুক্ত",
+    "All": "সব",
+    "Binary": "বাইনারি",
+    "Favorites": "পছন্দের",
+    "Hot": "হট",
+    "Loading": "লোড হচ্ছে",
+    "Market": "বাজার",
+    "Trending": "ট্রেন্ডিং",
+    "active_markets": "সক্রিয় বাজার",
+    "no_markets_found": "কোনো বাজার পাওয়া যায়নি",
+    "try_adjusting_your_search": "আপনার অনুসন্ধান সামঞ্জস্য করার চেষ্টা করুন"
   },
   "binary/components/header/mobile-header": {
     "balance": "ভারসাম্য:"
@@ -1150,13 +1150,6 @@
     "Image": "প্রতিচ্ছবি",
     "Images": "প্রতিচ্ছবি",
     "Important": "গুরুত্বপূর্ণ",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "উন্নতি",
     "Inactive": "নিষ্ক্রিয়",
     "Insights": "অন্তর্দৃষ্টি",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "আপনার কাছে মোট আছে",
     "you_havent_created_any_api_keys_yet": "আপনি এখনও কোনও API কী তৈরি করেন নি",
     "you_havent_saved_any_sections_yet": "আপনি এখনও কোনও বিভাগ সংরক্ষণ করেন নি",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "এক্সটেনশনটি সক্ষম করার আগে আপনাকে সর্বশেষতম সংস্করণে সক্রিয় এবং ইনস্টল করতে হবে",
     "youll_be_redirected_to_the_login_page_after_logout": "লগআউট করার পরে আপনাকে লগইন পৃষ্ঠায় পুনঃনির্দেশিত করা হবে",
     "youll_need_it_log_in": "আপনি যখনই লগ ইন করবেন তখন যাচাইকরণ কোডগুলি পেতে আপনার এটির প্রয়োজন হবে",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• মাইগ্রেশন অপারেশন একবার সম্পন্ন হলে অপরিবর্তনীয়",
     "•_monitor_system_data_migrations": "• বড় ডেটা মাইগ্রেশনের ���ময় সিস্টেমের কর্মক্ষমতা পর্যবেক্ষণ করুন",
     "•_some_operations_maintenance_mode": "• কিছু অপারেশন সিস্টেম রক্ষণাবেক্ষণ মোড প্রয়োজন হতে পারে",
-    "•_using_fallback_mode": "• ফলব্যাক মোড ব্যবহার করে"
+    "•_using_fallback_mode": "• ফলব্যাক মোড ব্যবহার করে",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "হোমপেজে যান",
@@ -2543,7 +2543,7 @@
     "the_page_you_removed_had": "আপনি যে পাতাটি খুঁজছেন তা হয়তো অপসারণ করা হতো"
   },
   "ext": {
-    "#affiliate_#rewards": "#affiliate #rewards",
+    "#affiliate_#rewards": "#অ্যাফিলিয়েট #পুরস্কার",
     "%_actual_apr": "% প্রকৃত এপিআর",
     "%_apr_is_market_conditions": "% এপিআর নিশ্চিত নয় এবং বাজার পরিস্থিতির উপর ভিত্তি করে সমন্বয় করা হতে পারে",
     "%_apr_on_your_staked": "% APR আপনার স্টেক করা",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "এমন একটি বিশ্ব যেখানে উদ্ভাবনী প্রকল্পগুলি সহজেই মূলধন অ্যাক্সেস করতে পারে এবং বিনিয়োগকারীরা আস্থা এবং সুরক্ষার সাথে সুযোগগুলিতে অংশ নিতে পারে",
     "accept_offers_that_match_your_needs": "আপনার প্রয়োজনের সাথে মেলে এমন অফারগুলি গ্রহণ করুন",
     "accepted_methods": "স্বীকৃত পদ্ধতি",
-    "access_denied": "Access Denied",
+    "access_denied": "প্রবেশাধিকার অস্বীকৃত",
     "access_institutional-grade_forex_serious_investors": "উন্নত অ্যালগরিদম, পেশাদার ঝুঁকি ব্যবস্থাপনা এবং গুরুতর বিনিয়োগকারীদের জন্য সামঞ্জস্যপূর্ণ রিটার্ন সহ প্রাতিষ্ঠানিক-গ্রেড ফরেক্স ট্রেডিং অ্যাক্সেস করুন",
     "access_to_marketing_support_and_security_audits": "বিপণন সহায়তা এবং নিরাপত্তা নিরীক্ষা অ্যাক্সেস",
     "account": "একাউন্ট:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "নতুন সংযুক্তি যোগ করুন",
     "add_note": "নোট যোগ করুন",
     "add_notes_and_terms_for_this_offer": "এই অফারের জন্য নোট এবং শর্তাদি যোগ করুন",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "পেমেন্ট পদ্ধতি যোগ করুন",
     "add_phase": "পর্ব যোগ করুন",
     "add_plan": "পরিকল্পনা যোগ করুন",
     "add_roadmap_item": "রোডম্যাপ আইটেম যুক্ত করুন",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "উচ্চ-মূল্যের NFT লেনদেনের জন্য অতিরিক্ত যাচাইকরণ প্রয়োজনীয়তা",
     "address": "ঠিকানা:",
     "adjust_amount": "অর্থরাশি সামঞ্জস্য করুন",
-    "admin": "Admin",
+    "admin": "অ্যাডমিন",
     "admin_actions": "এডমিন অ্যাকশন",
     "admin_actions_will_appear_here": "প্রশাসনের ক্রিয়াকলাপগুলি এখানে উপস্থিত হবে",
     "admin_activity": "অ্যাডমিন কার্যকলাপ",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "বিক্রয় এবং নতুন তালিকা স্বয়ংক্রিয়ভাবে পোস্ট করুন",
     "auto-release": "স্বয়ংক্রিয় মুক্তি:",
     "auto-verify_new_creators": "নতুন নির্মাতাদের স্বয়ংক্রিয়-যাচাই করুন",
+    "auto_approve_offers": "অফার স্বয়ংক্রিয়ভাবে অনুমোদন করুন",
     "auto_cancel": "স্বয়ংক্রিয় বাতিল",
     "auto_cancel_time_(minutes)": "স্বয়ংক্রিয় বাতিলের সময় (মিনিট)",
     "automatic_earnings_distribution": "স্বয়ংক্রিয় উপার্জন বিতরণ",
     "automatic_escrow_protection_for_all_funds": "সকল তহবিলের জন্য স্বয়ংক্রিয় এসক্রো সুরক্ষা",
     "automatic_release_after_no_dispute)": "পেমেন্ট নিশ্চিতকরণের 24 ঘন্টা পরে স্বয়ংক্রিয় মুক্তি (যদি কোনও বিতর্ক না থাকে)",
     "automatically_adjust_amount_to_meet_minimum": "ন্যূনতম পূরণ করতে পরিমাণ স্বয়ংক্রিয়ভাবে সামঞ্জস্য করুন",
+    "automatically_approve_new_and_edited_offers": "নতুন এবং সম্পাদিত অফার স্বয়ংক্রিয়ভাবে অনুমোদন করুন",
     "automatically_cancel_the_specified_time": "নির্দিষ্ট সময়ের মধ্যে কোনও প্রতিক্রিয়া না পেলে স্বয়ংক্রিয়ভাবে অফারটি বাতিল করুন",
     "automatically_cancel_trades_payment_window": "পেমেন্ট উইন্ডোর মধ্যে পেমেন্ট নিশ্চিত না হলে স্বয়ংক্রিয়ভাবে ট্রেডগুলি বাতিল করুন",
     "automatically_extend_auctions_when": "শেষের কাছাকাছি বিড রাখা হলে স্বয়ংক্রিয়ভাবে নিলাম বাড়ান",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "আপনার আমানত নিশ্চিত করুন",
     "confirm_your_withdrawal": "আপনার প্রত্যাহার নিশ্চিত করুন",
     "confirmed_at": "নিশ্চিত করা হয়েছে:",
-    "conflict": "Conflict",
+    "conflict": "দ্বন্দ্ব",
     "connect_with_traders_worldwide": "বিশ্বব্যাপী ব্যবসায়ীদের সাথে যোগাযোগ করুন",
     "connections": "কানেকশন",
     "consider_cliff_periods_for_team_tokens": "দলের টোকেনগুলির জন্য ক্লিফ পিরিয়ডগুলি বিবেচনা করুন",
@@ -3720,7 +3722,7 @@
     "discard_unsaved_changes": "অসংরক্ষিত পরিবর্তনগুলি পরিত্যাগ করবেন?",
     "discord_integration": "Discord একীকরণ",
     "discord_webhook_for_sending": "মার্কেটপ্লেস বিজ্ঞপ্তি পাঠানোর জন্য Discord webhook",
-    "discord_webhook_url": "Discord Webhook URL",
+    "discord_webhook_url": "ডিসকর্ড ওয়েবহুক URL",
     "discount_code": "ডিসকাউন্ট কোড",
     "discover_all_the_affiliate_program": "আমাদের অ্যাফিলিয়েট প্রোগ্রামের মাধ্যমে আপনি পুরষ্কার উপার্জন করতে পারেন এমন সমস্ত উপায় আবিষ্কার করুন",
     "discover_and_invest_our_platform": "আমাদের প্ল্যাটফর্মে সর্বশেষতম টোকেন অফারগুলি আবিষ্কার করুন ও বিনিয়োগ করুন",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "ট্রেডের সময় ক্রেতা এবং বিক্রেতার মধ্যে নিরাপদ যোগাযোগের জন্য এন্ড-টু-এন্ড এনক্রিপ্ট করা চ্যাট",
     "end_date": "সমাপ্তির তারিখ:",
     "end_of_term": "মেয়াদ সমাপ্তি",
+    "ended": "সমাপ্ত",
     "ending_soon": "শীঘ্রই শেষ",
     "enhance_multiple_faqs_ai-powered_improvements": "আমাদের এআই-চালিত উন্নতিগুলি ব্যবহার করে একাধিক প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী উন্নত করুন",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "মাত্র 0 এ শিল্পের সর্বনিম্ন ফি উপভোগ করুন",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "যে কোনও প্রয়োজনীয় রেফারেন্স নম্বর অন্তর্ভুক্ত করুন",
     "include_company_logo": "কোম্পানির লোগো অন্তর্ভুক্ত করুন",
     "include_the_trade_payment_description": "আপনার পেমেন্ট বিবরণে ট্রেড রেফারেন্স নম্বর অন্তর্ভুক্ত করুন",
-    "info": "Info",
+    "info": "তথ্য",
     "information_about_the_dispute": "বিতর্ক সম্পর্কে তথ্য",
     "information_about_the_disputed_trade": "বিতর্কিত বাণিজ্য সম্পর্কে তথ্য",
     "initial_holder": "প্রাথমিক হোল্ডার:",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "এই বিরোধ সম্পর্কে অভ্যন্তরীণ নোট",
     "internal_notes_about_this_offer": "এই অফার সম্পর্কে ইন্টারনাল নোট",
     "internal_notes_about_this_position": "এই অবস্থান সম্পর্কে অভ্যন্তরীণ নোট",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "অবৈধ অনুরোধ",
     "invest_in": "বিনিয়োগ করুন",
     "invest_in_this_offering": "এই অফারে বিনিয়োগ করুন",
     "invest_more": "আরও বিনিয়োগ করুন",
@@ -4326,6 +4329,7 @@
     "live_preview": "লাইভ প্রিভিউ",
     "load_id": "লোড আইডি:",
     "load_more": "আরও লোড করুন",
+    "loading": "লোড হচ্ছে",
     "loading_activity_data": "ক্রিয়াকলাপের ডেটা লোড হচ্ছে",
     "loading_affiliate_data": "অ্যাফিলিয়েট ডেটা লোড হচ্ছে",
     "loading_analytics_data": "অ্যানালিটিক্স ডেটা লোড হচ্ছে",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "আপনার টোকেন অফারগুলি পরিচালনা ও নিরীক্ষণ করুন",
     "manage_and_track_your_referred_users": "আপনার রেফার করা ব্যবহারকারীদের পরিচালনা এবং ট্র্যাক করুন",
     "manage_conditions": "শর্তাবলী পরিচালনা করুন",
+    "manage_rewards": "পুরস্কার পরিচালনা করুন",
     "manage_the_blockchains_token_launches": "টোকেন লঞ্চের জন্য উপলব্ধ ব্লকচেইনগুলি পরিচালনা করুন",
     "manage_this_trade": "এই ট্রেডটি পরিচালনা করুন",
     "manage_token_release": "টোকেন রিলিজ পরিচালনা করুন",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "গত 6 মাসের জন্য মাসিক উপার্জন",
     "monthly_faq_views_for_the_current_year": "বর্তমান বছরের জন্য মাসিক FAQ মতামত",
     "monthly_growth_rate_(%)": "মাসিক বৃদ্ধির হার (%)",
+    "monthly_growth_rate_tooltip": "প্রত্যাশিত গড় মাসিক মূল্য বৃদ্ধির হার। ধনাত্মক মান মূল্য বৃদ্ধি নির্দেশ করে, ঋণাত্মক মান অবমূল্যায়ন নির্দেশ করে। সাধারণ পরিসীমা: -৫০% থেকে +৫০%",
     "monthly_profit": "মাসিক মুনাফা",
     "more": "আরও",
     "most_common_search_terms_used_by_your_users": "আপনার ব্যবহারকারীদের দ্বারা ব্যবহৃত সর্বাধিক সাধারণ অনুসন্ধান পদগুলি",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "কোনো সতর্কতা খুঁজে পাওয়া যায়নি",
     "no_withdrawal_methods_available_for_this_currency": "এই মুদ্রার জন্য কোনো উত্তোলন পদ্ধতি উপলব্ধ নেই",
     "not_available_for_this_chain": "এই চেইনের জন্য উপলব্ধ নয়",
-    "not_found": "Not Found",
+    "not_found": "খুঁজে পাওয়া যায়নি",
     "not_helpful": "সহায়ক নয়",
+    "not_started": "শুরু হয়নি",
     "not_submitted": "জমা দেওয়া হয়নি",
     "notes_and_comments_about_this_transaction": "এই লেনদেন সম্পর্কে নোট এবং মন্তব্য",
     "now_accepting_bitcoin_ethereum_&_more": "এখন বিটকয়েন, ইথেরিয়াম এবং আরও অনেক কিছু গ্রহণ করছে",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "অফার পাওয়া যায়নি অথবা এটি সম্পাদনা করার অনুমতি আপনার নেই",
     "offer_status": "অফারের অবস্থা",
     "offer_type": "অফারের ধরন",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "অফার উপলব্ধ নয়",
     "offer_updated_successfully_and_is_pending_approval": "অফার সফলভাবে আপডেট করা হয়েছে এবং অনুমোদনের অপেক্ষায় রয়েছে",
     "offer_visibility": "দৃশ্যমানতা অফার করুন",
     "offering": "অফার:",
@@ -4791,7 +4798,7 @@
     "password": "পাসওয়ার্ড",
     "pay_with_confidence_processing_system": "আমাদের নিরাপদ পেমেন্ট প্রসেসিং সিস্টেম ব্যবহার করে আত্মবিশ্বাসের সাথে প্রদান করুন",
     "pay_within_time_limit": "সময়সীমার মধ্যে প্রদান করুন",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "পেমেন্ট কার্যক্রম",
     "payment_completed_successfully": "পেমেন্ট সফলভাবে সম্পন্ন হয়েছে!",
     "payment_confirmed": "পেমেন্ট কনফার্ম করা হয়েছে",
     "payment_details": "পেমেন্ট বিবরণ",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "পেমেন্ট নির্দেশাবলী",
     "payment_marked_as_sent": "প্রদান প্রেরিত হিসাবে চিহ্নিত হয়েছে",
     "payment_method": "পেমেন্ট মেথড:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "পেমেন্ট পদ্ধতি প্রয়োজন",
     "payment_methods": "পেমেন্ট পদ্ধতি",
     "payment_methods_summary": "পেমেন্ট মেথডের সারসংক্ষেপ",
     "payment_methods_you_prefer": "আপনার পছন্দের পেমেন্ট পদ্ধতি",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "আপনি এই প্রচারাভিযানে যে লক্ষ্যগুলি যুক্ত করতে চান দয়া করে তা নির্বাচন করুন",
     "please_send_payment_when_done": "দয়া করে নির্দিষ্ট অর্থ প্রদানের পদ্ধতিটি ব্যবহার করে বিক্রেতাকে অর্থ প্রদান প্রেরণ করুন ও কখন সম্পন্ন হবে তা নিশ্চিত করুন",
     "please_sign_in_to_view_your_shipping_details": "আপনার শিপিংয়ের বিশদ দেখতে দয়া করে সাইন ইন করুন",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "অনুগ্রহ করে ধীরে করুন",
     "please_try_again": "অনুগ্রহ করে আবার চেষ্টা করুন",
     "please_try_again_later": "অনুগ্রহ করে পরে আবার চেষ্টা করুন",
     "please_try_refreshing_the_page": "অনুগ্রহ করে পৃষ্ঠাটি রিফ্রেশ করার চেষ্টা করুন",
@@ -5351,13 +5358,14 @@
     "social_media_post": "সোশ্যাল মিডিয়া পোস্ট",
     "solana_(sol)": "সোলানা (এসওএল)",
     "sold": "বিক্রি",
+    "sold_out": "বিক্রি শেষ",
     "some_features_may_be_temporarily_unavailable": "কিছু বৈশিষ্ট্য অস্থায়ীভাবে অনুপলভ্য হতে পারে",
     "some_pools_distribute_staking_period": "কিছু পুল প্রতিদিন পুরষ্কার বিতরণ করে, অন্যরা সাপ্তাহিক, মাসিক বা স্টেকিং পিরিয়ডের শেষে এটি করে",
     "some_pools_offer_higher_returns": "কিছু পুল অটো-কম্পাউন্ডিং অফার করে, যা স্বয়ংক্রিয়ভাবে আপনার অর্জিত পুরষ্কারগুলি আরও বেশি রিটার্ন তৈরি করতে পুনরায় বিনিয়োগ করে",
     "some_pools_offer_your_rewards": "কিছু পুল অটো-কম্পাউন্ডিং অফার করে, যা স্বয়ংক্রিয়ভাবে আপনার পুরষ্কারগুলি পুনরায় বিনিয়োগ করে",
     "some_settings_like_launch_plans": "দলের সদস্য এবং রোডম্যাপ আইটেমের সীমার মতো কিছু সেটিংস এখন লঞ্চ পরিকল্পনা দ্বারা নিয়ন্ত্রিত হয়",
     "some_trade_features_are_currently_disabled": "কিছু বাণিজ্য বৈশিষ্ট্য বর্তমানে নিষ্ক্রিয় করা আছে:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "কিছু ভুল হয়েছে",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "দুঃখিত, আপনি যে পৃষ্ঠাটি খুঁজছেন তা আমরা খুঁজে পাইনি",
     "sort_by": "সাজান",
     "source_code_verification": "সোর্স কোড যাচাইকরণ",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "আমাদের নিউজলেটার সাবস্ক্রাইব করুন",
     "subtotal": "সাবটোটাল:",
     "subtotal_(": "সাবটোটাল (",
-    "success": "Success",
+    "success": "সফল",
     "success_rate": "সাফল্যের হার",
     "successful_offerings": "সফল অফার",
     "successful_trades": "সফল ট্রেড:",
@@ -5658,7 +5666,7 @@
     "tokens": "টোকেন",
     "tokens_for_sale": "বিক্রয়ের জন্য টোকেন",
     "tokens_to_receive": "প্রাপ্ত টোকেন:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "অনেক বেশি অনুরোধ",
     "top-performing_staking_pools": "শীর্ষস্থানীয় পারফর্মিং স্টেকিং পুল",
     "top_performing_affiliates": "শীর্ষস্থানীয় পারফর্মিং অ্যাফিলিয়েট",
     "top_performing_faqs": "শীর্ষস্থানীয় সম্পাদনকারী প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "বাণিজ্য বিবরণ এই মুহুর্তে অ্যাক্সেসযোগ্য নয়",
     "trade_details_are_temporarily_unavailable": "বাণিজ্যের বিবরণ অস্থায়ীভাবে অনুপলব্ধ",
     "trade_disputed": "বাণিজ্য বিতর্ক",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "ট্রেডের মেয়াদ শেষ",
     "trade_history_requirements": "বাণিজ্য ইতিহাসের প্রয়োজনীয়তা",
     "trade_id": "ট্রেড আইডি",
     "trade_information": "বাণিজ্য তথ্য",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "ভেনমো মোবাইল পেমেন্ট",
     "verification_badges": "যাচাইকরণ ব্যাজ",
     "verification_badges_help_users": "যাচাইকরণ ব্যাজ ব্যবহারকারীদের বিশ্বস্ত নির্মাতা এবং প্রামাণিক সংগ্রহ চিহ্নিত করতে সাহায্য করে। এগুলি প্রোফাইল, তালিকা এবং অনুসন্ধান ফলাফলে প্রদর্শিত হয়।",
-    "verification_required": "Verification Required",
+    "verification_required": "যাচাইকরণ প্রয়োজন",
     "verification_settings_affect_marketplace": "যাচাইকরণ সেটিংস মার্কেটপ্লেস বিশ্বাস এবং সম্মতি প্রভাবিত করে। আপনার এখতিয়ারের প্রয়োজনীয়তা বিবেচনা করুন।",
     "verified_only": "শুধুমাত্র যাচাই করা হয়েছে",
     "verified_project_teams_and_offerings": "যাচাইকৃত প্রকল্প দল এবং অফার",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "শুধুমাত্র ভেরিফাইড ট্রেডার",
     "verified_users_have_verification_process": "যাচাইকৃত ব্যবহারকারীরা আমাদের পরিচয় যাচাইকরণ প্রক্রিয়া সম্পন্ন করেছেন",
     "verify_&_approve_transaction": "লেনদেন যাচাই ও অনুমোদন করুন",
-    "verify_account": "Verify Account",
+    "verify_account": "অ্যাকাউন্ট যাচাই করুন",
     "verify_payment_and_release_funds": "পেমেন্ট যাচাই করুন এবং তহবিল ছাড়ুন",
     "verify_payment_before_releasing": "রিলিজ করার আগে পেমেন্ট যাচাই করুন",
     "verify_payment_first": "প্রথমে পেমেন্ট ভেরিফাই করুন",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "আপনার অ্যাফিলিয়েট নেটওয়ার্ক কাঠামোটি ভিজ্যুয়ালাইজ এবং পরিচালনা করুন",
     "visualize_distribution_vesting_token_launch": "আপনার টোকেন লঞ্চটি অপ্টিমাইজ করতে বিতরণ, ন্যস্ত সময়সূচী এবং বাজারের অনুমানগুলি ভিজ্যুয়ালাইজ করুন",
     "volatility_(%)": "উদ্বায়ীতা (%)",
+    "volatility_tooltip": "প্রত্যাশিত মূল্য ওঠানামার পরিসীমা। উচ্চ অস্থিরতা মানে বড় মূল্য পরিবর্তন। ০% মানে স্থিতিশীল মূল্য, ১০০% মানে চরম মূল্য পরিবর্তন।",
     "volume": "ভলিউম:",
     "volume_(btc)": "ভলিউম (বিটিসি)",
     "vs": "বনাম",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "তুমি কি করতে চাও?",
     "what_would_you_like_to_do_next": "আপনি এরপর কি করতে চান?",
     "when_a_trade_into_escrow": "যখন একটি ট্রেড শুরু হয়, আপনাকে এসক্রোতে ক্রিপ্টোকারেন্সি জমা দিতে হবে:",
+    "when_disabled_offers_require_admin_moderation": "নিষ্ক্রিয় করা হলে অফারগুলির জন্য অ্যাডমিন মডারেশন প্রয়োজন",
     "when_disabled_users_can_only_take_existing_offers": "অক্ষম থাকলে, ব্যবহারকারীরা কেবল বিদ্যমান অফারগুলি নিতে পারবেন",
     "when_disabled_users_cannot_access_p2p_features": "অক্ষম থাকলে, ব্যবহারকারীরা পি 2 পি বৈশিষ্ট্যগুলি অ্যাক্সেস করতে পারবেন না",
     "when_disabled_users_cannot_create_custom_payment_methods": "যখন নিষ্ক্রিয় থাকে, ব্যবহারকারীরা কাস্টম পেমেন্ট পদ্ধতি তৈরি করতে পারে না",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "আপনি এখনও কোনও ট্রেড সম্পন্ন করেন নি",
     "you_havent_distributed_any_earnings_yet": "আপনি এখনও কোনও উপার্জন বিতরণ করেননি",
     "you_might_want_question_directly": "আপনি আমাদের অনুসন্ধান চেষ্টা করতে পারেন বা সরাসরি একটি প্রশ্ন জিজ্ঞাসা করতে পারেন",
+    "you_must_be_logged_in_to_access_the_dashboard": "ড্যাশবোর্ড অ্যাক্সেস করতে আপনাকে লগ ইন করতে হবে",
     "you_must_be_logged_in_to_ask_a_question": "একটি প্রশ্ন জিজ্ঞাসা করার জন্য আপনাকে অবশ্যই লগ ইন করতে হবে",
     "you_need": "তোমার চাই",
     "you_need_to_a_review": "আপনি একটি পর্যালোচনা লিখতে পারেন আগে আপনি এই পণ্য কিনতে হবে",
@@ -6207,10 +6218,74 @@
     "•_lock_period": "• লক পিরিয়ড:",
     "•_trade_dispute_resolution_is_unavailable": "• বাণিজ্য বিরোধ নিষ্পত্তি অনুপলব্ধ",
     "✓_purchased": "✓ ক্রয়",
-    "not_started": "Not Started",
-    "ended": "Ended",
-    "sold_out": "Sold Out",
-    "manage_rewards": "Manage Rewards"
+    "Configure NFT metadata requirements": "NFT মেটাডেটা প্রয়োজনীয়তা কনফিগার করুন",
+    "Configure platform and creator fees": "প্ল্যাটফর্ম এবং নির্মাতা ফি কনফিগার করুন",
+    "Fixed fee to create a listing (0 = free)": "একটি লিস্টিং তৈরি করতে নির্দিষ্ট ফি (0 = বিনামূল্যে)",
+    "High-Value Threshold (USD)": "উচ্চ মূল্যের থ্রেশহোল্ড (USD)",
+    "Listing Fee (Optional)": "লিস্টিং ফি (ঐচ্ছিক)",
+    "Marketplace Fee (%)": "মার্কেটপ্লেস ফি (%)",
+    "Marketplace Fees": "মার্কেটপ্লেস ফি",
+    "Maximum Royalty (%)": "সর্বোচ্চ রয়্যালটি (%)",
+    "Maximum royalty creators can set (0-50%)": "নির্মাতারা যে সর্বোচ্চ রয়্যালটি সেট করতে পারেন (0 50%)",
+    "Metadata & IPFS": "মেটাডেটা এবং IPFS",
+    "Percentage fee charged on each sale (0-10%)": "প্রতিটি বিক্রয়ে চার্জ করা শতাংশ ফি (0 10%)",
+    "Require Metadata Validation": "মেটাডেটা যাচাইকরণ প্রয়োজন",
+    "Validate IPFS metadata URLs before accepting NFT listings": "NFT লিস্টিং গ্রহণ করার আগে IPFS মেটাডেটা URL যাচাই করুন",
+    "are_you_sure_you_want_to_remove_this_offer": "আপনি কি নিশ্চিত যে আপনি এই অফারটি সরাতে চান",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "মূল্য এবং পরিমাণ সেটিংসের পরিবর্তনগুলি কার্যকর হওয়ার আগে অ্যাডমিনের অনুমোদনের প্রয়োজন হতে পারে",
+    "create_your_first_offer": "আপনার প্রথম অফার তৈরি করুন",
+    "dynamic_price_(market_based)": "গতিশীল মূল্য (বাজার ভিত্তিক)",
+    "edit": "সম্পাদনা করুন",
+    "enter_your_fixed_price": "আপনার নির্দিষ্ট মূল্য লিখুন",
+    "failed_to_remove_offer": "অফার সরাতে ব্যর্থ",
+    "limit": "সীমা",
+    "market_price_offset_(%)": "বাজার মূল্য অফসেট (%)",
+    "max_trade_amount": "সর্বোচ্চ লেনদেনের পরিমাণ",
+    "maximum_amount": "সর্বোচ্চ পরিমাণ",
+    "maximum_limit": "সর্বোচ্চ সীমা",
+    "min_trade_amount": "ন্যূনতম লেনদেনের পরিমাণ",
+    "minimum_amount": "ন্যূনতম পরিমাণ",
+    "minimum_limit": "ন্যূনতম সীমা",
+    "my_offers": "আমার অফারসমূহ",
+    "no_recent_activity": "কোনো সাম্প্রতিক কার্যকলাপ নেই",
+    "note": "নোট",
+    "offer_removed": "অফার সরানো হয়েছে",
+    "positive_=_above_market,_negative_=_below_market": "ধনাত্মক = বাজারের উপরে, ঋণাত্মক = বাজারের নিচে",
+    "price_&_amount": "মূল্য এবং পরিমাণ",
+    "price_&_amount_settings": "মূল্য এবং পরিমাণ সেটিংস",
+    "pricing_model": "মূল্য নির্ধারণ মডেল",
+    "remove_offer": "অফার সরান",
+    "removing": "সরানো হচ্ছে",
+    "the_price_per_unit_of": "প্রতি ইউনিটের মূল্য",
+    "this_is_the_total_amount_for_this_trade": "এটি এই লেনদেনের মোট পরিমাণ",
+    "total_amount_available": "মোট উপলব্ধ পরিমাণ",
+    "total_available": "মোট উপলব্ধ",
+    "trading_limits": "ট্রেডিং সীমা",
+    "update_pricing_model_and_trading_limits": "মূল্য নির্ধারণ মডেল এবং ট্রেডিং সীমা আপডেট করুন",
+    "view": "দেখুন",
+    "you_dont_have_any_offers_yet": "আপনার এখনও কোনো অফার নেই",
+    "your_offer_has_been_successfully_removed": "আপনার অফারটি সফলভাবে সরানো হয়েছে",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "বাজারের ৫% উপরে"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "বাতিল",
@@ -6253,6 +6328,8 @@
     "network_fee": "নেটওয়ার্ক ফি",
     "new_balance": "নতুন ব্যালেন্স",
     "no_currencies_found": "এর জন্য কোনো মুদ্রা পাওয়া যায়নি",
+    "no_wallets_available": "কোনো ওয়ালেট উপলব্ধ নেই",
+    "no_wallets_available_description": "কোনো ওয়ালেট উপলব্ধ নেই বর্ণনা",
     "not_available": "উপলব্ধ নয়",
     "of": "এর",
     "pay_with": "দিয়ে পেমেন্ট করুন",
@@ -6346,6 +6423,8 @@
     "make_another_transfer": "আরেকটি স্থানান্তর করুন",
     "move_funds_between_another_user": "আপনার ওয়ালেটগুলির মধ্যে তহবিল সরান বা অন্য ব্যবহারকারীকে প্রেরণ করুন",
     "move_funds_between_your_different_wallet_types": "আপনার বিভিন্ন ওয়ালেট প্রকারের মধ্যে তহবিল সরান",
+    "no_wallets_available": "কোনো ওয়ালেট উপলব্ধ নেই",
+    "no_wallets_available_description": "কোনো ওয়ালেট উপলব্ধ নেই বর্ণনা",
     "processing_transfer": "প্রসেসিং ট্রান্সফার",
     "recipient_details": "প্রাপকের বিবরণ",
     "recipient_receives": "প্রাপক পাবেন:",
@@ -6385,17 +6464,17 @@
     "the_wallet_youre_to_it": "আপনি যে ওয়ালেটটি খুঁজছেন তার অস্তিত্ব নেই বা এতে আপনার অ্যাক্সেস নেই",
     "wallet_address": "ওয়ালেট ঠিকানা",
     "wallet_not_found": "ওয়ালেট খুঁজে পাওয়া যায়নি",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
-    "wallet_type_fiat": "Fiat",
-    "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
-    "wallet_type_futures": "Futures",
+    "wallet_type_ai_investment": "AI বিনিয়োগ",
+    "wallet_type_derivatives": "ডেরিভেটিভস",
+    "wallet_type_eco": "ইকো",
+    "wallet_type_fiat": "ফিয়াট",
+    "wallet_type_forex": "ফরেক্স",
+    "wallet_type_funding": "ফান্ডিং",
+    "wallet_type_futures": "ফিউচার",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
-    "wallet_type_spot": "Spot",
-    "wallet_type_staking": "Staking"
+    "wallet_type_spot": "স্পট",
+    "wallet_type_staking": "স্টেকিং"
   },
   "finance/wallet/client": {
     "add_funds": "তহবিল যোগ করুন",
@@ -6433,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(গ্রহণ করতে",
+    "Amount to Send (before network fees)": "পাঠানোর পরিমাণ (নেটওয়ার্ক ফি এর আগে)",
     "Free": "বিনামূল্যে",
+    "Platform Fee": "প্ল্যাটফর্ম ফি",
     "Processing": "প্রক্রিয়াকরণ",
     "Select": "নির্বাচন",
     "Withdraw": "প্রত্যাহার করুন",
@@ -6454,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "এতে উপলব্ধ ব্যালেন্স সহ কোনো মুদ্রা নেই",
     "no_currencies_with_balance_in_wallet_type": "ওয়ালেট টাইপে ব্যালেন্স সহ কোনো মুদ্রা নেই",
     "no_wallets_available": "কোনো ওয়ালেট উপলব্ধ নেই",
+    "no_wallets_available_description": "অ্যাডমিনিস্ট্রেটর দ্বারা সমস্ত ওয়ালেট প্রকার নিষ্ক্রিয় করা হয়েছে। অনুগ্রহ করে সহায়তার জন্য যোগাযোগ করুন বা পরে আবার চেক করুন।",
     "no_wallets_with_balance_for_withdrawal": "উত্তোলনের জন্য ব্যালেন্স সহ কোনো ওয়ালেট নেই",
     "no_withdrawal_methods": "কোনো উত্তোলন পদ্ধতি উপলব্ধ নেই",
     "no_withdrawal_methods_available": "কোনো উত্তোলন পদ্ধতি উপলব্ধ নেই",
@@ -6996,8 +7078,11 @@
     "create_nft": "NFT তৈরি করুন",
     "create_your_first_collection_to_organize_your_nfts": "আপনার NFTs সংগঠিত করতে আপনার প্রথম সংগ্রহ তৈরি করুন",
     "create_your_first_nft_to_get_started": "শুরু করতে আপনার প্রথম NFT তৈরি করুন",
+    "creator_dashboard": "সৃষ্টিকর্তা ড্যাশবোর্ড",
     "creator_hub": "ক্রিয়েটর হাব",
+    "creator_since": "সৃষ্টিকর্তা থেকে",
     "explore_nfts": "NFT অন্বেষণ করুন",
+    "failed_to_load_dashboard": "ড্যাশবোর্ড লোড করতে ব্যর্থ",
     "favorite_nfts": "পছন্দের NFTs",
     "manage_your_nfts_collections": "আপনার NFTs, সংগ্রহ এবং মার্কেটপ্লেস কার্যকলাপ পরিচালনা করুন",
     "my_collections": "আমার সংগ্রহসমূহ",
@@ -7008,6 +7093,7 @@
     "no_favorites_yet": "এখনও কোনো প্রিয় নেই",
     "no_nfts_yet": "এখনও কোন NFT নেই",
     "please_login_to_view_your_dashboard": "আপনার ড্যাশবোর্ড দেখতে দয়া করে লগইন করুন",
+    "please_sign_in_to_access_your_creator_dashboard": "আপনার সৃষ্টিকর্তা ড্যাশবোর্ড অ্যাক্সেস করতে অনুগ্রহ করে সাইন ইন করুন",
     "please_sign_in_to_view_your_nft_dashboard": "আপনার NFT ড্যাশবোর্ড দেখতে দয়া করে সাইন ইন করুন",
     "recent_activity": "সাম্প্রতিক কার্যকলাপ",
     "sign_in": "সাইন ইন",
@@ -7015,6 +7101,7 @@
     "total_nfts": "মোট NFTs",
     "total_value": "মোট মূল্য",
     "total_views": "মোট ভিউ",
+    "try_again": "আবার চেষ্টা করুন",
     "your_nft_activities_will_appear_here": "আপনার NFT কার্যকলাপগুলি এখানে প্রদর্শিত হবে"
   },
   "nft/details": {
@@ -7150,7 +7237,8 @@
     "sell_at_a_fixed_price": "একটি নির্দিষ্ট মূল্যে বিক্রয় করুন",
     "sell_to_highest_bidder": "সর্বোচ্চ দরদাতার কাছে বিক্রয় করুন",
     "start_time": "শুরুর সময়",
-    "starting_price": "শুরুর মূল্য"
+    "starting_price": "শুরুর মূল্য",
+    "Duration": "সময়কাল"
   },
   "nft/modals/offer": {
     "Cancel": "বাতিল",
@@ -7214,7 +7302,8 @@
     "token_details": "টোকেন বিবরণ",
     "token_id": "টোকেন ID",
     "token_standard": "টোকেন মান",
-    "view_on_explorer": "এক্সপ্লোরারে দেখুন"
+    "view_on_explorer": "এক্সপ্লোরারে দেখুন",
+    "browse_marketplace": "মার্কেটপ্লেস ব্রাউজ করুন"
   },
   "nft/user/profile": {
     "Activity": "কার্যকলাপ",
@@ -7631,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "লোড হচ্ছে",
-    "available": "উপলভ্য:"
+    "available": "উপলভ্য:",
+    "balance": "ব্যালেন্স",
+    "in_orders": "অর্ডারে রয়েছে"
   },
   "trade/components/trading/spot/index": {
     "Limit": "সীমা",
@@ -7648,7 +7739,10 @@
     "Price": "মূল্য",
     "Processing": "প্রক্রিয়াকরণ",
     "Sell": "বিক্রয়",
-    "Total": "মোট"
+    "Total": "মোট",
+    "Est": {
+      " Fee": " ফি"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "পরিমাণ",
@@ -7658,7 +7752,10 @@
     "estimated_total": "আনুমানিক মোট",
     "market_orders_execute_available_price": "বাজারের অর্ডারগুলি সর্বোত্তম উপলব্ধ মূল্যে অবিলম্বে কার্যকর হয়",
     "market_price": "বাজার মূল্য",
-    "the_final_execution_estimated_price": "চূড়ান্ত সম্পাদন মূল্য আনুমানিক মূল্য থেকে পৃথক হতে পারে"
+    "the_final_execution_estimated_price": "চূড়ান্ত সম্পাদন মূল্য আনুমানিক মূল্য থেকে পৃথক হতে পারে",
+    "Est": {
+      " Fee": " ফি"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "পরিমাণ",
@@ -7673,7 +7770,10 @@
     "stop_market_orders_is_reached": "স্টপ প্রাইস পৌঁছালে স্টপ মার্কেট অর্ডার মার্কেট অর্ডার হিসাবে কার্যকর হয়",
     "stop_price": "স্টপ প্রাইস",
     "the_order_will_available_price": "অর্ডারটি সর্বোত্তম উপলব্ধ মূল্যে পূরণ করা হবে",
-    "the_order_will_or_better": "অর্ডারটি সীমা মূল্যে বা আরও ভাল সময়ে পূরণ করা হবে"
+    "the_order_will_or_better": "অর্ডারটি সীমা মূল্যে বা আরও ভাল সময়ে পূরণ করা হবে",
+    "Est": {
+      " Fee": " ফি"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "* চিন্তা করবেন না, আমরা আপনাকে স্প্যাম করব না:)",
@@ -7687,5 +7787,553 @@
     "were_making_the_system_more_awesome": "আমরা সিস্টেমকে আরও চমৎকার করে তুলছি",
     "we’ll_be_back_shortly": "আমরা শীঘ্রই ফিরে আসব",
     "we’re_making_the_system_more_awesome": "আমরা সিস্টেমকে আরও চমৎকার করে তুলছি"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "লাভ ট্র্যাকিং, রাজস্ব প্রবাহ বিশ্লেষণ এবং ব্যাপক ব্যবসায়িক বুদ্ধিমত্তা ড্যাশবোর্ড সহ উন্নত আর্থিক অ্যানালিটিক্স।",
+        "title": "রাজস্ব বিশ্লেষণ"
+      },
+      "communication": {
+        "description": "বিজ্ঞপ্তি, ঘোষণা এবং ব্যবহারকারী বার্তা সিস্টেম সহ প্ল্যাটফর্ম যোগাযোগ ব্যবস্থাপনা।",
+        "title": "যোগাযোগ সরঞ্জাম"
+      },
+      "compliance": {
+        "description": "আইনি আনুগত্যের জন্য KYC প্রক্রিয়াকরণ, নথি যাচাইকরণ এবং পরিচয় ব্যবস্থাপনা সহ নিয়ন্ত্রক সম্মতি সরঞ্জাম।",
+        "title": "সম্মতি ও যাচাইকরণ"
+      },
+      "currencies": {
+        "description": "রিয়েল-টাইম বিনিময় হার, ট্রেডিং জোড়া কনফিগারেশন এবং বাজার ডেটা ইন্টিগ্রেশন সহ মাল্টি-কারেন্সি সমর্থন।",
+        "title": "মুদ্রা ব্যবস্থাপনা"
+      },
+      "dashboard": {
+        "description": "রিয়েল-টাইম বিশ্লেষণ, সিস্টেম স্বাস্থ্য পর্যবেক্ষণ এবং গুরুত্বপূর্ণ ব্যবস্থাপনা কার্যক্রমে দ্রুত অ্যাক্সেস সহ ব্যাপক প্রশাসনিক সংক্ষিপ্ত বিবরণ।",
+        "title": "ড্যাশবোর্ড"
+      },
+      "monitoring": {
+        "description": "লগিং, কর্মক্ষমতা মেট্রিক্স এবং স্বয়ংক্রিয় কাজ ব্যবস্থাপনা সহ ব্যাপক সিস্টেম পর্যবেক্ষণ।",
+        "title": "সিস্টেম পর্যবেক্ষণ"
+      },
+      "permissions": {
+        "description": "সমস্ত সিস্টেম ফাংশন এবং বৈশিষ্ট্য জুড়ে সূক্ষ্ম অ্যাক্সেস নিয়ন্ত্রণের জন্য বিস্তারিত অনুমতি ব্যবস্থাপনা।",
+        "title": "অনুমতি"
+      },
+      "roles": {
+        "title": "ব্যবহারকারী ভূমিকা",
+        "description": "কাস্টমাইজযোগ্য অনুমতি সেট এবং শ্রেণীবদ্ধ অ্যাক্সেস নিয়ন্ত্রণ কাঠামো সহ ব্যবহারকারী ভূমিকা তৈরি এবং পরিচালনা করুন।",
+        "permissions": {
+          "description": "প্ল্যাটফর্ম জুড়ে ব্যবহারকারী ভূমিকা সংজ্ঞায়িত করা, অনুমতি পরিচালনা এবং নিরাপত্তা নীতি বাস্তবায়নের জন্য উন্নত অ্যাক্সেস নিয়ন্ত্রণ সিস্টেম।",
+          "title": "ভূমিকা ও অনুমতি"
+        }
+      },
+      "support": {
+        "description": "অগ্রাধিকার ব্যবস্থাপনা, প্রতিক্রিয়া ট্র্যাকিং এবং গ্রাহক সন্তুষ্টি নিরীক্ষণ সহ সমন্বিত সহায়তা টিকিট সিস্টেম।",
+        "title": "গ্রাহক সহায়তা"
+      },
+      "users": {
+        "description": "উন্নত ফিল্টারিং, বাল্ক অপারেশন, প্রোফাইল ব্যবস্থাপনা এবং বিস্তারিত কার্যকলাপ ট্র্যাকিং সহ ব্যাপক ব্যবহারকারী ডাটাবেস।",
+        "title": "ব্যবহারকারী"
+      },
+      "affiliate": {
+        "system": {
+          "description": "কমিশন ট্র্যাকিং, পারফরমেন্স অ্যানালিটিক্স এবং স্বয়ংক্রিয় পেআউট সহ মাল্টি-লেভেল অ্যাফিলিয়েট প্রোগ্রাম।",
+          "title": "অ্যাফিলিয়েট প্রোগ্রাম"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "ডায়নামিক রিব্যালান্সিং এবং বাজার অবস্থার অভিযোজন সহ AI কৌশলের সময়সীমা কনফিগার করুন।",
+          "title": "কৌশলের সময়কাল"
+        },
+        "investment": {
+          "description": "মেশিন লার্নিং অ্যালগরিদম এবং স্বয়ংক্রিয় পোর্টফোলিও অপটিমাইজেশন সহ কৃত্রিম বুদ্ধিমত্তা-চালিত বিনিয়োগ ব্যবস্থাপনা।",
+          "title": "AI বিনিয়োগ"
+        },
+        "performance": {
+          "description": "মডেল নির্ভুলতা ট্র্যাকিং এবং কৌশল কার্যকারিতা মেট্রিক্স সহ এআই বিনিয়োগ কর্মক্ষমতা বিশ্লেষণ।",
+          "title": "এআই কর্মক্ষমতা"
+        },
+        "strategies": {
+          "description": "ব্যাকটেস্টিং, ঝুঁকি মূল্যায়ন এবং পারফরমেন্স অপটিমাইজেশন সহ মেশিন লার্নিং বিনিয়োগ কৌশল।",
+          "title": "AI কৌশল"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "API কী জীবনচক্র ব্যবস্থাপনা ব্যবহার পর্যবেক্ষণ, হার সীমাবদ্ধতা এবং তৃতীয় পক্ষ ইন্টিগ্রেশনের জন্য নিরাপত্তা নিয়ন্ত্রণ সহ।",
+          "title": "API ব্যবস্থাপনা"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "ঝুঁকি ব্যবস্থাপনা নিয়ন্ত্রণ সহ বাইনারি অপশনের জন্য ট্রেডিং সময়সীমা এবং পেআউট শতাংশ সেট করুন।",
+          "title": "ট্রেডিং সময়কাল"
+        },
+        "markets": {
+          "description": "সম্পদ জোড়া, ট্রেডিং প্যারামিটার এবং বাজার সময় সহ বাইনারি অপশন মার্কেট কনফিগার করুন।",
+          "title": "বাইনারি মার্কেট"
+        },
+        "orders": {
+          "description": "এক্সিকিউশন ট্র্যাকিং এবং সেটেলমেন্ট প্রসেসিং সহ বাইনারি অপশন অর্ডার পর্যবেক্ষণ এবং ব্যবস্থাপনা করুন।",
+          "title": "বাইনারি অর্ডার"
+        },
+        "trading": {
+          "description": "বাজার সেটআপ, সময়কাল ব্যবস্থাপনা এবং পেআউট কনফিগারেশন সহ বাইনারি অপশন ট্রেডিং সিস্টেম।",
+          "title": "বাইনারি অপশন"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "অডিট ট্রেইল, সম্মতি প্রতিবেদন এবং ফরেনসিক বিশ্লেষণ সরঞ্জাম সহ অপরিবর্তনীয় লেজার ব্যবস্থাপনা।",
+          "title": "ব্লকচেইন লেজার"
+        },
+        "networks": {
+          "description": "নোড পর্যবেক্ষণ, ঐকমত্য ট্র্যাকিং এবং নেটওয়ার্ক স্বাস্থ্য বিশ্লেষণ সহ মাল্টি-চেইন নেটওয়ার্ক ব্যবস্থাপনা।",
+          "title": "ব্লকচেইন নেটওয়ার্ক"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "লেখক প্রোফাইল, কন্টেন্ট শিডিউলিং, SEO অপটিমাইজেশন এবং এনগেজমেন্ট বিশ্লেষণ সহ সম্পূর্ণ ব্লগ ব্যবস্থাপনা।",
+          "title": "ব্লগ সিস্টেম"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "বিপণন, গ্রাহক সহায়তা এবং জ্ঞান ব্যবস্থাপনার জন্য প্রয়োজনীয় ব্যবসায়িক সরঞ্জাম।",
+          "title": "ব্যবসায়িক সরঞ্জাম"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "ব্লগ, মিডিয়া সম্পদ এবং গতিশীল ওয়েবসাইট কন্টেন্টের জন্য ব্যাপক কন্টেন্ট ব্যবস্থাপনা সিস্টেম।",
+          "title": "কন্টেন্ট"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "ব্লকচেইন ইন্টিগ্রেশন, ওয়ালেট সংযোগ এবং রিয়েল-টাইম বাজার ডেটা ফিড সহ ডিজিটাল সম্পদ ব্যবস্থাপনা।",
+          "title": "ক্রিপ্টোকারেন্সি"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "নিয়ন্ত্রক সম্মতি এবং বীমা কভারেজ সহ প্রাতিষ্ঠানিক কাস্টোডিয়াল ওয়ালেট পরিষেবা।",
+          "title": "কাস্টোডিয়াল সেবা"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "স্ট্যাটাস ট্র্যাকিং, পুনর্মিলন সরঞ্জাম এবং অডিট ক্ষমতা সহ ব্যাপক আমানত লেনদেন লগ।",
+          "title": "আমানত রেকর্ড"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "ড্র্যাগ-এন্ড-ড্রপ ইন্টারফেস, রেসপন্সিভ ডিজাইন সরঞ্জাম এবং ব্র্যান্ড কাস্টমাইজেশন বিকল্প সহ উন্নত ভিজ্যুয়াল পেজ বিল্ডার।",
+          "title": "পেজ বিল্ডার"
+        },
+        "customization": {
+          "description": "উন্নত ভিজ্যুয়াল সরঞ্জাম দিয়ে আপনার ওয়েবসাইটের চেহারা এবং ডিজাইন কাস্টমাইজ করুন।",
+          "title": "ডিজাইন"
+        },
+        "default": {
+          "editor": {
+            "description": "কোড এডিটর ইন্টারফেস সহ হোম, আইনি পৃষ্ঠা এবং লেআউট সহ ডিফল্ট ফ্রন্টএন্ড পৃষ্ঠাগুলি সম্পাদনা করুন।",
+            "title": "ডিফল্ট পেজ"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "ইনভেন্টরি ব্যবস্থাপনা, অর্ডার প্রক্রিয়াকরণ এবং মাল্টি-ভেন্ডর সমর্থন সহ সম্পূর্ণ বৈশিষ্ট্যযুক্ত ই-কমার্স প্ল্যাটফর্ম।",
+          "title": "ই-কমার্স প্ল্যাটফর্ম"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "AMM প্রোটোকল, লিকুইডিটি পুল এবং ইয়েল্ড ফার্মিং ইন্টিগ্রেশন সহ বিকেন্দ্রীকৃত বাজার ব্যবস্থাপনা।",
+          "title": "DeFi মার্কেট"
+        },
+        "orders": {
+          "description": "স্মার্ট চুক্তি ইন্টিগ্রেশন এবং বিকেন্দ্রীকৃত এক্সিকিউশন সহ ব্লকচেইন ইকোসিস্টেম ট্রেডিং অর্ডার।",
+          "title": "ইকোসিস্টেম অর্ডার"
+        },
+        "platform": {
+          "description": "ব্লকচেইন ইন্টিগ্রেশন, ডিফাই প্রোটোকল এবং স্মার্ট কন্ট্র্যাক্ট অটোমেশন সহ বিকেন্দ্রীকৃত ট্রেডিং ইকোসিস্টেম।",
+          "title": "ব্লকচেইন ইকোসিস্টেম"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "বিভাজন, ব্যক্তিগতকরণ এবং কর্মক্ষমতা ট্র্যাকিং সহ ইমেল প্রচারাভিযান তৈরি এবং ব্যবস্থাপনা করুন।",
+          "title": "ইমেইল ক্যাম্পেইন"
+        },
+        "marketing": {
+          "description": "অটোমেশন ওয়ার্কফ্লো, A/B পরীক্ষা এবং বিশ্লেষণ সহ পেশাদার ইমেল বিপণন প্ল্যাটফর্ম।",
+          "title": "ইমেইল মার্কেটিং"
+        },
+        "templates": {
+          "description": "রেসপন্সিভ ডিজাইন এবং ব্র্যান্ড কাস্টমাইজেশন বিকল্প সহ পেশাদার ইমেল টেমপ্লেট লাইব্রেরি।",
+          "title": "ইমেইল টেমপ্লেট"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "লিকুইডিটি প্রদানকারী, API কনফিগারেশন এবং কর্মক্ষমতা পর্যবেক্ষণ সহ এক্সচেঞ্জ ইন্টিগ্রেশন ব্যবস্থাপনা করুন।",
+          "title": "এক্সচেঞ্জ প্রদানকারী"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "ইনস্টলেশন, আপডেট, নির্ভরতা সমাধান এবং সামঞ্জস্যতা পরীক্ষা সহ এক্সটেনশন জীবনচক্র ব্যবস্থাপনা।",
+          "title": "এক্সটেনশন ম্যানেজার"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "বিনিময় হার পর্যবেক্ষণ, আঞ্চলিক সেটিংস এবং পেমেন্ট গেটওয়ে ইন্টিগ্রেশন সহ ঐতিহ্যবাহী মুদ্রা ব্যবস্থাপনা।",
+          "title": "ফিয়াট মুদ্রা"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "রাজস্ব বিশ্লেষণ, মুদ্রা ব্যবস্থাপনা, পেমেন্ট প্রসেসিং এবং লেনদেন তত্ত্বাবধান কভার করে ব্যাপক আর্থিক ব্যবস্থাপনা স্যুট।",
+          "title": "অর্থ"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "মেটাট্রেডার ইন্টিগ্রেশন, অ্যালগরিদমিক ট্রেডিং এবং প্রাতিষ্ঠানিক লিকুইডিটি সহ পেশাদার ফরেক্স ট্রেডিং।",
+          "title": "ফরেক্স ট্রেডিং"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "চুক্তি বিশেষ উল্লেখ, মার্জিন প্রয়োজনীয়তা এবং নিষ্পত্তি পদ্ধতি সহ ফিউচার মার্কেট কনফিগারেশন।",
+          "title": "ফিউচার মার্কেট"
+        },
+        "orders": {
+          "description": "মার্জিন ট্র্যাকিং এবং ঝুঁকি মূল্যায়ন সরঞ্জাম সহ ফিউচার চুক্তি অর্ডার ব্যবস্থাপনা।",
+          "title": "ফিউচার অর্ডার"
+        },
+        "platform": {
+          "description": "মার্জিন ব্যবস্থাপনা, ঝুঁকি নিয়ন্ত্রণ এবং প্রাতিষ্ঠানিক এক্সিকিউশন সহ পেশাদার ফিউচার ট্রেডিং প্ল্যাটফর্ম।",
+          "title": "ফিউচার ট্রেডিং"
+        },
+        "positions": {
+          "description": "P&L ট্র্যাকিং, মার্জিন কল এবং স্বয়ংক্রিয় ঝুঁকি ব্যবস্থাপনা সহ রিয়েল-টাইম অবস্থান পর্যবেক্ষণ।",
+          "title": "পজিশন ব্যবস্থাপনা"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "রেসপন্সিভ স্লাইডার, কল-টু-অ্যাকশন বোতাম এবং A/B পরীক্ষা ক্ষমতা সহ গতিশীল হোমপেজ কন্টেন্ট ব্যবস্থাপনা।",
+          "title": "হোমপেজ স্লাইডার"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "KYC ইন্টিগ্রেশন, স্মার্ট কন্ট্র্যাক্ট স্থাপনা এবং নিয়ন্ত্রক সম্মতি সহ ইনিশিয়াল কয়েন অফারিং প্ল্যাটফর্ম।",
+          "title": "টোকেন বিক্রয়"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "অনুমোদন ওয়ার্কফ্লো এবং সম্মতি পরীক্ষা সহ অ্যাকাউন্টের মধ্যে অভ্যন্তরীণ তহবিল স্থানান্তর ব্যবস্থাপনা করুন।",
+          "title": "অভ্যন্তরীণ স্থানান্তর"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "বিভিন্ন পণ্যের জন্য বিনিয়োগ সময়কাল, পরিপক্কতা সময়কাল এবং চক্রবৃদ্ধি সুদ গণনা কনফিগার করুন।",
+          "title": "বিনিয়োগের সময়কাল"
+        },
+        "extensions": {
+          "description": "AI-চালিত কৌশল, স্টেকিং পরিষেবা এবং টোকেনাইজেশন প্ল্যাটফর্ম সহ উন্নত বিনিয়োগ পণ্য।",
+          "title": "বিনিয়োগ পণ্য"
+        },
+        "history": {
+          "description": "ROI ট্র্যাকিং এবং পোর্টফোলিও ব্যবস্থাপনা অন্তর্দৃষ্টি সহ ব্যাপক বিনিয়োগ কর্মক্ষমতা বিশ্লেষণ।",
+          "title": "বিনিয়োগ বিশ্লেষণ"
+        },
+        "management": {
+          "description": "পরিকল্পনা তৈরি, কর্মক্ষমতা ট্র্যাকিং এবং পোর্টফোলিও তত্ত্বাবধান সরঞ্জাম সহ বিনিয়োগ পণ্য ব্যবস্থাপনা।",
+          "title": "বিনিয়োগ ব্যবস্থাপনা"
+        },
+        "plans": {
+          "description": "ঝুঁকি প্রোফাইল, রিটার্ন গণনা এবং মেয়াদ কনফিগারেশন সহ বিনিয়োগ পণ্য তৈরি এবং ব্যবস্থাপনা করুন।",
+          "title": "বিনিয়োগ পরিকল্পনা"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "AI-চালিত অনুসন্ধান এবং কন্টেন্ট অপটিমাইজেশন সহ ব্যাপক জ্ঞান ব্যবস্থাপনা সিস্টেম।",
+          "title": "জ্ঞান ভান্ডার"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "নথি যাচাইকরণ, ঝুঁকি মূল্যায়ন এবং অনুমোদন ওয়ার্কফ্লো সহ নো ইওর কাস্টমার আবেদন পর্যালোচনা এবং প্রক্রিয়া করুন।",
+          "title": "KYC আবেদন"
+        },
+        "levels": {
+          "description": "বিভিন্ন ব্যবহারকারী শ্রেণীর জন্য কাস্টমাইজযোগ্য প্রয়োজনীয়তা, সীমা এবং অ্যাক্সেস সুবিধা সহ যাচাইকরণ স্তর কনফিগার করুন।",
+          "title": "যাচাইকরণ স্তর"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "ডাটাবেস অপটিমাইজেশন, ক্যাশে ব্যবস্থাপনা এবং মাইগ্রেশন সরঞ্জাম সহ সিস্টেম রক্ষণাবেক্ষণ ইউটিলিটি।",
+          "title": "রক্ষণাবেক্ষণ সরঞ্জাম"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "ব্যাপক বিক্রেতা সরঞ্জাম এবং ক্রেতা সুরক্ষা সহ ই-কমার্স এবং ডিজিটাল মার্কেটপ্লেস প্ল্যাটফর্ম।",
+          "title": "মার্কেটপ্লেস সমাধান"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "মাল্টি-সিগনেচার নিরাপত্তা এবং কোল্ড স্টোরেজ ইন্টিগ্রেশন সহ এন্টারপ্রাইজ-গ্রেড মাস্টার ওয়ালেট ব্যবস্থাপনা।",
+          "title": "মাস্টার ওয়ালেট"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "সর্বোত্তম কর্মক্ষমতার জন্য ক্লাউড স্টোরেজ, ইমেজ অপটিমাইজেশন এবং CDN ইন্টিগ্রেশন সহ কেন্দ্রীভূত মিডিয়া ব্যবস্থাপনা।",
+          "title": "মিডিয়া লাইব্রেরি"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "মিন্টিং সরঞ্জাম, রয়্যালটি ব্যবস্থাপনা এবং নিলাম ক্ষমতা সহ পেশাদার NFT মার্কেটপ্লেস।",
+          "title": "NFT মার্কেটপ্লেস"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "মাল্টি-চ্যানেল ডেলিভারি এবং ব্যক্তিগতকরণ ভেরিয়েবল সহ কাস্টমাইজযোগ্য বিজ্ঞপ্তি টেমপ্লেট।",
+          "title": "বিজ্ঞপ্তি টেমপ্লেট"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "সমস্ত ট্রেডিং প্ল্যাটফর্ম এবং সম্পদ শ্রেণী জুড়ে কেন্দ্রীভূত অর্ডার প্রসেসিং এবং ব্যবস্থাপনা।",
+          "title": "অর্ডার ব্যবস্থাপনা"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "এসক্রো সেবা, বিরোধ নিষ্পত্তি এবং মাল্টি-পেমেন্ট গেটওয়ে সমর্থন সহ পিয়ার-টু-পিয়ার ট্রেডিং প্ল্যাটফর্ম।",
+          "title": "P2P এক্সচেঞ্জ"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "পেমেন্ট গেটওয়েগুলি জালিয়াতি সনাক্তকরণ, সম্মতি পরীক্ষা এবং কর্মক্ষমতা বিশ্লেষণ সহ কনফিগার এবং নিরীক্ষণ করুন।",
+          "title": "পেমেন্ট গেটওয়ে"
+        },
+        "methods": {
+          "description": "কার্ড, ব্যাংক স্থানান্তর, ডিজিটাল ওয়ালেট এবং ক্রিপ্টোকারেন্সি পেমেন্ট সহ উপলব্ধ পেমেন্ট বিকল্পগুলি পরিচালনা করুন।",
+          "title": "পেমেন্ট পদ্ধতি"
+        },
+        "systems": {
+          "description": "গেটওয়ে, পদ্ধতি এবং লেনদেন প্রক্রিয়াকরণ তত্ত্বাবধান সহ সম্পূর্ণ পেমেন্ট অবকাঠামো ব্যবস্থাপনা।",
+          "title": "পেমেন্ট সিস্টেম"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "ট্রেডিং, মার্কেটপ্লেস এবং ব্যবসায়িক পরিচালনার জন্য বিশেষায়িত কার্যকারিতা প্রদানকারী উন্নত প্ল্যাটফর্ম এক্সটেনশন।",
+          "title": "এক্সটেনশন"
+        },
+        "settings": {
+          "description": "ব্র্যান্ডিং, স্থানীয়করণ, নিরাপত্তা নীতি এবং ফিচার টগল সহ মূল প্ল্যাটফর্ম কনফিগারেশন।",
+          "title": "প্ল্যাটফর্ম সেটিংস"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "কাজ নিরীক্ষণ, ব্যর্থতা পরিচালনা এবং কর্মক্ষমতা অপ্টিমাইজেশন সহ স্বয়ংক্রিয় কাজ সময়সূচী।",
+          "title": "নির্ধারিত কাজ"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "রিয়েল-টাইম এক্সিকিউশন মনিটরিং এবং মার্কেট ইমপ্যাক্ট বিশ্লেষণ সহ স্পট ট্রেডিং অর্ডার ব্যবস্থাপনা।",
+          "title": "স্পট অর্ডার"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "ভ্যালিডেটর ব্যবস্থাপনা, পুরস্কার বিতরণ এবং স্ল্যাশিং সুরক্ষা সহ ব্যাপক স্টেকিং প্ল্যাটফর্ম।",
+          "title": "স্টেকিং সেবা"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "প্ল্যাটফর্ম কনফিগারেশন, নিরীক্ষণ এবং রক্ষণাবেক্ষণ কার্যক্রমের জন্য সম্পূর্ণ সিস্টেম প্রশাসন স্যুট।",
+          "title": "সিস্টেম"
+        },
+        "announcements": {
+          "description": "সময়সূচী, লক্ষ্যীকরণ এবং এনগেজমেন্ট ট্র্যাকিং ক্ষমতা সহ প্ল্যাটফর্ম-ব্যাপী ঘোষণা সিস্টেম।",
+          "title": "সিস্টেম ঘোষণা"
+        },
+        "logs": {
+          "description": "রিয়েল-টাইম মনিটরিং, লগ একত্রীকরণ এবং উন্নত অনুসন্ধান ক্ষমতা সহ কেন্দ্রীয় লগিং সিস্টেম।",
+          "title": "সিস্টেম লগ"
+        },
+        "updates": {
+          "description": "রোলব্যাক ক্ষমতা, নিরাপত্তা প্যাচ এবং বৈশিষ্ট্য স্থাপনা ব্যবস্থাপনা সহ স্বয়ংক্রিয় সিস্টেম আপডেট।",
+          "title": "সিস্টেম আপডেট"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "মিন্টিং, বার্নিং এবং গভর্ন্যান্স ক্ষমতা সহ ব্যাপক টোকেন জীবনচক্র ব্যবস্থাপনা।",
+          "title": "টোকেন ব্যবস্থাপনা"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "উন্নত অর্ডার প্রকার, বাজার বিশ্লেষণ সরঞ্জাম এবং প্রাতিষ্ঠানিক-গ্রেড এক্সিকিউশন সহ পেশাদার ট্রেডিং প্ল্যাটফর্ম।",
+          "title": "ট্রেডিং প্ল্যাটফর্ম"
+        },
+        "infrastructure": {
+          "description": "এক্সচেঞ্জ প্রদানকারী, বাজার কনফিগারেশন এবং অর্ডার প্রক্রিয়াকরণ সিস্টেম সহ ট্রেডিং প্ল্যাটফর্ম ব্যবস্থাপনা।",
+          "title": "ট্রেডিং অবকাঠামো"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "উন্নত ফিল্টারিং, এক্সপোর্ট ক্ষমতা এবং অডিট ট্রেইল সহ ব্যাপক লেনদেন ইতিহাস।",
+          "title": "লেনদেন লগ"
+        },
+        "management": {
+          "description": "বিস্তারিত লগিং, মিলকরণ এবং স্থানান্তর ব্যবস্থাপনা ক্ষমতা সহ সম্পূর্ণ লেনদেন তত্ত্বাবধান।",
+          "title": "লেনদেন ব্যবস্থাপনা"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "ব্যাপক ব্যবহারকারী প্রশাসনের জন্য নিবন্ধন, যাচাইকরণ, ভূমিকা নিয়োগ এবং গ্রাহক সম্পর্ক সরঞ্জাম সহ সম্পূর্ণ ব্যবহারকারী জীবনচক্র ব্যবস্থাপনা।",
+          "title": "ব্যবহারকারী"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "লেনদেন গ্রাফ বিশ্লেষণ এবং গোপনীয়তা-সংরক্ষণ বৈশিষ্ট্য সহ উন্নত UTXO ব্যবস্থাপনা।",
+          "title": "UTXO ট্র্যাকিং"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "ব্যালেন্স মনিটরিং, নিরাপত্তা নিয়ন্ত্রণ এবং ব্যাকআপ ব্যবস্থাপনা সহ বহু-মুদ্রা ওয়ালেট প্রশাসন।",
+          "title": "ওয়ালেট ব্যবস্থাপনা"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "স্ট্যাটাস ট্র্যাকিং, অনুমোদন ওয়ার্কফ্লো এবং সম্মতি যাচাইকরণ সহ উত্তোলন অনুরোধ নিরীক্ষণ করুন।",
+          "title": "উত্তোলন রেকর্ড"
+        },
+        "management": {
+          "description": "স্বয়ংক্রিয় প্রক্রিয়াকরণ, জালিয়াতি প্রতিরোধ এবং সম্মতি নিয়ন্ত্রণ সহ ব্যাপক উত্তোলন সিস্টেম ব্যবস্থাপনা।",
+          "title": "উত্তোলন ব্যবস্থাপনা"
+        },
+        "methods": {
+          "description": "ব্যাংক স্থানান্তর, ক্রিপ্টো উত্তোলন এবং তৃতীয় পক্ষের প্রসেসর সহ উত্তোলন বিকল্পগুলি কনফিগার করুন।",
+          "title": "উত্তোলন পদ্ধতি"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "ট্রেডিং",
+        "description": "সকল সম্পদ শ্রেণীর জন্য উন্নত চার্টিং সরঞ্জাম, রিয়েল-টাইম মার্কেট ডেটা এবং পেশাদার-গ্রেড এক্সিকিউশন ক্ষমতা সহ ব্যাপক ট্রেডিং প্ল্যাটফর্ম অ্যাক্সেস করুন।",
+        "spot": {
+          "title": "স্পট ট্রেডিং",
+          "description": "উন্নত অর্ডার প্রকার, ডেপথ চার্ট এবং পেশাদার ট্রেডিং সরঞ্জাম সহ বর্তমান বাজার মূল্যে তাৎক্ষণিক ক্রয় এবং বিক্রয় অর্ডার সম্পাদন করুন।"
+        },
+        "binary": {
+          "title": "বাইনারি অপশন",
+          "description": "সময়-সংবেদনশীল কৌশলগুলির জন্য পরিশীলিত বিশ্লেষণ, ঝুঁকি ব্যবস্থাপনা সরঞ্জাম এবং সুবিন্যস্ত এক্সিকিউশন সহ বাইনারি অপশন ট্রেড করুন।"
+        },
+        "forex": {
+          "title": "ফরেক্স",
+          "description": "MetaTrader 4/5 একীকরণ, উন্নত চার্টিং এবং প্রাতিষ্ঠানিক-গ্রেড এক্সিকিউশন সহ বৈশ্বিক বৈদেশিক মুদ্রা বাজারে অ্যাক্সেস করুন।"
+        },
+        "p2p": {
+          "title": "P2P এক্সচেঞ্জ",
+          "description": "এসক্রো সুরক্ষা, নমনীয় পেমেন্ট পদ্ধতি এবং প্রতিযোগিতামূলক হার সহ নিরাপদ পিয়ার-টু-পিয়ার ক্রিপ্টোকারেন্সি ট্রেডিংয়ে জড়িত হন।"
+        }
+      },
+      "portfolio": {
+        "title": "পোর্টফোলিও",
+        "description": "সকল প্ল্যাটফর্ম জুড়ে সম্পদ ট্র্যাকিং, পারফরম্যান্স বিশ্লেষণ এবং আপনার আর্থিক উপকরণ ব্যবস্থাপনার জন্য ব্যাপক পোর্টফোলিও ব্যবস্থাপনা স্যুট।",
+        "wallet": {
+          "title": "ওয়ালেট ব্যবস্থাপনা",
+          "description": "রিয়েল-টাইম ব্যালেন্স ট্র্যাকিং, লেনদেন ইতিহাস এবং নিরবচ্ছিন্ন জমা/উত্তোলন ক্ষমতা সহ নিরাপদ মাল্টি-কারেন্সি ওয়ালেট।"
+        },
+        "transactions": {
+          "title": "লেনদেন ইতিহাস",
+          "description": "সকল আর্থিক কার্যক্রমের জন্য উন্নত ফিল্টারিং, এক্সপোর্ট ক্ষমতা এবং ব্যাপক অডিট ট্রেইল সহ বিস্তারিত লেনদেন রেকর্ড।"
+        },
+        "transfers": {
+          "title": "স্থানান্তর",
+          "description": "তাৎক্ষণিক প্রক্রিয়াকরণ, প্রতিযোগিতামূলক ফি এবং মাল্টি-কারেন্সি সমর্থন সহ অভ্যন্তরীণ এবং বাহ্যিক স্থানান্তর সেবা।"
+        }
+      },
+      "investments": {
+        "title": "বিনিয়োগ",
+        "description": "একাধিক সম্পদ শ্রেণী জুড়ে পেশাদার-গ্রেড বিশ্লেষণ, ঝুঁকি মূল্যায়ন সরঞ্জাম এবং পারফরম্যান্স ট্র্যাকিং সহ বৈচিত্র্যময় বিনিয়োগের সুযোগ।",
+        "plans": {
+          "title": "বিনিয়োগ পরিকল্পনা",
+          "description": "আপনার আর্থিক লক্ষ্যের সাথে মিলানোর জন্য বিস্তারিত ঝুঁকি প্রোফাইল, ঐতিহাসিক পারফরম্যান্স ডেটা এবং নমনীয় শর্ত সহ কিউরেটেড বিনিয়োগ কৌশল।"
+        },
+        "staking": {
+          "title": "স্টেকিং পুরস্কার",
+          "description": "প্রতিযোগিতামূলক APY হার, নমনীয় লক পিরিয়ড এবং স্বয়ংক্রিয় পুরস্কার বিতরণ সহ ক্রিপ্টোকারেন্সি স্টেকিংয়ের মাধ্যমে নিষ্ক্রিয় আয় অর্জন করুন।"
+        },
+        "ico": {
+          "title": "টোকেন বিক্রয়",
+          "description": "ব্যাপক যথাযথ পরিশ্রম রিপোর্ট, টোকেনোমিক্স বিশ্লেষণ এবং বিনিয়োগ ট্র্যাকিং সহ যাচাইকৃত ইনিশিয়াল কয়েন অফারিংয়ে প্রাথমিক অ্যাক্সেস।"
+        }
+      },
+      "marketplace": {
+        "title": "মার্কেটপ্লেস",
+        "description": "নিরাপদ লেনদেন, যাচাইকৃত বিক্রেতা এবং ব্যাপক ক্রেতা সুরক্ষা সহ প্রিমিয়াম ডিজিটাল এবং শারীরিক মার্কেটপ্লেস অন্বেষণ করুন।",
+        "nft": {
+          "title": "NFT গ্যালারি",
+          "description": "নিলাম ক্ষমতা এবং স্রষ্টা রয়্যালটি সহ আমাদের কিউরেটেড NFT মার্কেটপ্লেসে অনন্য ডিজিটাল সম্পদ আবিষ্কার, তৈরি এবং ট্রেড করুন।"
+        },
+        "store": {
+          "title": "স্টোর",
+          "description": "নিরাপদ পেমেন্ট প্রক্রিয়াকরণ, বিশ্বব্যাপী শিপিং এবং ক্রেতা সুরক্ষা সহ ডিজিটাল এবং শারীরিক পণ্য উভয় বৈশিষ্ট্যযুক্ত প্রিমিয়াম মার্কেটপ্লেস।"
+        }
+      },
+      "services": {
+        "title": "সেবা",
+        "description": "অ্যাফিলিয়েট প্রোগ্রাম, শিক্ষামূলক সংস্থান এবং প্রিমিয়াম সাপোর্ট সহ আপনার ট্রেডিং অভিজ্ঞতা বৃদ্ধির জন্য পেশাদার সেবা এবং সরঞ্জাম।",
+        "affiliate": {
+          "title": "অ্যাফিলিয়েট প্রোগ্রাম",
+          "description": "প্রতিযোগিতামূলক কমিশন, রিয়েল-টাইম ট্র্যাকিং এবং মার্কেটিং সরঞ্জাম সহ আমাদের ব্যাপক অ্যাফিলিয়েট প্রোগ্রামের মাধ্যমে আপনার নেটওয়ার্ক নগদীকরণ করুন।"
+        },
+        "support": {
+          "title": "সাপোর্ট সেন্টার",
+          "description": "টিকেট ব্যবস্থাপনা, লাইভ চ্যাট ক্ষমতা এবং প্রিমিয়াম ব্যবহারকারীদের জন্য ডেডিকেটেড অ্যাকাউন্ট ব্যবস্থাপনা সহ পেশাদার গ্রাহক সহায়তা।"
+        },
+        "faq": {
+          "title": "জ্ঞান ভিত্তি",
+          "description": "প্ল্যাটফর্ম ক্ষমতা সর্বাধিক করতে আপনাকে সাহায্য করার জন্য ব্যাপক ডকুমেন্টেশন, টিউটোরিয়াল এবং প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী।"
+        }
+      },
+      "insights": {
+        "title": "অন্তর্দৃষ্টি",
+        "description": "আমাদের আর্থিক বিশেষজ্ঞ এবং বাজার গবেষকদের দল থেকে পেশাদার বাজার বিশ্লেষণ, ট্রেডিং অন্তর্দৃষ্টি এবং শিল্প সংবাদ।"
+      }
+    }
   }
 }

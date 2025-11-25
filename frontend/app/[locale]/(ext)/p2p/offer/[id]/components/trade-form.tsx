@@ -55,9 +55,13 @@ export function TradeForm({
   const [selectedPaymentMethod, setSelectedPaymentMethod] =
     useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDisabling, setIsDisabling] = useState(false);
 
   // Safely get the currency code
   const currencyCode = offer?.currency || "BTC";
+
+  // Get price currency from offer (EUR, USD, etc.)
+  const priceCurrency = offer?.priceCurrency || "USD";
 
   // Parse JSON strings if they haven't been parsed already
   const amountConfig =
@@ -86,8 +90,12 @@ export function TradeForm({
 
   // Set selected payment method when offer changes
   useEffect(() => {
+    console.log("Offer payment methods:", offer?.paymentMethods);
     if (offer?.paymentMethods?.length > 0) {
+      console.log("Setting payment method to:", offer.paymentMethods[0].id);
       setSelectedPaymentMethod(offer.paymentMethods[0].id);
+    } else {
+      console.warn("No payment methods available for this offer");
     }
   }, [offer]);
 
@@ -103,30 +111,27 @@ export function TradeForm({
   const isBuyOffer = offer?.type === "BUY"; // If offer type is BUY, user is selling
   const isOfferFiatCurrency = isValidCurrencyCode(currencyCode);
 
-  // Calculate total price based on currency type and offer type
-  let totalPrice = 0;
-  if (isOfferFiatCurrency) {
-    // For fiat currencies, the price represents fiat per crypto
-    // So: totalPrice (USD) = amount (fiat) / price (fiat per crypto)
-    totalPrice = Number.parseFloat(amount || "0") / price || 0;
-  } else {
-    // For crypto currencies, the price represents USD per crypto
-    // So: totalPrice (USD) = amount (crypto) * price (USD per crypto)
-    totalPrice = Number.parseFloat(amount || "0") * price || 0;
-  }
+  // Calculate total price in the price currency (EUR, USD, etc.)
+  // Price is always: priceCurrency per crypto
+  // So: totalPrice (EUR/USD) = amount (crypto) * price (EUR/USD per crypto)
+  const totalPrice = Number.parseFloat(amount || "0") * price || 0;
 
-  // Calculate min/max amounts based on currency type
+  // Min/max amounts are stored in FIAT currency (EUR, USD, etc.)
+  // When trading crypto, we need to convert to crypto amounts
+  // minAmount (BTC) = minLimit (EUR) / price (EUR per BTC)
   let minAmount = 0;
   let maxAmount = 0;
-  
+
   if (isOfferFiatCurrency) {
-    // For fiat currencies: min/max are in fiat, so multiply by price to get fiat amounts
-    minAmount = amountConfig?.min ? amountConfig.min * price : 0;
-    maxAmount = amountConfig?.max ? amountConfig.max * price : 0;
+    // Trading FIAT: limits are already in the correct currency
+    minAmount = amountConfig?.min || 0;
+    maxAmount = amountConfig?.max || amountConfig?.total || 0;
   } else {
-    // For crypto currencies: min/max are in USD, so divide by price to get crypto amounts
-    minAmount = amountConfig?.min ? amountConfig.min / price : 0;
-    maxAmount = amountConfig?.max ? amountConfig.max / price : 0;
+    // Trading crypto: convert FIAT limits to crypto amounts
+    if (price > 0) {
+      minAmount = (amountConfig?.min || 0) / price;
+      maxAmount = (amountConfig?.max || amountConfig?.total || 0) / price;
+    }
   }
 
   // For display purposes
@@ -170,21 +175,21 @@ export function TradeForm({
 
     const amountValue = Number.parseFloat(amount);
 
-    // Check minimum amount
-    if (amountValue < (settings.p2pMinimumTradeAmount || minAmount)) {
+    // Check minimum amount (use offer limits, not global settings for crypto)
+    if (amountValue < minAmount) {
       toast({
         title: "Amount too low",
-        description: `Minimum amount is ${Math.max(settings.p2pMinimumTradeAmount || 0, minAmount)} ${currencyCode}`,
+        description: `Minimum amount is ${minAmount} ${currencyCode}`,
         variant: "destructive",
       });
       return;
     }
 
-    // Check maximum amount
-    if (amountValue > (settings.p2pMaximumTradeAmount || maxAmount)) {
+    // Check maximum amount (use offer limits, not global settings for crypto)
+    if (amountValue > maxAmount) {
       toast({
         title: "Amount too high",
-        description: `Maximum amount is ${Math.min(settings.p2pMaximumTradeAmount || Number.POSITIVE_INFINITY, maxAmount)} ${currencyCode}`,
+        description: `Maximum amount is ${maxAmount} ${currencyCode}`,
         variant: "destructive",
       });
       return;
@@ -202,18 +207,21 @@ export function TradeForm({
     setIsSubmitting(true);
 
     try {
+      console.log("Initiating trade with offer:", offer?.id);
       const { data, error } = await $fetch({
-        url: "/api/trades",
+        url: `/api/p2p/offer/${offer?.id}/initiate-trade`,
         method: "POST",
         body: {
-          offerId: offer?.id,
           amount: amountValue,
           paymentMethodId: selectedPaymentMethod,
         },
       });
 
+      console.log("Trade initiation response:", { data, error });
+
       if (error) {
-        throw new Error("Failed to create trade");
+        console.error("Trade initiation error:", error);
+        throw new Error(typeof error === "string" ? error : "Failed to create trade");
       }
 
       toast({
@@ -222,16 +230,77 @@ export function TradeForm({
       });
 
       // Redirect to trade page
-      router.push(`/p2p/trade/${data.id}`);
-    } catch (error) {
+      setTimeout(() => {
+        router.push(`/p2p/trade/${data.id}`);
+      }, 500);
+    } catch (error: any) {
       console.error("Error creating trade:", error);
       toast({
         title: "Error",
-        description: "Failed to create trade. Please try again.",
+        description: error.message || "Failed to create trade. Please try again.",
         variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  // Handle removing the offer
+  const handleRemoveOffer = async () => {
+    if (!offer?.id) {
+      console.error("Cannot remove offer: offer ID is missing");
+      toast({
+        title: t("error") || "Error",
+        description: "Cannot remove offer: offer ID is missing",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Confirm deletion
+    const confirmMessage = t("are_you_sure_you_want_to_remove_this_offer") || "Are you sure you want to remove this offer? This action cannot be undone.";
+    const userConfirmed = window.confirm(confirmMessage);
+
+    if (!userConfirmed) {
+      console.log("User cancelled offer removal");
+      return;
+    }
+
+    console.log("Removing offer:", offer.id);
+    setIsDisabling(true);
+
+    try {
+      const { data, error } = await $fetch({
+        url: `/api/p2p/offer/${offer.id}`,
+        method: "DELETE",
+      });
+
+      console.log("Delete API response:", { data, error });
+
+      if (error) {
+        console.error("API returned error:", error);
+        throw new Error(typeof error === "string" ? error : "Failed to remove offer");
+      }
+
+      console.log("Offer removed successfully");
+      toast({
+        title: t("offer_removed") || "Offer Removed",
+        description: t("your_offer_has_been_successfully_removed") || "Your offer has been successfully removed",
+      });
+
+      // Redirect to offers list
+      setTimeout(() => {
+        router.push("/p2p/offer");
+      }, 500);
+    } catch (error: any) {
+      console.error("Error removing offer:", error);
+      toast({
+        title: t("error") || "Error",
+        description: error.message || t("failed_to_remove_offer") || "Failed to remove offer",
+        variant: "destructive",
+      });
+    } finally {
+      setIsDisabling(false);
     }
   };
 
@@ -271,24 +340,39 @@ export function TradeForm({
               </Button>
             </Link>
 
-            <Button variant="outline" className="w-full">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="mr-2"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="9" y1="9" x2="15" y2="15"></line>
-                <line x1="15" y1="9" x2="9" y2="15"></line>
-              </svg>
-              {t("disable_offer")}
+            <Button
+              variant="destructive"
+              className="w-full"
+              onClick={handleRemoveOffer}
+              disabled={isDisabling}
+            >
+              {isDisabling ? (
+                <>
+                  <div className="animate-spin mr-2 h-4 w-4 border-2 border-current border-t-transparent rounded-full"></div>
+                  {t("removing")}...
+                </>
+              ) : (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mr-2"
+                  >
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    <line x1="10" y1="11" x2="10" y2="17"></line>
+                    <line x1="14" y1="11" x2="14" y2="17"></line>
+                  </svg>
+                  {t("remove_offer")}
+                </>
+              )}
             </Button>
           </div>
 
@@ -409,17 +493,17 @@ export function TradeForm({
             </div>
             <div className="flex justify-between text-xs">
               <span className="text-muted-foreground">
-                min {minAmountDisplay} {currencyCode}
+                min {minAmountDisplay}
               </span>
               <span className="text-muted-foreground">
-                {t("max")} {maxAmountDisplay} {currencyCode}
+                {t("max")} {maxAmountDisplay}
               </span>
             </div>
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="total" className="text-sm font-medium">
-              {t("total_(usd)")}
+              {t("Total")} ({priceCurrency})
             </Label>
             <div className="relative">
               <Input
@@ -433,7 +517,7 @@ export function TradeForm({
               />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                 <span className="text-sm font-medium text-muted-foreground">
-                  USD
+                  {priceCurrency}
                 </span>
               </div>
             </div>
@@ -460,7 +544,7 @@ export function TradeForm({
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
                   })}{" "}
-                  USD
+                  {priceCurrency}
                 </span>
               </div>
               <Separator className="my-1" />
@@ -478,7 +562,7 @@ export function TradeForm({
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
                   })}{" "}
-                  USD
+                  {priceCurrency}
                 </span>
               </div>
             </div>
@@ -524,14 +608,10 @@ export function TradeForm({
             <Timer className="h-4 w-4 mt-0.5 text-muted-foreground" />
             <div>
               <p className="text-sm font-medium">
-                {t("time_limit")}
-                {timeLimit}
-                {t("minutes")}
+                {t("time_limit")}: {timeLimit} {t("minutes")}
               </p>
               <p className="text-xs text-muted-foreground">
-                {t("once_you_start_the_trade_you_will_have")}
-                {timeLimit}
-                {t("minutes_to_complete_the_payment")}.
+                {t("once_you_start_the_trade_you_will_have")} {timeLimit} {t("minutes_to_complete_the_payment")}.
               </p>
             </div>
           </div>
@@ -539,19 +619,32 @@ export function TradeForm({
           <Button
             type="submit"
             className="w-full"
-            disabled={
-              isSubmitting ||
-              !amount ||
-              Number.parseFloat(amount) <
-                Math.max(settings.p2pMinimumTradeAmount || 0, minAmount) ||
-              Number.parseFloat(amount) >
-                Math.min(
-                  settings.p2pMaximumTradeAmount || Number.POSITIVE_INFINITY,
-                  maxAmount
-                ) ||
-              settings.p2pMaintenanceMode ||
-              !selectedPaymentMethod
-            }
+            disabled={(() => {
+              const disabled =
+                isSubmitting ||
+                !amount ||
+                Number.parseFloat(amount) < minAmount ||
+                Number.parseFloat(amount) > maxAmount ||
+                settings.p2pMaintenanceMode ||
+                !selectedPaymentMethod;
+
+              if (disabled) {
+                console.log("Buy button disabled. Reasons:", {
+                  isSubmitting,
+                  noAmount: !amount,
+                  belowMin: Number.parseFloat(amount) < minAmount,
+                  aboveMax: Number.parseFloat(amount) > maxAmount,
+                  maintenanceMode: settings.p2pMaintenanceMode,
+                  noPaymentMethod: !selectedPaymentMethod,
+                  amount,
+                  minAmount,
+                  maxAmount,
+                  selectedPaymentMethod
+                });
+              }
+
+              return disabled;
+            })()}
           >
             {isSubmitting ? (
               <>

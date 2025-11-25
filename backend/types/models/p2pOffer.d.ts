@@ -19,6 +19,8 @@ interface PriceConfiguration {
   value: number;
   marketPrice?: number;
   finalPrice: number;
+  currency?: string; // Currency for the price (USD, EUR, GBP, etc.)
+  marginType?: "percentage" | "fixed";
 }
 
 interface TradeSettings {
@@ -57,6 +59,7 @@ interface p2pOfferAttributes {
   type: TRADE_TYPE;
   currency: string;
   walletType: WALLET_TYPE;
+  priceCurrency?: string; // Currency used for pricing (USD, EUR, GBP, etc.)
   amountConfig: AmountConfiguration;
   priceConfig: PriceConfiguration;
   tradeSettings: TradeSettings;

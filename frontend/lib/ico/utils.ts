@@ -2,15 +2,21 @@ import { clsx, type ClassValue } from "clsx";
 import { formatDistanceToNow } from "date-fns";
 import { twMerge } from "tailwind-merge";
 
-export function formatCurrency(amount: number): string {
+export function formatCurrency(amount: number, currency: string = "USD"): string {
   const numericAmount = Number(amount);
-  if (isNaN(numericAmount)) return "$0.00";
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(numericAmount);
+  if (isNaN(numericAmount)) return `${currency} 0.00`;
+
+  try {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currency.toUpperCase(),
+      minimumFractionDigits: 2,
+      maximumFractionDigits: currency === "BTC" ? 8 : 2,
+    }).format(numericAmount);
+  } catch (error) {
+    // Fallback for unsupported currencies
+    return `${currency} ${numericAmount.toFixed(currency === "BTC" ? 8 : 2)}`;
+  }
 }
 
 export function formatNumber(num: number): string {

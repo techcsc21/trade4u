@@ -150,19 +150,6 @@
     "top_up": "ወደ ላይ ወደ ላይ",
     "total_equity": "ጠቅላላ አሃዝ ፦"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "ጨምረህ ጨምር",
-    "All": "ሁሉም",
-    "Binary": "ቢናሪ",
-    "Favorites": "ተወዳጆች",
-    "Hot": "ሙቅ",
-    "Loading": "በመጫን ላይ",
-    "Market": "ገበያ",
-    "Trending": "በመታየት ላይ",
-    "active_markets": "ንቁ ገበያዎች",
-    "no_markets_found": "ገበያ አልተገኘም",
-    "try_adjusting_your_search": "የእርስዎን ፍለጋ ለማስተካከል ይሞክሩ"
-  },
   "binary/components/header/market-selector": {
     "Added": "ይጨመር",
     "Connecting": "አገናኝ",
@@ -179,6 +166,19 @@
     "no_markets_found": "ገበያ አልተገኘም",
     "select": "ምረጥ",
     "try_adjusting_your_different_categories": "የእርስዎን ፍለጋ ለማስተካከል ይሞክሩ ወይም የተለያዩ ምድቦችን ይቃኙ"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "ጨምረህ ጨምር",
+    "All": "ሁሉም",
+    "Binary": "ቢናሪ",
+    "Favorites": "ተወዳጆች",
+    "Hot": "ሙቅ",
+    "Loading": "በመጫን ላይ",
+    "Market": "ገበያ",
+    "Trending": "በመታየት ላይ",
+    "active_markets": "ንቁ ገበያዎች",
+    "no_markets_found": "ገበያ አልተገኘም",
+    "try_adjusting_your_search": "የእርስዎን ፍለጋ ለማስተካከል ይሞክሩ"
   },
   "binary/components/header/mobile-header": {
     "balance": "ሚዛን፦"
@@ -219,10 +219,10 @@
     "Templates": "ቴምፕሌቶች"
   },
   "binary/components/order/trade-confirmation": {
-    "Amount": "Amount",
-    "Cancel": "Cancel",
+    "Amount": "መጠን",
+    "Cancel": "ሰርዝ",
     "Included": "የተካተተው",
-    "Market": "Market",
+    "Market": "ገበያ",
     "binary_option": "አማራጭ (binary Option)",
     "confirm_(": "አረጋግጥ (",
     "confirm_trade": "ንግድን አረጋግጥ",
@@ -233,7 +233,7 @@
     "min)": "ደቂቃ)",
     "potential_loss": "ሊጠፋ የሚችል፦",
     "potential_profit": "አቅም ያለው ትርፍ፦",
-    "processing": "processing",
+    "processing": "በሂደት ላይ",
     "risk_reward_ratio": "አደጋ/ሽልማት ሬሾ",
     "trade_type": "የንግድ አይነት"
   },
@@ -242,7 +242,7 @@
     "RISE": "ተነሣ"
   },
   "binary/components/positions/active-positions": {
-    "active_positions": "Active Positions",
+    "active_positions": "ንቁ አቀማመጦች",
     "active_positions_(": "ንቁ አቋሞች (",
     "active_positions_(0)": "አንቀሳቃሽ ቦታዎች (0)",
     "current": "የአሁኑ",
@@ -254,7 +254,7 @@
     "no_active_positions": "ምንም አንቀሳቃሽ አቋሞች",
     "open_a_position_the_chart": "እዚህ እና በሠንጠረዡ ላይ የታየውን ቦታ ይክፈቱ",
     "potential_profit": "አቅም ያለው ትርፍ፦",
-    "title": "title",
+    "title": "ርዕስ",
     "todays_trades": "የዛሬዎቹ የንግድ ድርጅቶች"
   },
   "binary/components/positions/mobile-positions-panel": {
@@ -980,7 +980,7 @@
     "try_a_different_search_term": "የተለየ የፍለጋ ቃል ይሞክሩ"
   },
   "components/ui/image-upload": {
-    "5mb)": "5MB)",
+    "5mb)": "5ሜባ)",
     "Remove": "አስወግድ",
     "drop_a_new_image_to_replace": "ለመተካት አዲስ ምስል አኑር",
     "processing_image": "ምስልን አሰራር",
@@ -1150,13 +1150,6 @@
     "Image": "ምስል",
     "Images": "ምስሎች",
     "Important": "በጣም አስፈላጊ ነው",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "ማሻሻል",
     "Inactive": "የቀዘቀዙ",
     "Insights": "ማስተዋል",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "በአጠቃላይ አለህ",
     "you_havent_created_any_api_keys_yet": "እስካሁን ምንም የ ኤፒአይ ቁልፎችን አልፈጠርክም",
     "you_havent_saved_any_sections_yet": "እስካሁን ምንም ክፍል አላጠራቀምክም",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "ማስቻል ከመጀመራችሁ በፊት ማስፋፊያውን በማንቀሳቀስና በቅርብ ጊዜ ውስጥ መግጠም ያስፈልጋል",
     "youll_be_redirected_to_the_login_page_after_logout": "ከምዝግብ በኋላ ወደ መግቢያው ገጽ ትመለሳለህ",
     "youll_need_it_log_in": "በምትግባቡበት ጊዜ ሁሉ ማረጋገጫ ኮዶችን ለመቀበል ያስፈልገዎታል",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• የፍልሰት ስራዎች ከተጠናቀቁ በኋላ ሊመለስ የማይችል ነው",
     "•_monitor_system_data_migrations": "• በትልልቅ የመረጃ ፍልሰቶች ወቅት የስርዓት አሰራርን ይከታተሉ",
     "•_some_operations_maintenance_mode": "• አንዳንድ ቀዶ ጥገናዎች የስርዓት ጥገና ዘዴ ሊያስፈልጋቸው ይችላል",
-    "•_using_fallback_mode": "• የፎልባክ ዘዴ መጠቀም"
+    "•_using_fallback_mode": "• የፎልባክ ዘዴ መጠቀም",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "ወደ ቤት ገጽ ይሂዱ",
@@ -2657,7 +2657,7 @@
     "Available": "ይገኛል",
     "Avg": "አማካይ",
     "BINARY": "ቢናሪ",
-    "Back": "Back",
+    "Back": "ተመለስ",
     "Balance": "ሚዛን",
     "Bank_statement": "የባንክ መግለጫ",
     "Bar": "ባር",
@@ -2972,7 +2972,7 @@
     "Title": "ርዕስ",
     "Today": "ዛሬ",
     "Token": "ቶከን",
-    "Tokens": "Tokens",
+    "Tokens": "ቶከኖች",
     "Total": "ጠቅላላ",
     "Trade": "ንግድ",
     "Trades": "ንግድ",
@@ -2993,7 +2993,7 @@
     "Updates": "ዝማኔዎች",
     "User": "ተጠቃሚ",
     "Users": "ተጠቃሚዎች",
-    "Utility": "Utility",
+    "Utility": "መገልገያ",
     "Utilization": "ጥቅም ላይ የዋለ",
     "Value": "ዋጋ",
     "Venmo": "ቬንሞ",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "አዳዲስ ፕሮጀክቶች በቀላሉ ወደ ካፒታል ሊያገኙ የሚችሉበት፣ ባለሀብቶችም በልበ ሙሉነት እና በደህንነት እድል ላይ መሳተፍ የሚችሉበት ዓለም",
     "accept_offers_that_match_your_needs": "ከሚያስፈልጉህ ነገሮች ጋር የሚስማማ ግብዣ አቅርበህ ተቀበል",
     "accepted_methods": "ተቀባይነት ያገኙ ዘዴዎች",
-    "access_denied": "Access Denied",
+    "access_denied": "መዳረሻ ተከልክሏል",
     "access_institutional-grade_forex_serious_investors": "Access institutional-grade forex trading with advanced Algorithms, የባለሙያ አደጋ አያያዝ, እና ለከባድ ኢንቨስተሮች ወጥ የሆነ ትርፍ",
     "access_to_marketing_support_and_security_audits": "የማሻሻያ ድጋፍ እና የደህንነት ኦዲት ማግኘት",
     "account": "አካውንት ፦",
@@ -3042,7 +3042,7 @@
     "active_faqs": "ተንቀሳቃሽ FAQs",
     "active_for": "ንቁ",
     "active_investments": "ንቁ ኢንቨስትመንቶች",
-    "active_investors": "active investors",
+    "active_investors": "ንቁ ባለሀብቶች",
     "active_offerings": "ተንቀሳቃሽ መስዋዕት",
     "active_offers": "አንቀሳቃሽ ግብዓቶች",
     "active_out_of": "ተንቀሳቃሽ እንቅስቃሴ",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "አዲስ መተግበሪያ ጨምር",
     "add_note": "ማስታወሻ ጨምር",
     "add_notes_and_terms_for_this_offer": "ለ���ህ ግብይት ማስታወሻዎች እና ቃላቶች ጨምር",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "የክፍያ ዘዴ አክል",
     "add_phase": "ክፍል ጨምር",
     "add_plan": "ፕላን ጨምር",
     "add_roadmap_item": "የመንገድ ካርታ (Roadmap Item) ጨምር",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "ከፍተኛ ዋጋ ላላቸው NFT ግብይቶች ተጨማሪ የማረጋገጫ መስፈርቶች",
     "address": "አድራሻ ፦",
     "adjust_amount": "መጠኑን አስተካክል",
-    "admin": "Admin",
+    "admin": "አስተዳዳሪ",
     "admin_actions": "የአድሚን ተግባራት",
     "admin_actions_will_appear_here": "የአድሚን ድርጊቶች እዚህ ላይ ይታያሉ",
     "admin_activity": "የአድሚን እንቅስቃሴ",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "ሽያጮችን እና አዲስ ዝርዝሮችን በራስ-ሰር ጫን",
     "auto-release": "አውቶማቲክ-መልቀቅ",
     "auto-verify_new_creators": "አዲስ ፈጣሪዎችን በራስ-ሰር አረጋግጥ",
+    "auto_approve_offers": "ቅናሾችን በራስ-ሰር ፈቀድ",
     "auto_cancel": "በራስ-ሰር መሰረዝ",
     "auto_cancel_time_(minutes)": "በራስ-ሰር የመሰረዝ ጊዜ (ደቂቃዎች)",
     "automatic_earnings_distribution": "አውቶማቲክ ገቢዎች ስርጭት",
     "automatic_escrow_protection_for_all_funds": "ለሁሉም ገንዘቦች አውቶማቲክ የመያዣ ጥበቃ",
     "automatic_release_after_no_dispute)": "ከ 24 ሰዓታት የክፍያ ማረጋገጫ በኋላ አውቶማቲክ መልቀቅ (ክርክር ከሌለ)",
     "automatically_adjust_amount_to_meet_minimum": "አነስተኛ መጠን ለማሟላት አውቶማቲክ ማስተካከያ",
+    "automatically_approve_new_and_edited_offers": "አዳዲስ እና የተስተካከሉ ቅናሾችን በራስ-ሰር ፈቀድ",
     "automatically_cancel_the_specified_time": "በተወሰነ ጊዜ ውስጥ ምላሽ ካልሰጠ ወዲያውኑ ግብይቱን ይሰረዛል",
     "automatically_cancel_trades_payment_window": "በክፍያ መስኮት ውስጥ ክፍያ ካልተረጋገጠ ወዲያውኑ ንግዶችን ይሰረዛል",
     "automatically_extend_auctions_when": "ጨረታዎች በመጨረሻ አቅራቢያ ሲቀርቡ ጨረታዎችን በራስ-ሰር አራዝም",
@@ -3289,7 +3291,7 @@
     "awaiting_release_url": "የመለቀቅ ዩአርኤል መጠበቅ",
     "back_to": "ወደ",
     "back_to_cart": "ወደ ጋሪ መመለስ",
-    "back_to_dashboard": "Back to Dashboard",
+    "back_to_dashboard": "ወደ ዳሽቦርድ ተመለስ",
     "back_to_disputes": "ወደ አለመግባባት መመለስ",
     "back_to_faq_list": "ወደ FAQ ዝርዝር ይመልከቱ",
     "back_to_home": "ወደ ቤት መመለስ",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "የእርስዎን ዲፖዚት ያረጋግጡ",
     "confirm_your_withdrawal": "ማጨስህን አረጋግጥ",
     "confirmed_at": "የተረጋገጠ At",
-    "conflict": "Conflict",
+    "conflict": "ግጭት",
     "connect_with_traders_worldwide": "በዓለም ዙሪያ ከነጋዴዎች ጋር ይገናኙ",
     "connections": "አገናኞች",
     "consider_cliff_periods_for_team_tokens": "የቡድን ምልክት ለማድረግ የገደል ጊዜን ተመልከት",
@@ -3720,7 +3722,7 @@
     "discard_unsaved_changes": "ያልታደሉትን ለውጦች አስወግዱ?",
     "discord_integration": "Discord ውህደት",
     "discord_webhook_for_sending": "የገበያ ቦታ ማሳወቂያዎችን ለመላክ Discord webhook",
-    "discord_webhook_url": "Discord Webhook URL",
+    "discord_webhook_url": "የDiscord Webhook አድራሻ",
     "discount_code": "ቅናሽ ኮድ",
     "discover_all_the_affiliate_program": "በእኛ ማህበር ፕሮግራም አማካኝነት ሽልማቶችን ማግኘት የምትችልባቸውን መንገዶች ሁሉ ያግኙ",
     "discover_and_invest_our_platform": "በእኛ መድረክ ላይ የቅርብ ጊዜ token መባዎች ውስጥ ያግኛሉ እና ኢንቨስት",
@@ -3851,7 +3853,8 @@
     "end-to-end_encrypted_chat_the_trade": "በንግዱ ወቅት በገዢ እና ሻጭ መካከል አስተማማኝ ግንኙነት ለማድረግ መጨረሻ-ወደ-መጨረሻ የምስጢር ቻት",
     "end_date": "የመጨረሻው ቀን፦",
     "end_of_term": "የጊዜ ማብቂያ",
-    "ending_soon": "Ending Soon",
+    "ended": "ተጠናቋል",
+    "ending_soon": "በቅርቡ ያበቃል",
     "enhance_multiple_faqs_ai-powered_improvements": "የእኛን AI-ኃይል ማሻሻያዎች በመጠቀም በርካታ FAQs ማሻሻል",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "በ 0 ብቻ በኢንዱስትሪው ውስጥ ዝቅተኛ ክፍያ ይደሰቱ",
     "ensures_the_seller_the_cryptocurrency": "ሻጩ cryptocurrency ሳይለቀቅ የእርስዎን ገንዘብ መውሰድ አይችልም ያረጋግጡ",
@@ -4157,7 +4160,7 @@
     "important_links_and_resources_for_the": "አስፈላጊ አገናኞች እና ሀብቶች",
     "important_note": "አስፈላጊ ማስታወሻ",
     "important_notes": "አስፈላጊ ማስታወሻዎች",
-    "important_notice": "Important Notice",
+    "important_notice": "አስፈላጊ ማስታወቂያ",
     "important_payment_information": "አስፈላጊ የክፍያ መረጃ",
     "improve_all": "ሁሉንም አሻሽል",
     "improve_with_ai": "ከ ኤ አይ ጋር ማሻሻል",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "የሚያስፈልጉ ማጣቀሻ ቁጥሮችን ጨምር",
     "include_company_logo": "የኩባንያ ሎጎ ይጨምሩ",
     "include_the_trade_payment_description": "የእርስዎ የክፍያ መግለጫ ውስጥ የንግድ ማጣቀሻ ቁጥር ይጨምሩ",
-    "info": "Info",
+    "info": "መረጃ",
     "information_about_the_dispute": "ስለ ክርክሩ መረጃ",
     "information_about_the_disputed_trade": "ስለ ተከራካሪው ንግድ መረጃ",
     "initial_holder": "የመጀመሪያ መያዣ",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "ይህን ክርክር በተመለከተ የውስጥ ማስታወሻዎች",
     "internal_notes_about_this_offer": "ይህን ግብይት በተመለከተ የውስጥ ማስታወሻዎች",
     "internal_notes_about_this_position": "ይህን አቋም በተመለከተ የውስጥ ማስታወሻዎች",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "ልክ ያልሆነ ጥያቄ",
     "invest_in": "ኢንቨስት ማድረግ",
     "invest_in_this_offering": "በዚህ መዋጮ ላይ ኢንቨስት ማድረግ",
     "invest_more": "ተጨማሪ ኢንቨስት",
@@ -4214,7 +4217,7 @@
     "investment_opportunities": "የኢንቨስትመንት አጋጣሚዎች",
     "investment_plans": "የኢንቨስትመንት እቅዶች",
     "investment_platform": "የኢንቨስትመንት ፕላቶ",
-    "investment_range": "Investment range",
+    "investment_range": "የኢንቨስትመንት ክልል",
     "investment_status": "የኢንቨስትመንት ሁኔታ",
     "investment_successful": "ኢንቨስትመንት ስኬታማ ነው!",
     "investment_summary": "የኢንቨስትመንት ማጠቃለያ",
@@ -4318,7 +4321,7 @@
     "lifetime_earnings": "የዕድሜ ልክ ገቢ",
     "limited_functionality": "የአቅም ውስንነት",
     "limits": "ገደቦች፦",
-    "linkedin_url": "LinkedIn URL",
+    "linkedin_url": "የLinkedIn አድራሻ",
     "list_view": "የዝርዝር እይታ",
     "listing_fee_(eth)": "የዝርዝር ክፍያ (ETH)",
     "live_account": "ቀጥታ አካውንት",
@@ -4326,6 +4329,7 @@
     "live_preview": "ሕያው ቅድመ ዕይታ",
     "load_id": "የጫን መታወቂያ",
     "load_more": "ተጨማሪ ጫን",
+    "loading": "በመጫን ላይ",
     "loading_activity_data": "የእንቅስቃሴ መረጃ መጫን",
     "loading_affiliate_data": "ተያያሽ መረጃዎችን መጫን",
     "loading_analytics_data": "ትንተናዎችን መረጃ መጫን",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "የእርስዎን የመተግበሪያ መስዋዕት ያስተዳድሩ እና ይከታተሉ",
     "manage_and_track_your_referred_users": "የእርስዎን የተጠቀሙ ተጠቃሚዎች ያስተዳድሩ እና ይከታተሉ",
     "manage_conditions": "ሁኔታዎችን አስተዳድር",
+    "manage_rewards": "ሽልማቶችን አስተዳድር",
     "manage_the_blockchains_token_launches": "token launches ለማግኘት የሚገኙትን blockchainዎች ያስተዳድሩ",
     "manage_this_trade": "ይህን ንግድ ያስተዳድሩ",
     "manage_token_release": "የ ቶከን መልቀቂያ አስተዳደር",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "ባለፉት 6 ወራት ወርሃዊ ገቢ",
     "monthly_faq_views_for_the_current_year": "ለአሁኑ ዓመት ወርሃዊ የFAQ እይታዎች",
     "monthly_growth_rate_(%)": "ወርሃዊ የዕድገት መጠን (%)",
+    "monthly_growth_rate_tooltip": "የሚጠበቀው አማካይ ወርሃዊ የዋጋ ዕድገት መጠን። አዎንታዊ እሴቶች የዋጋ መጨመርን፣ አሉታዊ እሴቶች ደግሞ የዋጋ መቀነስን ያሳያሉ። የተለመደ ክልል፡ -50% እስከ +50%",
     "monthly_profit": "ወርሃዊ ትርፍ",
     "more": "ተጨማሪ",
     "most_common_search_terms_used_by_your_users": "የእርስዎ ተጠቃሚዎች የሚጠቀሙባቸው በጣም የተለመዱ የፍለጋ ቃላት",
@@ -4597,7 +4603,7 @@
     "no_featured_projects_found": "የገጽታ ፕሮጀክቶች አልተገኙም",
     "no_feedback_available_yet": "እስካሁን ምንም አስተያየት አልተገኘም",
     "no_feedback_found": "አስተያየት አልተገኘም",
-    "no_hidden_charges_all_fees_are_clearly_displayed": "No hidden charges, all fees are clearly displayed",
+    "no_hidden_charges_all_fees_are_clearly_displayed": "ምንም የተደበቁ ክፍያዎች የሉም፣ ሁሉም ክፍያዎች በግልጽ ይታያሉ",
     "no_informational_events_found": "መረጃ አዘል ክስተቶች አልተገኙም",
     "no_investors_found": "ኢንቨስትመንት አልተገኘም",
     "no_launch_plans_available": "ምንም የመጀመር እቅድ አልተገኘም",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "ምንም ማስጠንቀቂያ አልተገኘም",
     "no_withdrawal_methods_available_for_this_currency": "ለዚህ ገንዘብ ምንም የማውጣት ዘዴዎች የሉም",
     "not_available_for_this_chain": "ለዚህ ሰንሰለት የማይገኝ",
-    "not_found": "Not Found",
+    "not_found": "አልተገኘም",
     "not_helpful": "አይጠቅምም",
+    "not_started": "አልተጀመረም",
     "not_submitted": "አልቀረቡም",
     "notes_and_comments_about_this_transaction": "በዚህ የንግድ ልውውጥ ላይ ማስታወሻዎች እና አስተያየቶች",
     "now_accepting_bitcoin_ethereum_&_more": "አሁን Bitcoin መቀበል, Ethereum & ተጨማሪ",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "ጥያቄው አልተገኘም ወይም የማርትዕ ፈቃድ የለዎትም",
     "offer_status": "የቅናሽ ሁኔታ",
     "offer_type": "የግብይት አይነት",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "ቅናሽ አይገኝም",
     "offer_updated_successfully_and_is_pending_approval": "ቅናሹ በተሳካ ሁኔታ ተዘምኗል እና ፈቃድን እየጠበቀ ነው",
     "offer_visibility": "በእይታ ላይ አቅርበው",
     "offering": "መስዋዕት -",
@@ -4791,7 +4798,7 @@
     "password": "የይለፍ ቃል",
     "pay_with_confidence_processing_system": "የእኛን ደህንነቱ የተጠበቀ የክፍያ ሂደት ስርዓት በመጠቀም በልበ ሙሉነት ይክፈሉ",
     "pay_within_time_limit": "በጊዜ ገደብ ውስጥ ይክፈሉ",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "የክፍያ እንቅስቃሴዎች",
     "payment_completed_successfully": "ክፍያ በተሳካ ሁኔታ ተጠናቀቀ!",
     "payment_confirmed": "የክፍያ ማረጋገጫ",
     "payment_details": "የክፍያ ዝርዝር",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "የክፍያ መመሪያዎች",
     "payment_marked_as_sent": "እንደ ተላከ የተለጠፈ ክፍያ",
     "payment_method": "የክፍያ ዘዴ",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "የክፍያ ዘዴ ያስፈልጋል",
     "payment_methods": "የክፍያ ዘዴዎች",
     "payment_methods_summary": "የክፍያ ዘዴዎች ማጠቃለያ",
     "payment_methods_you_prefer": "የምትመርጡ የክፍያ ዘዴዎች",
@@ -4857,7 +4864,7 @@
     "plan_cards": "ዕቅድ ካርዶች",
     "plan_cost": "ዕቅድ ወጪ፦",
     "plan_distribution": "የእቅድ ስርጭት",
-    "plan_highlights": "Plan highlights",
+    "plan_highlights": "የእቅድ ዋና ነጥቦች",
     "plan_information": "የእቅድ መረጃ",
     "plan_name": "የእቅድ ስም",
     "plan_options": "ምርጫዎች",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "እባክዎ በዚህ ዘመቻ ላይ መጨመር የምትፈልጉትን ዒላማዎች ይምረጡ",
     "please_send_payment_when_done": "እባክዎ በተወሰነው የክፍያ ዘዴ በመጠቀም ክፍያውን ለሻጩ ይላኩ እና ሲደረጉ ያረጋግጡ",
     "please_sign_in_to_view_your_shipping_details": "የመላኪያ ዝርዝር መረጃዎን ለመመልከት እባክዎ ይመዝገቡ",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "እባክዎ ይቀንሱ",
     "please_try_again": "እባክዎ እንደገና ይሞክሩ",
     "please_try_again_later": "እባክዎ እንደገና ይሞክሩ",
     "please_try_refreshing_the_page": "እባክዎ ገጹን ለማደስ ይሞክሩ",
@@ -5334,7 +5341,7 @@
     "sign_up_and_complete_verification_to_start_trading": "ንግድ ለመጀመር ይመዝገቡ እና ሙሉ ማረጋገጫ",
     "simple_4-step_process": "ቀላል 4-ደረጃ ሂደት",
     "simple_interest_(apr)": "ቀላል ፍላጎት (APR)",
-    "simple_process": "Simple Process",
+    "simple_process": "ቀላል ሂደት",
     "single_faq": "ነጠላ FAQ",
     "small_(100x100)": "ትንሽ (100x100)",
     "smart_contract_audit": "ብልጥ ውል ኦዲት",
@@ -5351,13 +5358,14 @@
     "social_media_post": "ማህበራዊ ሚዲያ ፖስት",
     "solana_(sol)": "ሶላና (SOL)",
     "sold": "የተሸጠ",
+    "sold_out": "ተሽጧል",
     "some_features_may_be_temporarily_unavailable": "አንዳ���ድ ገጽታዎች ለጊዜው ላይገኙ ይችላሉ",
     "some_pools_distribute_staking_period": "አንዳንድ ገንዳዎች በየቀኑ ሽልማቶችን ሲያሰራጩ ሌሎች ደግሞ በየሳምንቱ ፣ በየወሩ ወይም በአሳቢው ጊዜ መጨረሻ ላይ ይህን ያደርጋሉ",
     "some_pools_offer_higher_returns": "አንዳንድ መጠመቂያዎች አውቶማቲክ ውሂብ ያቀርባሉ. ይህ ደግሞ ያገኛችሁትን ሽልማት በራሱ መልሶ በማፍሰስ የበለጠ ትርፍ ያስገኛል",
     "some_pools_offer_your_rewards": "አንዳንድ መጠመቂያዎች አውቶማቲክ ውሂብ ያቀርባሉ, ይህም ወዲያውኑ የእርስዎን ሽልማቶች መልሶ ያዋሃዳሉ",
     "some_settings_like_launch_plans": "እንደ ቡድን አባላት እና የመንገድ ካርታ ዕቃዎች ገደብ ያሉ አንዳንድ አቀማመዶች በአሁኑ ጊዜ በመወንጨፍ እቅዶች ቁጥጥር ስር ይውላሉ",
     "some_trade_features_are_currently_disabled": "አንዳንድ የንግድ ገጽታዎች በአሁኑ ጊዜ የአካል ጉዳተኛ ናቸው",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "የሆነ ስህተት ተፈጥሯል",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "ይቅርታ, የምትፈልገውን ገጽ ማግኘት አልቻልንም",
     "sort_by": "ደርድር በ",
     "source_code_verification": "ምንጭ ኮድ ማረጋገጫ",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Subscribe to our News letter",
     "subtotal": "ንዑስ አሃዝ፦",
     "subtotal_(": "ንዑስ አሃዝ (",
-    "success": "Success",
+    "success": "ስኬት",
     "success_rate": "የስኬት ደረጃ",
     "successful_offerings": "ስኬታማ የሆኑ መሥዋዕቶች",
     "successful_trades": "ስኬታማ ንግድ",
@@ -5658,7 +5666,7 @@
     "tokens": "ቶከኖች",
     "tokens_for_sale": "ለሽያጭ የሚሆን Tokens",
     "tokens_to_receive": "Tokens to receive",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "በጣም ብዙ ጥያቄዎች",
     "top-performing_staking_pools": "ከፍተኛ አፈጣጠሙ መጠመቂያ ገንዳዎች",
     "top_performing_affiliates": "ከፍተኛ አሰራር ማህበረሰቦች",
     "top_performing_faqs": "ከፍተኛ አፈፃፀም FAQs",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "በዚህ ጊዜ የንግድ ዝርዝር ጉዳዮችን ማግኘት አይቻልም",
     "trade_details_are_temporarily_unavailable": "የንግድ ዝርዝር ለጊዜው አይገኝም",
     "trade_disputed": "የንግድ ውዝግብ",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "ንግዱ አልቋል",
     "trade_history_requirements": "የንግድ ታሪክ መስፈርቶች",
     "trade_id": "የንግድ መለያ",
     "trade_information": "የንግድ መረጃ",
@@ -5792,7 +5800,7 @@
     "try_changing_your_your_filters": "የፍለጋ ቃላትዎን ለመቀየር ወይም ማጣሪ���ዎን ለማጽዳት ይሞክሩ",
     "try_different_keywords_or_browse_all_categories": "የተለያዩ ቁልፍ ቃላትን ይሞክሩ ወይም ሁሉንም ምድቦች ይቃኙ",
     "turn_on_off_the_entire_p2p_trading_platform": "መላውን P2P የንግድ መድረክ ይክፈሉ/አጥፉ",
-    "twitter_api_key": "Twitter API Key",
+    "twitter_api_key": "የTwitter API ቁልፍ",
     "twitter_api_key_for_automatic_posting": "ለራስ-ሰር መጫን Twitter API key",
     "twitter_integration": "የTwitter ውህደት",
     "twitter_url": "Twitter ዩአርኤል",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Venmo ተንቀሳቃሽ ክፍያዎች",
     "verification_badges": "የማረጋገጫ ምልክቶች",
     "verification_badges_help_users": "የማረጋገጫ ምልክቶች ተጠቃሚዎች ታማኝ ፈጣሪዎችን እና ትክክለኛ ስብስቦችን እንዲለዩ ይረዳሉ። በመገለጫዎች፣ ዝርዝሮች እና የፍለጋ ውጤቶች ላይ ይታያሉ።",
-    "verification_required": "Verification Required",
+    "verification_required": "ማረጋገጫ ያስፈልጋል",
     "verification_settings_affect_marketplace": "የማረጋገጫ ቅንብሮች የገበያ ቦታን እምነት እና ተገዢነት ይነካሉ። የእርስዎን የስልጣን ክልል መስፈርቶች ግምት ውስጥ ያስገቡ።",
     "verified_only": "የተረጋገጠው ብቻ ነው",
     "verified_project_teams_and_offerings": "የተረጋገጠ የፕሮጀክት ቡድኖች እና መባዎች",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "የተረጋገጡ ነጋዴዎች ብቻ",
     "verified_users_have_verification_process": "የተረጋገጡ ተጠቃሚዎች የመታወቂያ ማረጋገጫ ሂደታችንን አጠናቀዋል",
     "verify_&_approve_transaction": "ያረጋግጡ > የንግድ ልውውጥ",
-    "verify_account": "Verify Account",
+    "verify_account": "መለያ አረጋግጥ",
     "verify_payment_and_release_funds": "የክፍያ እና የመልቀቂያ መርጃዎች ያረጋግጡ",
     "verify_payment_before_releasing": "ከመለቀቃቸው በፊት ክፍያ ያረጋግጡ",
     "verify_payment_first": "ቅድሚያ ክፍያ ማረጋገጥ",
@@ -5938,7 +5946,7 @@
     "view_safety_guide": "የደህንነት መመሪያ ይመልከቱ",
     "view_store": "ይመልከቱ መደብር",
     "view_system_status": "የስርዓት ሁኔታን ይመልከቱ",
-    "view_token": "View Token",
+    "view_token": "ቶከን ይመልከቱ",
     "view_trader_reputation_and_reviews": "ነጋዴ ስም እና ክለሳዎች ይመልከቱ",
     "view_trader_reputation_and_transaction_history": "የነጋዴ ስም እና የግብይት ታሪክ ይመልከቱ",
     "view_user_profile": "የተጠቃሚ ፕሮፋይል ይመልከቱ",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "የድር ጣቢያ መዋቅርዎን በዓይነ ሕሊናህ ለመሳል እና ለማስተዳደር",
     "visualize_distribution_vesting_token_launch": "የቶከን ማስጀመርህን ለማመቻቸት አከፋፋይ, የሸራተን ፕሮግራሞች እና የገበያ ግብይቶች በዓይነ ሕሊናህ ይታይህ",
     "volatility_(%)": "ብዝሃነት (%)",
+    "volatility_tooltip": "የሚጠበቀው የዋጋ መለዋወጥ ክልል። ከፍተኛ መለዋወጥ ትልልቅ የዋጋ ለውጦችን ይደነግጋል። 0% የተረጋጋ ዋጋዎችን፣ 100% ደግሞ ከፍተኛ የዋጋ እንቅስቃሴዎችን ያሳያል።",
     "volume": "ጥራዝ",
     "volume_(btc)": "ጥራዝ (BTC)",
     "vs": "እና",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "ምን ማድረግ ትፈልጋለህ?",
     "what_would_you_like_to_do_next": "ቀጥሎ ምን ማድረግ ትፈልጋለህ?",
     "when_a_trade_into_escrow": "አንድ ንግድ ሲጀምር, cryptocurrency ወደ scrow ማስቀመጥ ያስፈልግዎታል",
+    "when_disabled_offers_require_admin_moderation": "መሰናከል ሲደረግ ቅናሾች የአስተዳዳሪ ማጽደቅ ያስፈልጋል",
     "when_disabled_users_can_only_take_existing_offers": "የአካል ጉዳተኛ በሚሆኑበት ጊዜ, ተጠቃሚዎች ያላቸውን ግብይቶች ብቻ መውሰድ ይችላሉ",
     "when_disabled_users_cannot_access_p2p_features": "የአካል ጉዳተኛ በሚሆኑበት ጊዜ ተጠቃሚዎች የ P2P መተግበሪያዎችን ማግኘት አይችሉም",
     "when_disabled_users_cannot_create_custom_payment_methods": "ሲጠፋ ተጠቃሚዎች ብጁ የክፍያ ዘዴዎችን መፍጠር አይችሉም",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "ገና ምንም ዓይነት ሙያ አላጠናቀቃችሁም",
     "you_havent_distributed_any_earnings_yet": "ገና ምንም ገቢ አላከፋፈላችሁም",
     "you_might_want_question_directly": "የእኛን ፍለጋ መሞከር ወይም በቀጥታ ጥያቄ መጠየቅ ትፈልግ ይሆናል",
+    "you_must_be_logged_in_to_access_the_dashboard": "ዳሽቦርድን ለመድረስ መግባት አለብዎት",
     "you_must_be_logged_in_to_ask_a_question": "ጥያቄ ለመጠየቅ መግባት አለብዎት",
     "you_need": "ትፈልጋለህ",
     "you_need_to_a_review": "ክለሳ ከመፃፍዎ በፊት ይህን ምርት መግዛት ያስፈልግዎታል",
@@ -6207,10 +6218,74 @@
     "•_lock_period": "• የመቆለፊያ ጊዜ",
     "•_trade_dispute_resolution_is_unavailable": "• የንግድ ውዝግብ መፍትሄ ማግኘት አልተቻለም",
     "✓_purchased": "✓ ገዛ",
-    "not_started": "Not Started",
-    "ended": "Ended",
-    "sold_out": "Sold Out",
-    "manage_rewards": "Manage Rewards"
+    "Configure NFT metadata requirements": "የNFT ሜታዳታ መስፈርቶችን ያዋቅሩ",
+    "Configure platform and creator fees": "የመድረክ እና የፈጣሪ ክፍያዎችን ያዋቅሩ",
+    "Fixed fee to create a listing (0 = free)": "ዝርዝር ለመፍጠር ቋሚ ክፍያ (0 = ነጻ)",
+    "High-Value Threshold (USD)": "ከፍተኛ ዋጋ ገደብ (USD)",
+    "Listing Fee (Optional)": "የዝርዝር ክፍያ (አማራጭ)",
+    "Marketplace Fee (%)": "የገበያ ቦታ ክፍያ (%)",
+    "Marketplace Fees": "የገበያ ቦታ ክፍያዎች",
+    "Maximum Royalty (%)": "ከፍተኛ የሮያሊቲ ክፍያ (%)",
+    "Maximum royalty creators can set (0-50%)": "ፈጣሪዎች ማዘጋጀት የሚችሉት ከፍተኛ የሮያሊቲ ክፍያ (0 50%)",
+    "Metadata & IPFS": "ሜታዳታ እና IPFS",
+    "Percentage fee charged on each sale (0-10%)": "በእያንዳንዱ ሽያጭ ላይ የሚከፈል የመቶኛ ክፍያ (0 10%)",
+    "Require Metadata Validation": "የሜታዳታ ማረጋገጫ ያስፈልጋል",
+    "Validate IPFS metadata URLs before accepting NFT listings": "የNFT ዝርዝሮችን ከመቀበልዎ በፊት የIPFS ሜታዳታ URLs ያረጋግጡ",
+    "are_you_sure_you_want_to_remove_this_offer": "እርግጠኛ ነዎት ይህን ቅናሽ ማስወገድ ይፈልጋሉ",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "የዋጋ እና የመጠን ቅንብሮች ላይ የተደረጉ ለውጦች ተግባራዊ ከመሆናቸው በፊት የአስተዳዳሪ ፈቃድ ሊፈልጉ ይችላሉ",
+    "create_your_first_offer": "የመጀመሪያዎን ቅናሽ ይፍጠሩ",
+    "dynamic_price_(market_based)": "ተለዋዋጭ ዋጋ (በገበያ ላይ የተመሰረተ)",
+    "edit": "አርትዕ",
+    "enter_your_fixed_price": "የተወሰነ ዋጋዎን ያስገቡ",
+    "failed_to_remove_offer": "ቅናሽን ማስወገድ አልተሳካም",
+    "limit": "ገደብ",
+    "market_price_offset_(%)": "የገበያ ዋጋ ማካካሻ (%)",
+    "max_trade_amount": "ከፍተኛ የንግድ መጠን",
+    "maximum_amount": "ከፍተኛ መጠን",
+    "maximum_limit": "ከፍተኛ ገደብ",
+    "min_trade_amount": "ዝቅተኛ የንግድ መጠን",
+    "minimum_amount": "ዝቅተኛ መጠን",
+    "minimum_limit": "ዝቅተኛ ገደብ",
+    "my_offers": "የእኔ ቅናሾች",
+    "no_recent_activity": "ምንም የቅርብ ጊዜ እንቅስቃሴ የለም",
+    "note": "ማስታወሻ",
+    "offer_removed": "ቅናሽ ተወግዷል",
+    "positive_=_above_market,_negative_=_below_market": "አዎንታዊ = ከገበያ በላይ፣ አሉታዊ = ከገበያ በታች",
+    "price_&_amount": "ዋጋ እና መጠን",
+    "price_&_amount_settings": "የዋጋ እና የመጠን ቅንብሮች",
+    "pricing_model": "የዋጋ አሰጣጥ ሞዴል",
+    "remove_offer": "ቅናሽን አስወግድ",
+    "removing": "በማስወገድ ላይ",
+    "the_price_per_unit_of": "የአንድ ክፍል ዋጋ",
+    "this_is_the_total_amount_for_this_trade": "ይህ ለዚህ ንግድ ጠቅላላ መጠን ነው",
+    "total_amount_available": "ጠቅላላ ያለ መጠን",
+    "total_available": "ጠቅላላ ያለ",
+    "trading_limits": "የንግድ ገደቦች",
+    "update_pricing_model_and_trading_limits": "የዋጋ አሰጣጥ ሞዴል እና የንግድ ገደቦችን ያዘምኑ",
+    "view": "ይመልከቱ",
+    "you_dont_have_any_offers_yet": "እስካሁን ምንም ቅናሾች የሎትም",
+    "your_offer_has_been_successfully_removed": "ቅናሽዎ በተሳካ ሁኔታ ተወግዷል",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "ከገበያ በላይ 5%"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "ሰርዝ",
@@ -6253,6 +6328,8 @@
     "network_fee": "የአውታር ክፍያ",
     "new_balance": "አዲስ ሚዛን",
     "no_currencies_found": "ምንም ምንዛሬዎች አልተገኙም ለ",
+    "no_wallets_available": "ምንም የገንዘብ ቦርሳዎች አይገኙም",
+    "no_wallets_available_description": "ምንም የገንዘብ ቦርሳዎች የማይገኙ መግለጫ",
     "not_available": "አይገኝም",
     "of": "ከ",
     "pay_with": "ክፈል በ",
@@ -6346,6 +6423,8 @@
     "make_another_transfer": "ሌላ አስተላልፍ",
     "move_funds_between_another_user": "የ���ር���ዎ wallets መካከል ገንዘብ ማንቀሳቀስ ወይም ወደ ሌላ ተጠቃሚ መላክ",
     "move_funds_between_your_different_wallet_types": "የእርስዎ የተለያዩ የኪስ አይነቶች መካከል ገንዘብ ማንቀሳቀስ",
+    "no_wallets_available": "ምንም የገንዘብ ቦርሳዎች አይገኙም",
+    "no_wallets_available_description": "ምንም የገንዘብ ቦርሳዎች የማይገኙ መግለጫ",
     "processing_transfer": "አሰራር ማስተላለፍ",
     "recipient_details": "የተቀባዩ ዝርዝር",
     "recipient_receives": "ተቀባዩ ይቀበላል።",
@@ -6385,17 +6464,17 @@
     "the_wallet_youre_to_it": "የምትፈልገው የኪስ ቦርሳ የለም ወይም ማግኘት የለብህም",
     "wallet_address": "የWallet አድራሻ",
     "wallet_not_found": "የገንዘብ ቦርሳ አልተገኘም",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
-    "wallet_type_fiat": "Fiat",
-    "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
-    "wallet_type_futures": "Futures",
+    "wallet_type_ai_investment": "AI ኢንቨስትመንት",
+    "wallet_type_derivatives": "ተዋጽኦዎች",
+    "wallet_type_eco": "ኢኮ",
+    "wallet_type_fiat": "ፊያት",
+    "wallet_type_forex": "ፎሬክስ",
+    "wallet_type_funding": "የገንዘብ ድጋፍ",
+    "wallet_type_futures": "የወደፊት ውሎች",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
-    "wallet_type_spot": "Spot",
-    "wallet_type_staking": "Staking"
+    "wallet_type_spot": "ስፖት",
+    "wallet_type_staking": "ስቴኪንግ"
   },
   "finance/wallet/client": {
     "add_funds": "ገንዘብ ጨምር",
@@ -6412,13 +6491,13 @@
   "finance/wallet/components/pending-transactions": {
     "Syncing": "ማቀናበሪያ",
     "pending_transaction": "የንግድ ልውውጥ እየተጠበቀ ነው",
-    "sync_now": "Sync Now"
+    "sync_now": "አሁን አመሳስል"
   },
   "finance/wallet/components/wallet-actions": {
-    "quick_actions": "Quick Actions"
+    "quick_actions": "ፈጣን እርምጃዎች"
   },
   "finance/wallet/components/wallet-list": {
-    "All": "All",
+    "All": "ሁሉም",
     "Eco": "ኢኮ",
     "Fiat": "ፊያት",
     "Futures": "የወደፊቱ ጊዜ",
@@ -6433,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(ለመቀበል",
+    "Amount to Send (before network fees)": "የሚላክ መጠን (ከአውታረ መረብ ክፍያዎች በፊት)",
     "Free": "ነፃ",
+    "Platform Fee": "የመድረክ ክፍያ",
     "Processing": "በሂደት ላይ",
     "Select": "ይምረጡ",
     "Withdraw": "አቋርጡ",
@@ -6454,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "ውስጥ የሚገኝ ሚዛን ያላቸው ገንዘቦች የሉም",
     "no_currencies_with_balance_in_wallet_type": "በዋሌት አይነት ውስጥ ሚዛን ያላቸው ገንዘቦች የሉም",
     "no_wallets_available": "ምንም ዋሌቶች የሉም",
+    "no_wallets_available_description": "ሁሉም የቦርሳ አይነቶች በአስተዳዳሪው ተሰናክለዋል። እባክዎን ለእገዛ ድጋፍን ያነጋግሩ ወይም በኋላ ይመልከቱ።",
     "no_wallets_with_balance_for_withdrawal": "ለመውጣት ሚዛን ያላቸው ዋሌቶች የሉም",
     "no_withdrawal_methods": "ምንም የመውጫ ዘዴዎች የሉም",
     "no_withdrawal_methods_available": "ምንም የመውጫ ዘዴዎች የሉም",
@@ -6996,8 +7078,11 @@
     "create_nft": "NFT ፍጠር",
     "create_your_first_collection_to_organize_your_nfts": "NFTዎችዎን ለማደራጀት የመጀመሪያ ስብስብዎን ይፍጠሩ",
     "create_your_first_nft_to_get_started": "ለመጀመር የመጀመሪያ NFTዎን ይፍጠሩ",
+    "creator_dashboard": "የፈጣሪ ዳሽቦርድ",
     "creator_hub": "የፈጣሪ ማዕከል",
+    "creator_since": "ፈጣሪ ከዚህ ጀምሮ",
     "explore_nfts": "NFTዎችን ያስሱ",
+    "failed_to_load_dashboard": "ዳሽቦርድ መጫን አልተሳካም",
     "favorite_nfts": "ተወዳጅ NFTዎች",
     "manage_your_nfts_collections": "NFTዎችዎን፣ ስብስቦችዎን እና የገበያ እንቅስቃሴዎን ያስተዳድሩ",
     "my_collections": "የእኔ ስብስቦች",
@@ -7008,6 +7093,7 @@
     "no_favorites_yet": "ገና ተወዳጆች የሉም",
     "no_nfts_yet": "ገና NFTዎች የሉም",
     "please_login_to_view_your_dashboard": "ዳሽቦርድዎን ለማየት እባክዎ ይግቡ",
+    "please_sign_in_to_access_your_creator_dashboard": "እባክዎ የፈጣሪ ዳሽቦርድዎን ለመድረስ ይግቡ",
     "please_sign_in_to_view_your_nft_dashboard": "የNFT መቆጣጠሪያ ሰሌዳዎን ለማየት እባክዎ ይግቡ",
     "recent_activity": "የቅርብ ጊዜ እንቅስቃሴ",
     "sign_in": "ግባ",
@@ -7015,6 +7101,7 @@
     "total_nfts": "ጠቅላላ NFTዎች",
     "total_value": "ጠቅላላ ዋጋ",
     "total_views": "ጠቅላላ እይታዎች",
+    "try_again": "እንደገና ይሞክሩ",
     "your_nft_activities_will_appear_here": "የNFT እንቅስቃሴዎችዎ እዚህ ይታያሉ"
   },
   "nft/details": {
@@ -7150,7 +7237,8 @@
     "sell_at_a_fixed_price": "በቋሚ ዋጋ ይሽጡ",
     "sell_to_highest_bidder": "ለከፍተኛ ተጫራች ሽጥ",
     "start_time": "የመጀመሪያ ጊዜ",
-    "starting_price": "የመጀመሪያ ዋጋ"
+    "starting_price": "የመጀመሪያ ዋጋ",
+    "Duration": "የሚቆይበት ጊዜ"
   },
   "nft/modals/offer": {
     "Cancel": "ሰርዝ",
@@ -7214,7 +7302,8 @@
     "token_details": "ቶከን ዝርዝሮች",
     "token_id": "ቶከን መታወቂያ",
     "token_standard": "የቶከን ደረጃ",
-    "view_on_explorer": "በኤክስፕሎረር ላይ ይመልከቱ"
+    "view_on_explorer": "በኤክስፕሎረር ላይ ይመልከቱ",
+    "browse_marketplace": "የገበያ ቦታን ያስሱ"
   },
   "nft/user/profile": {
     "Activity": "እንቅስቃሴ",
@@ -7631,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "በመጫን ላይ",
-    "available": "ይገኛል"
+    "available": "ይገኛል",
+    "balance": "ቀሪ ሂሳብ",
+    "in_orders": "በትዕዛዞች ውስጥ"
   },
   "trade/components/trading/spot/index": {
     "Limit": "ገደብ",
@@ -7648,7 +7739,10 @@
     "Price": "ዋጋ",
     "Processing": "በሂደት ላይ",
     "Sell": "ሽጥ",
-    "Total": "ጠቅላላ"
+    "Total": "ጠቅላላ",
+    "Est": {
+      " Fee": " ክፍያ"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "መጠን",
@@ -7658,7 +7752,10 @@
     "estimated_total": "በአጠቃላይ የተገመተው",
     "market_orders_execute_available_price": "የገበያ ትዕዛዞች በ ምርጥ ዋጋ ወዲያውኑ ይፈፀማሉ",
     "market_price": "የገበያ ዋጋ",
-    "the_final_execution_estimated_price": "የመጨረሻው የሞት ቅጣት ዋጋ ከተገመተው ዋጋ ሊለይ ይችላል"
+    "the_final_execution_estimated_price": "የመጨረሻው የሞት ቅጣት ዋጋ ከተገመተው ዋጋ ሊለይ ይችላል",
+    "Est": {
+      " Fee": " ክፍያ"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "መጠን",
@@ -7673,7 +7770,10 @@
     "stop_market_orders_is_reached": "የማቆም ዋጋ ሲደርስ የገበያ ትዕዛዝ እንደ ገበያ ትዕዛዝ ይፈፀም",
     "stop_price": "ዋጋ አቁሙ",
     "the_order_will_available_price": "ትዕዛዙ በተሻለ ዋጋ ይሞላል",
-    "the_order_will_or_better": "ትዕዛዙ በገደብ ወይም በተሻለ ዋጋ ይሞላል"
+    "the_order_will_or_better": "ትዕዛዙ በገደብ ወይም በተሻለ ዋጋ ይሞላል",
+    "Est": {
+      " Fee": " ክፍያ"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "**አትጨነቁ :)",
@@ -7687,5 +7787,553 @@
     "were_making_the_system_more_awesome": "ስርዓቱን ይበልጥ አስደናቂ እያደረግን ነው",
     "we’ll_be_back_shortly": "በቅርቡ እንመለሳለን",
     "we’re_making_the_system_more_awesome": "ስርዓቱን ይበልጥ አስደናቂ እያደረግን ነው"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "የላቀ የፋይናንስ ትንተና ከትርፍ ክትትል፣ የገቢ ምንጮች ትንተና እና አጠቃላይ የንግድ የማሰብ ችሎታ ዳሽቦርዶች ጋር።",
+        "title": "የገቢ ትንተና"
+      },
+      "communication": {
+        "description": "የመድረክ ግንኙነት አስተዳደር ማሳወቂያዎችን፣ ማስታወቂያዎችን እና የተጠቃሚ የመልእክት ስርዓቶችን ጨምሮ።",
+        "title": "የግንኙነት መሳሪያዎች"
+      },
+      "compliance": {
+        "description": "የደንብ ማክበር መሳሪያዎች KYC ሂደትን፣ የሰነድ ማረጋገጫን እና ለህጋዊ ተገዢነት የማንነት አስተዳደርን ጨምሮ።",
+        "title": "ማክበር እና ማረጋገጫ"
+      },
+      "currencies": {
+        "description": "የብዙ-ምንዛሬ ድጋፍ ከእውነተኛ ጊዜ የምንዛሬ ተመኖች፣ የንግድ ጥንዶች ውቅረት እና የገበያ መረጃ ውህደት ጋር።",
+        "title": "የምንዛሬ አስተዳደር"
+      },
+      "dashboard": {
+        "description": "አጠቃላይ የአስተዳደር አጠቃላይ እይታ ከእውነተኛ ጊዜ ትንተና፣ የስርዓት ጤና ክትትል እና ወደ ወሳኝ የአስተዳደር ተግባራት ፈጣን መድረስ ጋር።",
+        "title": "ዳሽቦርድ"
+      },
+      "monitoring": {
+        "description": "አጠቃላይ የስርዓት ክትትል ከምዝግብ ማስታወሻ፣ የአፈጻጸም መለኪያዎች እና አውቶማቲክ የተግባር አስተዳደር ጋር።",
+        "title": "የስርዓት ክትትል"
+      },
+      "permissions": {
+        "description": "በሁሉም የስርዓት ተግባራት እና ባህሪያት ላይ ለትክክለኛ የመዳረሻ ቁጥጥር የአረቃቂ ፍቃድ አስተዳደር።",
+        "title": "ፈቃዶች"
+      },
+      "roles": {
+        "title": "የተጠቃሚ ሚናዎች",
+        "description": "ሊበጁ የሚችሉ የፍቃድ ስብስቦች እና የተዋረድ የመዳረሻ ቁጥጥር አወቃቀሮች ያላቸውን የተጠቃሚ ሚናዎች ይፍጠሩ እና ያስተዳድሩ።",
+        "permissions": {
+          "description": "በመድረኩ ላይ የተጠቃሚ ሚናዎችን ለመግለጽ፣ ፍቃዶችን ለማስተዳደር እና የደህንነት ፖሊሲዎችን ለመተግበር የላቀ የመዳረሻ ቁጥጥር ስርዓት።",
+          "title": "ሚናዎች እና ፈቃዶች"
+        }
+      },
+      "support": {
+        "description": "የተቀናጀ የድጋፍ ቲኬት ስርዓት ከቅድሚያ አስተዳደር፣ ምላሽ ክትትል እና የደንበኛ እርካታ ክትትል ጋር።",
+        "title": "የደንበኛ ድጋፍ"
+      },
+      "users": {
+        "description": "ከላቀ ማጣሪያ፣ ከጅምላ ስራዎች፣ ከመገለጫ አስተዳደር እና ከዝርዝር እንቅስቃሴ ክትትል ጋር አጠቃላይ የተጠቃሚ ዳታቤዝ።",
+        "title": "ተጠቃሚዎች"
+      },
+      "affiliate": {
+        "system": {
+          "description": "የብዙ-ደረጃ አጋር ፕሮግራም ከኮሚሽን ክትትል፣ የአፈጻጸም ትንተና እና በራስ-ሰር የሚከፈል ክፍያ ጋር።",
+          "title": "የቅርንጫፍ ፕሮግራም"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "የAI ስትራቴጂ የጊዜ ገደቦችን በተለዋዋጭ እንደገና ማመጣጠን እና የገበያ ሁኔታ መላመድ ያዋቅሩ።",
+          "title": "የስትራቴጂ ጊዜ ገደቦች"
+        },
+        "investment": {
+          "description": "በማሽን መማሪያ ስልተ ቀመሮች እና በራስ-ሰር የፖርትፎሊዮ ማመቻቸት የሚሰራ በአርቴፊሻል ኢንተለጀንስ የሚመራ የኢንቨስትመንት አስተዳደር።",
+          "title": "የAI ኢንቨስትመንት"
+        },
+        "performance": {
+          "description": "የአይአይ ኢንቬስትመንት አፈፃፀም ትንተና የሞዴል ትክክለኛነት ክትትልና የስትራቴጂ ውጤታማነት መለኪያዎች።",
+          "title": "የአይአይ አፈፃፀም"
+        },
+        "strategies": {
+          "description": "የማሽን መማሪያ የኢንቨስትመንት ስልቶች ከኋላ-ሙከራ፣ የአደጋ ግምገማ እና የአፈጻጸም ማመቻቸት ጋር።",
+          "title": "የAI ስልቶች"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "የAPI ቁልፍ የህይወት ዑደት አስተዳደር ከአጠቃቀም ክትትል፣ ተመን መገደብ እና ለሶስተኛ ወገን ውህደቶች የደህንነት ቁጥጥሮች ጋር።",
+          "title": "ኤፒአይ አስተዳደር"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "ለባይነሪ አማራጮች የንግድ የጊዜ ገደቦችን እና የክፍያ መቶኛዎችን ከአደጋ አስተዳደር ቁጥጥሮች ጋር ያዘጋጁ።",
+          "title": "የንግድ ጊዜዎች"
+        },
+        "markets": {
+          "description": "የባይነሪ አማራጮች ገበያዎችን ከንብረት ጥንዶች፣ የንግድ መለኪያዎች እና የገበያ ሰዓታት ጋር ያዋቅሩ።",
+          "title": "ሁለትዮሽ ገበያዎች"
+        },
+        "orders": {
+          "description": "የባይነሪ አማራጮች ትዕዛዞችን ከአፈጻጸም ክትትል እና የመፍታት ሂደት ጋር ይቆጣጠሩ እና ያስተዳድሩ።",
+          "title": "ሁለትዮሽ ትዕዛዞች"
+        },
+        "trading": {
+          "description": "የባይነሪ አማራጮች የንግድ ስርዓት ከገበያ ማዋቀር፣ የቆይታ ጊዜ አስተዳደር እና የክፍያ ውቅረት ጋር።",
+          "title": "ሁለትዮሽ አማራጮች"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "የማይለወጥ የመዝገብ አስተዳደር ከኦዲት መንገዶች፣ የማክበር ሪፖርት እና የፎረንሲክ ትንተና መሳሪያዎች ጋር።",
+          "title": "የብሎክቼይን ምዝገባ ደብተሮች"
+        },
+        "networks": {
+          "description": "የብዙ-ሰንሰለት አውታረ መረብ አስተዳደር ከኖድ ክትትል፣ የስምምነት ክትትል እና የአውታረ መረብ ጤና ትንተና ጋር።",
+          "title": "የብሎክቼይን አውታረመረቦች"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "ሙሉ የብሎግ አስተዳደር ከደራሲ መገለጫዎች፣ የይዘት መርሃ ግብር፣ SEO ማመቻቸት እና የተሳትፎ ትንተና ጋር።",
+          "title": "የብሎግ ስርዓት"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "አስፈላጊ የንግድ መሳሪያዎች ለግብይት፣ የደንበኛ ድጋፍ እና የእውቀት አስተዳደር።",
+          "title": "የንግድ መሳሪያዎች"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "አጠቃላይ የይዘት አስተዳደር ስርዓት ለብሎጎች፣ የሚዲያ ንብረቶች እና የተለዋዋጭ ድረ-ገጽ ይዘት።",
+          "title": "ይዘት"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "የዲጂታል ንብረት አስተዳደር ከብሎክቼይን ውህደት፣ የቦርሳ ግንኙነት እና በእውነተኛ ጊዜ የገበያ መረጃ ምግቦች ጋር።",
+          "title": "ክሪፕቶ ምንዛሬዎች"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "የተቋማዊ ተያዥ የቦርሳ አገልግሎቶች ከደንብ ተገዢነት እና የመድን ሽፋን ጋር።",
+          "title": "የአሳዳጊ አገልግሎቶች"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "አጠቃላይ የተቀማጭ ግብይት ምዝግቦች ከሁኔታ ክትትል፣ የማስታረቅ መሳሪያዎች እና የኦዲት አቅም ጋር።",
+          "title": "የተቀማጭ መዝገቦች"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "የላቀ የእይታ ገጽ ገንቢ ከመጎተት-እና-መጣል በይነገጽ፣ ምላሽ ሰጪ የንድፍ መሳሪያዎች እና የምርት ስም ማበጀት አማራጮች ጋር።",
+          "title": "የገጽ ገንቢ"
+        },
+        "customization": {
+          "description": "የድረ-ገጽዎን መልክ እና ንድፍ በላቁ የእይታ መሳሪያዎች ያበጁ።",
+          "title": "ዲዛይን"
+        },
+        "default": {
+          "editor": {
+            "description": "ነባሪ የፊት-መጨረሻ ገጾችን ቤት፣ ህጋዊ ገጾች እና አቀማመጦችን ከኮድ አርታዒ በይነገጽ ጋር ያርትዑ።",
+            "title": "ነባሪ ገጾች"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "ሙሉ ባህሪ ያለው የኢ-ኮሜርስ መድረክ የእቃ አስተዳደር፣ የትዕዛዝ ማቀናበር እና የብዙ ሻጭ ድጋፍ።",
+          "title": "የኢ-ኮሜርስ መድረክ"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "ያልተማከለ የገበያ አስተዳደር ከAMM ፕሮቶኮሎች፣ የፈሳሽነት ገንዳዎች እና የምርት እርሻ ውህደት ጋር።",
+          "title": "ዲፋይ ገበያዎች"
+        },
+        "orders": {
+          "description": "የብሎክቼይን ስነ-ምህዳር የንግድ ትዕዛዞች ከስማርት ኮንትራት ውህደት እና ያልተማከለ አፈጻጸም ጋር።",
+          "title": "የኢኮሲስተም ትዕዛዞች"
+        },
+        "platform": {
+          "description": "ከብሎክቼይን ውህደት፣ ከዲፋይ ፕሮቶኮሎች እና ከስማርት ኮንትራክት አውቶሜሽን ጋር ያልተማከለ የንግድ ስነ-ምህዳር።",
+          "title": "የብሎክቼይን ስነ-ምህዳር"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "የኢሜል ዘመቻዎችን በመከፋፈል፣ በግላዊነት እና በአፈጻጸም ክትትል ይፍጠሩ እና ያስተዳድሩ።",
+          "title": "የኢሜይል ዘመቻዎች"
+        },
+        "marketing": {
+          "description": "ሙያዊ የኢሜል ግብይት መድረክ ከራስ-ሰር የስራ ፍሰቶች፣ A/B ሙከራ እና ትንተና ጋር።",
+          "title": "የኢሜይል ግብይት"
+        },
+        "templates": {
+          "description": "የባለሙያ ኢሜይል ቅጽ ቤተ-መጻህፍት ምላሽ ሰጪ ዲዛይን እና የምርት ስም ማበጀት አማራጮች ያለው።",
+          "title": "የኢሜይል አብነቶች"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "ከፈሳሽ አቅራቢዎች፣ ኤፒአይ ማዋቀሪያዎች እና የአፈጻጸም ክትትል ጋር የልውውጥ ውህደቶችን ያስተዳድሩ።",
+          "title": "የልውውጥ አቅራቢዎች"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "የቅጥያ የህይወት ዑደት አስተዳደር ከመጫኛ፣ ማዘመኛዎች፣ የጥገኝነት መፍትሄ እና የተኳኋኝነት ማረጋገጫ ጋር።",
+          "title": "የኤክስቴንሽን አስተዳዳሪ"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "የባህላዊ ምንዛሬ አስተዳደር ከምንዛሬ ተመን ክትትል፣ የክልል ቅንብሮች እና የክፍያ መግቢያ ውህደት ጋር።",
+          "title": "የፊያት ምንዛሬዎች"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "አጠቃላይ የፋይናንስ አስተዳደር ስብስብ የገቢ ትንታነ፣ የምንዛሬ አስተዳደር፣ የክፍያ ሂደት እና የግብይት ክትትል ያካትታል።",
+          "title": "ፋይናንስ"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "ከሜታትሬደር ውህደት፣ ከአልጎሪዝም ንግድ እና ከተቋማዊ ፈሳሽነት ጋር ሙያዊ የፎሬክስ ንግድ።",
+          "title": "የፎሬክስ ንግድ"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "የወደፊት ገበያ ማዋቀሪያ ከኮንትራት ዝርዝሮች፣ የህዳግ መስፈርቶች እና የመፍትሄ ሂደቶች ጋር።",
+          "title": "የፊውቸርስ ገበያዎች"
+        },
+        "orders": {
+          "description": "የወደፊት ኮንትራት ትዕዛዝ አስተዳደር ከህዳግ ክትትል እና የአደጋ ግምገማ መሳሪያዎች ጋር።",
+          "title": "የፊውቸርስ ትዕዛዞች"
+        },
+        "platform": {
+          "description": "ከህዳግ አስተዳደር፣ ከአደጋ መቆጣጠሪያዎች እና ከተቋማዊ አፈፃፀም ጋር ሙያዊ የፊውቸርስ የንግድ መድረክ።",
+          "title": "የፊውቸርስ ንግድ"
+        },
+        "positions": {
+          "description": "በእውነተኛ ጊዜ የቦታ ክትትል ከP&L ክትትል፣ የህዳግ ጥሪዎች እና አውቶማቲክ የአደጋ አስተዳደር ጋር።",
+          "title": "የቦታ አስተዳደር"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "ተለዋዋጭ የመነሻ ገጽ ይዘት አስተዳደር ምላሽ ሰጪ ተንሸራታቾች፣ የድርጊት ጥሪ አዝራሮች እና A/B የሙከራ አቅሞች ያለው።",
+          "title": "የመነሻ ገጽ ስላይደሮች"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "ከኬዋይሲ ውህደት፣ ከስማርት ኮንትራክት ማሰማራት እና ከቁጥጥር ማክበር ጋር የመጀመሪያ ሳንቲም አቅርቦት መድረክ።",
+          "title": "የቶከን ሽያጭ"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "ከማፅደቅ የስራ ሂደቶች እና የአክብሮት ፍተሻዎች ጋር በሂሳቦች መካከል የውስጥ የገንዘብ ማስተላለፎችን ያስተዳድሩ።",
+          "title": "ውስጣዊ ማስተላለፎች"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "ለተለያዩ ምርቶች የኢንቨስትመንት ቆይታ፣ የብስለት ጊዜያት እና የውህድ ወለድ ስሌቶችን ያዋቅሩ።",
+          "title": "የኢንቨስትመንት ጊዜዎች"
+        },
+        "extensions": {
+          "description": "የላቀ የኢንቨስትመንት ምርቶች በኤአይ የሚመራ ስልቶች፣ የስቴኪንግ አገልግሎቶች እና የቶክናይዜሽን መድረኮች ያላቸው።",
+          "title": "የኢንቨስትመንት ምርቶች"
+        },
+        "history": {
+          "description": "አጠቃላይ የኢንቨስትመንት አፈጻጸም ትንታነ ከROI ክትትል እና የፖርትፎሊዮ አስተዳደር ግንዛቤዎች ጋር።",
+          "title": "የኢንቨስትመንት ትንተና"
+        },
+        "management": {
+          "description": "የኢንቨስትመንት ምርት አስተዳደር ከእቅድ ፈጠራ፣ የአፈጻጸም ክትትል እና የፖርትፎሊዮ ክትትል መሳሪያዎች ጋር።",
+          "title": "የኢንቨስትመንት አስተዳደር"
+        },
+        "plans": {
+          "description": "የኢንቨስትመንት ምርቶችን ከአደጋ መገለጫዎች፣ ከገቢ ስሌቶች እና ከጊዜ ማዋቀሪያዎች ጋር ይፍጠሩ እና ያስተዳድሩ።",
+          "title": "የኢንቨስትመንት ፕላኖች"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "አጠቃላይ የእውቀት አስተዳደር ስርዓት በኤአይ የሚንቀሳቀስ ፍለጋ እና የይዘት ማሻሻያ ያለው።",
+          "title": "የእውቀት ጎተራ"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "የደንበኛህን ተግባራት በሰነድ ማረጋገጫ፣ የአደጋ ግምገማ እና የማፅደቂያ የስራ ሂደቶች ተገምግም እና ሂደት።",
+          "title": "የኬዋይሲ ማመልከቻዎች"
+        },
+        "levels": {
+          "description": "ለተለያዩ የተጠቃሚ ምድቦች ሊበጁ የሚችሉ መስፈርቶች፣ ገደቦች እና የመዳረሻ ልዩ መብቶች ያላቸው የማረጋገጫ ደረጃዎችን ያዋቅሩ።",
+          "title": "የማረጋገጫ ደረጃዎች"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "የስርዓት ጥገና መገልገያዎች የዳታቤዝ ማሻሻያ፣ የመሸጎጫ አስተዳደር እና የፍልሰት መሳሪያዎችን ጨምሮ።",
+          "title": "የጥገና መሳሪያዎች"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "አጠቃላይ የሻጭ መሳሪያዎች እና የገዢ ጥበቃ ያለው የኢ-ኮሜርስ እና ዲጂታል የገበያ ማእከል መድረኮች።",
+          "title": "የገበያ መፍትሄዎች"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "ከባለብዙ ፊርማ ደህንነት እና ቀዝቃዛ ማከማቻ ውህደት ጋር የድርጅት ደረጃ ዋና የኪስ ቦርሳ አስተዳደር።",
+          "title": "ዋና የቦርሳ አስተዳደር"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "ለተሻለ አፈጻጸም የደመና ማከማቻ፣ የምስል ማሻሻያ እና CDN ውህደት ያለው ማዕከላዊ የሚዲያ አስተዳደር።",
+          "title": "የሚዲያ ቤተ-መጻህፍት"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "የባለሙያ NFT የገበያ ቦታ ከማዘዣ መሳሪያዎች፣ የሮያሊቲ አስተዳደር እና የመሸጫ አቅም ጋር።",
+          "title": "የNFT ገበያ"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "ሊበጁ የሚችሉ የማሳወቂያ ቅጾች ከባለብዙ ቻናል አቅርቦት እና የግል ሆኖ ማቅረቢያ ተለዋዋጮች ጋር።",
+          "title": "የማሳወቂያ አብነቶች"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "በሁሉም የንግድ መድረኮች እና የንብረት ክፍሎች ላይ ማዕከላዊ የትዕዛዝ ሂደት እና አስተዳደር።",
+          "title": "የትዕዛዝ አስተዳደር"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "ከኤስክሮው አገልግሎቶች፣ ከክርክር መፍቻ እና ከብዙ ክፍያ መግቢያ ድጋፍ ጋር እኩል-ለ-እኩል የንግድ መድረክ።",
+          "title": "የፒ2ፒ ልውውጥ"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "ከማጭበርበር ማወቂያ፣ የአክብሮት ፍተሻዎች እና የአፈጻጸም ትንታኔዎች ጋር የክፍያ መግቢያዎችን ያዋቅሩ እና ይከታተሉ።",
+          "title": "የክፍያ መግቢያዎች"
+        },
+        "methods": {
+          "description": "ካርዶችን፣ የባንክ ማስተላለፎችን፣ ዲጂታል የኪስ ቦርሳዎችን እና ክሪፕቶ ምንዛሪ ክፍያዎችን ጨምሮ የሚገኙ የክፍያ አማራጮችን ያስተዳድሩ።",
+          "title": "የክፍያ ዘዴዎች"
+        },
+        "systems": {
+          "description": "ሙሉ የክፍያ መሠረተ ልማት አስተዳደር መግቢያዎችን፣ ዘዴዎችን እና የግብይት ሂደት ክትትልን ጨምሮ።",
+          "title": "የክፍያ ስርዓቶች"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "ለንግድ፣ ለገበያ እና ለንግድ ስራዎች ልዩ ተግባር የሚሰጡ የላቀ የመድረክ ቅጥያዎች።",
+          "title": "ቅጥያዎች"
+        },
+        "settings": {
+          "description": "የምርት ስም፣ ማዘጋጀት፣ የደህንነት ፖሊሲዎች እና የባህሪ መቀያየሮችን ጨምሮ ዋና የመድረክ ውቅር።",
+          "title": "የመድረክ ቅንብሮች"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "አውቶማቲክ የተግባር መርሐግብር ከሥራ ክትትል፣ የውድቀት አያያዝ እና የአፈጻጸም ማሻሻያ ጋር።",
+          "title": "የታቀዱ ስራዎች"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "የቦታ ንግድ ትዕዛዝ አስተዳደር ከእውነተኛ ጊዜ አፈጻጸም ክትትል እና የገበያ ተጽእኖ ትንታኔ ጋር።",
+          "title": "የቦታ ትዕዛዞች"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "ከማረጋገጫ አስተዳደር፣ ከሽልማት ስርጭት እና ከመቁረጥ ጥበቃ ጋር አጠቃላይ የስቴኪንግ መድረክ።",
+          "title": "የስቴኪንግ አገልግሎቶች"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "ሙሉ የስርዓት አስተዳደር ስብስብ ለመድረክ ማዋቀሪያ፣ ክትትል እና ጥገና ተግባራት።",
+          "title": "ስርዓት"
+        },
+        "announcements": {
+          "description": "መርሐግብር ማውጣት፣ ማነጣጠር እና የተሳትፎ ክትትል አቅሞች ያለው በመድረክ ሁሉ የማስታወቂያ ስርዓት።",
+          "title": "የስርዓት ማስታወቂያዎች"
+        },
+        "logs": {
+          "description": "በእውነተኛ ጊዜ ክትትል፣ ምዝግብ ማስታወሻ ማሰባሰብ እና የላቁ የፍለጋ አቅሞች ያለው ማዕከላዊ የምዝግብ ማስታወሻ ስርዓት።",
+          "title": "የስርዓት መዝገቦች"
+        },
+        "updates": {
+          "description": "አውቶማቲክ የስርዓት ማዘመኛዎች ከመልሰው መተላለፍ አቅሞች፣ የደህንነት ፓቼዎች እና የባህሪ ማሰማራት አስተዳደር ጋር።",
+          "title": "የስርዓት ማሻሻያዎች"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "አጠቃላይ የቶክን የህይወት ዑደት አስተዳደር ከማዘዣ፣ ማቃጠል እና የአስተዳደር አቅሞች ጋር።",
+          "title": "የቶከን አስተዳደር"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "ከላቁ የትዕዛዝ ዓይነቶች፣ የገበያ ትንታኔ መሳሪያዎች እና የተቋማዊ ደረጃ አፈጻጸም ጋር የባለሙያ የንግድ መድረኮች።",
+          "title": "የንግድ መድረኮች"
+        },
+        "infrastructure": {
+          "description": "የንግድ መድረክ አስተዳደር የልውውጥ አቅራቢዎችን፣ የገበያ ማዋቀሪያዎችን እና የትዕዛዝ ሂደት ስርዓቶችን ጨምሮ።",
+          "title": "የንግድ መሠረተ ልማት"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "አጠቃላይ የግብይት ታሪክ ከላቁ ማጣሪያ፣ የመላኪያ አቅሞች እና የኦዲት መንገዶች ጋር።",
+          "title": "የግብይት ምዝገባዎች"
+        },
+        "management": {
+          "description": "ሙሉ የግብይት ክትትል ዝርዝር ምዝግብ ማስታወሻ፣ እርቅ እና የማስተላለፍ አስተዳደር አቅሞች ጋር።",
+          "title": "የግብይት አስተዳደር"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "ምዝገባን፣ ማረጋገጫን፣ የሚና ምደባን እና የደንበኛ ግንኙነት መሳሪያዎችን ጨምሮ ለአጠቃላይ የተጠቃሚ አስተዳደር ሙሉ የተጠቃሚ የህይወት ዑደት አስተዳደር።",
+          "title": "ተጠቃሚዎች"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "የላቀ UTXO አስተዳደር ከግብይት ግራፍ ትንተና እና ግላዊነትን የሚጠብቁ ባህሪያት ጋር።",
+          "title": "የUTXO ክትትል"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "ከሚዛን ክትትል፣ የደህንነት ቁጥጥሮች እና የመጠባበቂያ አስተዳደር ጋር ባለብዙ ምንዛሬ የኪስ ቦርሳ አስተዳደር።",
+          "title": "የዋሌት አስተዳደር"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "የመውጣት ጥያቄዎችን ከሁኔታ ክትትል፣ የማፅደቂያ የስራ ሂደቶች እና የአክብሮት ማረጋገጫ ጋር ይከታተሉ።",
+          "title": "የመውጣት መዝገቦች"
+        },
+        "management": {
+          "description": "አጠቃላይ የመውጣት ስርዓት አስተዳደር ከአውቶማቲክ ሂደት፣ የማጭበርበር መከላከያ እና የአክብሮት ቁጥጥሮች ጋር።",
+          "title": "የመውጣት አስተዳደር"
+        },
+        "methods": {
+          "description": "የባንክ ማስተላለፎችን፣ ክሪፕቶ መውጣቶችን እና የሶስተኛ ወገን ሂደት አካሄዳዎችን ጨምሮ የመውጣት አማራጮችን ያዋቅሩ።",
+          "title": "የመውጣት ዘዴዎች"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "ንግድ",
+        "description": "ለሁሉም የንብረት ክፍሎች የላቁ ቻርት መሳሪያዎችን፣ በእውነተኛ ጊዜ የገበያ መረጃዎችን እና ሙያዊ-ደረጃ የማከናወን ችሎታዎችን ያላቸውን አጠቃላይ የንግድ መድረኮችን ይድረሱ።",
+        "spot": {
+          "title": "ስፖት ትሬዲንግ",
+          "description": "በላቁ የትዕዛዝ ዓይነቶች፣ የጥልቀት ገበታዎች እና ሙያዊ የንግድ መሳሪያዎች በአሁኑ የገበያ ዋጋዎች ፈጣን የግዢ እና የሽያጭ ትዕዛዞችን ያከናውኑ።"
+        },
+        "binary": {
+          "title": "ባይነሪ አማራጮች",
+          "description": "ለጊዜ-ስሜታዊ ስልቶች የተራቀቁ ትንታኔዎችን፣ የአደጋ አስተዳደር መሳሪያዎችን እና የተስተካከለ አፈፃፀምን በመጠቀም የባይነሪ አማራጮችን ይገበያዩ።"
+        },
+        "forex": {
+          "title": "ፎሬክስ",
+          "description": "በMetaTrader 4/5 ውህደት፣ የላቁ ቻርቶች እና የተቋም-ደረጃ አፈፃፀም የአለምአቀፍ የውጭ ምንዛሪ ገበያዎችን ይድረሱ።"
+        },
+        "p2p": {
+          "title": "P2P ልውውጥ",
+          "description": "በአስተማማኝ ሽያጭ ጥበቃ፣ ተለዋዋጭ የክፍያ ዘዴዎች እና ተወዳዳሪ ተመኖች በአስተማማኝ የአቻ-ለ-አቻ ክሪፕቶ ምንዛሪ ንግድ ይሳተፉ።"
+        }
+      },
+      "portfolio": {
+        "title": "ፖርትፎሊዮ",
+        "description": "ንብረቶችን ለመከታተል፣ አፈፃፀምን ለመተንተን እና በሁሉም መድረኮች የፋይናንስ መሳሪያዎችዎን ለማስተዳደር አጠቃላይ የፖርትፎሊዮ አስተዳደር ስብስብ።",
+        "wallet": {
+          "title": "የኪስ ቦርሳ አስተዳደር",
+          "description": "በእውነተኛ ጊዜ የሚደረግ የሂሳብ ቀሪ ክትትል፣ የግብይት ታሪክ እና እንከን የሌለው የማስገባት/የማውጣት ችሎታዎች ያለው ደህንነቱ የተጠበቀ ባለብዙ-ምንዛሪ ኪስ ቦርሳ።"
+        },
+        "transactions": {
+          "title": "የግብይት ታሪክ",
+          "description": "ለሁሉም የፋይናንስ እንቅስቃሴዎች በላቁ ማጣሪያዎች፣ የመላክ ችሎታዎች እና አጠቃላይ የኦዲት መንገዶች ዝርዝር የግብይት መዝገቦች።"
+        },
+        "transfers": {
+          "title": "ማስተላለፎች",
+          "description": "ፈጣን ሂደት፣ ተወዳዳሪ ክፍያዎች እና ባለብዙ-ምንዛሪ ድጋፍ ያላቸው የውስጥ እና የውጭ የማስተላለፍ አገልግሎቶች።"
+        }
+      },
+      "investments": {
+        "title": "ኢንቬስትመንቶች",
+        "description": "በብዙ የንብረት ክፍሎች ላይ ሙያዊ-ደረጃ ትንታኔዎች፣ የአደጋ ግምገማ መሳሪያዎች እና የአፈፃፀም ክትትል ያላቸው የተለያዩ የኢንቬስትመንት እድሎች።",
+        "plans": {
+          "title": "የኢንቬስትመንት እቅዶች",
+          "description": "ከፋይናንስ ግቦችዎ ጋር የሚዛመዱ ዝርዝር የአደጋ መገለጫዎች፣ የታሪክ አፈፃፀም መረጃዎች እና ተለዋዋጭ ውሎች ያላቸው የተዘጋጁ የኢንቬስትመንት ስልቶች።"
+        },
+        "staking": {
+          "title": "የስቴኪንግ ሽልማቶች",
+          "description": "ተወዳዳሪ APY ተመኖች፣ ተለዋዋጭ የመቆለፊያ ጊዜዎች እና አውቶማቲክ የሽልማት ስርጭት በመጠቀም በክሪፕቶ ምንዛሪ ስቴኪንግ ተገቢ ያልሆነ ገቢ ያግኙ።"
+        },
+        "ico": {
+          "title": "የቶከን ሽያጮች",
+          "description": "አጠቃላይ የበቂ ትጋት ሪፖርቶች፣ የቶከኖሚክስ ትንታኔ እና የኢንቬስትመንት ክትትል ባላቸው የተረጋገጡ የመጀመሪያ ሳንቲም ቅናሾች ቀደምት ድርሻ።"
+        }
+      },
+      "marketplace": {
+        "title": "ገበያ ቦታ",
+        "description": "ደህንነቱ የተጠበቁ ግብይቶች፣ የተረጋገጡ ሻጮች እና አጠቃላይ የገዢ ጥበቃ ያላቸውን ፕሪሚየም ዲጂታል እና አካላዊ ገበያዎችን ያስሱ።",
+        "nft": {
+          "title": "NFT ጋለሪ",
+          "description": "በጨረታ ችሎታዎች እና የፈጣሪ ሮያሊቲዎች በእኛ የተዘጋጀ NFT ገበያ ውስጥ ልዩ የዲጂታል ንብረቶችን ያግኙ፣ ይፍጠሩ እና ይገበያዩ።"
+        },
+        "store": {
+          "title": "ስቶር",
+          "description": "ደህንነቱ የተጠበቀ የክፍያ ሂደት፣ የአለም አቀፍ መላኪያ እና የገዢ ጥበቃ ያላቸውን ዡም ዲጂታል እና አካላዊ ምርቶችን የሚያቀርብ ፕሪሚየም ገበያ።"
+        }
+      },
+      "services": {
+        "title": "አገልግሎቶች",
+        "description": "የተባበሩ ፕሮግራሞችን፣ የትምህርት ግብዓቶችን እና ፕሪሚየም ድጋፍን ጨምሮ የንግድ ልምድዎን ለማሳደግ ሙያዊ አገልግሎቶች እና መሳሪያዎች።",
+        "affiliate": {
+          "title": "የአፊሊየት ፕሮግራም",
+          "description": "ተወዳዳሪ ኮሚሽኖች፣ በእውነተኛ ጊዜ ክትትል እና የግብይት መሳሪያዎች ባለው አጠቃላይ የአፊሊየት ፕሮግራማችን አውታረ መረብዎን ያገንዙ።"
+        },
+        "support": {
+          "title": "የድጋፍ ማዕከል",
+          "description": "የቲኬት አስተዳደር፣ የቀጥታ ውይይት ችሎታዎች እና ለፕሪሚየም ተጠቃሚዎች ያተኮረ የሂሳብ አስተዳደር ያለው ሙያዊ የደንበኛ ድጋፍ።"
+        },
+        "faq": {
+          "title": "የእውቀት ቤዝ",
+          "description": "የመድረክ ችሎታዎችን ለማስፋት የሚረዱ አጠቃላይ ሰነዶች፣ ትምህርቶች እና በተደጋጋሚ የሚጠየቁ ጥያቄዎች።"
+        }
+      },
+      "insights": {
+        "title": "ግንዛቤዎች",
+        "description": "ከፋይናንስ ባለሙያዎቻችን እና የገበያ ተመራማሪዎች ቡድን የተገኙ ሙያዊ የገበያ ትንታኔዎች፣ የንግድ ግንዛቤዎች እና የኢንዱስትሪ ዜናዎች።"
+      }
+    }
   }
 }

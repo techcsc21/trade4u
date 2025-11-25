@@ -266,7 +266,8 @@ export default async (data: Handler) => {
   });
 
   // Fetch the owner (project creator)
-  const owner = await models.user.findByPk(offering.submittedBy);
+  // Use userId (the actual project owner) not submittedBy (could be admin who created it)
+  const owner = await models.user.findByPk(offering.userId);
 
   // Helper to send an email if recipient exists
   const sendEmailIfNeeded = async (
@@ -323,7 +324,21 @@ export default async (data: Handler) => {
     }
   }
 
+  // Refetch the offering with all associations to return updated data
+  const updatedOffering = await models.icoTokenOffering.findOne({
+    where: { id: offeringId },
+    include: [
+      {
+        model: models.icoTokenDetail,
+        as: "tokenDetail",
+        include: [{ model: models.icoTokenType, as: "tokenTypeData" }]
+      },
+      { model: models.icoLaunchPlan, as: "plan" },
+    ],
+  });
+
   return {
     message: result.message || "ICO offering updated successfully.",
+    offering: updatedOffering,
   };
 };

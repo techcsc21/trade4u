@@ -25,6 +25,8 @@ import { ActivityCard } from "../ui/activity-card";
 import { useUserStore } from "@/store/user";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { $fetch } from "@/lib/api";
+import { useToast } from "@/hooks/use-toast";
 
 interface DashboardTabProps {
   onTabChange: (tab: string) => void;
@@ -36,6 +38,7 @@ export const DashboardTab = memo(function DashboardTab({
 }: DashboardTabProps) {
   const t = useTranslations("dashboard");
   const { user, securityScore } = useUserStore();
+  const { toast } = useToast();
   const [activity] = useState<any[]>([]);
 
   if (!user) return null;
@@ -69,16 +72,28 @@ export const DashboardTab = memo(function DashboardTab({
   // Handle email verification
   const handleVerifyEmail = async () => {
     try {
-      // Simulate API call to send verification email
-      await fetch("/api/user/profile/verify-email", {
+      const { data, error } = await $fetch({
+        url: "/api/user/profile/verify-email",
         method: "POST",
+        silent: false,
       });
 
-      // Show success message (would be handled by toast in a real implementation)
-      alert("Verification email sent. Please check your inbox.");
-    } catch (error) {
+      if (error) {
+        throw new Error(error);
+      }
+
+      // Show success toast
+      toast({
+        title: "Verification Email Sent",
+        description: data?.message || "Please check your inbox and verify your email address.",
+      });
+    } catch (error: any) {
       console.error("Error sending verification email:", error);
-      alert("Failed to send verification email. Please try again.");
+      toast({
+        title: "Failed to Send Email",
+        description: error.message || "Please try again later.",
+        variant: "destructive",
+      });
     }
   };
 

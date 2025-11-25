@@ -150,19 +150,6 @@
     "top_up": "Презареждане",
     "total_equity": "Общ собствен капитал:"
   },
-  "binary/components/header/market-selector-modal": {
-    "Add": "Добавям",
-    "All": "Всички",
-    "Binary": "Двоичен",
-    "Favorites": "Любими",
-    "Hot": "Горещ",
-    "Loading": "Зареждане",
-    "Market": "Пазар",
-    "Trending": "Тенденции",
-    "active_markets": "Активни пазари",
-    "no_markets_found": "Няма намерени пазари",
-    "try_adjusting_your_search": "Опитайте да коригирате търсенето си"
-  },
   "binary/components/header/market-selector": {
     "Added": "Добавя",
     "Connecting": "Свързване",
@@ -179,6 +166,19 @@
     "no_markets_found": "Няма намерени пазари",
     "select": "избери",
     "try_adjusting_your_different_categories": "Опитайте да коригирате търсенето си или прегледайте различни категории"
+  },
+  "binary/components/header/market-selector-modal": {
+    "Add": "Добавям",
+    "All": "Всички",
+    "Binary": "Двоичен",
+    "Favorites": "Любими",
+    "Hot": "Горещ",
+    "Loading": "Зареждане",
+    "Market": "Пазар",
+    "Trending": "Тенденции",
+    "active_markets": "Активни пазари",
+    "no_markets_found": "Няма намерени пазари",
+    "try_adjusting_your_search": "Опитайте да коригирате търсенето си"
   },
   "binary/components/header/mobile-header": {
     "balance": "Баланс:"
@@ -980,7 +980,7 @@
     "try_a_different_search_term": "Опитайте с друга дума за търсене"
   },
   "components/ui/image-upload": {
-    "5mb)": "5MB)",
+    "5mb)": "5МБ)",
     "Remove": "Махам",
     "drop_a_new_image_to_replace": "Пуснете ново изображение за замяна",
     "processing_image": "Обработка на изображението",
@@ -1150,13 +1150,6 @@
     "Image": "Изображение",
     "Images": "Изображения",
     "Important": "Важен",
-    "Importing": {
-      "": {
-        "": {
-          "untitled": ""
-        }
-      }
-    },
     "Improving": "Подобряване",
     "Inactive": "Неактивен",
     "Insights": "Прозрения",
@@ -2448,9 +2441,6 @@
     "you_have_a_total_of": "Имате общо",
     "you_havent_created_any_api_keys_yet": "Все още не сте създали API ключове",
     "you_havent_saved_any_sections_yet": "Все още не сте запазили секции",
-    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
-      "untitled": ""
-    },
     "you_need_to_enabling_it": "Трябва да активирате и инсталирате разширението до най-новата версия, преди да го активирате",
     "youll_be_redirected_to_the_login_page_after_logout": "Ще бъдете пренасочени към страницата за вход след излизане",
     "youll_need_it_log_in": "Той ще ви е необходим, за да получавате кодове за потвърждение, когато влизате в профила си",
@@ -2486,7 +2476,17 @@
     "•_migration_operations_once_completed": "• Операциите по миграция са необратими след приключване",
     "•_monitor_system_data_migrations": "• Наблюдение на производителността на системата по време на миграции на големи данни",
     "•_some_operations_maintenance_mode": "• Някои операции може да изискват режим на поддръжка на системата",
-    "•_using_fallback_mode": "• Използване на резервен режим"
+    "•_using_fallback_mode": "• Използване на резервен режим",
+    "you_need_to_configure_and_activate_at_least_one_exchange_provider_to_manage_markets": {
+      "untitled": ""
+    },
+    "Importing": {
+      "": {
+        "": {
+          "untitled": ""
+        }
+      }
+    }
   },
   "error-page/401": {
     "go_to_homepage": "Към началната страница",
@@ -2543,7 +2543,7 @@
     "the_page_you_removed_had": "Страницата, която търсите, можеше да бъде премахната, ако"
   },
   "ext": {
-    "#affiliate_#rewards": "#affiliate #rewards",
+    "#affiliate_#rewards": "#афилиейт #награди",
     "%_actual_apr": "% действителен ГПР",
     "%_apr_is_market_conditions": "% ГПР не е гарантиран и може да бъде коригиран според пазарните условия",
     "%_apr_on_your_staked": "% ГПД на вашата залога",
@@ -2853,7 +2853,7 @@
     "Pauses": "Паузи",
     "Payment": "Плащане",
     "Payment_receipt": "Разписка за плащане",
-    "Peer-to-Peer": "Peer-to-Peer",
+    "Peer-to-Peer": "Между Потребители",
     "Pending": "Очакване",
     "Percentage": "Процент",
     "Performance": "Изпълнение",
@@ -3023,7 +3023,7 @@
     "a_world_where_and_security": "Свят, в който иновативните проекти имат лесен достъп до капитал, а инвеститорите могат да участват във възможностите с увереност и сигурност",
     "accept_offers_that_match_your_needs": "Приемайте оферти, които отговарят на вашите нужди",
     "accepted_methods": "Приети методи",
-    "access_denied": "Access Denied",
+    "access_denied": "Достъп отказан",
     "access_institutional-grade_forex_serious_investors": "Достъп до валутна търговия от институционален клас с усъвършенствани алгоритми, професионално управление на риска и постоянна възвръщаемост за сериозни инвеститори",
     "access_to_marketing_support_and_security_audits": "Достъп до маркетингова поддръжка и одити на сигурността",
     "account": "Сметка:",
@@ -3080,7 +3080,7 @@
     "add_new_attachment": "Добавяне на нов прикачен файл",
     "add_note": "Добавяне на бележка",
     "add_notes_and_terms_for_this_offer": "Добавете бележки и условия за тази оферта",
-    "add_payment_method": "Add Payment Method",
+    "add_payment_method": "Добави метод за плащане",
     "add_phase": "Добавяне на фаза",
     "add_plan": "Добави план",
     "add_roadmap_item": "Добавяне на елемент от пътна карта",
@@ -3108,7 +3108,7 @@
     "additional_verification_requirements_for": "Допълнителни изисквания за верификация при NFT транзакции с висока стойност",
     "address": "Адрес:",
     "adjust_amount": "Регулиране на количеството",
-    "admin": "Admin",
+    "admin": "Администратор",
     "admin_actions": "Действия на администратора",
     "admin_actions_will_appear_here": "Тук ще се появят действия на администратора",
     "admin_activity": "Дейност на администратора",
@@ -3262,12 +3262,14 @@
     "auto-post_sales_and_new_listings": "Автоматично публикуване на продажби и нови обяви",
     "auto-release": "Автоматично освобождаване:",
     "auto-verify_new_creators": "Автоматична верификация на нови създатели",
+    "auto_approve_offers": "Автоматично одобряване на оферти",
     "auto_cancel": "Автоматично анулиране",
     "auto_cancel_time_(minutes)": "Време за автоматично анулиране (минути)",
     "automatic_earnings_distribution": "Автоматично разпределение на приходите",
     "automatic_escrow_protection_for_all_funds": "Автоматична ескроу защита за всички средства",
     "automatic_release_after_no_dispute)": "Автоматично освобождаване след 24 часа след потвърждение на плащането (ако няма спор)",
     "automatically_adjust_amount_to_meet_minimum": "Автоматично коригиране на сумата, за да отговаря на минимума",
+    "automatically_approve_new_and_edited_offers": "Автоматично одобряване на нови и редактирани оферти",
     "automatically_cancel_the_specified_time": "Автоматично анулиране на офертата, ако няма отговор в рамките на определено време",
     "automatically_cancel_trades_payment_window": "Автоматично анулиране на сделки, ако плащането не е потвърдено в рамките на прозореца за плащане",
     "automatically_extend_auctions_when": "Автоматично удължаване на търговете при оферти близо до края",
@@ -3542,7 +3544,7 @@
     "confirm_your_deposit": "Потвърдете депозита си",
     "confirm_your_withdrawal": "Потвърдете тегленето си",
     "confirmed_at": "Потвърдено на:",
-    "conflict": "Conflict",
+    "conflict": "Конфликт",
     "connect_with_traders_worldwide": "Свържете се с търговци по целия свят",
     "connections": "Връзки",
     "consider_cliff_periods_for_team_tokens": "Помислете за периоди на клипс за отборни жетони",
@@ -3720,7 +3722,7 @@
     "discard_unsaved_changes": "Отхвърляне на незапазени промени?",
     "discord_integration": "Discord интеграция",
     "discord_webhook_for_sending": "Discord webhook за изпращане на известия от пазара",
-    "discord_webhook_url": "Discord Webhook URL",
+    "discord_webhook_url": "URL на Discord Webhook",
     "discount_code": "Код за отстъпка",
     "discover_all_the_affiliate_program": "Открийте всички начини, по които можете да печелите награди чрез нашата партньорска програма",
     "discover_and_invest_our_platform": "Открийте и инвестирайте в най-новите предложения за токени на нашата платформа",
@@ -3851,6 +3853,7 @@
     "end-to-end_encrypted_chat_the_trade": "Криптиран чат от край до край за сигурна комуникация между купувач и продавач по време на търговията",
     "end_date": "Крайна дата:",
     "end_of_term": "Край на срока",
+    "ended": "Приключил",
     "ending_soon": "Приключва скоро",
     "enhance_multiple_faqs_ai-powered_improvements": "Подобрете множество често задавани въпроси, като използвате нашите подобрения, задвижвани от AI",
     "enjoy_the_lowest_fees_in_the_industry_at_just": "Насладете се на най-ниските такси в индустрията само на 0",
@@ -3930,7 +3933,7 @@
     "explore_our_collections": "Разгледайте нашите колекции",
     "explore_potential_market_and_volatility": "Проучете потенциални пазарни сценарии чрез коригиране на темповете на растеж и волатилността",
     "explore_staking_pools": "Разгледайте пуловете за залагане",
-    "explorer_api": "Explorer API",
+    "explorer_api": "API на Explorer",
     "export_data": "Експортиране на данни",
     "extended_blockchains": "Разширени блокчейни",
     "external_marketplace_integration_allows": "Интеграцията с външни пазари позволява автоматична синхронизация на обяви и подобрена видимост. API ключовете се съхраняват криптирани.",
@@ -4071,7 +4074,7 @@
     "get_started_with_simple_steps": "Започнете с TokenLaunch само с няколко прости стъпки",
     "get_your_products_your_doorstep": "Доставяйте продуктите си бързо и ефективно до прага ви",
     "getting_started": "Първи стъпки",
-    "github_url": "GitHub URL",
+    "github_url": "URL на GitHub",
     "give_clear_payment_instructions_to_the_buyer": "Дайте ясни инструкции за плащане на купувача:",
     "give_detailed_payment_and_delays": "Дайте подробни инструкции за плащане, за да избегнете объркване и забавяне",
     "global_community": "Глобална общност",
@@ -4174,7 +4177,7 @@
     "include_any_required_reference_numbers": "Включете всички необходими референтни номера",
     "include_company_logo": "Включете фирменото лого",
     "include_the_trade_payment_description": "Включете референтния номер на сделката в описанието на плащането си",
-    "info": "Info",
+    "info": "Информация",
     "information_about_the_dispute": "Информация за спора",
     "information_about_the_disputed_trade": "Информация за спорната сделка",
     "initial_holder": "Първоначален притежател:",
@@ -4197,7 +4200,7 @@
     "internal_notes_about_this_dispute": "Вътрешни бележки ��о този спор",
     "internal_notes_about_this_offer": "Вътрешни бележки за тази оферта",
     "internal_notes_about_this_position": "Вътрешни бележки за тази позиция",
-    "invalid_request": "Invalid Request",
+    "invalid_request": "Невалидна заявка",
     "invest_in": "Инвестирайте в",
     "invest_in_this_offering": "Инвестирайте в това предложение",
     "invest_more": "Инвестирайте повече",
@@ -4318,7 +4321,7 @@
     "lifetime_earnings": "Доходи за целия живот",
     "limited_functionality": "Ограничена функционалност",
     "limits": "Граници:",
-    "linkedin_url": "LinkedIn URL",
+    "linkedin_url": "URL на LinkedIn",
     "list_view": "Списъчен изгл��д",
     "listing_fee_(eth)": "Такса за обявяване (ETH)",
     "live_account": "Реален акаунт",
@@ -4326,6 +4329,7 @@
     "live_preview": "Визуализация на живо",
     "load_id": "ID на зареждане:",
     "load_more": "Зареди още",
+    "loading": "Зареждане",
     "loading_activity_data": "Зареждане на данни за дейността",
     "loading_affiliate_data": "Зареждане на партньорски данни",
     "loading_analytics_data": "Зареждане на аналитични данни",
@@ -4397,6 +4401,7 @@
     "manage_and_monitor_your_token_offerings": "Управлявайте и наблюдавайте предлагането на токени",
     "manage_and_track_your_referred_users": "Управление и проследяване на препратените от вас потребители",
     "manage_conditions": "Управление на условията",
+    "manage_rewards": "Управление на награди",
     "manage_the_blockchains_token_launches": "У��равлявайте блокчейните, налични за стартиране на токени",
     "manage_this_trade": "Управлявайте тази сделка",
     "manage_token_release": "Управление на освобождаването на токени",
@@ -4507,6 +4512,7 @@
     "monthly_earnings_for_the_last_6_months": "Месечни приходи за последните 6 месеца",
     "monthly_faq_views_for_the_current_year": "Месечни прегледи на често задавани въпроси за текущата година",
     "monthly_growth_rate_(%)": "Месечен темп на растеж (%)",
+    "monthly_growth_rate_tooltip": "Очакван среден месечен темп на растеж на цената. Положителните стойности показват поскъпване, отрицателните стойности показват обезценяване. Типичен диапазон: -50% до +50%",
     "monthly_profit": "Месечна печалба",
     "more": "още",
     "most_common_search_terms_used_by_your_users": "Най-често срещаните думи за търсене, използвани от вашите потребители",
@@ -4677,8 +4683,9 @@
     "no_warnings_found": "Не са намерени предупреждения",
     "no_withdrawal_methods_available_for_this_currency": "Няма налични методи за теглене за тази валута",
     "not_available_for_this_chain": "Не се предлага за тази верига",
-    "not_found": "Not Found",
+    "not_found": "Не е намерен",
     "not_helpful": "Не е полезно",
+    "not_started": "Не е започнал",
     "not_submitted": "Не е изпратен",
     "notes_and_comments_about_this_transaction": "Бележки и коментари относно тази транзакция",
     "now_accepting_bitcoin_ethereum_&_more": "Сега приемам Bitcoin, Ethereum и други",
@@ -4699,7 +4706,7 @@
     "offer_not_found_or": "Офертата не е намерена или нямате разрешение да я редактирате",
     "offer_status": "Статус на офертата",
     "offer_type": "Тип оферта",
-    "offer_unavailable": "Offer Unavailable",
+    "offer_unavailable": "Офертата не е налична",
     "offer_updated_successfully_and_is_pending_approval": "Офертата е актуализирана успешно и очаква одобрение",
     "offer_visibility": "Видимост на офертата",
     "offering": "Предлага:",
@@ -4791,7 +4798,7 @@
     "password": "парола",
     "pay_with_confidence_processing_system": "Плащайте с увереност, като използвате нашата сигурна система за обработка на плащания",
     "pay_within_time_limit": "Плащане в рамките на срока",
-    "payment_activities": "Payment Activities",
+    "payment_activities": "Платежни дейности",
     "payment_completed_successfully": "Плащането е извършено успешно!",
     "payment_confirmed": "Плащането е потвърдено",
     "payment_details": "Данни за плащане",
@@ -4799,7 +4806,7 @@
     "payment_instructions": "Инструкции за плащане",
     "payment_marked_as_sent": "Плащане, маркирано като изпратено",
     "payment_method": "Начин на плащане:",
-    "payment_method_required": "Payment Method Required",
+    "payment_method_required": "Изисква се метод за плащане",
     "payment_methods": "Методи на плащане",
     "payment_methods_summary": "Обобщение на методите на плащане",
     "payment_methods_you_prefer": "Предпочитани от вас методи на плащане",
@@ -4904,7 +4911,7 @@
     "please_select_the_this_campaign": "Моля, изберете целите, които искате да добавите към тази кампания",
     "please_send_payment_when_done": "Моля, изпратете плащане до продавача, като използвате посочения метод на плащане и потвърдете, когато сте готови",
     "please_sign_in_to_view_your_shipping_details": "Моля, влезте в профила си, за да видите данните си за доставка",
-    "please_slow_down": "Please Slow Down",
+    "please_slow_down": "Моля, забавете",
     "please_try_again": "Моля, опитайте отново",
     "please_try_again_later": "Моля, опитайте отново по-късно",
     "please_try_refreshing_the_page": "Моля, опитайте да опресните страницата",
@@ -5351,13 +5358,14 @@
     "social_media_post": "Публикация в социалните медии",
     "solana_(sol)": "Солана (SOL)",
     "sold": "Продават",
+    "sold_out": "Изчерпан",
     "some_features_may_be_temporarily_unavailable": "Някои функции може временно да не са налични",
     "some_pools_distribute_staking_period": "Някои пулове разпределят награди ежедневно, докато други го правят седмично, месечно или в края на периода на залагане",
     "some_pools_offer_higher_returns": "Някои пулове предлагат автоматично натрупване, което автоматично реинвестира спечелените награди, за да генерира още по-висока възвръщаемост",
     "some_pools_offer_your_rewards": "Някои пулове предлагат автоматично натрупване, което автоматично реинвестира вашите награди",
     "some_settings_like_launch_plans": "Някои настройки, като например ограничения за членове на екипа и елементи на пътната карта, вече се контролират от плановете за стартиране",
     "some_trade_features_are_currently_disabled": "Някои функции за търговия в момента са деактивирани:",
-    "something_went_wrong": "Something Went Wrong",
+    "something_went_wrong": "Нещо се обърка",
     "sorry_we_couldnt_find_the_page_youre_looking_for": "Съжаляваме, не успяхме да намерим страницата, която търсите",
     "sort_by": "Сортирай по",
     "source_code_verification": "Проверка на изходния код",
@@ -5442,7 +5450,7 @@
     "subscribe_to_our_newsletter": "Абонирайте се за нашия бюлетин",
     "subtotal": "Междинна сум��:",
     "subtotal_(": "Междинна сума (",
-    "success": "Success",
+    "success": "Успешно",
     "success_rate": "Успеваемост",
     "successful_offerings": "Успешни предложения",
     "successful_trades": "Успешни сделки:",
@@ -5658,7 +5666,7 @@
     "tokens": "Символи",
     "tokens_for_sale": "Токени за продажба",
     "tokens_to_receive": "Жетони за получаване:",
-    "too_many_requests": "Too Many Requests",
+    "too_many_requests": "Твърде много заявки",
     "top-performing_staking_pools": "Най-ефективните пулове за залагане",
     "top_performing_affiliates": "Най-ефективни партньори",
     "top_performing_faqs": "Най-ефективни често задавани въпроси",
@@ -5718,7 +5726,7 @@
     "trade_details_are_not_accessible_at_this_time": "Подробностите за търговията не са достъпни в момента",
     "trade_details_are_temporarily_unavailable": "Подробностите за търговията временно не са налични",
     "trade_disputed": "Търговски спорове",
-    "trade_expired": "Trade Expired",
+    "trade_expired": "Търговията е изтекла",
     "trade_history_requirements": "Изисквания за търговска история",
     "trade_id": "Идентификационен номер на сделката",
     "trade_information": "Търговска информация",
@@ -5795,7 +5803,7 @@
     "twitter_api_key": "Twitter API ключ",
     "twitter_api_key_for_automatic_posting": "Twitter API ключ за автоматично публикуване",
     "twitter_integration": "Twitter интеграция",
-    "twitter_url": "Twitter URL",
+    "twitter_url": "URL на Twitter",
     "type": "Вид:",
     "ui_&_display": "Потребителски интерфейс и дисплей",
     "unable_to_load_platform_statistics": "Не може да се зареди статистика на платформата",
@@ -5883,7 +5891,7 @@
     "venmo_mobile_payments": "Мобилни плащания на Venmo",
     "verification_badges": "Значки за верификация",
     "verification_badges_help_users": "Значките за верификация помагат на потребителите да идентифицират надеждни създатели и автентични колекции. Те се показват в профили, обяви и резултати от търсене.",
-    "verification_required": "Verification Required",
+    "verification_required": "Изисква се проверка",
     "verification_settings_affect_marketplace": "Настройките за верификация влияят на доверието и съответствието на пазара. Обмислете изискванията на вашата юрисдикция.",
     "verified_only": "Само потвърдено",
     "verified_project_teams_and_offerings": "Проверени проектни екипи и предложения",
@@ -5893,7 +5901,7 @@
     "verified_traders_only": "Само проверени търговци",
     "verified_users_have_verification_process": "Потвърдените потребители са завършили процеса на потвърждаване на самоличността ни",
     "verify_&_approve_transaction": "Проверка и одобрение на транзакция",
-    "verify_account": "Verify Account",
+    "verify_account": "Потвърди акаунт",
     "verify_payment_and_release_funds": "Проверете плащането и освободете средства",
     "verify_payment_before_releasing": "Проверете плащането преди освобождаване",
     "verify_payment_first": "Първо потвърдете плащането",
@@ -5949,6 +5957,7 @@
     "visualize_and_manage_network_structure": "Визуализирайте и управлявайте структурата на вашата партньорска мрежа",
     "visualize_distribution_vesting_token_launch": "Визуализирайте разпределението, графиците за придобиване и пазарните прогнози, за да оптимизирате пускането на вашия токен",
     "volatility_(%)": "Волатилност (%)",
+    "volatility_tooltip": "Очакван диапазон на колебание на цената. По-висока волатилност означава по-големи ценови колебания. 0% означава стабилни цени, 100% означава екстремни ценови движения.",
     "volume": "Том:",
     "volume_(btc)": "Обем (BTC)",
     "vs": "Срещу",
@@ -6021,6 +6030,7 @@
     "what_would_you_like_to_do": "Какво бихте искали да направите?",
     "what_would_you_like_to_do_next": "Какво бихте искали да направите след това?",
     "when_a_trade_into_escrow": "Когато търговията започне, ще трябва да депозирате криптовалутата в ескроу:",
+    "when_disabled_offers_require_admin_moderation": "Когато е изключено, офертите изискват одобрение от администратор",
     "when_disabled_users_can_only_take_existing_offers": "Когато са деактивирани, потребителите могат да приемат само съществуващи оферти",
     "when_disabled_users_cannot_access_p2p_features": "Когато са деактивирани, потребителите нямат достъп до P2P функциите",
     "when_disabled_users_cannot_create_custom_payment_methods": "Когато е деактивирано, потребителите не могат да създават персонализирани методи на плащане",
@@ -6109,6 +6119,7 @@
     "you_havent_completed_any_trades_yet": "Все още не сте завършили никакви сделки",
     "you_havent_distributed_any_earnings_yet": "Все още не сте разпределили никакви приходи",
     "you_might_want_question_directly": "Може да опитате нашето търсене или да зададете въпрос директно",
+    "you_must_be_logged_in_to_access_the_dashboard": "Трябва да сте влезли, за да получите достъп до таблото",
     "you_must_be_logged_in_to_ask_a_question": "Трябва да сте влезли, за да зададете въпрос",
     "you_need": "Ти трябва",
     "you_need_to_a_review": "Трябва да закупите този продукт, преди да можете да напишете отзив",
@@ -6207,10 +6218,74 @@
     "•_lock_period": "• Период на заключване:",
     "•_trade_dispute_resolution_is_unavailable": "• Не е налично разрешаване на търговски спорове",
     "✓_purchased": "✓ Закупен",
-    "not_started": "Not Started",
-    "ended": "Ended",
-    "sold_out": "Sold Out",
-    "manage_rewards": "Manage Rewards"
+    "Configure NFT metadata requirements": "Конфигурирай Изисквания за NFT Метаданни",
+    "Configure platform and creator fees": "Конфигурирай Такси на Платформата и Създателя",
+    "Fixed fee to create a listing (0 = free)": "Фиксирана Такса за Създаване на Обява (0 = Безплатно)",
+    "High-Value Threshold (USD)": "Праг на Висока Стойност (USD)",
+    "Listing Fee (Optional)": "Такса за Обява (По Избор)",
+    "Marketplace Fee (%)": "Такса на Marketplace (%)",
+    "Marketplace Fees": "Такси на Marketplace",
+    "Maximum Royalty (%)": "Максимален Роялти (%)",
+    "Maximum royalty creators can set (0-50%)": "Максимален Роялти, Който Създателите Могат да Зададат (0-50%)",
+    "Metadata & IPFS": "Метаданни и IPFS",
+    "Percentage fee charged on each sale (0-10%)": "Процентна Такса, Начислявана при Всяка Продажба (0-10%)",
+    "Require Metadata Validation": "Изисквай Валидация на Метаданни",
+    "Validate IPFS metadata URLs before accepting NFT listings": "Валидирай URL адреси на IPFS Метаданни Преди Приемане на NFT Обяви",
+    "are_you_sure_you_want_to_remove_this_offer": "Сигурни ли сте, че искате да премахнете тази оферта",
+    "changes_to_price_and_amount_settings_may_require_admin_approval_before_taking_effect": "Промените в настройките за цена и количество може да изискват одобрение от администратора, преди да влязат в сила",
+    "create_your_first_offer": "Създайте вашата първа оферта",
+    "dynamic_price_(market_based)": "Динамична цена (базирана на пазара)",
+    "edit": "Редактиране",
+    "enter_your_fixed_price": "Въведете вашата фиксирана цена",
+    "failed_to_remove_offer": "Неуспешно премахване на офертата",
+    "limit": "Лимит",
+    "market_price_offset_(%)": "Отклонение от пазарната цена (%)",
+    "max_trade_amount": "Максимална сума за сделка",
+    "maximum_amount": "Максимално количество",
+    "maximum_limit": "Максимален лимит",
+    "min_trade_amount": "Минимална сума за сделка",
+    "minimum_amount": "Минимално количество",
+    "minimum_limit": "Минимален лимит",
+    "my_offers": "Моите оферти",
+    "no_recent_activity": "Няма скорошна активност",
+    "note": "Бележка",
+    "offer_removed": "Офертата е премахната",
+    "positive_=_above_market,_negative_=_below_market": "Положително = над пазарната, отрицателно = под пазарната",
+    "price_&_amount": "Цена и количество",
+    "price_&_amount_settings": "Настройки за цена и количество",
+    "pricing_model": "Ценови модел",
+    "remove_offer": "Премахване на оферта",
+    "removing": "Премахване",
+    "the_price_per_unit_of": "Цената за единица от",
+    "this_is_the_total_amount_for_this_trade": "Това е общата сума за тази сделка",
+    "total_amount_available": "Обща налична сума",
+    "total_available": "Общо налично",
+    "trading_limits": "Лимити за търговия",
+    "update_pricing_model_and_trading_limits": "Актуализиране на ценовия модел и лимитите за търговия",
+    "view": "Преглед",
+    "you_dont_have_any_offers_yet": "Все още нямате оферти",
+    "your_offer_has_been_successfully_removed": "Вашата оферта беше успешно премахната",
+    "Marketplace fees are deducted from sale proceeds": {
+      " Royalty fees go to the original creator on secondary sales": {
+        "": ""
+      }
+    },
+    "This marketplace uses IPFS for decentralized NFT storage": {
+      " Users provide IPFS URLs for their NFT assets and metadata": {
+        " File size and format restrictions are enforced by IPFS, not by the platform": {
+          "": ""
+        }
+      }
+    },
+    "e": {
+      "g": {
+        ",_2": {
+          "5_for_2": {
+            "5%_above_market": "5% над пазарната"
+          }
+        }
+      }
+    }
   },
   "finance/deposit": {
     "Cancel": "Отказ",
@@ -6253,6 +6328,8 @@
     "network_fee": "Мрежова такса",
     "new_balance": "Нов баланс",
     "no_currencies_found": "Не са намерени валути за",
+    "no_wallets_available": "Няма налични портфейли",
+    "no_wallets_available_description": "Няма налични портфейли за показване",
     "not_available": "Не е налично",
     "of": "от",
     "pay_with": "Плащане с",
@@ -6346,6 +6423,8 @@
     "make_another_transfer": "Направете още един трансфер",
     "move_funds_between_another_user": "Преместване на средства между портфейлите ви или изпращане на друг потребител",
     "move_funds_between_your_different_wallet_types": "Прехвърляне на средства между различните типове портфейли",
+    "no_wallets_available": "Няма налични портфейли",
+    "no_wallets_available_description": "Няма налични портфейли за показване",
     "processing_transfer": "Прехвърляне на обработка",
     "recipient_details": "Данни за получателя",
     "recipient_receives": "Получателят получава:",
@@ -6385,17 +6464,17 @@
     "the_wallet_youre_to_it": "Портфейлът, който търсите, не съществува или нямате достъп до него",
     "wallet_address": "Адрес на портфейла",
     "wallet_not_found": "Портфейлът не е намерен",
-    "wallet_type_ai_investment": "AI Investment",
-    "wallet_type_derivatives": "Derivatives",
-    "wallet_type_eco": "Eco",
-    "wallet_type_fiat": "Fiat",
-    "wallet_type_forex": "Forex",
-    "wallet_type_funding": "Funding",
-    "wallet_type_futures": "Futures",
+    "wallet_type_ai_investment": "AI инвестиция",
+    "wallet_type_derivatives": "Деривати",
+    "wallet_type_eco": "Еко",
+    "wallet_type_fiat": "Фиатна валута",
+    "wallet_type_forex": "Форекс",
+    "wallet_type_funding": "Финансиране",
+    "wallet_type_futures": "Фючърси",
     "wallet_type_ico": "ICO",
     "wallet_type_p2p": "P2P",
-    "wallet_type_spot": "Spot",
-    "wallet_type_staking": "Staking"
+    "wallet_type_spot": "Спот",
+    "wallet_type_staking": "Стейкинг"
   },
   "finance/wallet/client": {
     "add_funds": "Добавяне на средства",
@@ -6433,7 +6512,9 @@
   },
   "finance/withdraw/client": {
     "(to_receive": "(за получаване",
+    "Amount to Send (before network fees)": "Сума за изпращане (преди мрежови такси)",
     "Free": "Безплатно",
+    "Platform Fee": "Платформена такса",
     "Processing": "Обработва се",
     "Select": "Отбран",
     "Withdraw": "Оттегли",
@@ -6454,6 +6535,7 @@
     "no_currencies_with_balance_available_in": "Няма валути с наличен баланс в",
     "no_currencies_with_balance_in_wallet_type": "Няма валути с баланс в този тип портфейл",
     "no_wallets_available": "Няма налични портфейли",
+    "no_wallets_available_description": "Всички типове портфейли са деактивирани от администратора. Моля, свържете се с поддръжката за съдействие или проверете отново по-късно.",
     "no_wallets_with_balance_for_withdrawal": "Няма портфейли с баланс за теглене",
     "no_withdrawal_methods": "Няма налични методи за теглене",
     "no_withdrawal_methods_available": "Няма налични методи за теглене",
@@ -6996,8 +7078,11 @@
     "create_nft": "Създаване на NFT",
     "create_your_first_collection_to_organize_your_nfts": "Създайте вашата първа колекция, за да организирате вашите NFT",
     "create_your_first_nft_to_get_started": "Създайте вашето първо NFT, за да започнете",
+    "creator_dashboard": "Табло за управление на създател",
     "creator_hub": "Център за създатели",
+    "creator_since": "Създател от",
     "explore_nfts": "Разгледайте NFT",
+    "failed_to_load_dashboard": "Неуспешно зареждане на таблото за управление",
     "favorite_nfts": "Любими NFT",
     "manage_your_nfts_collections": "Управлявайте вашите NFT, колекции и пазарна активност",
     "my_collections": "Моите колекции",
@@ -7008,6 +7093,7 @@
     "no_favorites_yet": "Все още няма любими",
     "no_nfts_yet": "Все още няма NFT",
     "please_login_to_view_your_dashboard": "Моля, влезте в профила си, за да видите таблото си за управление",
+    "please_sign_in_to_access_your_creator_dashboard": "Моля, влезте в системата, за да получите достъп до таблото си за управление на създател",
     "please_sign_in_to_view_your_nft_dashboard": "Моля, влезте в профила си, за да видите вашето NFT табло",
     "recent_activity": "Скорошна активност",
     "sign_in": "Влизане",
@@ -7015,6 +7101,7 @@
     "total_nfts": "Общо NFT",
     "total_value": "Обща стойност",
     "total_views": "Общо прегледи",
+    "try_again": "Опитайте отново",
     "your_nft_activities_will_appear_here": "Вашите NFT дейности ще се появят тук"
   },
   "nft/details": {
@@ -7150,7 +7237,8 @@
     "sell_at_a_fixed_price": "Продай на фиксирана цена",
     "sell_to_highest_bidder": "Продай на най-високата оферта",
     "start_time": "Начален час",
-    "starting_price": "Начална цена"
+    "starting_price": "Начална цена",
+    "Duration": "Продължителност"
   },
   "nft/modals/offer": {
     "Cancel": "Отказ",
@@ -7214,7 +7302,8 @@
     "token_details": "Детайли за токена",
     "token_id": "Идентификатор на токен",
     "token_standard": "Стандарт на токена",
-    "view_on_explorer": "Виж в Explorer"
+    "view_on_explorer": "Виж в Explorer",
+    "browse_marketplace": "Разгледай Marketplace"
   },
   "nft/user/profile": {
     "Activity": "Активност",
@@ -7631,7 +7720,9 @@
   },
   "trade/components/trading/spot/balance-display": {
     "Loading": "Зареждане",
-    "available": "Наличен:"
+    "available": "Наличен:",
+    "balance": "Баланс",
+    "in_orders": "В Поръчки"
   },
   "trade/components/trading/spot/index": {
     "Limit": "Лимит",
@@ -7648,7 +7739,10 @@
     "Price": "Цена",
     "Processing": "Обработва се",
     "Sell": "Продажба",
-    "Total": "Възлизам"
+    "Total": "Възлизам",
+    "Est": {
+      " Fee": " Такса"
+    }
   },
   "trade/components/trading/spot/market-order-form": {
     "Amount": "Количество",
@@ -7658,7 +7752,10 @@
     "estimated_total": "Очаквана обща сума",
     "market_orders_execute_available_price": "Пазарните поръчки се изпълняват незабавно на най-добрата налична цена",
     "market_price": "Пазарна цена",
-    "the_final_execution_estimated_price": "Крайната цена за изпълнение може да се различава от прогнозната цена"
+    "the_final_execution_estimated_price": "Крайната цена за изпълнение може да се различава от прогнозната цена",
+    "Est": {
+      " Fee": " Такса"
+    }
   },
   "trade/components/trading/spot/stop-order-form": {
     "Amount": "Количество",
@@ -7673,7 +7770,10 @@
     "stop_market_orders_is_reached": "Стоп пазарните поръчки се изпълняват като пазарни поръчки при достигане на стоп цената",
     "stop_price": "Стоп цена",
     "the_order_will_available_price": "Поръчката ще бъде изпълнена на най-добрата налична цена",
-    "the_order_will_or_better": "Поръчката ще бъде изпълнена на лимитираната цена или по-добра"
+    "the_order_will_or_better": "Поръчката ще бъде изпълнена на лимитираната цена или по-добра",
+    "Est": {
+      " Fee": " Такса"
+    }
   },
   "utility": {
     "*dont_worry_we_will_not_spam_you_)": "*Не се притеснявайте, ние няма да ви изпращаме спам :)",
@@ -7687,5 +7787,553 @@
     "were_making_the_system_more_awesome": "Правим системата по-страхотна",
     "we’ll_be_back_shortly": "Скоро ще се върнем.",
     "we’re_making_the_system_more_awesome": "Правим системата по-страхотна"
+  },
+  "menu": {
+    "admin": {
+      "analytics": {
+        "description": "Разширен финансов анализ с проследяване на печалби, анализ на приходни потоци и цялостни табла за бизнес анализ.",
+        "title": "Анализ на приходите"
+      },
+      "communication": {
+        "description": "Управление на комуникацията на платформата, включително известия, обяви и системи за съобщения на потребителите.",
+        "title": "Комуникационни инструменти"
+      },
+      "compliance": {
+        "description": "Инструменти за регулаторно съответствие, включително обработка на KYC, проверка на документи и управление на самоличността за правно спазване.",
+        "title": "Съответствие и верификация"
+      },
+      "currencies": {
+        "description": "Поддръжка на множество валути с обменни курсове в реално време, конфигурация на търговски двойки и интеграция на пазарни данни.",
+        "title": "Управление на валутите"
+      },
+      "dashboard": {
+        "description": "Цялостен административен преглед с анализ в реално време, наблюдение на системното здраве и бърз достъп до критични функции за управление.",
+        "title": "Табло за управление"
+      },
+      "monitoring": {
+        "description": "Цялостен системен мониторинг с логване, показатели за производителност и автоматизирано управление на задачи.",
+        "title": "Системен мониторинг"
+      },
+      "permissions": {
+        "description": "Детайлно управление на разрешения за прецизен контрол на достъпа до всички системни функции и характеристики.",
+        "title": "Разрешения"
+      },
+      "roles": {
+        "title": "Потребителски роли",
+        "description": "Създаване и управление на потребителски роли с персонализируеми набори от разрешения и йерархични структури за контрол на достъпа.",
+        "permissions": {
+          "description": "Усъвършенствана система за контрол на достъпа за дефиниране на потребителски роли, управление на разрешения и прилагане на политики за сигурност в цялата платформа.",
+          "title": "Роли и разрешения"
+        }
+      },
+      "support": {
+        "description": "Интегрирана система за заявки за поддръжка с управление на приоритети, проследяване на отговори и мониторинг на клиентското удовлетворение.",
+        "title": "Клиентска поддръжка"
+      },
+      "users": {
+        "description": "Цялостна база данни на потребители с разширено филтриране, групови операции, управление на профили и подробно проследяване на активността.",
+        "title": "Потребители"
+      },
+      "affiliate": {
+        "system": {
+          "description": "Многостепенна партньорска програма с проследяване на комисионни, анализ на резултатите и автоматизирани изплащания.",
+          "title": "Партньорска програма"
+        }
+      },
+      "ai": {
+        "durations": {
+          "description": "Конфигуриране на времеви рамки за AI стратегии с динамично пребалансиране и адаптации към пазарните условия.",
+          "title": "Периоди на стратегии"
+        },
+        "investment": {
+          "description": "Управление на инвестиции, захранвано от изкуствен интелект, с алгоритми за машинно обучение и автоматизирана оптимизация на портфолио.",
+          "title": "AI инвестиции"
+        },
+        "performance": {
+          "description": "Анализ на инвестиционната ефективност на AI с проследяване на точността на модела и метрики за ефективността на стратегията.",
+          "title": "AI Ефективност"
+        },
+        "strategies": {
+          "description": "Инвестиционни стратегии с машинно обучение с обратно тестване, оценка на риска и оптимизация на резултатите.",
+          "title": "AI стратегии"
+        }
+      },
+      "api": {
+        "management": {
+          "description": "Управление на жизнения цикъл на API ключове с наблюдение на използването, ограничаване на скоростта и контрол на сигурността за интеграции с трети страни.",
+          "title": "Управление на API"
+        }
+      },
+      "binary": {
+        "durations": {
+          "description": "Задаване на времеви рамки за търговия и проценти на изплащане за бинарни опции с контрол на управлението на риска.",
+          "title": "Периоди на търговия"
+        },
+        "markets": {
+          "description": "Конфигуриране на пазари за бинарни опции с активни двойки, параметри за търговия и пазарни часове.",
+          "title": "Бинарни пазари"
+        },
+        "orders": {
+          "description": "Наблюдение и управление на поръчки за бинарни опции с проследяване на изпълнението и обработка на сетълмент.",
+          "title": "Бинарни поръчки"
+        },
+        "trading": {
+          "description": "Система за търговия с бинарни опции с настройка на пазара, управление на продължителността и конфигурация на изплащанията.",
+          "title": "Бинарни опции"
+        }
+      },
+      "blockchain": {
+        "ledgers": {
+          "description": "Управление на неизменяема главна книга със следи за одит, отчитане на съответствие и инструменти за съдебен анализ.",
+          "title": "Блокчейн регистри"
+        },
+        "networks": {
+          "description": "Управление на мултиблокчейн мрежи с наблюдение на възли, проследяване на консенсус и анализ на мрежовото здраве.",
+          "title": "Блокчейн мрежи"
+        }
+      },
+      "blog": {
+        "system": {
+          "description": "Пълно управление на блог с профили на автори, планиране на съдържание, SEO оптимизация и анализ на ангажираността.",
+          "title": "Блог система"
+        }
+      },
+      "business": {
+        "extensions": {
+          "description": "Основни бизнес инструменти за маркетинг, клиентска поддръжка и управление на знания.",
+          "title": "Бизнес инструменти"
+        }
+      },
+      "content": {
+        "management": {
+          "description": "Цялостна система за управление на съдържание за блогове, медийни активи и динамично съдържание на уебсайтове.",
+          "title": "Съдържание"
+        }
+      },
+      "crypto": {
+        "currencies": {
+          "description": "Управление на дигитални активи с блокчейн интеграция, свързване на портфейли и реални пазарни данни в реално време.",
+          "title": "Криптовалути"
+        }
+      },
+      "custodial": {
+        "wallets": {
+          "description": "Институционални кастодиални услуги за портфейли с регулаторно съответствие и застрахователно покритие.",
+          "title": "Кастодиални услуги"
+        }
+      },
+      "deposit": {
+        "logs": {
+          "description": "Цялостни регистри на депозитни транзакции с проследяване на статус, инструменти за съгласуване и одитни възможности.",
+          "title": "Записи на депозити"
+        }
+      },
+      "design": {
+        "builder": {
+          "description": "Разширен визуален конструктор на страници с интерфейс за плъзгане и пускане, инструменти за адаптивен дизайн и опции за персонализация на марката.",
+          "title": "Конструктор на страници"
+        },
+        "customization": {
+          "description": "Персонализирайте външния вид и дизайна на вашия уебсайт с разширени визуални инструменти.",
+          "title": "Дизайн"
+        },
+        "default": {
+          "editor": {
+            "description": "Редактиране на стандартни frontend страници, включително начална страница, правни страници и оформления с интерфейс за редактор на код.",
+            "title": "Стандартни страници"
+          }
+        }
+      },
+      "ecommerce": {
+        "platform": {
+          "description": "Пълнофункционална електронна търговска платформа с управление на инвентара, обработка на поръчки и поддръжка на множество продавачи.",
+          "title": "Електронна търговска платформа"
+        }
+      },
+      "ecosystem": {
+        "markets": {
+          "description": "Управление на децентрализиран пазар с AMM протоколи, басейни с ликвидност и интеграция на yield farming.",
+          "title": "DeFi пазари"
+        },
+        "orders": {
+          "description": "Търговски поръчки за блокчейн екосистема със интеграция на смарт договори и децентрализирано изпълнение.",
+          "title": "Екосистемни поръчки"
+        },
+        "platform": {
+          "description": "Децентрализирана търговска екосистема с блокчейн интеграция, DeFi протоколи и автоматизация на интелигентни договори.",
+          "title": "Блокчейн екосистема"
+        }
+      },
+      "email": {
+        "campaigns": {
+          "description": "Създаване и управление на имейл кампании със сегментация, персонализация и проследяване на резултатите.",
+          "title": "Имейл кампании"
+        },
+        "marketing": {
+          "description": "Професионална платформа за имейл маркетинг с автоматизирани работни потоци, A/B тестване и анализ.",
+          "title": "Имейл маркетинг"
+        },
+        "templates": {
+          "description": "Професионална библиотека с имейл шаблони с адаптивен дизайн и опции за персонализация на марката.",
+          "title": "Имейл шаблони"
+        }
+      },
+      "exchange": {
+        "providers": {
+          "description": "Управление на интеграции с борси с доставчици на ликвидност, API конфигурации и наблюдение на производителността.",
+          "title": "Доставчици на обмен"
+        }
+      },
+      "extension": {
+        "manager": {
+          "description": "Управление на жизнения цикъл на разширения с инсталация, актуализации, разрешаване на зависимости и проверка на съвместимостта.",
+          "title": "Мениджър на разширения"
+        }
+      },
+      "fiat": {
+        "currencies": {
+          "description": "Управление на традиционни валути с наблюдение на обменни курсове, регионални настройки и интеграция на платежни шлюзове.",
+          "title": "Фиатни валути"
+        }
+      },
+      "financial": {
+        "operations": {
+          "description": "Цялостен пакет за финансово управление, обхващащ анализ на приходите, управление на валути, обработка на плащания и надзор на транзакции.",
+          "title": "Финанси"
+        }
+      },
+      "forex": {
+        "platform": {
+          "description": "Професионална форекс търговия с MetaTrader интеграция, алгоритмична търговия и институционална ликвидност.",
+          "title": "Форекс търговия"
+        }
+      },
+      "futures": {
+        "markets": {
+          "description": "Конфигурация на фючърсен пазар със спецификации на договори, изисквания за марджин и процедури за сетълмент.",
+          "title": "Futures пазари"
+        },
+        "orders": {
+          "description": "Управление на поръчки за фючърсни договори с проследяване на марджин и инструменти за оценка на риска.",
+          "title": "Futures поръчки"
+        },
+        "platform": {
+          "description": "Професионална платформа за фючърсна търговия с управление на марж, контрол на риска и институционално изпълнение.",
+          "title": "Фючърсна търговия"
+        },
+        "positions": {
+          "description": "Наблюдение на позиции в реално време с проследяване на P&L, марджин колове и автоматизирано управление на риска.",
+          "title": "Управление на позиции"
+        }
+      },
+      "homepage": {
+        "sliders": {
+          "description": "Управление на динамично съдържание на начална страница с адаптивни слайдери, бутони за призив към действие и възможности за A/B тестване.",
+          "title": "Слайдери на началната страница"
+        }
+      },
+      "ico": {
+        "platform": {
+          "description": "Платформа за първично предлагане на монети с KYC интеграция, внедряване на интелигентни договори и спазване на регулациите.",
+          "title": "Продажба на токени"
+        }
+      },
+      "internal": {
+        "transfers": {
+          "description": "Управление на вътрешни преводи на средства между сметки с работни потоци за одобрение и проверки за съответствие.",
+          "title": "Вътрешни преводи"
+        }
+      },
+      "investment": {
+        "durations": {
+          "description": "Конфигуриране на продължителност на инвестиции, периоди на падеж и изчисления на сложна лихва за различни продукти.",
+          "title": "Инвестиционни периоди"
+        },
+        "extensions": {
+          "description": "Разширени инвестиционни продукти със стратегии, базирани на AI, услуги за стейкинг и платформи за токенизация.",
+          "title": "Инвестиционни продукти"
+        },
+        "history": {
+          "description": "Цялостен анализ на инвестиционните резултати с проследяване на ROI и прозрения за управление на портфолио.",
+          "title": "Инвестиционна аналитика"
+        },
+        "management": {
+          "description": "Управление на инвестиционни продукти със създаване на планове, проследяване на резултатите и инструменти за надзор на портфолио.",
+          "title": "Управление на инвестициите"
+        },
+        "plans": {
+          "description": "Създаване и управление на инвестиционни продукти с рискови профили, изчисления на възвръщаемост и конфигурации на срокове.",
+          "title": "Инвестиционни планове"
+        }
+      },
+      "knowledge": {
+        "base": {
+          "description": "Цялостна система за управление на знания с AI-базирано търсене и оптимизация на съдържанието.",
+          "title": "База от знания"
+        }
+      },
+      "kyc": {
+        "applications": {
+          "description": "Преглед и обработка на заявления за идентификация на клиенти с проверка на документи, оценка на риска и работни процеси за одобрение.",
+          "title": "Заявления за идентификация"
+        },
+        "levels": {
+          "description": "Конфигуриране на нива на верификация с персонализируеми изисквания, лимити и права за достъп за различни категории потребители.",
+          "title": "Нива на верификация"
+        }
+      },
+      "maintenance": {
+        "tools": {
+          "description": "Инструменти за поддръжка на системата, включително оптимизация на база данни, управление на кеш памет и инструменти за миграция.",
+          "title": "Инструменти за поддръжка"
+        }
+      },
+      "marketplace": {
+        "extensions": {
+          "description": "Платформи за електронна търговия и дигитален пазар с цялостни инструменти за продавачи и защита на купувачите.",
+          "title": "Пазарни решения"
+        }
+      },
+      "master": {
+        "wallets": {
+          "description": "Корпоративно управление на главен портфейл с многофакторна сигурност и интеграция със студено съхранение.",
+          "title": "Главни портфейли"
+        }
+      },
+      "media": {
+        "library": {
+          "description": "Централизирано управление на медийни файлове с облачно съхранение, оптимизация на изображения и CDN интеграция за оптимална производителност.",
+          "title": "Медийна библиотека"
+        }
+      },
+      "nft": {
+        "marketplace": {
+          "description": "Професионален пазар за NFT с инструменти за изковаване, управление на авторски възнаграждения и възможности за търгове.",
+          "title": "NFT пазар"
+        }
+      },
+      "notification": {
+        "templates": {
+          "description": "Персонализируеми шаблони за известия с доставка през множество канали и променливи за персонализация.",
+          "title": "Шаблони за известия"
+        }
+      },
+      "order": {
+        "management": {
+          "description": "Централизирана обработка и управление на поръчки през всички търговски платформи и класове активи.",
+          "title": "Управление на поръчките"
+        }
+      },
+      "p2p": {
+        "platform": {
+          "description": "Платформа за peer-to-peer търговия с ескроу услуги, разрешаване на спорове и поддръжка на множество платежни шлюзове.",
+          "title": "P2P обмен"
+        }
+      },
+      "payment": {
+        "gateways": {
+          "description": "Конфигуриране и наблюдение на платежни шлюзове с откриване на измами, проверки за съответствие и анализ на производителността.",
+          "title": "Платежни шлюзове"
+        },
+        "methods": {
+          "description": "Управление на налични платежни опции, включително карти, банкови преводи, дигитални портфейли и криптовалутни плащания.",
+          "title": "Платежни методи"
+        },
+        "systems": {
+          "description": "Пълно управление на платежната инфраструктура, включително шлюзове, методи и надзор на обработката на транзакции.",
+          "title": "Платежни системи"
+        }
+      },
+      "platform": {
+        "extensions": {
+          "description": "Разширени платформени разширения, предоставящи специализирана функционалност за търговия, пазар и бизнес операции.",
+          "title": "Разширения"
+        },
+        "settings": {
+          "description": "Основна конфигурация на платформата, включително брандиране, локализация, политики за сигурност и превключватели на функции.",
+          "title": "Настройки на платформата"
+        }
+      },
+      "scheduled": {
+        "tasks": {
+          "description": "Автоматизиран планировчик на задачи с наблюдение на задания, обработка на грешки и оптимизация на производителността.",
+          "title": "Планирани задачи"
+        }
+      },
+      "spot": {
+        "orders": {
+          "description": "Управление на поръчки за спот търговия с мониторинг на изпълнението в реално време и анализ на пазарното въздействие.",
+          "title": "Spot поръчки"
+        }
+      },
+      "staking": {
+        "platform": {
+          "description": "Цялостна стейкинг платформа с управление на валидатори, разпределение на награди и защита от санкции.",
+          "title": "Стейкинг услуги"
+        }
+      },
+      "system": {
+        "administration": {
+          "description": "Пълен пакет за системно администриране за конфигуриране на платформата, мониторинг и операции по поддръжка.",
+          "title": "Система"
+        },
+        "announcements": {
+          "description": "Система за обяви в цялата платформа с възможности за планиране, таргетиране и проследяване на ангажираността.",
+          "title": "Системни съобщения"
+        },
+        "logs": {
+          "description": "Централизирана система за логване с мониторинг в реално време, агрегиране на логове и разширени възможности за търсене.",
+          "title": "Системни логове"
+        },
+        "updates": {
+          "description": "Автоматизирани системни актуализации с възможности за връщане назад, поправки за сигурност и управление на внедряване на функции.",
+          "title": "Системни актуализации"
+        }
+      },
+      "token": {
+        "management": {
+          "description": "Цялостно управление на жизнения цикъл на токени с изковаване, изгаряне и възможности за управление.",
+          "title": "Управление на токени"
+        }
+      },
+      "trading": {
+        "extensions": {
+          "description": "Професионални търговски платформи с разширени типове поръчки, инструменти за пазарен анализ и изпълнение от институционално ниво.",
+          "title": "Търговски платформи"
+        },
+        "infrastructure": {
+          "description": "Управление на търговска платформа, включително доставчици на борси, пазарни конфигурации и системи за обработка на поръчки.",
+          "title": "Търговска инфраструктура"
+        }
+      },
+      "transaction": {
+        "logs": {
+          "description": "Цялостна история на транзакциите с разширено филтриране, възможности за експортиране и одитни следи.",
+          "title": "Логове на транзакции"
+        },
+        "management": {
+          "description": "Пълен надзор на транзакциите с детайлно логване, съгласуване и възможности за управление на трансфери.",
+          "title": "Управление на транзакциите"
+        }
+      },
+      "user": {
+        "management": {
+          "description": "Пълно управление на жизнения цикъл на потребителя, включително регистрация, верификация, възлагане на роли и инструменти за управление на клиентски отношения за цялостна администрация на потребители.",
+          "title": "Потребители"
+        }
+      },
+      "utxo": {
+        "tracking": {
+          "description": "Разширено управление на UTXO с анализ на графа на транзакциите и функции за запазване на поверителността.",
+          "title": "UTXO проследяване"
+        }
+      },
+      "wallet": {
+        "management": {
+          "description": "Администриране на мултивалутни портфейли с мониторинг на салда, контроли за сигурност и управление на резервни копия.",
+          "title": "Управление на портфейли"
+        }
+      },
+      "withdrawal": {
+        "logs": {
+          "description": "Наблюдение на заявки за теглене със проследяване на статуса, работни процеси за одобрение и проверка за съответствие.",
+          "title": "Записи на тегления"
+        },
+        "management": {
+          "description": "Цялостно управление на системата за тегления с автоматизирана обработка, превенция на измами и контроли за съответствие.",
+          "title": "Управление на тегления"
+        },
+        "methods": {
+          "description": "Конфигуриране на опции за теглене, включително банкови преводи, криптовалутни тегления и процесори на трети страни.",
+          "title": "Методи за теглене"
+        }
+      }
+    },
+    "user": {
+      "trading": {
+        "title": "Търговия",
+        "description": "Достъп до всеобхватни търговски платформи с усъвършенствани инструменти за графики, данни на пазара в реално време и професионални възможности за изпълнение на всички класове активи.",
+        "spot": {
+          "title": "Спот Търговия",
+          "description": "Изпълнявайте незабавни поръчки за покупка и продажба на текущи пазарни цени с разширени типове поръчки, графики на дълбочината и професионални търговски инструменти."
+        },
+        "binary": {
+          "title": "Бинарни Опции",
+          "description": "Търгувайте с бинарни опции с усъвършенствана аналитика, инструменти за управление на риска и оптимизирано изпълнение за чувствителни към времето стратегии."
+        },
+        "forex": {
+          "title": "Форекс",
+          "description": "Достъп до глобалните валутни пазари с интеграция на MetaTrader 4/5, усъвършенствани графики и изпълнение на институционално ниво."
+        },
+        "p2p": {
+          "title": "P2P Обмен",
+          "description": "Участвайте в сигурна търговия с криптовалути между потребители с ескроу защита, гъвкави методи за плащане и конкурентни тарифи."
+        }
+      },
+      "portfolio": {
+        "title": "Портфолио",
+        "description": "Всеобхватен пакет за управление на портфолио за проследяване на активи, анализиране на представянето и управление на вашите финансови инструменти във всички платформи.",
+        "wallet": {
+          "title": "Управление на Портфейл",
+          "description": "Сигурен мултивалутен портфейл с проследяване на баланса в реално време, история на транзакциите и безпроблемни възможности за депозиране/теглене."
+        },
+        "transactions": {
+          "title": "История на Транзакциите",
+          "description": "Подробни записи на транзакции с разширено филтриране, възможности за експортиране и цялостни одитни следи за всички финансови дейности."
+        },
+        "transfers": {
+          "title": "Преводи",
+          "description": "Услуги за вътрешни и външни преводи с незабавна обработка, конкурентни такси и поддръжка на множество валути."
+        }
+      },
+      "investments": {
+        "title": "Инвестиции",
+        "description": "Разнообразни инвестиционни възможности с професионална аналитика, инструменти за оценка на риска и проследяване на представянето в множество класове активи.",
+        "plans": {
+          "title": "Инвестиционни Планове",
+          "description": "Подбрани инвестиционни стратегии с подробни рискови профили, исторически данни за представяне и гъвкави условия, съответстващи на вашите финансови цели."
+        },
+        "staking": {
+          "title": "Награди от Стейкинг",
+          "description": "Печелете пасивен доход чрез стейкинг на криптовалути с конкурентни APY проценти, гъвкави периоди на блокиране и автоматизирано разпределение на награди."
+        },
+        "ico": {
+          "title": "Продажби на Токени",
+          "description": "Ранен достъп до проверени първоначални предлагания на монети с всеобхватни доклади за надлежна проверка, анализ на токеномиката и проследяване на инвестициите."
+        }
+      },
+      "marketplace": {
+        "title": "Пазар",
+        "description": "Разгледайте премиум дигитални и физически пазари със сигурни транзакции, верифицирани продавачи и цялостна защита на купувача.",
+        "nft": {
+          "title": "NFT Галерия",
+          "description": "Открийте, създайте и търгувайте уникални дигитални активи в нашия курирано NFT пазар с възможности за търг и авторски права на създателите."
+        },
+        "store": {
+          "title": "Магазин",
+          "description": "Премиум пазар, представящ както дигитални, така и физически продукти със сигурна обработка на плащания, доставка до цял свят и защита на купувача."
+        }
+      },
+      "services": {
+        "title": "Услуги",
+        "description": "Професионални услуги и инструменти за подобряване на вашето търговско изживяване, включително партньорски програми, образователни ресурси и премиум поддръжка.",
+        "affiliate": {
+          "title": "Партньорска Програма",
+          "description": "Монетизирайте вашата мрежа чрез нашата всеобхватна партньорска програма с конкурентни комисионни, проследяване в реално време и маркетингови инструменти."
+        },
+        "support": {
+          "title": "Център за Поддръжка",
+          "description": "Професионална клиентска поддръжка с управление на билети, възможности за чат на живо и специално управление на акаунти за премиум потребители."
+        },
+        "faq": {
+          "title": "База Знания",
+          "description": "Всеобхватна документация, ръководства и често задавани въпроси, които да ви помогнат да максимизирате възможностите на платформата."
+        }
+      },
+      "insights": {
+        "title": "Прозрения",
+        "description": "Професионален пазарен анализ, търговски прозрения и новини от индустрията от нашия екип от финансови експерти и пазарни изследователи."
+      }
+    }
   }
 }

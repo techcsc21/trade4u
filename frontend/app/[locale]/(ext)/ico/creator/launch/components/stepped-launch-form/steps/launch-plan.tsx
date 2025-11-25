@@ -192,7 +192,7 @@ export default function LaunchPlanStep({
 
                     <CardHeader
                       className={cn(
-                        "transition-colors duration-300",
+                        "transition-colors duration-300 bg-card",
                         isSelected ? "bg-primary/5" : ""
                       )}
                     >
@@ -214,7 +214,7 @@ export default function LaunchPlanStep({
                       </div>
                     </CardHeader>
 
-                    <CardContent className="h-[320px] overflow-y-auto">
+                    <CardContent className="h-[320px] overflow-y-auto bg-card">
                       <ul className="space-y-3">
                         <motion.li
                           className="flex items-start"
@@ -420,7 +420,7 @@ export default function LaunchPlanStep({
                       </ul>
                     </CardContent>
 
-                    <CardFooter className="bg-muted/30">
+                    <CardFooter className="bg-card border-t">
                       <Button
                         className={cn(
                           "w-full transition-all duration-300",
