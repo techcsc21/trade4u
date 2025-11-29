@@ -1,17 +1,22 @@
-import { Metadata } from "next";
+"use client";
+
+import { usePathname } from "@/i18n/routing";
 import Footer from "@/components/partials/footer";
 import NFTAdminNavbar from "./components/navbar";
-
-export const metadata: Metadata = {
-  title: "NFT Admin Dashboard",
-  description: "Manage NFT collections, NFTs, listings, and marketplace settings",
-};
 
 export default function NFTAdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isActivityPage = pathname.endsWith('/activity');
+
+  // Skip layout for activity page
+  if (isActivityPage) {
+    return <>{children}</>;
+  }
+
   return (
     <>
       <NFTAdminNavbar />

@@ -121,7 +121,7 @@ export function AuthModal({
 
       if (returnTo && returnTo.startsWith("/")) {
         // Check if returnTo already contains locale, if so, strip it
-        const locales = process.env.NEXT_PUBLIC_LANGUAGES?.split(", ") || [];
+        const locales = process.env.NEXT_PUBLIC_LANGUAGES?.split(/[,\s]+/).map(code => code.trim()).filter(code => code.length > 0) || [];
         let cleanPath = returnTo;
         
         // Remove locale prefix if present (e.g., /en/admin -> /admin)

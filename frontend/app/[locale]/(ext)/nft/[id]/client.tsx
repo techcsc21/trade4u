@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { useUserStore } from "@/store/user";
 import { useNftStore } from "@/store/nft/nft-store";
-import { NFTHeroImage, NFTCardImage } from "@/components/nft/optimized-image";
+import { NFTHeroImage, NFTCardImage } from "@/components/nft/shared/optimized-image";
 import { $fetch } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -253,7 +253,7 @@ export default function NFTDetailClient({ initialToken }: NFTDetailClientProps) 
           const latestBid = update.data[0];
           if (latestBid && latestBid.bidderId !== user?.id) {
             toast.info(t("New bid placed: {amount} {currency}", {
-              amount: formatCurrency(latestBid.amount),
+              amount: formatCurrency(latestBid.amount, latestBid.currency),
               currency: latestBid.currency
             }));
           }
@@ -501,7 +501,7 @@ export default function NFTDetailClient({ initialToken }: NFTDetailClientProps) 
                       )}
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      {t("Floor")}: {formatCurrency(token.collection.floorPrice || 0)}
+                      {t("Floor")}: {formatCurrency(token.collection.floorPrice || 0, token.collection.currency)}
                     </div>
                   </div>
                 </div>
@@ -588,7 +588,7 @@ export default function NFTDetailClient({ initialToken }: NFTDetailClientProps) 
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="text-3xl font-bold">
-                  {formatCurrency(currentListing.price)} {currentListing.currency}
+                  {formatCurrency(currentListing.price, currentListing.currency)}
                 </div>
 
                 {currentListing.type === "AUCTION" && (
@@ -604,7 +604,7 @@ export default function NFTDetailClient({ initialToken }: NFTDetailClientProps) 
 
                     {bids.length > 0 && (
                       <div className="text-sm text-muted-foreground">
-                        {t("highest_bid")}: {formatCurrency(bids[0]?.amount || 0)} {bids[0]?.currency}
+                        {t("highest_bid")}: {formatCurrency(bids[0]?.amount || 0, bids[0]?.currency || currentListing.currency)}
                       </div>
                     )}
                   </div>
@@ -664,7 +664,7 @@ export default function NFTDetailClient({ initialToken }: NFTDetailClientProps) 
                               placeholder="0.00"
                             />
                             <p className="text-xs text-muted-foreground mt-1">
-                              {t("minimum_bid")}: {formatCurrency((bids[0]?.amount || currentListing.price) + 0.01)}
+                              {t("minimum_bid")}: {formatCurrency((bids[0]?.amount || currentListing.price) + 0.01, currentListing.currency)}
                             </p>
                           </div>
                           <div className="flex gap-2">
@@ -820,7 +820,7 @@ export default function NFTDetailClient({ initialToken }: NFTDetailClientProps) 
                             </Avatar>
                             <div>
                               <div className="font-medium">
-                                {formatCurrency(bid.amount)} {bid.currency}
+                                {formatCurrency(bid.amount, bid.currency)}
                               </div>
                               <div className="text-xs text-muted-foreground">
                                 {formatTimeAgo(bid.createdAt)}
@@ -855,7 +855,7 @@ export default function NFTDetailClient({ initialToken }: NFTDetailClientProps) 
                             </Avatar>
                             <div>
                               <div className="font-medium">
-                                {formatCurrency(offer.amount)} {offer.currency}
+                                {formatCurrency(offer.amount, offer.currency)}
                               </div>
                               <div className="text-xs text-muted-foreground">
                                 {formatTimeAgo(offer.createdAt)}
@@ -1019,7 +1019,7 @@ function SimilarNFTs({ collectionId, currentTokenId, category }: SimilarNFTsProp
                     <span>{formatNumber(token.views || 0)} {t("views")}</span>
                     {token.currentListing && (
                       <span className="font-medium text-primary">
-                        {formatCurrency(token.currentListing.price)} {token.currentListing.currency}
+                        {formatCurrency(token.currentListing.price, token.currentListing.currency)}
                       </span>
                     )}
                   </div>

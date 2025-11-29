@@ -91,7 +91,17 @@ export const columns = [
           usedInCreate: false,
         },
         metadata: [
-          { key: "collection.name", title: "Collection", type: "text" }
+          {
+            key: "collection",
+            title: "Collection",
+            type: "custom",
+            render: (value, row) => {
+              // Check both token.collection and collection at root level
+              const collectionName = row.token?.collection?.name || row.collection?.name;
+              if (!collectionName) return null;
+              return <span className="text-xs">{collectionName}</span>;
+            }
+          }
         ]
       }
     }
@@ -188,8 +198,21 @@ export const columns = [
     description: "Transaction price",
     priority: 2,
     render: {
-      type: "number",
-      format: { style: "currency", currency: "USD" }
+      type: "custom",
+      render: (value, row) => {
+        if (value === null || value === undefined || isNaN(parseFloat(value))) {
+          return <span className="text-muted-foreground">—</span>;
+        }
+        const amount = parseFloat(value);
+        const currency = row.currency || '';
+        let formatted;
+        if (amount < 0.01) {
+          formatted = amount.toFixed(8).replace(/\.?0+$/, '');
+        } else {
+          formatted = amount.toFixed(4).replace(/\.?0+$/, '');
+        }
+        return <span className="font-medium">{formatted} {currency}</span>;
+      }
     }
   },
   {

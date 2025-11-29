@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { SiweMessage } from "siwe";
 import { Badge } from "@/components/ui/badge";
-import { useAppKit, useAppKitAccount, useAppKitNetwork } from "@/config/wallet";
+import { useAppKit, useAppKitAccount, useAppKitNetwork } from "@reown/appkit/react";
 import { useTranslations } from "next-intl";
 
 interface WalletLoginFormProps {

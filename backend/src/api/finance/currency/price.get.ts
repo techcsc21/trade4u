@@ -66,28 +66,56 @@ export default async (data: Handler) => {
   if (!user?.id) throw createError(401, "Unauthorized");
 
   const { currency, type } = query;
+
   if (!currency || !type) {
+    console.error("[Currency Price API] Missing required parameters:", { currency, type });
     throw createError(400, "Missing required query parameters");
   }
 
-  let priceUSD;
-  switch (type) {
-    case "FIAT":
-      priceUSD = await getFiatPriceInUSD(currency);
-      break;
-    case "SPOT":
-      priceUSD = await getSpotPriceInUSD(currency);
-      break;
-    case "ECO":
-      priceUSD = await getEcoPriceInUSD(currency);
-      break;
-    default:
-      throw createError(400, `Invalid type: ${type}`);
-  }
+  let priceUSD: number;
+  try {
+    switch (type) {
+      case "FIAT":
+        priceUSD = await getFiatPriceInUSD(currency);
+        break;
+      case "SPOT":
+        priceUSD = await getSpotPriceInUSD(currency);
+        break;
+      case "ECO":
+        priceUSD = await getEcoPriceInUSD(currency);
+        break;
+      default:
+        console.error(`[Currency Price API] Invalid type:`, type);
+        throw createError(400, `Invalid type: ${type}`);
+    }
 
-  return {
-    status: true,
-    message: "Price in USD retrieved successfully",
-    data: priceUSD,
-  };
+    if (priceUSD === null || priceUSD === undefined || isNaN(priceUSD)) {
+      console.error(`[Currency Price API] Invalid price returned:`, {
+        currency,
+        type,
+        priceUSD,
+        priceType: typeof priceUSD
+      });
+      throw createError(404, `Price not found for ${currency} (${type})`);
+    }
+
+    // Warn if price is 0 (valid but unusual - might indicate no trading activity)
+    if (priceUSD === 0) {
+      console.warn(`[Currency Price API] Price is 0 for ${currency} (${type}) - no trading activity or unlisted token`);
+    }
+
+    return {
+      status: true,
+      message: "Price in USD retrieved successfully",
+      data: priceUSD,
+    };
+  } catch (error: any) {
+    console.error(`[Currency Price API] Error fetching price:`, {
+      currency,
+      type,
+      error: error.message,
+      stack: error.stack
+    });
+    throw error;
+  }
 };

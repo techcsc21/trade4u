@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { detectProvider } from "@/utils/blockchain";
 import { ChevronRight, ChevronLeft, Wallet, Shield, Download, CheckCircle, AlertCircle, Info, ExternalLink } from "lucide-react";
+import { useWalletStore } from "@/store/nft/wallet-store";
 
 interface WalletOnboardingProps {
   onComplete: () => void;
@@ -21,9 +22,9 @@ interface OnboardingStep {
 }
 
 export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) {
+  const { connectWallet: connectWalletStore, isConnected } = useWalletStore();
   const [currentStep, setCurrentStep] = useState(0);
   const [walletDetected, setWalletDetected] = useState(false);
-  const [walletConnected, setWalletConnected] = useState(false);
   const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -35,32 +36,18 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
   const checkWalletStatus = async () => {
     const provider = await detectProvider();
     setWalletDetected(!!provider);
-    
-    if (provider && provider.selectedAddress) {
-      setWalletConnected(true);
-    }
   };
 
   const connectWallet = async () => {
     setIsConnecting(true);
     setError(null);
-    
+
     try {
-      const provider = await detectProvider();
-      if (!provider) {
-        throw new Error("No wallet detected");
-      }
-      
-      const accounts = await provider.request({ 
-        method: "eth_requestAccounts" 
-      });
-      
-      if (accounts.length > 0) {
-        setWalletConnected(true);
-        setTimeout(() => {
-          setCurrentStep(currentStep + 1);
-        }, 1000);
-      }
+      await connectWalletStore();
+
+      setTimeout(() => {
+        setCurrentStep(currentStep + 1);
+      }, 1000);
     } catch (err: any) {
       setError(err.message || "Failed to connect wallet");
     } finally {
@@ -111,28 +98,28 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
       icon: <Wallet className="w-12 h-12" />,
       content: (
         <div className="space-y-6">
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
-            <h3 className="flex items-center gap-2 font-semibold mb-2">
-              <Info className="w-5 h-5" />
+          <div className="bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 rounded-lg p-4">
+            <h3 className="flex items-center gap-2 font-semibold mb-2 text-blue-900 dark:text-blue-400">
+              <Info className="w-5 h-5 text-blue-600 dark:text-blue-500" />
               What is a Web3 Wallet?
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-400">
               A Web3 wallet is like a digital bank account that lets you:
             </p>
-            <ul className="mt-2 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+            <ul className="mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-400">
               <li>• Store cryptocurrencies and NFTs</li>
               <li>• Sign transactions securely</li>
               <li>• Connect to decentralized apps (dApps)</li>
               <li>• Maintain full control of your assets</li>
             </ul>
           </div>
-          
-          <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-4">
-            <h3 className="flex items-center gap-2 font-semibold mb-2">
-              <Shield className="w-5 h-5" />
+
+          <div className="bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 rounded-lg p-4">
+            <h3 className="flex items-center gap-2 font-semibold mb-2 text-amber-900 dark:text-amber-400">
+              <Shield className="w-5 h-5 text-amber-600 dark:text-amber-500" />
               Security First
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-400">
               Your wallet is protected by a secret recovery phrase. Never share this with anyone!
             </p>
           </div>
@@ -151,8 +138,8 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
               key={wallet.id}
               className={`border rounded-lg p-4 cursor-pointer transition-all ${
                 selectedWallet === wallet.id
-                  ? "border-primary-500 bg-primary-50 dark:bg-primary-900/20"
-                  : "border-gray-200 dark:border-gray-700 hover:border-primary-300"
+                  ? "border-primary-500 bg-primary-50 dark:bg-primary-500/20 dark:border-primary-400"
+                  : "border-gray-200 dark:border-gray-800 hover:border-primary-300 dark:hover:border-gray-700 dark:bg-gray-900/50"
               }`}
               onClick={() => setSelectedWallet(wallet.id)}
             >
@@ -160,14 +147,14 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{wallet.icon}</span>
                   <div>
-                    <h4 className="font-semibold">{wallet.name}</h4>
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-200">{wallet.name}</h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       {wallet.description}
                     </p>
                   </div>
                 </div>
                 {wallet.detected ? (
-                  <span className="text-xs bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400 px-2 py-1 rounded">
+                  <span className="text-xs bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 px-2 py-1 rounded border border-green-200 dark:border-green-500/20">
                     Detected
                   </span>
                 ) : (
@@ -175,7 +162,7 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
                     href={wallet.installUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-2 py-1 rounded flex items-center gap-1"
+                    className="text-xs bg-blue-100 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 px-2 py-1 rounded flex items-center gap-1 border border-blue-200 dark:border-blue-500/20 hover:bg-blue-200 dark:hover:bg-blue-500/20"
                     onClick={(e) => e.stopPropagation()}
                   >
                     Install
@@ -187,8 +174,8 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
           ))}
           
           {!walletDetected && (
-            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-3">
-              <p className="text-sm text-amber-800 dark:text-amber-200">
+            <div className="bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 rounded-lg p-3">
+              <p className="text-sm text-amber-900 dark:text-amber-400">
                 No wallet detected. Please install one of the wallets above and refresh the page.
               </p>
             </div>
@@ -205,29 +192,29 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
       actionLabel: isConnecting ? "Connecting..." : "Connect Wallet",
       content: (
         <div className="space-y-6">
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 text-center">
-            {walletConnected ? (
+          <div className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-lg p-6 text-center">
+            {isConnected ? (
               <div className="space-y-4">
-                <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
-                <h3 className="text-lg font-semibold">Wallet Connected!</h3>
+                <CheckCircle className="w-16 h-16 text-green-600 dark:text-green-500 mx-auto" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200">Wallet Connected!</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Your wallet is now connected to the marketplace
                 </p>
               </div>
             ) : (
               <div className="space-y-4">
-                <Wallet className="w-16 h-16 text-gray-400 mx-auto" />
-                <h3 className="text-lg font-semibold">Ready to Connect</h3>
+                <Wallet className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200">Ready to Connect</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Click the button below to connect your wallet. A popup will appear asking for permission.
                 </p>
               </div>
             )}
           </div>
-          
+
           {error && (
-            <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-              <p className="text-sm text-red-600 dark:text-red-400 flex items-center gap-2">
+            <div className="bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 rounded-lg p-3">
+              <p className="text-sm text-red-700 dark:text-red-400 flex items-center gap-2">
                 <AlertCircle className="w-4 h-4" />
                 {error}
               </p>
@@ -235,22 +222,22 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
           )}
           
           <div className="space-y-3">
-            <h4 className="font-semibold">What happens when you connect:</h4>
-            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <h4 className="font-semibold text-gray-900 dark:text-gray-200">What happens when you connect:</h4>
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-400">
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
                 <span>The site can see your wallet address and NFT balance</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
                 <span>You can buy, sell, and trade NFTs</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5" />
+                <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-500 mt-0.5 flex-shrink-0" />
                 <span>You always approve transactions manually</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="w-4 h-4 text-blue-500 mt-0.5" />
+                <Shield className="w-4 h-4 text-blue-600 dark:text-blue-500 mt-0.5 flex-shrink-0" />
                 <span>Your private keys remain secure in your wallet</span>
               </li>
             </ul>
@@ -267,27 +254,27 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
       actionLabel: "Start Exploring",
       content: (
         <div className="space-y-6">
-          <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-6 text-center">
-            <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Setup Complete!</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 rounded-lg p-6 text-center">
+            <CheckCircle className="w-16 h-16 text-green-600 dark:text-green-500 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold mb-2 text-green-900 dark:text-green-400">Setup Complete!</h3>
+            <p className="text-sm text-gray-700 dark:text-gray-400">
               Your wallet is connected and you're ready to start trading NFTs
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-              <h4 className="font-semibold mb-2">What's Next?</h4>
-              <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+            <div className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-lg p-4">
+              <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-200">What's Next?</h4>
+              <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-400">
                 <li>• Browse NFT collections</li>
                 <li>• Create your first NFT</li>
                 <li>• Join the community</li>
               </ul>
             </div>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-              <h4 className="font-semibold mb-2">Pro Tips</h4>
-              <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+
+            <div className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-lg p-4">
+              <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-200">Pro Tips</h4>
+              <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-400">
                 <li>• Keep your recovery phrase safe</li>
                 <li>• Verify transactions carefully</li>
                 <li>• Start with small amounts</li>
@@ -302,18 +289,20 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
   const currentStepData = steps[currentStep];
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+        className="bg-white dark:bg-gray-950 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-gray-200 dark:border-gray-800"
       >
-        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="p-6 border-b border-gray-200 dark:border-gray-800">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              {currentStepData.icon}
+              <div className="text-primary-600 dark:text-primary-500">
+                {currentStepData.icon}
+              </div>
               <div>
-                <h2 className="text-xl font-bold">{currentStepData.title}</h2>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-gray-200">{currentStepData.title}</h2>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   {currentStepData.description}
                 </p>
@@ -322,21 +311,21 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
             {onSkip && currentStep === 0 && (
               <button
                 onClick={onSkip}
-                className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
               >
                 Skip
               </button>
             )}
           </div>
-          
+
           <div className="flex items-center gap-2">
             {steps.map((step, index) => (
               <div
                 key={step.id}
                 className={`flex-1 h-2 rounded-full transition-colors ${
                   index <= currentStep
-                    ? "bg-primary-500"
-                    : "bg-gray-200 dark:bg-gray-700"
+                    ? "bg-primary-600 dark:bg-primary-400"
+                    : "bg-gray-200 dark:bg-gray-800"
                 }`}
               />
             ))}
@@ -357,22 +346,22 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
           </AnimatePresence>
         </div>
         
-        <div className="p-6 border-t border-gray-200 dark:border-gray-700">
+        <div className="p-6 border-t border-gray-200 dark:border-gray-800">
           <div className="flex items-center justify-between">
             <button
               onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
               disabled={currentStep === 0}
-              className="btn btn-secondary flex items-center gap-2 disabled:opacity-50"
+              className="btn btn-secondary flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               <ChevronLeft className="w-4 h-4" />
               Back
             </button>
-            
+
             {currentStepData.action ? (
               <button
                 onClick={currentStepData.action}
                 disabled={isConnecting || (currentStep === 1 && !selectedWallet)}
-                className="btn btn-primary flex items-center gap-2"
+                className="btn btn-primary flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 {currentStepData.actionLabel}
                 {!isConnecting && <ChevronRight className="w-4 h-4" />}
@@ -381,7 +370,7 @@ export function WalletOnboarding({ onComplete, onSkip }: WalletOnboardingProps) 
               <button
                 onClick={() => setCurrentStep(Math.min(steps.length - 1, currentStep + 1))}
                 disabled={currentStep === 1 && !selectedWallet}
-                className="btn btn-primary flex items-center gap-2"
+                className="btn btn-primary flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 Next
                 <ChevronRight className="w-4 h-4" />

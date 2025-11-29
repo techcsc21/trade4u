@@ -1,8 +1,11 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { useMenuTranslations } from "@/components/partials/menu-translator";
 
 const MenuLabel = ({ item, className }: { item: any; className?: string }) => {
-  const { title } = item;
+  const { getTitle } = useMenuTranslations();
+  const title = getTitle(item);
+
   return (
     <div
       className={cn(

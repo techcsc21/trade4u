@@ -68,9 +68,9 @@ export function WalletTypeStep() {
             });
             markStepComplete(2);
           } else if (walletsWithBalance.length === 0) {
-            setError(
-              `You don't have any ${walletType.toLowerCase()} wallets with balance.`
-            );
+            // Don't set error - user can still proceed to other steps
+            // The error will be shown in the UI but won't block progression
+            console.warn(`No ${walletType.toLowerCase()} wallets with balance found`);
           }
         }
       } catch (err) {
@@ -300,15 +300,9 @@ export function WalletTypeStep() {
         </div>
       );
     }
-    return (
-      <Alert>
-        <AlertDescription>
-          You don't have any {selectedWallet.toLowerCase()} wallets with
-          balance. Please select a different wallet type or add funds to your
-          wallet.
-        </AlertDescription>
-      </Alert>
-    );
+    // Don't show error message if no wallets - user can still proceed
+    // Balance will be validated in the final step anyway
+    return null;
   }, [
     tradeType,
     selectedWallet,

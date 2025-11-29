@@ -138,7 +138,7 @@ async function hasPermission(roleId: number, strippedPath: string) {
 export const authMiddleware: MiddlewareFactory =
   (next) => async (request: NextRequest, event: NextFetchEvent) => {
     const { pathname } = request.nextUrl;
-    const locales = process.env.NEXT_PUBLIC_LANGUAGES?.split(", ") || [];
+    const locales = process.env.NEXT_PUBLIC_LANGUAGES?.split(/[,\s]+/).map(code => code.trim()).filter(code => code.length > 0) || [];
     // Extract locale from path, e.g. /en/admin
     let strippedPath = pathname;
     let currentLocale: string | null = null;

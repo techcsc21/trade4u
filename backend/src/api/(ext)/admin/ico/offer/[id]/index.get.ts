@@ -62,7 +62,11 @@ export default async (data: Handler) => {
   const offering = await models.icoTokenOffering.findOne({
     where: { id },
     include: [
-      { model: models.icoTokenDetail, as: "tokenDetail" },
+      {
+        model: models.icoTokenDetail,
+        as: "tokenDetail",
+        include: [{ model: models.icoTokenType, as: "tokenTypeData" }]
+      },
       { model: models.icoLaunchPlan, as: "plan" },
       {
         model: models.icoTokenOfferingUpdate,

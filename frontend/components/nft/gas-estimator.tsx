@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, TrendingUp, TrendingDown, Minus, AlertTriangle } from "lucide-react";
@@ -71,33 +71,28 @@ export function GasEstimator({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch gas prices on mount and periodically
+  // Use ref to avoid recreating callback on every render
+  const onEstimateUpdateRef = useRef(onEstimateUpdate);
   useEffect(() => {
-    fetchGasPrices();
-    const interval = setInterval(fetchGasPrices, 30000); // Update every 30 seconds
-    return () => clearInterval(interval);
-  }, [chain]);
+    onEstimateUpdateRef.current = onEstimateUpdate;
+  }, [onEstimateUpdate]);
 
-  // Fetch specific estimate when parameters change
-  useEffect(() => {
-    if (operation) {
-      fetchGasEstimate();
-    }
-  }, [operation, chain, contractAddress, tokenId, amount, recipientAddress]);
-
-  const fetchGasPrices = async () => {
+  const fetchGasPrices = useCallback(async () => {
     try {
       const { data } = await $fetch({
         url: `/api/nft/gas/estimate?chain=${chain}`,
         method: "GET",
+        silentSuccess: true,
       });
       setGasPrices(data);
     } catch (err: any) {
       console.error("Failed to fetch gas prices:", err);
     }
-  };
+  }, [chain]);
 
-  const fetchGasEstimate = async () => {
+  const fetchGasEstimate = useCallback(async () => {
+    if (!operation) return;
+
     setLoading(true);
     setError(null);
 
@@ -116,16 +111,30 @@ export function GasEstimator({
         url: "/api/nft/gas/estimate",
         method: "POST",
         body: requestBody,
+        silentSuccess: true,
       });
 
       setEstimate(data);
-      onEstimateUpdate?.(data.gasEstimate);
+      // Use ref to avoid dependency issues
+      onEstimateUpdateRef.current?.(data.gasEstimate);
     } catch (err: any) {
       setError(err.message || "Failed to estimate gas");
     } finally {
       setLoading(false);
     }
-  };
+  }, [operation, chain, contractAddress, tokenId, amount, recipientAddress]);
+
+  // Fetch gas prices on mount and periodically
+  useEffect(() => {
+    fetchGasPrices();
+    const interval = setInterval(fetchGasPrices, 30000); // Update every 30 seconds
+    return () => clearInterval(interval);
+  }, [fetchGasPrices]);
+
+  // Fetch specific estimate when parameters change
+  useEffect(() => {
+    fetchGasEstimate();
+  }, [fetchGasEstimate]);
 
   const getCongestionColor = (congestion: string) => {
     switch (congestion) {
@@ -175,7 +184,7 @@ export function GasEstimator({
     );
   }
 
-  const currentEstimate = estimate || (gasPrices?.standardOperations[operation] ? {
+  const currentEstimate = estimate || (gasPrices?.standardOperations[operation] && gasPrices?.currentGasPrice ? {
     operation,
     chain,
     gasEstimate: {
@@ -240,7 +249,7 @@ export function GasEstimator({
                 <span>{parseInt(currentEstimate.gasEstimate.gasLimit || "0").toLocaleString()}</span>
               </div>
               
-              {gasPrices && (
+              {gasPrices && gasPrices.currentGasPrice && (
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Gas Price:</span>
                   <span>{parseFloat(gasPrices.currentGasPrice.gwei).toFixed(2)} gwei</span>

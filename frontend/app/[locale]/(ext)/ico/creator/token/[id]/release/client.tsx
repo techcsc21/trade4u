@@ -286,12 +286,12 @@ export function TokenReleaseClient() {
                         <BarChart3 className="h-3 w-3 mr-1" />
                         {offering.status}
                       </Badge>
-                      {offering.tokenDetail?.tokenType && (
+                      {offering.tokenDetail?.tokenTypeData?.name && (
                         <Badge variant="outline" className="bg-secondary/10">
-                          {offering.tokenDetail.tokenType
+                          {offering.tokenDetail.tokenTypeData.name
                             .charAt(0)
                             .toUpperCase() +
-                            offering.tokenDetail.tokenType.slice(1)}
+                            offering.tokenDetail.tokenTypeData.name.slice(1)}
                         </Badge>
                       )}
                     </div>

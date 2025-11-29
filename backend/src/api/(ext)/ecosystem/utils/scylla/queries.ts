@@ -8,7 +8,61 @@ import client from "./client";
 import { makeUuid } from "@b/utils/passwords";
 import { MatchingEngine } from "../matchingEngine";
 import { getWalletByUserIdAndCurrency, updateWalletBalance } from "../wallet";
+import { getEcosystemToken } from "../tokens";
 const scyllaKeyspace = process.env.SCYLLA_KEYSPACE || "trading";
+
+// Cache for token decimals to avoid repeated database queries
+const tokenDecimalsCache = new Map<string, number>();
+
+/**
+ * Get the tolerance digits for removeTolerance based on token decimals
+ * Formula: toleranceDigits = 18 - decimals
+ * This removes insignificant digits beyond the token's precision
+ */
+function getToleranceDigits(decimals: number): number {
+  return 18 - decimals;
+}
+
+/**
+ * Get token decimals from symbol (e.g., "BTC/USDT" -> BTC decimals)
+ * Uses cache to avoid repeated database queries
+ */
+async function getSymbolDecimals(symbol: string): Promise<number> {
+  const [baseCurrency] = symbol.split("/");
+
+  // Check cache first
+  if (tokenDecimalsCache.has(baseCurrency)) {
+    return tokenDecimalsCache.get(baseCurrency)!;
+  }
+
+  try {
+    // Try to get token info from various chains
+    // We'll try common chains until we find the token
+    const commonChains = ['ETH', 'BSC', 'MATIC', 'BTC', 'SOL'];
+
+    for (const chain of commonChains) {
+      try {
+        const token = await getEcosystemToken(chain, baseCurrency);
+        if (token && token.decimals !== undefined) {
+          tokenDecimalsCache.set(baseCurrency, token.decimals);
+          return token.decimals;
+        }
+      } catch (e) {
+        // Token not found on this chain, continue to next
+        continue;
+      }
+    }
+
+    // If not found, default to 8 decimals (common for most crypto)
+    console.warn(`Could not find decimals for ${baseCurrency}, defaulting to 8`);
+    tokenDecimalsCache.set(baseCurrency, 8);
+    return 8;
+  } catch (error) {
+    console.error(`Error fetching decimals for ${symbol}:`, error);
+    // Default to 8 decimals
+    return 8;
+  }
+}
 
 // Define a TypeScript interface for the "orders" table
 export interface Order {
@@ -187,11 +241,12 @@ export async function cancelOrderByUuid(
     );
   }
 
-  // Instead of deleting the order, update its status and remaining amount
+  // Instead of deleting the order, update its status
+  // Keep the remaining amount to preserve partial fill information
   const currentTimestamp = new Date();
   const updateOrderQuery = `
     UPDATE ${scyllaKeyspace}.orders
-    SET status = 'CANCELED', "updatedAt" = ?, remaining = 0
+    SET status = 'CANCELED', "updatedAt" = ?
     WHERE "userId" = ? AND id = ? AND "createdAt" = ?;
   `;
   const updateOrderParams = [currentTimestamp, userId, id, new Date(createdAt)];
@@ -511,10 +566,25 @@ export async function getYesterdayCandles(): Promise<{
   }
 }
 
-export function generateOrderUpdateQueries(
+export async function generateOrderUpdateQueries(
   ordersToUpdate: Order[]
-): Array<{ query: string; params: any[] }> {
+): Promise<Array<{ query: string; params: any[] }>> {
+  // Get unique symbols and fetch their decimals
+  const symbols = [...new Set(ordersToUpdate.map(order => order.symbol))];
+  const decimalsMap = new Map<string, number>();
+
+  // Fetch decimals for all unique symbols in parallel
+  await Promise.all(
+    symbols.map(async (symbol) => {
+      const decimals = await getSymbolDecimals(symbol);
+      decimalsMap.set(symbol, decimals);
+    })
+  );
+
   const queries = ordersToUpdate.map((order) => {
+    const decimals = decimalsMap.get(order.symbol) || 8;
+    const toleranceDigits = getToleranceDigits(decimals);
+
     return {
       query: `
         UPDATE ${scyllaKeyspace}.orders
@@ -522,8 +592,12 @@ export function generateOrderUpdateQueries(
         WHERE "userId" = ? AND "createdAt" = ? AND id = ?;
       `,
       params: [
-        removeTolerance(order.filled).toString(),
-        removeTolerance(order.remaining).toString(),
+        // Use removeTolerance with dynamic tolerance based on token decimals
+        // Formula: toleranceDigits = 18 - decimals
+        // This removes insignificant trailing digits beyond the token's precision
+        // while preserving small values (e.g., 0.00000001 for 8-decimal tokens)
+        removeTolerance(order.filled, toleranceDigits).toString(),
+        removeTolerance(order.remaining, toleranceDigits).toString(),
         order.status,
         new Date(),
         JSON.stringify(order.trades),

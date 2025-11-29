@@ -6,11 +6,13 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import SidebarLogo from "@/components/partials/sidebar/logo";
+import { useTranslations } from "next-intl";
 
 export interface SidebarNavItem {
   href: string;
   label: string;
   icon: React.ElementType;
+  key?: string; // Translation key
   children?: SidebarNavItem[];
 }
 
@@ -25,6 +27,7 @@ export function ExtSidebar({
 }: ExtSidebarProps) {
   const pathname = usePathname();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
+  const t = useTranslations("ext");
 
   const isActive = (path: string) =>
     pathname === path || pathname.startsWith(path);
@@ -34,6 +37,20 @@ export function ExtSidebar({
       ...prev,
       [menuId]: !prev[menuId],
     }));
+  };
+
+  // Get translated label for sidebar item
+  const getLabel = (item: SidebarNavItem): string => {
+    if (!item.key) {
+      return item.label;
+    }
+    try {
+      const translated = t(item.key);
+      // If translation exists and is not the key itself, use it
+      return translated && translated !== item.key ? translated : item.label;
+    } catch {
+      return item.label;
+    }
   };
 
   // Auto-open menus if a child route is active
@@ -52,6 +69,7 @@ export function ExtSidebar({
 
   const renderNavItems = (items: SidebarNavItem[]) =>
     items.map((item) => {
+      const label = getLabel(item);
       if (item.children) {
         const isOpen = openMenus[item.href];
         return (
@@ -67,7 +85,7 @@ export function ExtSidebar({
             >
               <div className="flex items-center gap-3">
                 <item.icon className="h-5 w-5" />
-                {item.label}
+                {label}
               </div>
               {isOpen ? (
                 <ChevronDown className="h-4 w-4" />
@@ -77,22 +95,25 @@ export function ExtSidebar({
             </button>
             {isOpen && (
               <div className="pl-8 space-y-1">
-                {item.children.map((child) => (
-                  <Link
-                    key={child.href}
-                    href={child.href as any}
-                    className={cn(
-                      "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                      isActive(child.href)
-                        ? "bg-primary/10 text-primary dark:bg-primary dark:text-black"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                    )}
-                    onClick={closeSidebar}
-                  >
-                    <child.icon className="h-5 w-5" />
-                    {child.label}
-                  </Link>
-                ))}
+                {item.children.map((child) => {
+                  const childLabel = getLabel(child);
+                  return (
+                    <Link
+                      key={child.href}
+                      href={child.href as any}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                        isActive(child.href)
+                          ? "bg-primary/10 text-primary dark:bg-primary dark:text-black"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      )}
+                      onClick={closeSidebar}
+                    >
+                      <child.icon className="h-5 w-5" />
+                      {childLabel}
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -111,7 +132,7 @@ export function ExtSidebar({
             onClick={closeSidebar}
           >
             <item.icon className="h-5 w-5" />
-            {item.label}
+            {label}
           </Link>
         );
       }

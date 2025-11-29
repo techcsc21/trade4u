@@ -101,7 +101,9 @@ export default function BlockchainDialog({
     }
 
     setIsSaving(false);
+    setDirty(false); // Clear dirty state after successful save
     await onSuccess();
+    onClose(); // Close dialog after successful save
   }
 
   const handleClose = () => {

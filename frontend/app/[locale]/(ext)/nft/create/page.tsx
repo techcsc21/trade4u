@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CreateNFTClient from "./client";
+import WalletProvider from "@/context/wallet";
 
 export const metadata: Metadata = {
   title: "Create NFT - NFT Marketplace",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function CreateNFTPage() {
-  return <CreateNFTClient />;
+  return (
+    <WalletProvider cookies="">
+      <CreateNFTClient />
+    </WalletProvider>
+  );
 } 

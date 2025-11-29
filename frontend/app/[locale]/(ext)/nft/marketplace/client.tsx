@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -13,10 +14,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Search, 
-  Grid3X3, 
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Search,
+  Grid3X3,
   List,
   Gavel,
   ShoppingCart,
@@ -24,41 +25,37 @@ import {
   Heart,
   Timer,
   Zap,
-  Filter,
   X,
   SlidersHorizontal,
   TrendingUp,
   Clock,
-  DollarSign
+  Sparkles,
+  Flame,
+  Award,
+  Users
 } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { useNftStore } from "@/store/nft/nft-store";
 import LoadingSpinner from "@/components/ui/loading-spinner";
-import { $fetch } from "@/lib/api";
-import { WalletOnboarding } from "@/components/ext/nft/WalletOnboarding";
-import { useWalletOnboarding } from "@/hooks/ext/nft/useWalletOnboarding";
+import { useInView } from "react-intersection-observer";
+import { cn } from "@/lib/utils";
 
 export default function MarketplaceClient() {
   const t = useTranslations("nft/marketplace");
+
   const {
-    showOnboarding,
-    completeOnboarding,
-    skipOnboarding
-  } = useWalletOnboarding();
-  
-  const { 
-    listings, 
-    categories, 
+    listings,
+    categories,
     collections,
-    loading, 
-    fetchListings, 
-    fetchCategories, 
+    loading,
+    fetchListings,
+    fetchCategories,
     fetchCollections,
-    setFilters 
+    setFilters
   } = useNftStore();
 
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [viewMode, setViewMode] = useState<"grid" | "masonry">("grid");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedCollection, setSelectedCollection] = useState("all");
@@ -70,12 +67,16 @@ export default function MarketplaceClient() {
   const [endingSoon, setEndingSoon] = useState(false);
   const [hasOffers, setHasOffers] = useState(false);
 
+  const { ref: heroRef, inView: heroInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   const handleFetchListings = useCallback((filters?: any) => {
     fetchListings(filters);
   }, [fetchListings]);
 
   const fetchSortOptions = useCallback(async () => {
-    // Use static sort options since endpoint doesn't exist
     setSortOptions([
       { value: "recently_listed", label: t("recently_listed") },
       { value: "price_low_high", label: t("price_low_to_high") },
@@ -106,7 +107,7 @@ export default function MarketplaceClient() {
       ...(endingSoon && { endingSoon: "true" }),
       ...(hasOffers && { hasOffers: "true" }),
     };
-    
+
     setFilters(filters);
     handleFetchListings(filters);
   }, [searchQuery, selectedCategory, selectedCollection, sortBy, listingType, priceRange, endingSoon, hasOffers, setFilters, handleFetchListings]);
@@ -127,558 +128,594 @@ export default function MarketplaceClient() {
     return `${minutes}m`;
   }, []);
 
-  const ListingCard = useCallback(({ listing }: { listing: any }) => {
+  const ListingCard = useCallback(({ listing, index }: { listing: any; index: number }) => {
     const isAuction = listing.type === "AUCTION";
     const hasEnded = isAuction && listing.endTime && new Date() > new Date(listing.endTime);
     const timeLeft = isAuction && listing.endTime ? getTimeLeft(listing.endTime) : null;
 
     return (
-      <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/20">
-        <Link href={`/nft/token/${listing.token.id}`}>
-          <div className="aspect-square relative bg-muted rounded-t-lg overflow-hidden">
-            {listing.token.image ? (
-              <Image
-                src={listing.token.image}
-                alt={listing.token.name}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted to-muted/50">
-                <span className="text-4xl opacity-50">🖼️</span>
-              </div>
-            )}
-            
-            {/* Overlay badges */}
-            <div className="absolute top-3 left-3 flex gap-2">
-              {isAuction && (
-                <Badge variant="secondary" className="bg-orange-500/90 text-white border-0 shadow-lg">
-                  <Gavel className="h-3 w-3 mr-1" />
-                  {t("Auction")}
-                </Badge>
-              )}
-              {listing.type === "BUNDLE" && (
-                <Badge variant="secondary" className="bg-purple-500/90 text-white border-0 shadow-lg">
-                  <Zap className="h-3 w-3 mr-1" />
-                  {t("Bundle")}
-                </Badge>
-              )}
-              {listing.token.collection?.isVerified && (
-                <Badge variant="secondary" className="bg-blue-500/90 text-white border-0 shadow-lg">
-                  ✓
-                </Badge>
-              )}
-            </div>
-
-            {/* Quick actions */}
-            <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              <Button
-                size="sm"
-                variant="secondary"
-                className="h-8 w-8 p-0 bg-white/95 hover:bg-white shadow-lg"
-              >
-                <Heart className="h-4 w-4" />
-              </Button>
-            </div>
-
-            {/* Auction timer */}
-            {isAuction && timeLeft && !hasEnded && (
-              <div className="absolute bottom-3 left-3 right-3">
-                <div className="bg-black/90 text-white text-xs px-3 py-2 rounded-lg flex items-center justify-center gap-2 backdrop-blur-sm">
-                  <Timer className="h-3 w-3" />
-                  <span className="font-medium">{timeLeft}</span>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: index * 0.05 }}
+      >
+        <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50 overflow-hidden bg-card">
+          <Link href={`/nft/token/${listing.token.id}`}>
+            <div className="aspect-square relative bg-gradient-to-br from-primary/10 via-purple-600/10 to-pink-600/10 overflow-hidden">
+              {listing.token.image ? (
+                <Image
+                  src={listing.token.image}
+                  alt={listing.token.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <Sparkles className="w-16 h-16 text-primary/40" />
                 </div>
-              </div>
-            )}
-
-            {/* Sold overlay */}
-            {hasEnded && (
-              <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                <div className="bg-red-500 text-white px-4 py-2 rounded-lg font-bold">
-                  {t("ENDED")}
-                </div>
-              </div>
-            )}
-          </div>
-        </Link>
-
-        <CardContent className="p-4">
-          <div className="space-y-3">
-            {/* Collection */}
-            {listing.token.collection && (
-              <div className="flex items-center gap-2">
-                <Link 
-                  href={`/nft/collections/${listing.token.collection.slug}`}
-                  className="text-xs text-primary hover:underline font-medium flex items-center gap-1"
-                >
-                  {listing.token.collection.logoImage && (
-                    <Image
-                      src={listing.token.collection.logoImage}
-                      alt={listing.token.collection.name}
-                      width={16}
-                      height={16}
-                      className="rounded-full"
-                    />
-                  )}
-                  {listing.token.collection.name}
-                </Link>
-                {listing.token.collection.isVerified && (
-                  <Badge variant="secondary" className="h-4 w-4 p-0 bg-blue-100 text-blue-600">
-                    ✓
-                  </Badge>
-                )}
-              </div>
-            )}
-
-            {/* Title */}
-            <Link href={`/nft/token/${listing.token.id}`}>
-              <h3 className="font-semibold line-clamp-2 hover:text-primary transition-colors leading-tight">
-                {listing.token.name}
-              </h3>
-            </Link>
-
-            {/* Seller */}
-            {listing.seller && (
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <span>{t("by")}</span>
-                <span className="font-medium">
-                  {listing.seller.nftCreator?.displayName || 
-                   `${listing.seller.firstName} ${listing.seller.lastName}`}
-                </span>
-                {listing.seller.nftCreator?.verificationTier && (
-                  <Badge variant="outline" className="h-4 text-xs">
-                    {listing.seller.nftCreator.verificationTier}
-                  </Badge>
-                )}
-              </div>
-            )}
-
-            {/* Price */}
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-muted-foreground mb-1">
-                  {isAuction ? (hasEnded ? t("final_bid") : t("current_bid")) : t("Price")}
-                </p>
-                <div className="flex items-center gap-2">
-                  <p className="font-bold text-lg">
-                    {isAuction ? (listing.currentBid || listing.price) : listing.price}
-                  </p>
-                  <span className="text-sm text-muted-foreground">{listing.currency}</span>
-                </div>
-                {/* USD equivalent could be added here */}
-              </div>
-              
-              {!hasEnded && (
-                <Button size="sm" className="h-9 px-4">
-                  {isAuction ? (
-                    <>
-                      <Gavel className="h-4 w-4 mr-2" />
-                      {t("place_bid")}
-                    </>
-                  ) : (
-                    <>
-                      <ShoppingCart className="h-4 w-4 mr-2" />
-                      {t("buy_now")}
-                    </>
-                  )}
-                </Button>
               )}
-            </div>
 
-            {/* Stats */}
-            <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t">
-              <div className="flex items-center gap-3">
-                <span className="flex items-center gap-1">
-                  <Eye className="h-3 w-3" />
-                  {listing.token.viewCount || 0}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Heart className="h-3 w-3" />
-                  {listing.token.likeCount || 0}
-                </span>
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              {/* Overlay badges */}
+              <div className="absolute top-3 left-3 flex gap-2">
                 {isAuction && (
-                  <span className="flex items-center gap-1">
-                    <Gavel className="h-3 w-3" />
-                    {listing.bidCount || 0}
-                  </span>
+                  <Badge className="bg-orange-500 text-white border-0 shadow-lg">
+                    <Flame className="h-3 w-3 mr-1" />
+                    {t("Auction")}
+                  </Badge>
+                )}
+                {listing.type === "BUNDLE" && (
+                  <Badge className="bg-purple-500 text-white border-0 shadow-lg">
+                    <Zap className="h-3 w-3 mr-1" />
+                    {t("Bundle")}
+                  </Badge>
+                )}
+                {listing.token.collection?.isVerified && (
+                  <Badge className="bg-blue-500 text-white border-0 shadow-lg">
+                    <Award className="h-3 w-3" />
+                  </Badge>
                 )}
               </div>
-              {listing.token.rarity && (
-                <Badge variant="outline" className="text-xs">
-                  {listing.token.rarity}
-                </Badge>
+
+              {/* Quick actions */}
+              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  className="h-9 w-9 p-0 bg-white/95 hover:bg-white shadow-lg rounded-full"
+                >
+                  <Heart className="h-4 w-4" />
+                </Button>
+              </div>
+
+              {/* Auction timer */}
+              {isAuction && timeLeft && !hasEnded && (
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="bg-black/90 text-white text-xs px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 backdrop-blur-sm">
+                    <Timer className="h-4 w-4 text-orange-400" />
+                    <span className="font-semibold">{timeLeft}</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Sold overlay */}
+              {hasEnded && (
+                <div className="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center">
+                  <div className="bg-red-500 text-white px-6 py-3 rounded-xl font-bold text-lg shadow-xl">
+                    {t("ENDED")}
+                  </div>
+                </div>
               )}
             </div>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }, [t, getTimeLeft]);
+          </Link>
 
-  // Remove full-page loading check
-
-  return (
-    <div className="container mx-auto py-8 px-4">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
-          <div>
-            <h1 className="text-3xl font-bold mb-2">{t("nft_marketplace")}</h1>
-            <p className="text-muted-foreground">
-              {t("discover_buy_and_sell")}
-            </p>
-          </div>
-          
-          {/* Quick Stats */}
-          <div className="flex gap-6 text-sm">
-            <div className="text-center">
-              <div className="font-bold text-lg text-primary">
-                {Array.isArray(listings) ? listings.length : 0}
-              </div>
-              <div className="text-muted-foreground">{t("active_listings")}</div>
-            </div>
-            <div className="text-center">
-              <div className="font-bold text-lg text-primary">
-                {Array.isArray(categories) ? categories.length : 0}
-              </div>
-              <div className="text-muted-foreground">{t("Categories")}</div>
-            </div>
-            <div className="text-center">
-              <div className="font-bold text-lg text-primary">
-                {Array.isArray(collections) ? collections.length : 0}
-              </div>
-              <div className="text-muted-foreground">{t("Collections")}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Enhanced Filters */}
-      <div className="mb-8">
-        {/* Main Filter Bar */}
-        <div className="flex flex-col lg:flex-row gap-4 mb-6">
-          {/* Search */}
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder={t("search_nfts_collections_or_creators")}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
-            />
-          </div>
-
-          {/* Quick Filters */}
-          <div className="flex gap-2">
-            <Button
-              variant={endingSoon ? "default" : "outline"}
-              size="sm"
-              onClick={() => setEndingSoon(!endingSoon)}
-              className="flex items-center gap-2"
-            >
-              <Clock className="h-4 w-4" />
-              {t("ending_soon")}
-            </Button>
-            <Button
-              variant={hasOffers ? "default" : "outline"}
-              size="sm"
-              onClick={() => setHasOffers(!hasOffers)}
-              className="flex items-center gap-2"
-            >
-              <TrendingUp className="h-4 w-4" />
-              {t("has_offers")}
-            </Button>
-          </div>
-
-          {/* Advanced Filters Toggle */}
-          <Button
-            variant="outline"
-            onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2"
-          >
-            <SlidersHorizontal className="h-4 w-4" />
-            {t("Filters")}
-            {showFilters && <X className="h-4 w-4" />}
-          </Button>
-
-          {/* View Mode */}
-          <div className="flex border rounded-lg">
-            <Button
-              variant={viewMode === "grid" ? "default" : "ghost"}
-              size="sm"
-              onClick={() => setViewMode("grid")}
-              className="rounded-r-none"
-            >
-              <Grid3X3 className="h-4 w-4" />
-            </Button>
-            <Button
-              variant={viewMode === "list" ? "default" : "ghost"}
-              size="sm"
-              onClick={() => setViewMode("list")}
-              className="rounded-l-none"
-            >
-              <List className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Advanced Filters Panel */}
-        {showFilters && (
-          <Card className="p-6 mb-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Category Filter */}
-              <div>
-                <label className="text-sm font-medium mb-2 block">{t("Category")}</label>
-                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                  <SelectTrigger>
-                    <SelectValue placeholder={t("all_categories")} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">{t("all_categories")}</SelectItem>
-                    {Array.isArray(categories) && categories.map((category) => (
-                      <SelectItem key={category.id} value={category.id}>
-                        {category.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {/* Collection Filter */}
-              <div>
-                <label className="text-sm font-medium mb-2 block">{t("Collection")}</label>
-                <Select value={selectedCollection} onValueChange={setSelectedCollection}>
-                  <SelectTrigger>
-                    <SelectValue placeholder={t("all_collections")} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">{t("all_collections")}</SelectItem>
-                    {Array.isArray(collections) && collections.map((collection) => (
-                      <SelectItem key={collection.id} value={collection.id}>
-                        {collection.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {/* Price Range */}
-              <div>
-                <label className="text-sm font-medium mb-2 block">{t("price_range")} (ETH)</label>
-                <div className="flex gap-2">
-                  <Input
-                    type="number"
-                    placeholder="Min"
-                    value={priceRange.min}
-                    onChange={(e) => setPriceRange(prev => ({ ...prev, min: e.target.value }))}
-                    className="w-full"
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Max"
-                    value={priceRange.max}
-                    onChange={(e) => setPriceRange(prev => ({ ...prev, max: e.target.value }))}
-                    className="w-full"
-                  />
+          <CardContent className="p-5">
+            <div className="space-y-3">
+              {/* Collection */}
+              {listing.token.collection && (
+                <div className="flex items-center gap-2">
+                  <Link
+                    href={`/nft/collections/${listing.token.collection.slug}`}
+                    className="text-xs text-primary hover:underline font-semibold flex items-center gap-1.5 group/collection"
+                  >
+                    {listing.token.collection.logoImage && (
+                      <div className="relative w-5 h-5 rounded-full overflow-hidden ring-2 ring-primary/20 group-hover/collection:ring-primary/50 transition-all">
+                        <Image
+                          src={listing.token.collection.logoImage}
+                          alt={listing.token.collection.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <span className="group-hover/collection:text-primary/80">{listing.token.collection.name}</span>
+                  </Link>
+                  {listing.token.collection.isVerified && (
+                    <Badge className="h-5 w-5 p-0 bg-blue-500 text-white flex items-center justify-center">
+                      <Award className="h-3 w-3" />
+                    </Badge>
+                  )}
                 </div>
-              </div>
+              )}
 
-              {/* Sort */}
-              <div>
-                <label className="text-sm font-medium mb-2 block">{t("sort_by")}</label>
-                <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Array.isArray(sortOptions) && sortOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
+              {/* Title */}
+              <Link href={`/nft/token/${listing.token.id}`}>
+                <h3 className="font-bold text-lg line-clamp-1 hover:text-primary transition-colors group-hover:text-primary">
+                  {listing.token.name}
+                </h3>
+              </Link>
 
-            {/* Clear Filters */}
-            <div className="flex justify-between items-center mt-4 pt-4 border-t">
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setSelectedCategory("all");
-                  setSelectedCollection("all");
-                  setPriceRange({ min: "", max: "" });
-                  setEndingSoon(false);
-                  setHasOffers(false);
-                  setSortBy("recently_listed");
-                }}
-                className="flex items-center gap-2"
-              >
-                <X className="h-4 w-4" />
-                {t("clear_all_filters")}
-              </Button>
-              <div className="text-sm text-muted-foreground">
-                {Array.isArray(listings) ? listings.length : 0} {t("results_found")}
-              </div>
-            </div>
-          </Card>
-        )}
+              {/* Seller */}
+              {listing.seller && (
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Users className="h-3 w-3" />
+                  <span className="font-medium text-foreground">
+                    {listing.seller.nftCreator?.displayName ||
+                     `${listing.seller.firstName} ${listing.seller.lastName}`}
+                  </span>
+                  {listing.seller.nftCreator?.verificationTier && (
+                    <Badge variant="outline" className="h-5 text-[10px] px-2">
+                      {listing.seller.nftCreator.verificationTier}
+                    </Badge>
+                  )}
+                </div>
+              )}
 
-        {/* Listing Type Tabs */}
-        <Tabs value={listingType} onValueChange={setListingType}>
-          <TabsList>
-            <TabsTrigger value="all">{t("all_listings")}</TabsTrigger>
-            <TabsTrigger value="FIXED_PRICE" className="flex items-center gap-2">
-              <ShoppingCart className="h-4 w-4" />
-              {t("buy_now")}
-            </TabsTrigger>
-            <TabsTrigger value="AUCTION" className="flex items-center gap-2">
-              <Gavel className="h-4 w-4" />
-              {t("Auctions")}
-            </TabsTrigger>
-            <TabsTrigger value="BUNDLE" className="flex items-center gap-2">
-              <Zap className="h-4 w-4" />
-              {t("Bundles")}
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </div>
-
-      {/* Results */}
-      <div className="mb-4 flex items-center justify-between">
-        <p className="text-sm text-muted-foreground">
-          {t("Showing")}{" "}
-          {Array.isArray(listings) ? listings.length : 0}{" "}
-          {t("results")}
-        </p>
-      </div>
-
-      {/* Listings Grid */}
-      {loading ? (
-        <div className={`grid gap-6 ${
-          viewMode === "grid" 
-            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" 
-            : "grid-cols-1"
-        }`}>
-          {Array.from({ length: 12 }).map((_, i) => (
-            <Card key={i} className="animate-pulse">
-              <div className="aspect-square bg-muted rounded-t-lg" />
-              <CardContent className="p-4 space-y-3">
-                <div className="h-3 bg-muted rounded w-1/2" />
-                <div className="h-5 bg-muted rounded w-3/4" />
-                <div className="h-3 bg-muted rounded w-1/3" />
-                <div className="flex justify-between items-center">
-                  <div className="space-y-2">
-                    <div className="h-3 bg-muted rounded w-16" />
-                    <div className="h-6 bg-muted rounded w-20" />
+              {/* Price section */}
+              <div className="pt-3 border-t border-border">
+                <div className="flex items-end justify-between">
+                  <div>
+                    <p className="text-[10px] text-muted-foreground mb-1 uppercase font-semibold tracking-wide">
+                      {isAuction ? (hasEnded ? t("final_bid") : t("current_bid")) : t("Price")}
+                    </p>
+                    <div className="flex items-baseline gap-1.5">
+                      <p className="font-bold text-xl text-foreground">
+                        {isAuction ? (listing.currentBid || listing.price) : listing.price}
+                      </p>
+                      <span className="text-sm text-muted-foreground font-medium">{listing.currency}</span>
+                    </div>
                   </div>
-                  <div className="h-8 w-20 bg-muted rounded" />
-                </div>
-                <div className="flex justify-between pt-2 border-t">
-                  <div className="flex gap-2">
-                    <div className="h-3 w-8 bg-muted rounded" />
-                    <div className="h-3 w-8 bg-muted rounded" />
-                  </div>
-                  <div className="h-4 w-12 bg-muted rounded" />
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      ) : Array.isArray(listings) && listings.length > 0 ? (
-        <div className={`grid gap-6 ${
-          viewMode === "grid" 
-            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" 
-            : "grid-cols-1"
-        }`}>
-          {listings.map((listing) => (
-            <ListingCard key={listing.id} listing={listing} />
-          ))}
-        </div>
-      ) : (
-        <Card className="text-center py-16">
-          <CardContent>
-            <div className="max-w-md mx-auto">
-              <div className="w-24 h-24 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
-                <Gavel className="h-12 w-12 text-muted-foreground" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{t("no_listings_found")}</h3>
-              <p className="text-muted-foreground mb-8">
-                {t("no_nfts_match_your")}
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setSearchQuery("");
-                    setSelectedCategory("all");
-                    setSelectedCollection("all");
-                    setPriceRange({ min: "", max: "" });
-                    setEndingSoon(false);
-                    setHasOffers(false);
-                    setListingType("all");
-                    setSortBy("recently_listed");
-                  }}
-                  className="flex items-center gap-2"
-                >
-                  <X className="h-4 w-4" />
-                  {t("clear_all_filters")}
-                </Button>
-                <Link href="/nft">
-                  <Button className="flex items-center gap-2">
-                    <Eye className="h-4 w-4" />
-                    {t("browse_all_nfts")}
-                  </Button>
-                </Link>
-              </div>
-              
-              {/* Suggestions */}
-              <div className="mt-8 pt-6 border-t">
-                <p className="text-sm text-muted-foreground mb-4">{t("popular_searches")}:</p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {["Art", "Gaming", "Music", "Photography"].map((tag) => (
-                    <Button
-                      key={tag}
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setSearchQuery(tag)}
-                      className="h-8 text-xs"
-                    >
-                      {tag}
+
+                  {!hasEnded && (
+                    <Button size="sm" className="h-9 px-4 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 shadow-lg">
+                      {isAuction ? (
+                        <>
+                          <Gavel className="h-4 w-4 mr-1.5" />
+                          {t("place_bid")}
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingCart className="h-4 w-4 mr-1.5" />
+                          {t("buy_now")}
+                        </>
+                      )}
                     </Button>
-                  ))}
+                  )}
                 </div>
+              </div>
+
+              {/* Stats */}
+              <div className="flex items-center justify-between text-xs text-muted-foreground pt-2">
+                <div className="flex items-center gap-4">
+                  <span className="flex items-center gap-1.5 hover:text-foreground transition-colors cursor-pointer">
+                    <Eye className="h-3.5 w-3.5" />
+                    <span className="font-medium">{listing.token.viewCount || 0}</span>
+                  </span>
+                  <span className="flex items-center gap-1.5 hover:text-red-500 transition-colors cursor-pointer">
+                    <Heart className="h-3.5 w-3.5" />
+                    <span className="font-medium">{listing.token.likeCount || 0}</span>
+                  </span>
+                  {isAuction && (
+                    <span className="flex items-center gap-1.5 hover:text-orange-500 transition-colors">
+                      <Gavel className="h-3.5 w-3.5" />
+                      <span className="font-medium">{listing.bidCount || 0}</span>
+                    </span>
+                  )}
+                </div>
+                {listing.token.rarity && (
+                  <Badge variant="outline" className="text-[10px] px-2 py-0.5 font-semibold">
+                    {listing.token.rarity}
+                  </Badge>
+                )}
               </div>
             </div>
           </CardContent>
         </Card>
-      )}
+      </motion.div>
+    );
+  }, [t, getTimeLeft]);
 
-      {/* Load More */}
-      {Array.isArray(listings) && listings.length > 0 && (
-        <div className="text-center mt-12">
-          <Button variant="outline" disabled={loading}>
-            {loading ? (
-              <>
-                <LoadingSpinner />
-                {t("loading")}
-              </>
-            ) : (
-              t("load_more")
-            )}
-          </Button>
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section ref={heroRef} className="relative pt-32 py-20 overflow-hidden bg-gradient-to-b from-primary/5 via-purple-600/5 to-background">
+        {/* Animated background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-purple-600/10 to-transparent rounded-full blur-3xl animate-pulse delay-1000" />
         </div>
-      )}
-      
-      {/* Wallet Onboarding Modal */}
-      {showOnboarding && (
-        <WalletOnboarding 
-          onComplete={completeOnboarding}
-          onSkip={skipOnboarding}
-        />
-      )}
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-semibold text-primary">Explore the Marketplace</span>
+            </motion.div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-purple-600 bg-clip-text text-transparent">
+              Discover, Collect & Sell
+              <br />
+              <span className="text-primary">Extraordinary NFTs</span>
+            </h1>
+
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              The world's largest digital marketplace for crypto collectibles and non-fungible tokens.
+              Buy, sell, and discover exclusive digital assets.
+            </p>
+
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                onClick={() => {
+                  const filtersSection = document.querySelector('#marketplace-filters');
+                  filtersSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="gap-2 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 shadow-xl h-12 px-8"
+              >
+                <Zap className="w-5 h-5" />
+                Explore NFTs
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        {/* Enhanced Filters */}
+        <div id="marketplace-filters" className="mb-10">
+          {/* Main Filter Bar */}
+          <div className="flex flex-col lg:flex-row gap-4 mb-6">
+            {/* Search */}
+            <div className="relative flex-1">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Input
+                placeholder={t("search_nfts_collections_or_creators")}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-12 h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary/50"
+              />
+            </div>
+
+            {/* Quick Filters */}
+            <div className="flex gap-2 flex-wrap">
+              <Button
+                variant={endingSoon ? "default" : "outline"}
+                size="default"
+                onClick={() => setEndingSoon(!endingSoon)}
+                className="flex items-center gap-2 h-12 border-2"
+              >
+                <Clock className="h-4 w-4" />
+                {t("ending_soon")}
+              </Button>
+              <Button
+                variant={hasOffers ? "default" : "outline"}
+                size="default"
+                onClick={() => setHasOffers(!hasOffers)}
+                className="flex items-center gap-2 h-12 border-2"
+              >
+                <TrendingUp className="h-4 w-4" />
+                {t("has_offers")}
+              </Button>
+            </div>
+
+            {/* Advanced Filters Toggle */}
+            <Button
+              variant="outline"
+              onClick={() => setShowFilters(!showFilters)}
+              className="flex items-center gap-2 h-12 border-2"
+            >
+              <SlidersHorizontal className="h-4 w-4" />
+              {t("Filters")}
+              {showFilters && <X className="h-4 w-4 ml-1" />}
+            </Button>
+
+            {/* View Mode */}
+            <div className="flex border-2 rounded-lg overflow-hidden">
+              <Button
+                variant={viewMode === "grid" ? "default" : "ghost"}
+                size="default"
+                onClick={() => setViewMode("grid")}
+                className="rounded-none h-12 px-4"
+              >
+                <Grid3X3 className="h-5 w-5" />
+              </Button>
+              <Button
+                variant={viewMode === "masonry" ? "default" : "ghost"}
+                size="default"
+                onClick={() => setViewMode("masonry")}
+                className="rounded-none h-12 px-4 border-l-2"
+              >
+                <List className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Advanced Filters Panel */}
+          <AnimatePresence>
+            {showFilters && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="p-8 mb-6 border-2">
+                  <div className="space-y-6">
+                    {/* First Row - Category and Collection */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* Category Filter */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold">{t("Category")}</label>
+                        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                          <SelectTrigger className="h-12 border-2">
+                            <SelectValue placeholder={t("all_categories")} />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">{t("all_categories")}</SelectItem>
+                            {Array.isArray(categories) && categories.map((category) => (
+                              <SelectItem key={category.id} value={category.id}>
+                                {category.name}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      {/* Collection Filter */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold">{t("Collection")}</label>
+                        <Select value={selectedCollection} onValueChange={setSelectedCollection}>
+                          <SelectTrigger className="h-12 border-2">
+                            <SelectValue placeholder={t("all_collections")} />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="all">{t("all_collections")}</SelectItem>
+                            {Array.isArray(collections) && collections.map((collection) => (
+                              <SelectItem key={collection.id} value={collection.id}>
+                                {collection.name}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    {/* Second Row - Price Range and Sort */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* Price Range */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold">{t("price_range")} (ETH)</label>
+                        <div className="grid grid-cols-2 gap-3">
+                          <Input
+                            type="number"
+                            placeholder="Min"
+                            value={priceRange.min}
+                            onChange={(e) => setPriceRange(prev => ({ ...prev, min: e.target.value }))}
+                            className="h-12 border-2"
+                          />
+                          <Input
+                            type="number"
+                            placeholder="Max"
+                            value={priceRange.max}
+                            onChange={(e) => setPriceRange(prev => ({ ...prev, max: e.target.value }))}
+                            className="h-12 border-2"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Sort */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold">{t("sort_by")}</label>
+                        <Select value={sortBy} onValueChange={setSortBy}>
+                          <SelectTrigger className="h-12 border-2">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {Array.isArray(sortOptions) && sortOptions.map((option) => (
+                              <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    {/* Clear Filters and Results */}
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-6 border-t-2">
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          setSelectedCategory("all");
+                          setSelectedCollection("all");
+                          setPriceRange({ min: "", max: "" });
+                          setEndingSoon(false);
+                          setHasOffers(false);
+                          setSortBy("recently_listed");
+                        }}
+                        className="flex items-center gap-2 h-11 border-2"
+                      >
+                        <X className="h-4 w-4" />
+                        {t("clear_all_filters")}
+                      </Button>
+                      <div className="text-sm font-medium text-muted-foreground">
+                        <span className="text-primary font-bold text-lg">{Array.isArray(listings) ? listings.length : 0}</span> {t("results_found")}
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Listing Type Tabs */}
+          <Tabs value={listingType} onValueChange={setListingType} className="w-full">
+            <TabsList className="grid w-full grid-cols-4 h-12 p-1 bg-muted/50">
+              <TabsTrigger value="all" className="data-[state=active]:bg-background">
+                {t("all_listings")}
+              </TabsTrigger>
+              <TabsTrigger value="FIXED_PRICE" className="flex items-center gap-2 data-[state=active]:bg-background">
+                <ShoppingCart className="h-4 w-4" />
+                {t("buy_now")}
+              </TabsTrigger>
+              <TabsTrigger value="AUCTION" className="flex items-center gap-2 data-[state=active]:bg-background">
+                <Gavel className="h-4 w-4" />
+                {t("Auctions")}
+              </TabsTrigger>
+              <TabsTrigger value="BUNDLE" className="flex items-center gap-2 data-[state=active]:bg-background">
+                <Zap className="h-4 w-4" />
+                {t("Bundles")}
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        {/* Results */}
+        <div className="mb-6 flex items-center justify-between">
+          <p className="text-sm font-medium text-muted-foreground">
+            {t("Showing")}{" "}
+            <span className="text-foreground font-bold">{Array.isArray(listings) ? listings.length : 0}</span>{" "}
+            {t("results")}
+          </p>
+        </div>
+
+        {/* Listings Grid */}
+        {loading ? (
+          <div className={`grid gap-6 ${
+            viewMode === "grid"
+              ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+              : "masonry-sm:columns-2 masonry-md:columns-3 masonry-lg:columns-4 gap-6"
+          }`}>
+            {Array.from({ length: 12 }).map((_, i) => (
+              <Card key={i} className="animate-pulse overflow-hidden">
+                <div className="aspect-square bg-muted" />
+                <CardContent className="p-5 space-y-3">
+                  <div className="h-3 bg-muted rounded w-1/2" />
+                  <div className="h-6 bg-muted rounded w-3/4" />
+                  <div className="h-3 bg-muted rounded w-1/3" />
+                  <div className="flex justify-between items-center pt-3">
+                    <div className="space-y-2">
+                      <div className="h-3 bg-muted rounded w-16" />
+                      <div className="h-7 bg-muted rounded w-24" />
+                    </div>
+                    <div className="h-9 w-24 bg-muted rounded" />
+                  </div>
+                  <div className="flex justify-between pt-2 border-t">
+                    <div className="flex gap-3">
+                      <div className="h-3 w-10 bg-muted rounded" />
+                      <div className="h-3 w-10 bg-muted rounded" />
+                    </div>
+                    <div className="h-5 w-16 bg-muted rounded" />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : Array.isArray(listings) && listings.length > 0 ? (
+          <div className={cn(
+            "grid gap-6",
+            viewMode === "grid"
+              ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+              : "columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-6"
+          )}>
+            {listings.map((listing, index) => (
+              <div key={listing.id} className={viewMode === "masonry" ? "break-inside-avoid" : ""}>
+                <ListingCard listing={listing} index={index} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card className="text-center py-20 border-2">
+              <CardContent>
+                <div className="max-w-lg mx-auto">
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Gavel className="h-12 w-12 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">{t("no_listings_found")}</h3>
+                  <p className="text-muted-foreground mb-10 text-lg">
+                    {t("no_nfts_match_your")}
+                  </p>
+
+                  {/* Suggestions */}
+                  <div>
+                    <p className="text-sm font-semibold text-muted-foreground mb-4">{t("popular_searches")}:</p>
+                    <div className="flex flex-wrap gap-3 justify-center">
+                      {["Art", "Gaming", "Music", "Photography"].map((tag) => (
+                        <Button
+                          key={tag}
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setSearchQuery(tag)}
+                          className="h-9 text-sm border-2"
+                        >
+                          {tag}
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
+
+        {/* Load More */}
+        {Array.isArray(listings) && listings.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center mt-16"
+          >
+            <Button
+              variant="outline"
+              size="lg"
+              disabled={loading}
+              className="h-12 px-10 border-2 hover:border-primary/50"
+            >
+              {loading ? (
+                <>
+                  <LoadingSpinner />
+                  {t("loading")}
+                </>
+              ) : (
+                <>
+                  <TrendingUp className="h-5 w-5 mr-2" />
+                  {t("load_more")}
+                </>
+              )}
+            </Button>
+          </motion.div>
+        )}
+      </div>
     </div>
   );
-} 
+}

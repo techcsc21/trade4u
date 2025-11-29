@@ -6,16 +6,15 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useTranslations } from "next-intl";
-import { Shield, UserCheck, Star, AlertTriangle } from "lucide-react";
+import { Shield, UserCheck, AlertTriangle, Info } from "lucide-react";
+import { useConfigStore } from "@/store/config";
+import { isKycEnabled } from "@/utils/kyc";
 
 interface NFTVerificationSettingsSectionProps {
   settings?: {
-    AutoVerifyCreators?: boolean;
     RequireKycForCreators?: boolean;
     RequireKycForHighValue?: boolean;
     HighValueThreshold?: number;
-    VerificationBadgeEnabled?: boolean;
-    ManualReviewRequired?: boolean;
   };
   onUpdate: (key: string, value: any) => void;
   validationErrors?: Record<string, string>;
@@ -29,13 +28,13 @@ export default function NFTVerificationSettingsSection({
   hasSubmitted = false,
 }: NFTVerificationSettingsSectionProps) {
   const t = useTranslations("ext");
+  const { settings: platformSettings } = useConfigStore();
+  const kycEnabled = isKycEnabled(platformSettings);
+
   const safeSettings = {
-    AutoVerifyCreators: settings.AutoVerifyCreators ?? false,
     RequireKycForCreators: settings.RequireKycForCreators ?? false,
     RequireKycForHighValue: settings.RequireKycForHighValue ?? true,
     HighValueThreshold: settings.HighValueThreshold ?? 1000,
-    VerificationBadgeEnabled: settings.VerificationBadgeEnabled ?? true,
-    ManualReviewRequired: settings.ManualReviewRequired ?? true,
   };
 
   // Get the effective error message (server validation takes priority)
@@ -71,54 +70,34 @@ export default function NFTVerificationSettingsSection({
             </AlertDescription>
           </Alert>
 
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="space-y-1">
-                <Label htmlFor="autoVerify">{t("auto-verify_new_creators")}</Label>
-                <p className="text-sm text-muted-foreground">
-                  {t("automatically_grant_verification_status")}
-                </p>
-              </div>
-              <Switch
-                id="autoVerify"
-                checked={safeSettings.AutoVerifyCreators}
-                onCheckedChange={(checked) => onUpdate("AutoVerifyCreators", checked)}
-              />
-            </div>
+          {!kycEnabled && (
+            <Alert>
+              <Info className="h-4 w-4" />
+              <AlertDescription>
+                KYC is currently disabled in platform settings. Enable KYC in the platform settings to use KYC-related verification features.
+              </AlertDescription>
+            </Alert>
+          )}
 
-            <div className="flex items-center justify-between">
-              <div className="space-y-1">
-                <Label htmlFor="requireKycCreators">{t("require_kyc_for_all_creators")}</Label>
-                <p className="text-sm text-muted-foreground">
-                  {t("mandate_identity_verification_for")}
-                </p>
-              </div>
-              <Switch
-                id="requireKycCreators"
-                checked={safeSettings.RequireKycForCreators}
-                onCheckedChange={(checked) => onUpdate("RequireKycForCreators", checked)}
-              />
+          <div className={`flex items-center justify-between ${!kycEnabled ? 'opacity-50' : ''}`}>
+            <div className="space-y-1">
+              <Label htmlFor="requireKycCreators">{t("require_kyc_for_all_creators")}</Label>
+              <p className="text-sm text-muted-foreground">
+                {t("mandate_identity_verification_for")}
+              </p>
             </div>
-
-            <div className="flex items-center justify-between">
-              <div className="space-y-1">
-                <Label htmlFor="manualReview">{t("manual_review_required")}</Label>
-                <p className="text-sm text-muted-foreground">
-                  {t("all_verification_requests_require_admin_approval")}
-                </p>
-              </div>
-              <Switch
-                id="manualReview"
-                checked={safeSettings.ManualReviewRequired}
-                onCheckedChange={(checked) => onUpdate("ManualReviewRequired", checked)}
-              />
-            </div>
+            <Switch
+              id="requireKycCreators"
+              checked={safeSettings.RequireKycForCreators}
+              onCheckedChange={(checked) => onUpdate("RequireKycForCreators", checked)}
+              disabled={!kycEnabled}
+            />
           </div>
         </CardContent>
       </Card>
 
       {/* High-Value Transactions */}
-      <Card>
+      <Card className={!kycEnabled ? 'opacity-50' : ''}>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Shield className="h-5 w-5" />
@@ -129,6 +108,15 @@ export default function NFTVerificationSettingsSection({
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          {!kycEnabled && (
+            <Alert>
+              <Info className="h-4 w-4" />
+              <AlertDescription>
+                This feature requires KYC to be enabled in platform settings.
+              </AlertDescription>
+            </Alert>
+          )}
+
           <div className="flex items-center justify-between">
             <div className="space-y-1">
               <Label htmlFor="requireKycHighValue">{t("require_kyc_for_high-value_sales")}</Label>
@@ -140,12 +128,20 @@ export default function NFTVerificationSettingsSection({
               id="requireKycHighValue"
               checked={safeSettings.RequireKycForHighValue}
               onCheckedChange={(checked) => onUpdate("RequireKycForHighValue", checked)}
+              disabled={!kycEnabled}
             />
           </div>
 
           {safeSettings.RequireKycForHighValue && (
             <div className="space-y-2">
-              <Label htmlFor="highValueThreshold">{t("high-value_threshold_(usd)")} *</Label>
+              <Alert>
+                <Info className="h-4 w-4" />
+                <AlertDescription>
+                  This feature uses real-time cryptocurrency prices from the currency table to convert transaction values to USD for comparison against the threshold.
+                </AlertDescription>
+              </Alert>
+
+              <Label htmlFor="highValueThreshold">{t("High-Value Threshold (USD)")} *</Label>
               <Input
                 id="highValueThreshold"
                 type="number"
@@ -154,9 +150,10 @@ export default function NFTVerificationSettingsSection({
                 value={safeSettings.HighValueThreshold}
                 onChange={(e) => onUpdate("HighValueThreshold", parseInt(e.target.value) || 1000)}
                 className={hasError("HighValueThreshold") ? "border-red-500" : ""}
+                disabled={!kycEnabled}
               />
               <p className="text-xs text-muted-foreground">
-                {t("transactions_above_this_usd")}
+                Transactions above this USD value will require KYC verification. Crypto prices are automatically converted to USD using the currency table.
               </p>
               {getErrorMessage("HighValueThreshold") && (
                 <p className="text-sm text-red-500">{getErrorMessage("HighValueThreshold")}</p>
@@ -166,42 +163,6 @@ export default function NFTVerificationSettingsSection({
         </CardContent>
       </Card>
 
-      {/* Verification Badges */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Star className="h-5 w-5" />
-            {t("verification_badges")}
-          </CardTitle>
-          <CardDescription>
-            {t("configure_visual_verification_indicators")}
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="space-y-1">
-              <Label htmlFor="verificationBadge">{t("enable_verification_badges")}</Label>
-              <p className="text-sm text-muted-foreground">
-                {t("display_verification_checkmarks_on")}
-              </p>
-            </div>
-            <Switch
-              id="verificationBadge"
-              checked={safeSettings.VerificationBadgeEnabled}
-              onCheckedChange={(checked) => onUpdate("VerificationBadgeEnabled", checked)}
-            />
-          </div>
-
-          {safeSettings.VerificationBadgeEnabled && (
-            <Alert>
-              <Star className="h-4 w-4" />
-              <AlertDescription>
-                {t("verification_badges_help_users")}
-              </AlertDescription>
-            </Alert>
-          )}
-        </CardContent>
-      </Card>
     </div>
   );
 }

@@ -73,7 +73,7 @@ export function OfferDetailsTabs({ offer, timeLimit }: OfferDetailsTabsProps) {
                         Price per {offer.currency}
                       </span>
                       <span className="font-medium">
-                        {priceConfig.finalPrice.toLocaleString()} USD
+                        {priceConfig.finalPrice.toLocaleString()} {offer.priceCurrency || priceConfig.currency || "USD"}
                       </span>
                     </div>
                     <div className="flex justify-between mb-2">

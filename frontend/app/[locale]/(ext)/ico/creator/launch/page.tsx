@@ -72,7 +72,7 @@ export default function LaunchPage() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="h-6 w-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium">
-                    1:
+                    1
                   </div>
                   <h3 className="font-medium">{t("submit_application")}</h3>
                 </div>
@@ -122,7 +122,7 @@ export default function LaunchPage() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="h-6 w-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium">
-                    / 5
+                    5
                   </div>
                   <h3 className="font-medium">{t("Launch")}</h3>
                 </div>
@@ -135,7 +135,7 @@ export default function LaunchPage() {
               <p className="text-sm text-muted-foreground">
                 {t("need_help_with_the_way")}.
               </p>
-              <Link href="/ico/contact" className="w-full">
+              <Link href="/support" className="w-full">
                 <button className="w-full bg-primary/10 text-primary hover:bg-primary/20 py-2 rounded-md text-sm font-medium transition-colors">
                   {t("contact_support")}
                 </button>

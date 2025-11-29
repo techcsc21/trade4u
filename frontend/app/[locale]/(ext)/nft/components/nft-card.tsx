@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { NFTCardImage } from "@/components/nft/optimized-image";
+import { NFTCardImage } from "@/components/nft/shared/optimized-image";
 import { useTranslations } from "next-intl";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

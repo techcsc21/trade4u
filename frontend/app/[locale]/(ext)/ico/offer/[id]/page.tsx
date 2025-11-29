@@ -102,6 +102,9 @@ export default function OfferingPage() {
         (1000 * 60 * 60 * 24)
     );
 
+  // Get the purchase currency for this offering
+  const purchaseCurrency = offering?.purchaseWalletCurrency || "USD";
+
   // Check offering timing and phase status
   const now = new Date();
   const startDate = new Date(offering?.startDate ?? new Date());
@@ -252,11 +255,11 @@ export default function OfferingPage() {
                       <div className="flex justify-between mt-2">
                         <span className="text-sm text-muted-foreground">
                           {t("raised")}{" "}
-                          {formatCurrency(offering?.currentRaised ?? 0)}
+                          {formatCurrency(offering?.currentRaised ?? 0, purchaseCurrency)}
                         </span>
                         <span className="text-sm text-muted-foreground">
                           {t("goal")}{" "}
-                          {formatCurrency(offering?.targetAmount ?? 0)}
+                          {formatCurrency(offering?.targetAmount ?? 0, purchaseCurrency)}
                         </span>
                       </div>
                     </div>
@@ -277,7 +280,7 @@ export default function OfferingPage() {
                           {t("token_price")}
                         </p>
                         <p className="font-medium">
-                          {formatCurrency(offering?.tokenPrice ?? 0)}
+                          {formatCurrency(offering?.tokenPrice ?? 0, purchaseCurrency)}
                         </p>
                       </div>
                     </div>
@@ -370,7 +373,7 @@ export default function OfferingPage() {
                     {t("Min")}. {t("Investment")}
                   </p>
                   <p className="font-semibold">
-                    {formatCurrency(settings["icoMinInvestmentAmount"])}
+                    {formatCurrency(settings["icoMinInvestmentAmount"], purchaseCurrency)}
                   </p>
                 </CardContent>
               </Card>
@@ -404,7 +407,7 @@ export default function OfferingPage() {
                   <Target className="h-5 w-5 text-primary mb-2" />
                   <p className="text-xs text-muted-foreground">{t("Target")}</p>
                   <p className="font-semibold">
-                    {formatCurrency(offering?.targetAmount ?? 0)}
+                    {formatCurrency(offering?.targetAmount ?? 0, purchaseCurrency)}
                   </p>
                 </CardContent>
               </Card>
@@ -444,8 +447,7 @@ export default function OfferingPage() {
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <h3 className="font-medium">
-                    {t("what_is")}
-                    {offering?.name}?
+                    {t("what_is")} {offering?.name}?
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {offering?.tokenDetail?.description}
@@ -457,7 +459,7 @@ export default function OfferingPage() {
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {t("you_can_participate_by_investing_a_minimum_of")}{" "}
-                    {formatCurrency(settings["icoMinInvestmentAmount"])}
+                    {formatCurrency(settings["icoMinInvestmentAmount"], purchaseCurrency)}
                     {t("using_the_investment_form_on_this_page")}.{" "}
                     {t("the_offering_is_open_until")}{" "}
                     {formatDate(offering?.endDate ?? new Date())}
@@ -520,58 +522,23 @@ export default function OfferingPage() {
                 </CardContent>
               </Card>
 
-              {/* Activity Feed */}
-              <Card className="mt-6 border-0 shadow-sm">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base">
-                    {t("recent_activity")}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-4">
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Users className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium">
-                          {t("new_investor_joined")}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {t("3_minutes_ago")}
-                        </p>
+              {/* Activity Feed - Only show when offering has started and has participants */}
+              {hasStarted && (offering?.participants ?? 0) > 0 && (
+                <Card className="mt-6 border-0 shadow-sm">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base">
+                      {t("recent_activity")}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-4">
+                    <div className="space-y-3">
+                      <div className="text-sm text-muted-foreground text-center py-4">
+                        {t("no_recent_activity")}
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="h-8 w-8 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                        <DollarSign className="h-4 w-4 text-green-500" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium">
-                          {formatCurrency(1250)}
-                          {t("invested")}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {t("15_minutes_ago")}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="h-8 w-8 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0">
-                        <Zap className="h-4 w-4 text-amber-500" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium">
-                          {t("milestone_reached_75%")}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {t("2_hours_ago")}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         </div>

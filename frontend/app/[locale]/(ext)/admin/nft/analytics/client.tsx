@@ -52,6 +52,7 @@ interface AnalyticsData {
   topCollections: Array<{
     id: string;
     name: string;
+    currency: string;
     volume: number;
     sales: number;
     floorPrice: number;
@@ -79,7 +80,6 @@ interface AnalyticsData {
     volumeChart: Array<{ date: string; volume: number; sales: number }>;
     categoryChart: Array<{ name: string; value: number; percentage: number }>;
     chainChart: Array<{ name: string; volume: number; collections: number }>;
-    priceRanges: Array<{ range: string; count: number; percentage: number }>;
     trends?: {
       collections: Array<{ date: string; value: number }>;
       tokens: Array<{ date: string; value: number }>;
@@ -135,7 +135,16 @@ export default function NFTAnalyticsDashboard() {
     fetchAnalyticsData(newTimeframe);
   }, [fetchAnalyticsData]);
 
-  const formatCurrency = useCallback((amount: number) => {
+  const formatCurrency = useCallback((amount: number, currency: string = 'USD') => {
+    // For crypto currencies, use proper decimal formatting
+    if (currency !== 'USD') {
+      if (amount < 0.01) {
+        return `${amount.toFixed(8).replace(/\.?0+$/, '')} ${currency}`;
+      } else {
+        return `${amount.toFixed(4).replace(/\.?0+$/, '')} ${currency}`;
+      }
+    }
+    // For USD, use currency formatting
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -237,9 +246,6 @@ export default function NFTAnalyticsDashboard() {
     },
     chainDistribution: {
       title: "Blockchain Distribution"
-    },
-    priceRanges: {
-      title: "Price Range Distribution"
     }
   }), [timeframe]);
 
@@ -392,18 +398,6 @@ export default function NFTAnalyticsDashboard() {
           loading={loading}
         />
 
-        {/* Price Range Distribution */}
-        <StatusDistribution
-          data={data.chartData.priceRanges.map(item => ({
-            id: item.range,
-            name: item.range,
-            value: item.count,
-            color: `hsl(${Math.random() * 360}, 70%, 50%)`
-          }))}
-          config={chartConfigs.priceRanges}
-          loading={loading}
-        />
-
         {/* Top Collections */}
         <Card className="bg-transparent">
           <CardHeader>
@@ -428,9 +422,9 @@ export default function NFTAnalyticsDashboard() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium">{formatCurrency(collection.volume)}</p>
+                    <p className="font-medium">{formatCurrency(collection.volume, collection.currency)}</p>
                     <p className="text-sm text-muted-foreground">
-                      Floor: {formatCurrency(collection.floorPrice)}
+                      Floor: {formatCurrency(collection.floorPrice, collection.currency)}
                     </p>
                   </div>
                 </div>
@@ -472,9 +466,9 @@ export default function NFTAnalyticsDashboard() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-medium">{formatCurrency(collection.volume)}</p>
+                      <p className="font-medium">{formatCurrency(collection.volume, collection.currency)}</p>
                       <p className="text-sm text-muted-foreground">
-                        Floor: {formatCurrency(collection.floorPrice)}
+                        Floor: {formatCurrency(collection.floorPrice, collection.currency)}
                       </p>
                     </div>
                   </div>
@@ -537,8 +531,7 @@ export default function NFTAnalyticsDashboard() {
                       <p className="text-sm text-muted-foreground">{sale.collectionName}</p>
                     </div>
                     <div className="text-center">
-                      <p className="font-medium">{formatCurrency(sale.price)}</p>
-                      <Badge variant="outline">{sale.currency}</Badge>
+                      <p className="font-medium">{formatCurrency(sale.price, sale.currency)}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm">

@@ -1,6 +1,7 @@
 import { models } from "@b/db";
 import { Op } from "sequelize";
 import { createError } from "@b/utils/error";
+import { parseAmountConfig } from "@b/api/(ext)/p2p/utils/json-parser";
 
 export const metadata = {
   summary: "Cancel Trade",
@@ -107,6 +108,7 @@ export default async (data: { params?: any; body: any; user?: any }) => {
     }
 
     // If funds were locked (PENDING or PAYMENT_SENT status), unlock them
+    // This applies to ALL wallet types including FIAT
     if (["PENDING", "PAYMENT_SENT"].includes(trade.status)) {
       const sellerWallet = await getWalletSafe(
         trade.sellerId,
@@ -115,13 +117,31 @@ export default async (data: { params?: any; body: any; user?: any }) => {
       );
 
       if (sellerWallet && sellerWallet.inOrder >= trade.amount) {
+        // Store old value before update for logging
+        const previousInOrder = sellerWallet.inOrder;
+
         // Unlock seller's funds
-        await sellerWallet.update({
+        await models.wallet.update({
           inOrder: sellerWallet.inOrder - trade.amount,
-        }, { transaction });
+        }, {
+          where: { id: sellerWallet.id },
+          transaction
+        });
+
+        console.log('[P2P Trade Cancel] Unlocked funds:', {
+          sellerId: trade.sellerId,
+          walletType: trade.offer.walletType,
+          currency: trade.offer.currency,
+          amount: trade.amount,
+          previousInOrder: previousInOrder,
+          newInOrder: previousInOrder - trade.amount,
+          note: trade.offer.walletType === "FIAT"
+            ? "FIAT balance unlocked on platform"
+            : "Crypto balance unlocked from escrow"
+        });
       }
 
-      // Restore offer amount if applicable
+      // Restore offer amount if applicable (for both FIAT and crypto)
       if (trade.offerId) {
         const offer = await models.p2pOffer.findByPk(trade.offerId, {
           lock: true,
@@ -129,10 +149,13 @@ export default async (data: { params?: any; body: any; user?: any }) => {
         });
 
         if (offer && ["ACTIVE", "PAUSED"].includes(offer.status)) {
+          // Parse amountConfig with robust parser
+          const amountConfig = parseAmountConfig(offer.amountConfig);
+
           await offer.update({
             amountConfig: {
-              ...offer.amountConfig,
-              total: (offer.amountConfig.total || 0) + trade.amount,
+              ...amountConfig,
+              total: amountConfig.total + trade.amount,
             },
           }, { transaction });
         }

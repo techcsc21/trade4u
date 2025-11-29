@@ -615,7 +615,7 @@ export class MarketDataWebSocketService {
 
           // Handle data structure - check if data is wrapped in a data property
           let actualData = data;
-          let dataSymbol = data.symbol; // Keep track of symbol from wrapper
+          const dataSymbol = data.symbol; // Keep track of symbol from wrapper
           if (data.data && typeof data.data === 'object') {
             actualData = data.data;
           }

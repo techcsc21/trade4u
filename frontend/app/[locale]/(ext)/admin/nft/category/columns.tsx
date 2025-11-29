@@ -39,12 +39,6 @@ export const columns = [
     usedInCreate: true,
     description: "URL-friendly category identifier",
     priority: 2,
-    render: {
-      type: "badge",
-      config: {
-        variant: "outline"
-      }
-    }
   },
   {
     key: "description",
@@ -80,22 +74,25 @@ export const columns = [
   {
     key: "status",
     title: "Status",
-    type: "select",
+    type: "boolean",
     sortable: true,
     filterable: true,
     editable: true,
     usedInCreate: true,
     icon: Settings,
-    options: [
-      { value: true, label: "Active", color: "success" },
-      { value: false, label: "Inactive", color: "secondary" }
-    ],
     render: {
-      type: "badge",
-      config: {
-        variant: (value) => {
-          return value ? "success" : "secondary";
-        }
+      type: "custom",
+      render: (value) => {
+        const isActive = value === true || value === 1 || value === "true" || value === "1";
+        return (
+          <span className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${
+            isActive
+              ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
+              : "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300"
+          }`}>
+            {isActive ? "Active" : "Inactive"}
+          </span>
+        );
       }
     },
     priority: 1,

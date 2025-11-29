@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -48,6 +47,8 @@ interface MarketplaceContract {
   currency?: string;
   feePercentage?: number;
   feeRecipient?: string;
+  listingFee?: number;
+  maxRoyaltyPercentage?: number;
   isPaused?: boolean;
   deployedAt?: string;
 }
@@ -56,6 +57,8 @@ interface DeploymentForm {
   chain: string;
   feeRecipient: string;
   feePercentage: number;
+  listingFee: number;
+  maxRoyaltyPercentage: number;
 }
 
 interface ConfigForm {
@@ -63,6 +66,8 @@ interface ConfigForm {
   contractAddress: string;
   feePercentage?: number;
   feeRecipient?: string;
+  listingFee?: number;
+  maxRoyaltyPercentage?: number;
 }
 
 interface EmergencyForm {
@@ -89,7 +94,9 @@ export default function MarketplaceManagementClient() {
   const [deployForm, setDeployForm] = useState<DeploymentForm>({
     chain: "ETH",
     feeRecipient: "",
-    feePercentage: 2.5
+    feePercentage: 2.5,
+    listingFee: 0,
+    maxRoyaltyPercentage: 10
   });
 
   const [configForm, setConfigForm] = useState<ConfigForm>({
@@ -170,6 +177,8 @@ export default function MarketplaceManagementClient() {
               ...baseContract,
               feePercentage: infoResponse.data?.feePercentage,
               feeRecipient: infoResponse.data?.feeRecipient,
+              listingFee: infoResponse.data?.listingFee,
+              maxRoyaltyPercentage: infoResponse.data?.maxRoyaltyPercentage,
               deployedAt: infoResponse.data?.deployedAt,
               balance: balanceResponse.data?.balance,
               balanceUSD: balanceResponse.data?.balanceUSD,
@@ -211,7 +220,7 @@ export default function MarketplaceManagementClient() {
       }
 
       toast.success(`Marketplace deployed successfully on ${deployForm.chain}`);
-      setDeployForm({ chain: "ETH", feeRecipient: "", feePercentage: 2.5 });
+      setDeployForm({ chain: "ETH", feeRecipient: "", feePercentage: 2.5, listingFee: 0, maxRoyaltyPercentage: 10 });
       await fetchMarketplaceData();
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Failed to deploy marketplace");
@@ -368,7 +377,7 @@ export default function MarketplaceManagementClient() {
           const isDeployed = contract?.contractAddress && contract.isActive;
           
           return (
-            <Card key={chain} className={`${isDeployed ? "border-green-200 bg-green-50/50 dark:border-green-800 dark:bg-green-950/20" : "border-orange-200 bg-orange-50/50 dark:border-orange-800 dark:bg-orange-950/20"}`}>
+            <Card key={chain} className={`${isDeployed ? "border-green-200 bg-green-50/50 dark:border-green-800 dark:bg-green-950/20" : "border-gray-200 bg-gray-50/50 dark:border-gray-800 dark:bg-gray-950/20"}`}>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">{chain}</CardTitle>
                 <div className="flex items-center gap-2">
@@ -378,7 +387,7 @@ export default function MarketplaceManagementClient() {
                       Active
                     </Badge>
                   ) : (
-                    <Badge variant="outline" className="border-orange-300 text-orange-700 dark:border-orange-700 dark:text-orange-300">
+                    <Badge variant="outline" className="border-gray-400 text-gray-700 dark:border-gray-600 dark:text-gray-400">
                       <XCircle className="h-3 w-3 mr-1" />
                       Not Deployed
                     </Badge>
@@ -422,9 +431,21 @@ export default function MarketplaceManagementClient() {
                         )}
                       </div>
                       <div>
-                        <span className="text-muted-foreground">Fee:</span>
+                        <span className="text-muted-foreground">Marketplace Fee:</span>
                         <div className="font-medium">
                           {contract.feePercentage ? `${contract.feePercentage}%` : "Loading..."}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Listing Fee:</span>
+                        <div className="font-medium">
+                          {contract.listingFee !== undefined ? `${contract.listingFee} ${contract.currency}` : "Loading..."}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-muted-foreground">Max Royalty:</span>
+                        <div className="font-medium">
+                          {contract.maxRoyaltyPercentage !== undefined ? `${contract.maxRoyaltyPercentage}%` : "Loading..."}
                         </div>
                       </div>
                     </div>
@@ -459,30 +480,54 @@ export default function MarketplaceManagementClient() {
                           </DialogDescription>
                         </DialogHeader>
                         <div className="space-y-4">
-                          <div>
-                            <Label htmlFor="feeRecipient">Fee Recipient Address</Label>
-                            <Input
-                              id="feeRecipient"
-                              placeholder="0x..."
-                              value={deployForm.feeRecipient}
-                              onChange={(e) => setDeployForm({ ...deployForm, feeRecipient: e.target.value })}
-                            />
-                            <p className="text-xs text-muted-foreground mt-1">
-                              Leave empty to use master wallet
-                            </p>
-                          </div>
-                          <div>
-                            <Label htmlFor="feePercentage">Fee Percentage (%)</Label>
-                            <Input
-                              id="feePercentage"
-                              type="number"
-                              step="0.1"
-                              min="0"
-                              max="10"
-                              value={deployForm.feePercentage}
-                              onChange={(e) => setDeployForm({ ...deployForm, feePercentage: parseFloat(e.target.value) || 0 })}
-                            />
-                          </div>
+                          <Alert>
+                            <AlertTriangle className="h-4 w-4" />
+                            <AlertDescription>
+                              <strong>Blockchain Deployment:</strong> Deploying a marketplace contract is a permanent blockchain operation that requires gas fees.
+                              The deployment cost varies based on network congestion. Make sure you have sufficient funds in your master wallet.
+                            </AlertDescription>
+                          </Alert>
+
+                          <Input
+                            id="feeRecipient"
+                            title="Fee Recipient Address"
+                            placeholder="0x..."
+                            value={deployForm.feeRecipient}
+                            onChange={(e) => setDeployForm({ ...deployForm, feeRecipient: e.target.value })}
+                            description="Leave empty to use master wallet"
+                          />
+                          <Input
+                            id="feePercentage"
+                            title="Marketplace Fee (%)"
+                            type="number"
+                            step="0.1"
+                            min="0"
+                            max="10"
+                            value={deployForm.feePercentage}
+                            onChange={(e) => setDeployForm({ ...deployForm, feePercentage: parseFloat(e.target.value) || 0 })}
+                            description="Percentage charged on each sale (e.g., 2.5 = 2.5%)"
+                          />
+                          <Input
+                            id="listingFee"
+                            title={`Listing Fee (${chain === 'ETH' ? 'ETH' : chain === 'BSC' ? 'BNB' : chain === 'POLYGON' ? 'MATIC' : 'Native Token'})`}
+                            type="number"
+                            step="0.001"
+                            min="0"
+                            value={deployForm.listingFee}
+                            onChange={(e) => setDeployForm({ ...deployForm, listingFee: parseFloat(e.target.value) || 0 })}
+                            description="Fixed fee charged when listing an NFT (0 = free listing)"
+                          />
+                          <Input
+                            id="maxRoyaltyPercentage"
+                            title="Maximum Royalty (%)"
+                            type="number"
+                            step="0.1"
+                            min="0"
+                            max="50"
+                            value={deployForm.maxRoyaltyPercentage}
+                            onChange={(e) => setDeployForm({ ...deployForm, maxRoyaltyPercentage: parseFloat(e.target.value) || 0 })}
+                            description="Maximum royalty percentage creators can set (e.g., 10 = 10%)"
+                          />
                           <Button onClick={handleDeploy} disabled={deploying} className="w-full">
                             {deploying ? "Deploying..." : "Deploy Contract"}
                           </Button>
@@ -535,7 +580,7 @@ export default function MarketplaceManagementClient() {
                         </Link>
                         <Button 
                           size="sm" 
-                          onClick={() => setDeployForm({ chain: "ETH", feeRecipient: "", feePercentage: 2.5 })}
+                          onClick={() => setDeployForm({ chain: "ETH", feeRecipient: "", feePercentage: 2.5, listingFee: 0, maxRoyaltyPercentage: 10 })}
                         >
                           <Zap className="h-4 w-4 mr-2" />
                           Deploy First Contract
@@ -546,67 +591,91 @@ export default function MarketplaceManagementClient() {
                 </Alert>
               ) : (
                 <>
+                  <Alert className="mb-4">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertDescription>
+                      <strong>Blockchain Operation Warning:</strong> This action will create a transaction on the blockchain and will require gas fees.
+                      Make sure you have sufficient funds in your wallet to cover the transaction cost. The fee amount varies based on network congestion.
+                    </AlertDescription>
+                  </Alert>
+
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <Label htmlFor="configChain">Blockchain</Label>
-                      <Select value={configForm.chain} onValueChange={(value) => {
-                        const contract = contracts[value];
-                        setConfigForm({ 
-                          chain: value, 
-                          contractAddress: contract?.contractAddress || "",
-                          feePercentage: undefined,
-                          feeRecipient: ""
-                        });
-                      }}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {supportedChains.filter(chain => contracts[chain]?.contractAddress).map((chain) => (
-                            <SelectItem key={chain} value={chain}>{chain}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="configContract">Contract Address</Label>
-                      <Input
-                        id="configContract"
-                        value={configForm.contractAddress}
-                        onChange={(e) => setConfigForm({ ...configForm, contractAddress: e.target.value })}
-                        readOnly
-                      />
-                    </div>
+                    <Select value={configForm.chain} onValueChange={(value) => {
+                      const contract = contracts[value];
+                      setConfigForm({
+                        chain: value,
+                        contractAddress: contract?.contractAddress || "",
+                        feePercentage: undefined,
+                        feeRecipient: ""
+                      });
+                    }}>
+                      <SelectTrigger title="Blockchain">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {supportedChains.filter(chain => contracts[chain]?.contractAddress).map((chain) => (
+                          <SelectItem key={chain} value={chain}>{chain}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <Input
+                      id="configContract"
+                      title="Contract Address"
+                      value={configForm.contractAddress}
+                      onChange={(e) => setConfigForm({ ...configForm, contractAddress: e.target.value })}
+                      readOnly
+                    />
                   </div>
 
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <Label htmlFor="configFeePercentage">New Fee Percentage (%)</Label>
-                      <Input
-                        id="configFeePercentage"
-                        type="number"
-                        step="0.1"
-                        min="0"
-                        max="10"
-                        placeholder="Leave empty to keep current"
-                        value={configForm.feePercentage || ""}
-                        onChange={(e) => setConfigForm({ ...configForm, feePercentage: parseFloat(e.target.value) || undefined })}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="configFeeRecipient">New Fee Recipient</Label>
-                      <Input
-                        id="configFeeRecipient"
-                        placeholder="0x... (leave empty to keep current)"
-                        value={configForm.feeRecipient}
-                        onChange={(e) => setConfigForm({ ...configForm, feeRecipient: e.target.value })}
-                      />
-                    </div>
+                    <Input
+                      id="configFeePercentage"
+                      title="Marketplace Fee (%)"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      max="10"
+                      placeholder="Leave empty to keep current"
+                      value={configForm.feePercentage || ""}
+                      onChange={(e) => setConfigForm({ ...configForm, feePercentage: parseFloat(e.target.value) || undefined })}
+                      description="Percentage charged on each sale"
+                    />
+                    <Input
+                      id="configFeeRecipient"
+                      title="Fee Recipient Address"
+                      placeholder="0x... (leave empty to keep current)"
+                      value={configForm.feeRecipient}
+                      onChange={(e) => setConfigForm({ ...configForm, feeRecipient: e.target.value })}
+                      description="Address to receive marketplace fees"
+                    />
+                    <Input
+                      id="configListingFee"
+                      title={`Listing Fee (${configForm.chain === 'ETH' ? 'ETH' : configForm.chain === 'BSC' ? 'BNB' : configForm.chain === 'POLYGON' ? 'MATIC' : 'Native Token'})`}
+                      type="number"
+                      step="0.001"
+                      min="0"
+                      placeholder="Leave empty to keep current"
+                      value={configForm.listingFee || ""}
+                      onChange={(e) => setConfigForm({ ...configForm, listingFee: parseFloat(e.target.value) || undefined })}
+                      description="Fixed fee charged when listing an NFT"
+                    />
+                    <Input
+                      id="configMaxRoyalty"
+                      title="Maximum Royalty (%)"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      max="50"
+                      placeholder="Leave empty to keep current"
+                      value={configForm.maxRoyaltyPercentage || ""}
+                      onChange={(e) => setConfigForm({ ...configForm, maxRoyaltyPercentage: parseFloat(e.target.value) || undefined })}
+                      description="Maximum royalty percentage creators can set"
+                    />
                   </div>
 
                   <Button
                     onClick={handleConfigUpdate}
-                    disabled={configuring || !configForm.contractAddress || (!configForm.feePercentage && !configForm.feeRecipient)}
+                    disabled={configuring || !configForm.contractAddress || (!configForm.feePercentage && !configForm.feeRecipient && !configForm.listingFee && !configForm.maxRoyaltyPercentage)}
                   >
                     {configuring ? "Updating..." : "Update Configuration"}
                   </Button>
@@ -645,7 +714,7 @@ export default function MarketplaceManagementClient() {
                         </Link>
                         <Button 
                           size="sm" 
-                          onClick={() => setDeployForm({ chain: "ETH", feeRecipient: "", feePercentage: 2.5 })}
+                          onClick={() => setDeployForm({ chain: "ETH", feeRecipient: "", feePercentage: 2.5, listingFee: 0, maxRoyaltyPercentage: 10 })}
                         >
                           <Zap className="h-4 w-4 mr-2" />
                           Deploy First Contract
@@ -656,46 +725,47 @@ export default function MarketplaceManagementClient() {
                 </Alert>
               ) : (
                 <>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <Label htmlFor="emergencyChain">Blockchain</Label>
-                      <Select value={emergencyForm.chain} onValueChange={(value) => {
-                        const contract = contracts[value];
-                        setEmergencyForm({ 
-                          chain: value, 
-                          contractAddress: contract?.contractAddress || "",
-                          reason: ""
-                        });
-                      }}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {supportedChains.filter(chain => contracts[chain]?.contractAddress).map((chain) => (
-                            <SelectItem key={chain} value={chain}>{chain}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="emergencyContract">Contract Address</Label>
-                      <Input
-                        id="emergencyContract"
-                        value={emergencyForm.contractAddress}
-                        readOnly
-                      />
-                    </div>
-                  </div>
+                  <Alert className="mb-4">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertDescription>
+                      <strong>Blockchain Operation Warning:</strong> Pausing or resuming the marketplace requires a blockchain transaction and will incur gas fees.
+                      This action is immediate and affects all trading activity on the selected chain.
+                    </AlertDescription>
+                  </Alert>
 
-                  <div>
-                    <Label htmlFor="emergencyReason">Reason</Label>
-                    <Textarea
-                      id="emergencyReason"
-                      placeholder="Explain why you are pausing/resuming the marketplace..."
-                      value={emergencyForm.reason}
-                      onChange={(e) => setEmergencyForm({ ...emergencyForm, reason: e.target.value })}
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <Select value={emergencyForm.chain} onValueChange={(value) => {
+                      const contract = contracts[value];
+                      setEmergencyForm({
+                        chain: value,
+                        contractAddress: contract?.contractAddress || "",
+                        reason: ""
+                      });
+                    }}>
+                      <SelectTrigger title="Blockchain">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {supportedChains.filter(chain => contracts[chain]?.contractAddress).map((chain) => (
+                          <SelectItem key={chain} value={chain}>{chain}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <Input
+                      id="emergencyContract"
+                      title="Contract Address"
+                      value={emergencyForm.contractAddress}
+                      readOnly
                     />
                   </div>
+
+                  <Textarea
+                    id="emergencyReason"
+                    title="Reason"
+                    placeholder="Explain why you are pausing/resuming the marketplace..."
+                    value={emergencyForm.reason}
+                    onChange={(e) => setEmergencyForm({ ...emergencyForm, reason: e.target.value })}
+                  />
 
                   <div className="flex gap-2">
                     <Button
@@ -750,7 +820,7 @@ export default function MarketplaceManagementClient() {
                         </Link>
                         <Button 
                           size="sm" 
-                          onClick={() => setDeployForm({ chain: "ETH", feeRecipient: "", feePercentage: 2.5 })}
+                          onClick={() => setDeployForm({ chain: "ETH", feeRecipient: "", feePercentage: 2.5, listingFee: 0, maxRoyaltyPercentage: 10 })}
                         >
                           <Zap className="h-4 w-4 mr-2" />
                           Deploy First Contract
@@ -761,79 +831,76 @@ export default function MarketplaceManagementClient() {
                 </Alert>
               ) : (
                 <>
+                  <Alert className="mb-4">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertDescription>
+                      <strong>Blockchain Operation Warning:</strong> Withdrawing marketplace fees requires a blockchain transaction and will incur gas fees.
+                      The gas cost will be deducted from the withdrawal amount. Ensure you verify the withdrawal address before proceeding - blockchain transactions are irreversible.
+                    </AlertDescription>
+                  </Alert>
+
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <Label htmlFor="withdrawChain">Blockchain</Label>
-                      <Select value={withdrawForm.chain} onValueChange={(value) => {
-                        const contract = contracts[value];
-                        setWithdrawForm({ 
-                          ...withdrawForm,
-                          chain: value, 
-                          contractAddress: contract?.contractAddress || ""
-                        });
-                      }}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {supportedChains.filter(chain => contracts[chain]?.contractAddress).map((chain) => (
-                            <SelectItem key={chain} value={chain}>{chain}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="withdrawContract">Contract Address</Label>
-                      <Input
-                        id="withdrawContract"
-                        value={withdrawForm.contractAddress}
-                        readOnly
-                      />
-                    </div>
+                    <Select value={withdrawForm.chain} onValueChange={(value) => {
+                      const contract = contracts[value];
+                      setWithdrawForm({
+                        ...withdrawForm,
+                        chain: value,
+                        contractAddress: contract?.contractAddress || ""
+                      });
+                    }}>
+                      <SelectTrigger title="Blockchain">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {supportedChains.filter(chain => contracts[chain]?.contractAddress).map((chain) => (
+                          <SelectItem key={chain} value={chain}>{chain}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <Input
+                      id="withdrawContract"
+                      title="Contract Address"
+                      value={withdrawForm.contractAddress}
+                      readOnly
+                    />
                   </div>
 
                   {withdrawForm.contractAddress && contracts[withdrawForm.chain] && (
                     <Alert>
                       <DollarSign className="h-4 w-4" />
                       <AlertDescription>
-                        Available balance: {contracts[withdrawForm.chain].balance || "0"} {contracts[withdrawForm.chain].currency}
-                        {contracts[withdrawForm.chain].balanceUSD && (
-                          ` (${formatCurrency(contracts[withdrawForm.chain].balanceUSD!)})`
-                        )}
+                        Available balance: {contracts[withdrawForm.chain].balance ?? "0"} {contracts[withdrawForm.chain].currency || ""}
+                        {contracts[withdrawForm.chain].balanceUSD ? (
+                          ` ($${parseFloat(contracts[withdrawForm.chain].balanceUSD!).toFixed(2)})`
+                        ) : ""}
                       </AlertDescription>
                     </Alert>
                   )}
 
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                      <Label htmlFor="withdrawAmount">Amount</Label>
-                      <Input
-                        id="withdrawAmount"
-                        placeholder="Leave empty to withdraw all"
-                        value={withdrawForm.amount}
-                        onChange={(e) => setWithdrawForm({ ...withdrawForm, amount: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="withdrawAddress">Withdrawal Address</Label>
-                      <Input
-                        id="withdrawAddress"
-                        placeholder="0x... (leave empty to use fee recipient)"
-                        value={withdrawForm.withdrawalAddress}
-                        onChange={(e) => setWithdrawForm({ ...withdrawForm, withdrawalAddress: e.target.value })}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="withdrawReason">Reason</Label>
-                    <Textarea
-                      id="withdrawReason"
-                      placeholder="Explain the reason for this withdrawal..."
-                      value={withdrawForm.reason}
-                      onChange={(e) => setWithdrawForm({ ...withdrawForm, reason: e.target.value })}
+                    <Input
+                      id="withdrawAmount"
+                      title="Amount"
+                      placeholder="Leave empty to withdraw all"
+                      value={withdrawForm.amount}
+                      onChange={(e) => setWithdrawForm({ ...withdrawForm, amount: e.target.value })}
+                    />
+                    <Input
+                      id="withdrawAddress"
+                      title="Withdrawal Address"
+                      placeholder="0x... (leave empty to use fee recipient)"
+                      value={withdrawForm.withdrawalAddress}
+                      onChange={(e) => setWithdrawForm({ ...withdrawForm, withdrawalAddress: e.target.value })}
                     />
                   </div>
+
+                  <Textarea
+                    id="withdrawReason"
+                    title="Reason"
+                    placeholder="Explain the reason for this withdrawal..."
+                    value={withdrawForm.reason}
+                    onChange={(e) => setWithdrawForm({ ...withdrawForm, reason: e.target.value })}
+                  />
 
                   <Button
                     onClick={handleWithdraw}

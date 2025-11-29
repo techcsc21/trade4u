@@ -70,7 +70,12 @@ export default async (data) => {
     const result = offer.toJSON();
     result.stats = stats;
     result.user = { ...result.user, stats: userStats };
-    
+
+    // Extract priceCurrency from priceConfig
+    if (!result.priceCurrency && result.priceConfig) {
+      result.priceCurrency = result.priceConfig.currency || "USD";
+    }
+
     return result;
   } catch (err) {
     if (err.statusCode) {

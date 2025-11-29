@@ -1,5 +1,5 @@
-import { Wallet } from "lucide-react";
-import type { WalletData } from "./types";
+import { Wallet, Lock } from "lucide-react";
+import type { WalletData, WalletBalance } from "./types";
 import { useTranslations } from "next-intl";
 
 interface BalanceDisplayProps {
@@ -46,32 +46,81 @@ export default function BalanceDisplay({
     return formatted;
   };
 
-  // Get the actual currency and pair balances
-    const currencyBalance = parseFloat(String(walletData?.currencyBalance ?? 0)) || 0;
-    const pairBalance = parseFloat(String(walletData?.pairBalance ?? 0)) || 0;
+  // Helper to extract balance details from WalletBalance or number
+  const getBalanceDetails = (balance: number | WalletBalance | undefined) => {
+    if (!balance) {
+      return { total: 0, inOrder: 0, available: 0 };
+    }
+    if (typeof balance === 'object') {
+      return {
+        total: balance.total,        // Total owned (balance + inOrder)
+        inOrder: balance.inOrder,    // Locked in orders
+        available: balance.balance,  // Available/spendable
+      };
+    }
+    // Backward compatibility: if it's a number, treat it as available balance
+    return { total: balance, inOrder: 0, available: balance };
+  };
+
+  // Get the actual currency and pair balance details
+  const currencyDetails = getBalanceDetails(walletData?.currencyBalance);
+  const pairDetails = getBalanceDetails(walletData?.pairBalance);
+
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-3 py-2 bg-muted/50 dark:bg-zinc-900/50 border-b border-border dark:border-zinc-800 gap-1">
-      <div className="flex items-center text-xs text-muted-foreground dark:text-zinc-400">
-        <Wallet className="h-3.5 w-3.5 mr-1.5 text-muted-foreground/70 dark:text-zinc-500" />
-        <span>{t("available")}</span>
-      </div>
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+    <div className="flex flex-col px-3 py-2 bg-muted/50 dark:bg-zinc-900/50 border-b border-border dark:border-zinc-800 gap-2">
+      {/* Currency Balance */}
+      <div className="flex items-center justify-between text-xs">
+        <div className="flex items-center text-muted-foreground dark:text-zinc-400">
+          <Wallet className="h-3.5 w-3.5 mr-1.5 text-muted-foreground/70 dark:text-zinc-500" />
+          <span>{currency} {t("balance")}</span>
+        </div>
         {isLoadingWallet ? (
           <span className="text-foreground dark:text-zinc-300 animate-pulse">
             {t("Loading")}...
           </span>
         ) : (
-          <>
+          <div className="flex flex-col items-end gap-0.5">
             <span className="text-foreground dark:text-zinc-300 font-medium">
-              {formatBalance(currencyBalance, amountPrecision)} {currency}
+              {formatBalance(currencyDetails.total, amountPrecision)} {currency}
             </span>
-            <span className="text-muted-foreground dark:text-zinc-500 hidden sm:inline">
-              /
+            {currencyDetails.inOrder > 0 && (
+              <div className="flex items-center gap-1 text-[10px] text-muted-foreground dark:text-zinc-500">
+                <Lock className="h-2.5 w-2.5" />
+                <span>{formatBalance(currencyDetails.inOrder, amountPrecision)} {t("in_orders")}</span>
+              </div>
+            )}
+            <span className="text-[10px] text-emerald-600 dark:text-emerald-400">
+              {t("available")}: {formatBalance(currencyDetails.available, amountPrecision)}
             </span>
+          </div>
+        )}
+      </div>
+
+      {/* Pair Balance */}
+      <div className="flex items-center justify-between text-xs border-t border-border/50 dark:border-zinc-800/50 pt-2">
+        <div className="flex items-center text-muted-foreground dark:text-zinc-400">
+          <Wallet className="h-3.5 w-3.5 mr-1.5 text-muted-foreground/70 dark:text-zinc-500" />
+          <span>{pair} {t("balance")}</span>
+        </div>
+        {isLoadingWallet ? (
+          <span className="text-foreground dark:text-zinc-300 animate-pulse">
+            {t("Loading")}...
+          </span>
+        ) : (
+          <div className="flex flex-col items-end gap-0.5">
             <span className="text-foreground dark:text-zinc-300 font-medium">
-              {formatBalance(pairBalance, amountPrecision)} {pair}
+              {formatBalance(pairDetails.total, amountPrecision)} {pair}
             </span>
-          </>
+            {pairDetails.inOrder > 0 && (
+              <div className="flex items-center gap-1 text-[10px] text-muted-foreground dark:text-zinc-500">
+                <Lock className="h-2.5 w-2.5" />
+                <span>{formatBalance(pairDetails.inOrder, amountPrecision)} {t("in_orders")}</span>
+              </div>
+            )}
+            <span className="text-[10px] text-emerald-600 dark:text-emerald-400">
+              {t("available")}: {formatBalance(pairDetails.available, amountPrecision)}
+            </span>
+          </div>
         )}
       </div>
     </div>

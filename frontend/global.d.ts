@@ -24,8 +24,36 @@ declare global {
     dataLayer: any[];
     gtag: (...args: any[]) => void;
   }
-  
+
   type IntlMessages = typeof en;
+
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * The AppKit button web component. Registered globally by AppKit.
+       */
+      'appkit-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        disabled?: boolean;
+        balance?: 'show' | 'hide';
+        size?: 'md' | 'sm';
+        label?: string;
+        loadingLabel?: string;
+        namespace?: 'eip155' | 'solana' | 'bip122';
+      };
+      'appkit-account-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        disabled?: boolean;
+        balance?: 'show' | 'hide';
+      };
+      'appkit-connect-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        size?: 'md' | 'sm';
+        label?: string;
+        loadingLabel?: string;
+      };
+      'appkit-network-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        disabled?: boolean;
+      };
+    }
+  }
 }
 
 export {};

@@ -7,7 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import NavbarLogo from "@/components/elements/navbar-logo";
-import { 
+import ThemeButton from "@/components/partials/header/theme-button";
+import LanguageSelector from "@/components/partials/header/language-selector";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -15,25 +17,24 @@ import {
   DropdownMenuSeparator,
   DropdownMenuLabel
 } from "@/components/ui/dropdown-menu";
-import { 
-  Menu, 
-  Home, 
-  Package, 
-  Coins, 
-  ShoppingCart, 
-  Activity, 
-  BarChart3, 
+import {
+  Menu,
+  Home,
+  Package,
+  Coins,
+  ShoppingCart,
+  Activity,
+  BarChart3,
   Settings,
   Layers,
   Zap,
   TrendingUp,
   Users,
-  Shield,
   Palette,
-  MessageSquare,
   Building2,
-  BookOpen,
-  ChevronDown
+  ChevronDown,
+  ChevronLeft,
+  ExternalLink
 } from "lucide-react";
 
 const mainNavigationItems = [
@@ -42,12 +43,6 @@ const mainNavigationItems = [
     href: "/admin/nft",
     icon: Home,
     description: "NFT marketplace overview"
-  },
-  {
-    title: "Setup Guide",
-    href: "/admin/nft/onboarding",
-    icon: BookOpen,
-    description: "Complete marketplace setup checklist"
   }
 ];
 
@@ -55,6 +50,12 @@ const navigationGroups = [
   {
     title: "Content",
     items: [
+      {
+        title: "Categories",
+        href: "/admin/nft/category",
+        icon: Palette,
+        description: "Manage NFT categories"
+      },
       {
         title: "Collections",
         href: "/admin/nft/collection",
@@ -66,12 +67,6 @@ const navigationGroups = [
         href: "/admin/nft/token",
         icon: Coins,
         description: "Manage individual NFTs"
-      },
-      {
-        title: "Categories",
-        href: "/admin/nft/category",
-        icon: Palette,
-        description: "Manage NFT categories"
       }
     ]
   },
@@ -195,12 +190,14 @@ export default function NFTAdminNavbar() {
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
           <div className="mr-6 flex items-center space-x-2">
+            <Link href="/admin">
+              <Button variant="ghost" size="icon" className="h-8 w-8">
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+            </Link>
             <NavbarLogo href="/admin/nft" isInAdmin={true} />
-            <span className="hidden font-bold sm:inline-block text-blue-600">
-              NFT Admin
-            </span>
           </div>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="flex items-center space-x-3 text-sm font-medium">
             {/* Main Navigation Items */}
             {mainNavigationItems.map((item) => {
               const Icon = item.icon;
@@ -240,37 +237,35 @@ export default function NFTAdminNavbar() {
                       )}
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-64 p-2">
-                    <DropdownMenuLabel className="px-2 py-1.5 text-sm font-semibold">
-                      {group.title}
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator className="my-1" />
-                    {group.items.map((item) => {
-                      const Icon = item.icon;
-                      const active = isActive(item.href);
-                      
-                      return (
-                        <DropdownMenuItem key={item.href} asChild className="p-0">
-                          <Link
-                            href={item.href}
-                            className={`flex items-start gap-3 w-full px-2 py-3 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground ${
-                              active ? "bg-accent text-accent-foreground" : ""
-                            }`}
-                          >
-                            <Icon className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                            <div className="flex-1 min-w-0">
-                              <div className="font-medium text-sm">{item.title}</div>
-                              <div className="text-xs text-muted-foreground line-clamp-2 mt-0.5">
-                                {item.description}
+                  <DropdownMenuContent align="start" className="w-64 p-3">
+                    <div className="space-y-1">
+                      {group.items.map((item) => {
+                        const Icon = item.icon;
+                        const active = isActive(item.href);
+
+                        return (
+                          <DropdownMenuItem key={item.href} asChild className="p-0">
+                            <Link
+                              href={item.href}
+                              className={`flex items-start gap-3 w-full px-3 py-3 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground ${
+                                active ? "bg-accent text-accent-foreground" : ""
+                              }`}
+                            >
+                              <Icon className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                              <div className="flex-1 min-w-0">
+                                <div className="font-medium text-sm">{item.title}</div>
+                                <div className="text-xs text-muted-foreground line-clamp-2 mt-0.5">
+                                  {item.description}
+                                </div>
                               </div>
-                            </div>
-                            {active && (
-                              <div className="w-2 h-2 bg-primary rounded-full ml-2 flex-shrink-0" />
-                            )}
-                          </Link>
-                        </DropdownMenuItem>
-                      );
-                    })}
+                              {active && (
+                                <div className="w-2 h-2 bg-primary rounded-full ml-2 flex-shrink-0" />
+                              )}
+                            </Link>
+                          </DropdownMenuItem>
+                        );
+                      })}
+                    </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
               );
@@ -309,20 +304,16 @@ export default function NFTAdminNavbar() {
               <span className="font-bold text-blue-600">NFT Admin</span>
             </div>
           </div>
-          
+
           <nav className="flex items-center gap-2">
-              <Link href="/nft">
+            <LanguageSelector variant="compact" />
+            <ThemeButton />
+            <Link href="/nft">
               <Button variant="outline" size="sm">
-                <Zap className="h-4 w-4 mr-2" />
-                View Marketplace
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Visit Marketplace
               </Button>
-              </Link>
-              <Link href="/admin">
-              <Button variant="outline" size="sm">
-                <Home className="h-4 w-4 mr-2" />
-                Main Admin
-              </Button>
-              </Link>
+            </Link>
           </nav>
         </div>
       </div>

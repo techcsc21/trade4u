@@ -29,7 +29,7 @@ interface OrderBookPanelProps {
   pair?: string;
 }
 
-type AggregationLevel = "0.01" | "0.1" | "1" | "10";
+type AggregationLevel = "0.000001" | "0.00001" | "0.0001" | "0.001" | "0.01" | "0.1" | "1" | "10";
 
 // Maximum number of trades to display
 const MAX_TRADES = 15; // Reduced from 25
@@ -56,7 +56,7 @@ export default function OrderBookPanel({
   const [currentMarketType, setCurrentMarketType] =
     useState<MarketType>(marketType);
   const [aggregationLevel, setAggregationLevel] =
-    useState<AggregationLevel>("0.01");
+    useState<AggregationLevel>("0.000001");
   const [showCumulativeVolume, setShowCumulativeVolume] = useState(true);
   const [lastPrice, setLastPrice] = useState<number | null>(null);
   const [priceChangeDirection, setPriceChangeDirection] = useState<
@@ -143,21 +143,40 @@ export default function OrderBookPanel({
   const quoteCurrency = pair || '';
 
   // Optimized price formatting with memoization
+  // Smart decimal formatter - shows appropriate precision based on value size
   const formatPrice = useCallback((price: number): string => {
-    if (price > 1000)
-      return price.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
-    if (price > 1)
-      return price.toLocaleString(undefined, {
-        minimumFractionDigits: 4,
-        maximumFractionDigits: 4,
-      });
-    return price.toLocaleString(undefined, {
-      minimumFractionDigits: 6,
-      maximumFractionDigits: 8,
-    });
+    if (typeof price !== 'number' || isNaN(price)) return '0.00';
+
+    // For prices, use smart precision
+    if (price === 0) return '0.00';
+    if (price >= 1000) return price.toFixed(2);
+    if (price >= 1) return price.toFixed(4);
+    if (price >= 0.01) return price.toFixed(6);
+    if (price >= 0.0001) return price.toFixed(8);
+    // For very small numbers, use scientific notation or show up to 10 decimals
+    return price < 0.00000001 ? price.toExponential(2) : price.toFixed(10);
+  }, []);
+
+  // Format amount with smart precision
+  const formatAmount = useCallback((amount: number): string => {
+    if (typeof amount !== 'number' || isNaN(amount)) return '0.0000';
+
+    // Always use 8 decimals for amounts, but strip trailing zeros
+    return amount.toFixed(8).replace(/\.?0+$/, '');
+  }, []);
+
+  // Format total/value with smart precision
+  const formatTotal = useCallback((total: number): string => {
+    if (typeof total !== 'number' || isNaN(total)) return '0.00';
+
+    // Use same smart precision as price
+    if (total === 0) return '0.00';
+    if (total >= 1000) return total.toFixed(2);
+    if (total >= 1) return total.toFixed(4);
+    if (total >= 0.01) return total.toFixed(6);
+    if (total >= 0.0001) return total.toFixed(8);
+    // For very small numbers, use scientific notation or show up to 10 decimals
+    return total < 0.00000001 ? total.toExponential(2) : total.toFixed(10);
   }, []);
 
   // Clean up all timers
@@ -735,10 +754,16 @@ export default function OrderBookPanel({
     const aggregateEntries = (entries: Array<[number, number]>) => {
       const aggregated = new Map<string, number>();
 
+      // Calculate decimal places for rounding to avoid floating-point precision issues
+      const decimalPlaces = aggregationValue.toString().split('.')[1]?.length || 0;
+
       for (let i = 0; i < Math.min(entries.length, MAX_ORDERBOOK_ITEMS); i++) {
         const [price, amount] = entries[i];
+        // Use fixed decimal rounding to avoid floating-point precision issues
         const roundedPrice = Math.floor(price / aggregationValue) * aggregationValue;
-        const key = roundedPrice.toString();
+        // Round to appropriate decimal places to avoid floating-point artifacts
+        const cleanPrice = Number(roundedPrice.toFixed(decimalPlaces));
+        const key = cleanPrice.toString();
         aggregated.set(key, (aggregated.get(key) || 0) + amount);
       }
 
@@ -863,12 +888,12 @@ export default function OrderBookPanel({
                     {formatPrice(price)}
                   </div>
                   <div className="text-sm text-zinc-800 dark:text-zinc-300 relative z-10 text-center">
-                    {amount.toFixed(4)}
+                    {formatAmount(amount)}
                   </div>
                   <div className="text-sm text-zinc-800 dark:text-zinc-300 relative z-10 text-right">
                     {showCumulativeVolume
-                      ? cumulative.toFixed(4)
-                      : (price * amount).toFixed(2)}
+                      ? formatAmount(cumulative)
+                      : formatTotal(price * amount)}
                   </div>
                 </div>
               );
@@ -919,12 +944,12 @@ export default function OrderBookPanel({
                     {formatPrice(price)}
                   </div>
                   <div className="text-sm text-zinc-800 dark:text-zinc-300 relative z-10 text-center">
-                    {amount.toFixed(4)}
+                    {formatAmount(amount)}
                   </div>
                   <div className="text-sm text-zinc-800 dark:text-zinc-300 relative z-10 text-right">
                     {showCumulativeVolume
-                      ? cumulative.toFixed(4)
-                      : (price * amount).toFixed(2)}
+                      ? formatAmount(cumulative)
+                      : formatTotal(price * amount)}
                   </div>
                 </div>
               );
@@ -993,6 +1018,38 @@ export default function OrderBookPanel({
                   paddingRight: "1.5rem",
                 }}
               >
+                <option
+                  value="0.000001"
+                  className={
+                    theme === "dark" ? "bg-zinc-800 text-zinc-200" : ""
+                  }
+                >
+                  0.000001
+                </option>
+                <option
+                  value="0.00001"
+                  className={
+                    theme === "dark" ? "bg-zinc-800 text-zinc-200" : ""
+                  }
+                >
+                  0.00001
+                </option>
+                <option
+                  value="0.0001"
+                  className={
+                    theme === "dark" ? "bg-zinc-800 text-zinc-200" : ""
+                  }
+                >
+                  0.0001
+                </option>
+                <option
+                  value="0.001"
+                  className={
+                    theme === "dark" ? "bg-zinc-800 text-zinc-200" : ""
+                  }
+                >
+                  0.001
+                </option>
                 <option
                   value="0.01"
                   className={
@@ -1086,12 +1143,12 @@ export default function OrderBookPanel({
                             {formatPrice(price)}
                           </div>
                           <div className="text-[10px] text-zinc-800 dark:text-zinc-300 relative z-10 text-center">
-                            {amount.toFixed(4)}
+                            {formatAmount(amount)}
                           </div>
                           <div className="text-[10px] text-zinc-800 dark:text-zinc-300 relative z-10 text-center">
                             {showCumulativeVolume
-                              ? cumulative.toFixed(4)
-                              : (price * amount).toFixed(2)}
+                              ? formatAmount(cumulative)
+                              : formatTotal(price * amount)}
                           </div>
                         </div>
                       );
@@ -1138,12 +1195,12 @@ export default function OrderBookPanel({
                             {formatPrice(price)}
                           </div>
                           <div className="text-[10px] text-zinc-800 dark:text-zinc-300 relative z-10 text-center">
-                            {amount.toFixed(4)}
+                            {formatAmount(amount)}
                           </div>
                           <div className="text-[10px] text-zinc-800 dark:text-zinc-300 relative z-10 text-center">
                             {showCumulativeVolume
-                              ? cumulative.toFixed(4)
-                              : (price * amount).toFixed(2)}
+                              ? formatAmount(cumulative)
+                              : formatTotal(price * amount)}
                           </div>
                         </div>
                       );

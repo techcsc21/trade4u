@@ -108,7 +108,7 @@ function NavigationMenuViewport({
   return (
     <div
       className={cn(
-        "absolute top-full left-0 isolate z-50 flex justify-center"
+        "absolute top-full ltr:left-0 rtl:right-0 isolate z-50 flex ltr:justify-start rtl:justify-end"
       )}
     >
       <NavigationMenuPrimitive.Viewport

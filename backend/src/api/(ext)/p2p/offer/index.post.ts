@@ -143,9 +143,12 @@ export default async function handler(data: { body: any; user?: any }) {
     });
   }
 
-  // For SELL offers, validate user has sufficient balance
+  // For SELL offers, validate user has sufficient balance and prepare to lock it
+  let sellerWalletId: string | null = null;
+  let requiredAmount = 0;
+
   if (body.type === "SELL") {
-    const requiredAmount = body.amountConfig?.total || 0;
+    requiredAmount = body.amountConfig?.total || 0;
     if (requiredAmount <= 0) {
       throw createError({
         statusCode: 400,
@@ -155,10 +158,11 @@ export default async function handler(data: { body: any; user?: any }) {
 
     try {
       const wallet = await getWalletSafe(user.id, body.walletType, body.currency);
+
       if (!wallet) {
         throw createError({
           statusCode: 400,
-          message: `No ${body.walletType} wallet found for ${body.currency}`,
+          message: `No ${body.walletType} wallet found for ${body.currency}. Please deposit ${body.currency} to your ${body.walletType} wallet first.`,
         });
       }
 
@@ -166,9 +170,12 @@ export default async function handler(data: { body: any; user?: any }) {
       if (availableBalance < requiredAmount) {
         throw createError({
           statusCode: 400,
-          message: `Insufficient balance. Available: ${availableBalance} ${body.currency}, Required: ${requiredAmount} ${body.currency}`,
+          message: `Insufficient balance. Available: ${availableBalance} ${body.currency}, Required: ${requiredAmount} ${body.currency}. Please deposit more funds to your ${body.walletType} wallet.`,
         });
       }
+
+      // Store wallet ID for locking funds in transaction
+      sellerWalletId = wallet.id;
     } catch (error: any) {
       // If it's already a createError, rethrow it
       if (error.statusCode) {
@@ -177,7 +184,7 @@ export default async function handler(data: { body: any; user?: any }) {
       // Otherwise, wrap it in a generic error
       throw createError({
         statusCode: 400,
-        message: "Unable to verify wallet balance",
+        message: `Unable to verify wallet balance: ${error.message}`,
       });
     }
   }
@@ -187,21 +194,50 @@ export default async function handler(data: { body: any; user?: any }) {
   const autoApprove = await cacheManager.getSetting("p2pAutoApproveOffers");
   const shouldAutoApprove = autoApprove === true || autoApprove === "true";
 
+  // Validate and prepare JSON fields to prevent double-encoding
+  const jsonFields = ["amountConfig", "priceConfig", "tradeSettings", "locationSettings", "userRequirements"];
+  const preparedData: any = {};
+
+  for (const field of jsonFields) {
+    if (body[field] !== undefined && body[field] !== null) {
+      const value = body[field];
+      // Ensure JSON fields are objects, not strings (prevent double-encoding)
+      if (typeof value === 'string') {
+        try {
+          preparedData[field] = JSON.parse(value);
+        } catch (e) {
+          throw createError({
+            statusCode: 400,
+            message: `Invalid JSON for field ${field}`,
+          });
+        }
+      } else if (typeof value === 'object') {
+        preparedData[field] = value;
+      }
+    } else {
+      preparedData[field] = null;
+    }
+  }
+
+  // Extract priceCurrency from priceConfig for convenience
+  const priceCurrency = preparedData.priceConfig?.currency || "USD";
+
   // start a transaction so creation + associations roll back together
   const t = await sequelize.transaction();
   try {
-    // 1. create the offer
+    // 1. create the offer - model setters will handle JSON serialization
     const offer = await models.p2pOffer.create(
       {
         userId: user.id,
         type: body.type,
         currency: body.currency,
         walletType: body.walletType,
-        amountConfig: body.amountConfig,
-        priceConfig: body.priceConfig,
-        tradeSettings: body.tradeSettings,
-        locationSettings: body.locationSettings ?? null,
-        userRequirements: body.userRequirements ?? null,
+        priceCurrency: priceCurrency,
+        amountConfig: preparedData.amountConfig,
+        priceConfig: preparedData.priceConfig,
+        tradeSettings: preparedData.tradeSettings,
+        locationSettings: preparedData.locationSettings,
+        userRequirements: preparedData.userRequirements,
         status: shouldAutoApprove ? "ACTIVE" : "PENDING_APPROVAL",
         views: 0,
         systemTags: [],
@@ -210,17 +246,58 @@ export default async function handler(data: { body: any; user?: any }) {
       { transaction: t }
     );
 
-    // 2. if any paymentMethodIds provided, validate & associate
+    // 2. For SELL offers, lock the balance in the seller's wallet
+    // This applies to ALL wallet types including FIAT to prevent:
+    // - Double spending the same funds on multiple offers
+    // - Withdrawing funds before completing trades
+    // - Using funds elsewhere on the platform
+    if (body.type === "SELL" && sellerWalletId && requiredAmount > 0) {
+      const wallet = await models.wallet.findByPk(sellerWalletId, {
+        lock: true,
+        transaction: t,
+      });
+
+      if (!wallet) {
+        throw createError({
+          statusCode: 500,
+          message: "Wallet not found for locking funds",
+        });
+      }
+
+      // Store old value before update for logging
+      const previousInOrder = wallet.inOrder;
+
+      // Lock the funds by increasing inOrder
+      await wallet.update(
+        {
+          inOrder: wallet.inOrder + requiredAmount,
+        },
+        { transaction: t }
+      );
+
+      console.log('[P2P Offer Create] Locked funds:', {
+        userId: user.id,
+        walletId: sellerWalletId,
+        walletType: body.walletType,
+        currency: body.currency,
+        amount: requiredAmount,
+        previousInOrder: previousInOrder,
+        newInOrder: previousInOrder + requiredAmount,
+        note: body.walletType === "FIAT" ? "FIAT locked - payment happens externally but balance reserved" : "Crypto locked in escrow"
+      });
+    }
+
+    // 3. if any paymentMethodIds provided, validate & associate
     const ids: string[] = Array.isArray(body.paymentMethodIds)
       ? body.paymentMethodIds
       : [];
 
     if (ids.length) {
       console.log('[P2P Offer Create] Validating payment method IDs:', ids);
-      
+
       // fetch and ensure all exist - also check for user-created methods
       const methods = await models.p2pPaymentMethod.findAll({
-        where: { 
+        where: {
           id: ids,
           [Op.or]: [
             { userId: null }, // System payment methods
@@ -229,14 +306,14 @@ export default async function handler(data: { body: any; user?: any }) {
         },
         transaction: t,
       });
-      
+
       console.log('[P2P Offer Create] Found payment methods:', methods.map(m => ({ id: m.id, name: m.name, userId: m.userId })));
-      
+
       if (methods.length !== ids.length) {
         const foundIds = methods.map(m => m.id);
         const missingIds = ids.filter(id => !foundIds.includes(id));
         console.error('[P2P Offer Create] Missing payment method IDs:', missingIds);
-        
+
         throw createError({
           statusCode: 400,
           message: `Invalid payment method IDs: ${missingIds.join(', ')}. Please ensure all payment methods are properly created first.`,
@@ -251,7 +328,7 @@ export default async function handler(data: { body: any; user?: any }) {
     await t.commit();
 
     // reload to include the paymentMethods in the response
-    await offer.reload({ 
+    await offer.reload({
       include: [
         {
           model: models.p2pPaymentMethod,
@@ -259,7 +336,7 @@ export default async function handler(data: { body: any; user?: any }) {
           attributes: ["id", "name", "icon"],
           through: { attributes: [] },
         }
-      ] 
+      ]
     });
 
     return { message: "Offer created successfully.", offer };

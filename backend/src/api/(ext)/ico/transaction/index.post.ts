@@ -285,10 +285,20 @@ export default async (data: Handler) => {
       lock: transaction.LOCK.UPDATE,
     });
 
-    if (!wallet || wallet.balance < amount) {
+    if (!wallet) {
       throw createError({
         statusCode: 400,
-        message: "Insufficient wallet balance for investment.",
+        message: `No ${offering.purchaseWalletType} wallet found for ${offering.purchaseWalletCurrency}. Please create a wallet first.`,
+      });
+    }
+
+    // Check available balance (balance might need to exclude locked funds)
+    const availableBalance = wallet.balance || 0;
+
+    if (availableBalance < amount) {
+      throw createError({
+        statusCode: 400,
+        message: `Insufficient wallet balance. Required: ${amount} ${offering.purchaseWalletCurrency}, Available: ${availableBalance} ${offering.purchaseWalletCurrency}`,
       });
     }
 

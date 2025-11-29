@@ -41,7 +41,9 @@ import { CalendarIcon, HandHeart, AlertCircle } from "lucide-react";
 import { format, addDays } from "date-fns";
 import { cn } from "@/lib/utils";
 import { useNftStore } from "@/store/nft/nft-store";
+import { useConfigStore } from "@/store/config";
 import type { NftToken } from "@/types/nft";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const offerSchema = z.object({
   amount: z.number().min(0.001, "Offer amount must be greater than 0"),
@@ -76,6 +78,10 @@ const EXPIRY_OPTIONS = [
 export default function MakeOfferModal({ isOpen, onClose, token }: MakeOfferModalProps) {
   const t = useTranslations("nft/modals/offer");
   const { makeOffer, loading } = useNftStore();
+  const { settings } = useConfigStore();
+
+  // Check if offers are enabled
+  const offersEnabled = settings?.nftEnableOffers ?? true;
 
   const form = useForm<OfferForm>({
     resolver: zodResolver(offerSchema),
@@ -130,6 +136,16 @@ export default function MakeOfferModal({ isOpen, onClose, token }: MakeOfferModa
         </DialogHeader>
 
         <div className="space-y-6">
+          {!offersEnabled ? (
+            <Alert variant="destructive">
+              <AlertCircle className="h-4 w-4" />
+              <AlertTitle>Offers Disabled</AlertTitle>
+              <AlertDescription>
+                Making offers is currently disabled by the marketplace administrator. Please contact support for more information.
+              </AlertDescription>
+            </Alert>
+          ) : (
+            <>
           {/* NFT Preview */}
           <div className="flex items-center gap-3 p-3 border rounded-lg">
             <div className="w-12 h-12 bg-muted rounded-lg overflow-hidden">
@@ -364,6 +380,8 @@ export default function MakeOfferModal({ isOpen, onClose, token }: MakeOfferModa
               </div>
             </form>
           </Form>
+          </>
+          )}
         </div>
       </DialogContent>
     </Dialog>

@@ -16,7 +16,7 @@ import { Icon } from "@iconify/react";
 export interface CustomField {
   name: string;
   title: string;
-  type: string;
+  type: "input" | "textarea" | "file" | "image" | "qr";
   required: boolean;
 }
 interface CustomFieldsFormControlProps {
@@ -130,6 +130,7 @@ export function CustomFieldsFormControl({
                         <SelectItem value="textarea">Textarea</SelectItem>
                         <SelectItem value="file">File Upload</SelectItem>
                         <SelectItem value="image">Image Upload</SelectItem>
+                        <SelectItem value="qr">QR Code</SelectItem>
                       </SelectContent>
                     </Select>
                   </td>

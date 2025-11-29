@@ -9,6 +9,7 @@ import { useConfigStore } from "@/store/config";
 import { cn } from "@/lib/utils";
 import { getMenu } from "@/config/menu";
 import { useSettings } from "@/hooks/use-settings";
+import { useMenuTranslations } from "@/components/partials/menu-translator";
 
 import ChildMenu from "./menu/child-menu";
 import MegaMenu from "./menu/mega-menu";
@@ -20,6 +21,7 @@ export default function MainMenu({ menu }) {
   const pathname = usePathname();
   const user = useUserStore((s) => s.user);
   const { settings, extensions, settingsFetched } = useSettings();
+  const { getTitle } = useMenuTranslations();
 
   // Normalize menu items
   const normalizeMenuItems = (menuItems) =>
@@ -69,8 +71,38 @@ export default function MainMenu({ menu }) {
     itemValue: string
   ) => {
     if (trigger && list && value === itemValue) {
-      const triggerOffsetLeft = trigger.offsetLeft + trigger.offsetWidth / 6;
-      setOffset(Math.round(triggerOffsetLeft));
+      // Check if we're in RTL mode
+      const isRTL = document.documentElement.dir === 'rtl';
+
+      if (isRTL) {
+        // For RTL: Calculate position from the left edge of the viewport container
+        // Find the actual position of the trigger within the list
+        let currentOffset = 0;
+        const menuItem = trigger.closest('[data-slot="navigation-menu-item"]') as HTMLElement;
+
+        if (menuItem) {
+          // Sum up all previous siblings' widths plus gaps
+          let sibling = menuItem.previousElementSibling as HTMLElement;
+          while (sibling) {
+            currentOffset += sibling.offsetWidth;
+            sibling = sibling.previousElementSibling as HTMLElement;
+          }
+          // Account for gap (20px = gap-5 which is 1.25rem)
+          const siblingCount = Array.from(menuItem.parentElement?.children || []).indexOf(menuItem);
+          currentOffset += siblingCount * 20; // gap-5
+
+          setOffset(Math.round(currentOffset));
+        }
+      } else {
+        // For LTR, calculate from the left edge
+        // Use the menu item's offset for accurate positioning
+        const menuItem = trigger.closest('[data-slot="navigation-menu-item"]') as HTMLElement;
+        if (menuItem) {
+          setOffset(Math.round(menuItem.offsetLeft));
+        } else {
+          setOffset(Math.round(trigger.offsetLeft));
+        }
+      }
     } else if (value === "") {
       setOffset(null);
     }
@@ -145,13 +177,13 @@ export default function MainMenu({ menu }) {
                         )}
                       >
                         {item.icon && (
-                          <Icon icon={item.icon} className="h-5 w-5 mr-2" />
+                          <Icon icon={item.icon} className="h-5 w-5 ltr:mr-2 rtl:ml-2" />
                         )}
                         <span className="text-sm font-medium text-foreground">
-                          {item.title}
+                          {getTitle(item)}
                         </span>
                         <ChevronDown
-                          className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180"
+                          className="relative top-[1px] ltr:ml-1 rtl:mr-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180"
                           aria-hidden="true"
                         />
                       </div>
@@ -183,10 +215,10 @@ export default function MainMenu({ menu }) {
                       )}
                     >
                       {item.icon && (
-                        <Icon icon={item.icon} className="h-5 w-5 mr-2" />
+                        <Icon icon={item.icon} className="h-5 w-5 ltr:mr-2 rtl:ml-2" />
                       )}
                       <span className="text-sm font-medium text-foreground">
-                        {item.title}
+                        {getTitle(item)}
                       </span>
                     </Link>
                   </NavigationMenu.Link>
@@ -195,11 +227,13 @@ export default function MainMenu({ menu }) {
             );
           })}
         </NavigationMenu.List>
-        <div className="absolute top-full">
+        <div className="absolute top-full left-0">
           <NavigationMenu.Viewport
             style={{
-              display: !offset ? "none" : undefined,
-              transform: `translateX(${offset}px)`,
+              display: offset === null ? "none" : undefined,
+              transform: document.documentElement.dir === 'rtl'
+                ? `translateX(${offset}px)`
+                : `translateX(${offset}px)`,
               top: "100%",
               transition: "all 0.3s ease",
             }}

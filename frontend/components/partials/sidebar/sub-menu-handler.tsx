@@ -2,6 +2,7 @@
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
 import React from "react";
+import { useMenuTranslations } from "@/components/partials/menu-translator";
 
 const SubMenuHandler = ({
   item,
@@ -20,7 +21,10 @@ const SubMenuHandler = ({
   hovered: boolean;
   isActive: boolean;
 }) => {
-  const { title, icon } = item;
+  const { icon } = item;
+  const { getTitle } = useMenuTranslations();
+  const title = getTitle(item);
+
   return (
     <>
       {!collapsed || hovered ? (

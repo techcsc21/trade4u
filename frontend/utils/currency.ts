@@ -73,27 +73,15 @@ export function formatCurrencySafe(
   // Check if the currency is a valid ISO currency code
   const isValidCurrency = isValidCurrencyCode(currency);
 
-  if (isValidCurrency) {
-    try {
-      return new Intl.NumberFormat(locale, {
-        style: "currency",
-        currency,
-        minimumFractionDigits,
-        maximumFractionDigits: Math.min(maximumFractionDigits, 2), // ISO currencies max 2 decimals
-      }).format(amount);
-    } catch (error) {
-      // Fallback if there's still an error
-      return `${currency} ${amount.toFixed(minimumFractionDigits)}`;
-    }
-  } else {
-    // For cryptocurrencies and other non-ISO currencies, format manually
-    const formattedValue = new Intl.NumberFormat(locale, {
-      minimumFractionDigits,
-      maximumFractionDigits, // Cryptocurrencies can have more decimal places
-    }).format(amount);
-    
-    return `${formattedValue} ${currency}`;
-  }
+  // Format the number without currency symbol, then append currency code
+  const formattedValue = new Intl.NumberFormat(locale, {
+    minimumFractionDigits,
+    maximumFractionDigits: isValidCurrency
+      ? Math.min(maximumFractionDigits, 2) // ISO currencies max 2 decimals
+      : maximumFractionDigits, // Cryptocurrencies can have more decimal places
+  }).format(amount);
+
+  return `${formattedValue} ${currency}`;
 }
 
 /**
@@ -143,5 +131,32 @@ export function formatCurrencyAuto(amount: number, currency: string): string {
     return formatFiat(amount, currency);
   } else {
     return formatCrypto(amount, currency);
+  }
+}
+
+/**
+ * Gets the currency symbol for a given currency code
+ * @param currency - The currency code (e.g., "USD", "GBP", "EUR")
+ * @returns Currency symbol (e.g., "$", "£", "€")
+ */
+export function getCurrencySymbol(currency: string = "USD"): string {
+  if (!isValidCurrencyCode(currency)) {
+    return currency; // Return the code itself for cryptocurrencies
+  }
+
+  try {
+    // Use Intl.NumberFormat to get the currency symbol
+    const formatted = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currency.toUpperCase(),
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(0);
+
+    // Extract just the symbol (remove the "0")
+    return formatted.replace(/\d/g, "").replace(/\s/g, "").trim();
+  } catch (error) {
+    // Fallback to currency code if formatting fails
+    return currency;
   }
 } 

@@ -71,6 +71,19 @@ export function calculateMarketProjections(
   };
 
   vestingReleaseData.forEach((data, index) => {
+    // For Month 0, use initial price exactly
+    if (index === 0) {
+      result.push({
+        month: data.month,
+        price: initialPrice,
+        marketCap: initialPrice * data.circulatingSupply,
+        volume: initialPrice * data.circulatingSupply * 0.05,
+        circulatingSupply: data.circulatingSupply,
+        percentReleased: data.percentReleased,
+      });
+      return;
+    }
+
     // Random factor for volatility (-0.5 to 0.5) * volatility
     const randomFactor = (seededRandom() * 2 - 1) * baseVolatility;
 
@@ -79,8 +92,7 @@ export function calculateMarketProjections(
     const monthlyGrowth = baseGrowthRate * circulationFactor + randomFactor;
 
     // Calculate price based on previous month with a floor at initial price / 2
-    const prevPrice =
-      index === 0 ? initialPrice : result[index - 1]?.price || initialPrice;
+    const prevPrice = result[index - 1]?.price || initialPrice;
     const price = Math.max(initialPrice * 0.5, prevPrice * (1 + monthlyGrowth));
 
     // Calculate market cap and trading volume

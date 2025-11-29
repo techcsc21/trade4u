@@ -54,6 +54,7 @@ export function useGasEstimation(params: GasEstimateParams): UseGasEstimationRet
         url: "/api/nft/gas/estimate",
         method: "POST",
         body: requestBody,
+        silent: true,
       });
 
       setEstimate(data.gasEstimate);
@@ -109,6 +110,7 @@ export function useGasPrices(chain: string = "ETH") {
       const { data } = await $fetch({
         url: `/api/nft/gas/estimate?chain=${chain}`,
         method: "GET",
+        silent: true,
       });
 
       setGasPrices(data);

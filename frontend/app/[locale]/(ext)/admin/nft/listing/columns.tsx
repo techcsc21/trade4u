@@ -52,7 +52,15 @@ export const columns = [
           usedInCreate: false,
         },
         metadata: [
-          { key: "collection.name", title: "Collection", type: "text" }
+          {
+            key: "collection.name",
+            title: "Collection",
+            type: "custom",
+            render: (value) => {
+              if (!value) return null; // Don't show N/A if no collection
+              return <span className="text-xs">{value}</span>;
+            }
+          }
         ]
       }
     }
@@ -138,8 +146,25 @@ export const columns = [
     description: "Listing price",
     priority: 1,
     render: {
-      type: "number",
-      format: { style: "currency", currency: "USD" }
+      type: "custom",
+      render: (value, row) => {
+        if (value === null || value === undefined || isNaN(parseFloat(value))) {
+          return <span className="text-muted-foreground">—</span>;
+        }
+
+        const amount = parseFloat(value);
+        const currency = row.currency || 'USD';
+
+        // Format with appropriate decimals for crypto
+        let formatted;
+        if (amount < 0.01) {
+          formatted = amount.toFixed(8).replace(/\.?0+$/, '');
+        } else {
+          formatted = amount.toFixed(4).replace(/\.?0+$/, '');
+        }
+
+        return <span className="font-medium">{formatted} {currency}</span>;
+      }
     }
   },
   {
@@ -186,8 +211,21 @@ export const columns = [
     description: "Minimum auction price",
     priority: 4,
     render: {
-      type: "number",
-      format: { style: "currency", currency: "USD" }
+      type: "custom",
+      render: (value, row) => {
+        if (value === null || value === undefined || isNaN(parseFloat(value))) {
+          return <span className="text-muted-foreground">—</span>;
+        }
+        const amount = parseFloat(value);
+        const currency = row.currency || 'USD';
+        let formatted;
+        if (amount < 0.01) {
+          formatted = amount.toFixed(8).replace(/\.?0+$/, '');
+        } else {
+          formatted = amount.toFixed(4).replace(/\.?0+$/, '');
+        }
+        return <span>{formatted} {currency}</span>;
+      }
     },
     expandedOnly: true,
   },
@@ -202,8 +240,21 @@ export const columns = [
     description: "Instant purchase price",
     priority: 4,
     render: {
-      type: "number",
-      format: { style: "currency", currency: "USD" }
+      type: "custom",
+      render: (value, row) => {
+        if (value === null || value === undefined || isNaN(parseFloat(value))) {
+          return <span className="text-muted-foreground">—</span>;
+        }
+        const amount = parseFloat(value);
+        const currency = row.currency || 'USD';
+        let formatted;
+        if (amount < 0.01) {
+          formatted = amount.toFixed(8).replace(/\.?0+$/, '');
+        } else {
+          formatted = amount.toFixed(4).replace(/\.?0+$/, '');
+        }
+        return <span>{formatted} {currency}</span>;
+      }
     },
     expandedOnly: true,
   },
@@ -315,8 +366,21 @@ export const columns = [
     description: "Highest current bid",
     priority: 2,
     render: {
-      type: "number",
-      format: { style: "currency", currency: "USD" }
+      type: "custom",
+      render: (value, row) => {
+        if (value === null || value === undefined || isNaN(parseFloat(value))) {
+          return <span className="text-muted-foreground">—</span>;
+        }
+        const amount = parseFloat(value);
+        const currency = row.currency || 'USD';
+        let formatted;
+        if (amount < 0.01) {
+          formatted = amount.toFixed(8).replace(/\.?0+$/, '');
+        } else {
+          formatted = amount.toFixed(4).replace(/\.?0+$/, '');
+        }
+        return <span>{formatted} {currency}</span>;
+      }
     }
   },
   {

@@ -15,6 +15,7 @@ for (const envPath of envPaths) {
   if (fs.existsSync(envPath)) {
     console.log(`Frontend: Loading environment from ${envPath}`);
     require("dotenv").config({ path: envPath });
+    console.log(`Frontend: NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID = ${process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID}`);
     envLoaded = true;
     break;
   }
@@ -39,10 +40,6 @@ const nextConfig = {
     // Disable type checking during build
     ignoreBuildErrors: true,
   },
-  eslint: {
-    // Ignore ESLint errors during build
-    ignoreDuringBuilds: true,
-  },
   // Turbopack configuration (moved from experimental.turbo as it's now stable)
   turbopack: {
     resolveAlias: {
@@ -54,21 +51,9 @@ const nextConfig = {
     // Activate new client-side router improvements (better navigation performance)
     clientSegmentCache: true,
   },
-  env: {
-    NEXT_PUBLIC_LANGUAGES: process.env.NEXT_PUBLIC_LANGUAGES || "en,es,fr,de,it,pt,ru,ar,ja,ko,hi,tr",
-    NEXT_PUBLIC_DEFAULT_LANGUAGE: process.env.NEXT_PUBLIC_DEFAULT_LANGUAGE || "en",
-  },
+  // Removed explicit env object to allow Next.js automatic NEXT_PUBLIC_ variable exposure
+  // This allows all NEXT_PUBLIC_* environment variables to be available in the client
   webpack: (config, { dev, isServer }) => {
-    // Disable image optimization for static imports to avoid sharp dependency
-    config.module.rules.forEach((rule) => {
-      if (rule.loader === 'next-image-loader') {
-        rule.options = {
-          ...rule.options,
-          unoptimized: true,
-        };
-      }
-    });
-    
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
       config.resolve.fallback = {
@@ -132,8 +117,16 @@ const nextConfig = {
     ];
   },
   images: {
-    // Disable image optimization to avoid Sharp dependency issues on servers without v2 microarchitecture
-    unoptimized: true,
+    // Enable image optimization for better caching and performance
+    unoptimized: false,
+    // Cache optimized images for 60 days
+    minimumCacheTTL: 5184000,
+    // Image formats to support
+    formats: ['image/webp', 'image/avif'],
+    // Device sizes for responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // Image sizes for different use cases
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
         protocol: "https",
@@ -150,6 +143,33 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
+      },
+      // IPFS Gateway - Pinata (Primary)
+      {
+        protocol: "https",
+        hostname: "gateway.pinata.cloud",
+      },
+      {
+        protocol: "https",
+        hostname: "*.mypinata.cloud",
+      },
+      // IPFS Gateways (Fallback)
+      {
+        protocol: "https",
+        hostname: "ipfs.io",
+      },
+      {
+        protocol: "https",
+        hostname: "cloudflare-ipfs.com",
+      },
+      {
+        protocol: "https",
+        hostname: "dweb.link",
+      },
+      // Local uploads
+      {
+        protocol: "http",
+        hostname: "localhost",
       },
     ],
   },

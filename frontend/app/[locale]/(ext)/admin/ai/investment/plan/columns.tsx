@@ -243,6 +243,42 @@ export const columns: ColumnDefinition[] = [
     priority: 1,
   },
   {
+    key: "durations",
+    title: "Durations",
+    type: "multiselect",
+    icon: ClipboardList,
+    sortable: false,
+    searchable: false,
+    filterable: false,
+    editable: true,
+    usedInCreate: true,
+    description: "Available durations for this plan",
+    priority: 2,
+    apiEndpoint: {
+      url: "/api/admin/ai/investment/duration/options",
+      method: "GET",
+    },
+    render: {
+      type: "custom",
+      render: (value: any, row: any) => {
+        if (!value || !Array.isArray(value) || value.length === 0) return "None";
+        const tags = value.map((d: any) => `${d.duration} ${d.timeframe}`);
+        return (
+          <div className="flex flex-wrap gap-1">
+            {tags.map((tag: string, index: number) => (
+              <span
+                key={index}
+                className="rounded bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        );
+      },
+    },
+  },
+  {
     key: "createdAt",
     title: "Created At",
     type: "date",

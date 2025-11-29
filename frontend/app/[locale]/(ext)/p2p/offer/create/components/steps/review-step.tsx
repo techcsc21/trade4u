@@ -65,15 +65,16 @@ export function ReviewStep() {
   };
 
   // Format price with currency
-  const formatPrice = (price: any, currency: string) => {
+  const formatPrice = (price: any, cryptoCurrency: string, priceCurrency: string) => {
     // Handle the new priceConfig format
     if (price && typeof price === "object" && price.finalPrice !== undefined) {
       return (
         <div className="space-y-1">
           <div className="text-lg font-medium">
             {price.finalPrice}{" "}
-            {t("usd_per")}{" "}
-            {currency || "crypto"}
+            {priceCurrency}{" "}
+            {t("per")}{" "}
+            {cryptoCurrency || "crypto"}
           </div>
           {price.model === "MARGIN" && (
             <Badge variant={Number(price.value) > 0 ? "outline" : "secondary"}>
@@ -93,8 +94,9 @@ export function ReviewStep() {
       <div className="space-y-1">
         <div className="text-lg font-medium">
           {price.value}{" "}
-          {t("usd_per")}{" "}
-          {currency || "crypto"}
+          {priceCurrency}{" "}
+          {t("per")}{" "}
+          {cryptoCurrency || "crypto"}
         </div>
         {price.model === "MARGIN" && (
           <Badge variant={Number(price.value) > 0 ? "outline" : "secondary"}>
@@ -301,7 +303,11 @@ export function ReviewStep() {
                   <h4 className="font-medium text-sm text-muted-foreground">
                     {t("Price")}
                   </h4>
-                  {formatPrice(getPrice(), "BTC")}
+                  {formatPrice(
+                    getPrice(),
+                    tradeData.cryptoSymbol || tradeData.currency,
+                    tradeData.priceConfig?.currency || tradeData.priceCurrency || "USD"
+                  )}
                 </div>
               </div>
             </div>

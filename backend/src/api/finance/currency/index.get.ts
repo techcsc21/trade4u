@@ -131,7 +131,9 @@ export default async (data: Handler) => {
 
 async function handleDeposit(walletType, where) {
   const getModel = walletTypeToModel[walletType];
-  if (!getModel) throw createError(400, "Invalid wallet type");
+  if (!getModel) {
+    throw createError(400, "Invalid wallet type");
+  }
 
   let currencies = await getModel(where);
 
@@ -143,6 +145,7 @@ async function handleDeposit(walletType, where) {
           label: `${currency.id} - ${currency.name}`,
         }))
         .sort((a, b) => a.label.localeCompare(b.label));
+
     case "SPOT":
       return currencies
         .map((currency) => ({
@@ -150,6 +153,7 @@ async function handleDeposit(walletType, where) {
           label: `${currency.currency} - ${currency.name}`,
         }))
         .sort((a, b) => a.label.localeCompare(b.label));
+
     case "ECO":
     case "FUTURES": {
       const seen = new Set();

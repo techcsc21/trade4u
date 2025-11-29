@@ -20,7 +20,28 @@ export const i18nMiddleware: MiddlewareFactory = (next) => {
 
   return async (request, event) => {
     const { pathname } = request.nextUrl;
-    
+
+    // Block common exploit/malicious paths early (before locale validation)
+    // This prevents bot attacks targeting WordPress/PHP vulnerabilities from cluttering logs
+    // by rejecting them at the middleware level before they reach the [locale] route handler
+    const maliciousPatterns = [
+      /\.php$/i,           // Any PHP file (wp-login.php, shell.php, etc.)
+      /\.env$/i,           // Environment files
+      /\.git/i,            // Git files
+      /\.sql$/i,           // SQL files
+      /xmlrpc/i,           // WordPress XML-RPC
+      /wp-/i,              // WordPress files (wp-admin, wp-content, etc.)
+      /admin\.php/i,       // Admin PHP files
+      /shell/i,            // Shell scripts
+      /\.bak$/i,           // Backup files
+    ];
+
+    const firstSegment = pathname.split('/')[1];
+    if (firstSegment && maliciousPatterns.some(pattern => pattern.test(firstSegment))) {
+      // Return 404 immediately without logging to avoid spam
+      return new NextResponse(null, { status: 404 });
+    }
+
     // Handle root path redirect explicitly with cookie support
     if (pathname === "/") {
       // Check for saved locale in cookie first

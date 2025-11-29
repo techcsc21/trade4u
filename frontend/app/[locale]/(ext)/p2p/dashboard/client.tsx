@@ -7,13 +7,14 @@ import { StatsOverview } from "./components/stats-overview";
 import { PortfolioChart } from "./components/portfolio-chart";
 import { TradingActivity } from "./components/trading-activity";
 import { RecentTransactions } from "./components/recent-transactions";
+import { MyOffers } from "./components/my-offers";
 import { useP2PStore } from "@/store/p2p/p2p-store";
 import { useUserStore } from "@/store/user";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { LogIn } from "lucide-react";
+import { LogIn, FileText } from "lucide-react";
 
 export function DashboardClient() {
   const t = useTranslations("ext");
@@ -23,15 +24,18 @@ export function DashboardClient() {
     dashboardData,
     portfolio,
     dashboardStats,
+    userOffers,
     isLoadingDashboardData,
     isLoadingPortfolio,
     isLoadingDashboardStats,
     isLoadingTradingActivity,
     isLoadingTransactions,
+    isLoadingUserOffers,
     portfolioError,
     dashboardStatsError,
     tradingActivityError,
     transactionsError,
+    userOffersError,
     fetchDashboardData,
   } = useP2PStore();
 
@@ -44,9 +48,10 @@ export function DashboardClient() {
 
   useEffect(() => {
     if (user) {
+      // Always fetch fresh data when dashboard mounts
       fetchDashboardData();
     }
-  }, [user, fetchDashboardData]);
+  }, [user]); // Removed fetchDashboardData from dependencies to force refresh on every mount
 
   // Show loading state while checking authentication
   if (isLoading) {
@@ -152,6 +157,19 @@ export function DashboardClient() {
                 isLoading={isLoadingPortfolio}
               />
             )}
+          </div>
+
+          {/* My Offers Section */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6 flex items-center">
+              <FileText className="h-7 w-7 mr-3 text-blue-500" />
+              {t("my_offers")}
+            </h2>
+            <MyOffers
+              offers={userOffers}
+              isLoading={isLoadingUserOffers}
+              error={userOffersError}
+            />
           </div>
 
           {/* Trading Activity and Transactions */}

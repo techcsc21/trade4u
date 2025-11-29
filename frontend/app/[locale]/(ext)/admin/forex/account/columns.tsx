@@ -111,8 +111,8 @@ export const columns: ColumnDefinition[] = [
     priority: 2,
     expandedOnly: true,
     options: [
-      { value: "4", label: "MT4" },
-      { value: "5", label: "MT5" },
+      { value: 4, label: "MT4" },
+      { value: 5, label: "MT5" },
     ],
   },
   {

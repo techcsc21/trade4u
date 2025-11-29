@@ -2,6 +2,7 @@
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
 import React from "react";
+import { useMenuTranslations } from "@/components/partials/menu-translator";
 
 const MultiMenuHandler = ({
   subItem,
@@ -16,6 +17,9 @@ const MultiMenuHandler = ({
   toggleMultiMenu: (subIndex: number) => void;
   className?: string;
 }) => {
+  const { getTitle } = useMenuTranslations();
+  const title = getTitle(subItem);
+
   return (
     <div
       onClick={() => toggleMultiMenu(subIndex)}
@@ -30,7 +34,7 @@ const MultiMenuHandler = ({
         }
       )}
     >
-      <span className="flex-1">{subItem.title}</span>
+      <span className="flex-1">{title}</span>
       <div className="flex-none">
         <span
           className={cn("transform transition-all duration-300", {

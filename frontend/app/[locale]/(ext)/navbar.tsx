@@ -16,6 +16,7 @@ export interface NavItem {
   title: string;
   href: string;
   icon: React.ElementType;
+  key?: string; // Translation key
   exact?: boolean;
   children?: NavItem[];
 }
@@ -43,12 +44,27 @@ export function ExtNavbar({
     }
   }, [pathname, isDesktop]);
 
+  // Get translated title for nav item
+  const getTitle = (item: NavItem): string => {
+    if (!item.key) {
+      return item.title;
+    }
+    try {
+      const translated = t(item.key);
+      // If translation exists and is not the key itself, use it
+      return translated && translated !== item.key ? translated : item.title;
+    } catch {
+      return item.title;
+    }
+  };
+
   const renderNavItems = (items: NavItem[]) =>
     items.map((item) => {
       const isActive = item.exact
         ? pathname === item.href
         : pathname.startsWith(item.href);
       const Icon = item.icon;
+      const title = getTitle(item);
       return (
         <Link
           key={item.href}
@@ -60,7 +76,7 @@ export function ExtNavbar({
         >
           <div className="flex items-center gap-2 px-4 py-2 rounded-md">
             <Icon className="h-4 w-4" />
-            <span>{item.title}</span>
+            <span>{title}</span>
           </div>
         </Link>
       );

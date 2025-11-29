@@ -1,6 +1,11 @@
 import { models } from "@b/db";
 import { Op } from "sequelize";
 import { unauthorizedResponse, serverErrorResponse } from "@b/utils/query";
+import {
+  getFiatPriceInUSD,
+  getSpotPriceInUSD,
+  getEcoPriceInUSD,
+} from "@b/api/finance/currency/utils";
 
 export const metadata = {
   summary: "Get P2P Dashboard Stats",
@@ -93,7 +98,89 @@ export default async (data: { user?: any }) => {
       wallets = [];
     }
 
+    // Calculate total balance across all wallets (converted to USD)
+    let totalBalance = 0;
+    for (const wallet of wallets) {
+      try {
+        const availableBalance = parseFloat(wallet.balance || 0) - parseFloat(wallet.inOrder || 0);
+        if (availableBalance <= 0) continue;
+
+        let priceInUSD = 1; // Default for USD
+
+        // Skip conversion if currency is USD
+        if (wallet.currency === "USD") {
+          totalBalance += availableBalance;
+          continue;
+        }
+
+        // Get price in USD based on wallet type
+        try {
+          switch (wallet.type) {
+            case "FIAT":
+              priceInUSD = await getFiatPriceInUSD(wallet.currency);
+              break;
+            case "SPOT":
+              priceInUSD = await getSpotPriceInUSD(wallet.currency);
+              break;
+            case "ECO":
+              priceInUSD = await getEcoPriceInUSD(wallet.currency);
+              break;
+          }
+        } catch (priceError) {
+          console.error(`Error getting price for ${wallet.type} ${wallet.currency}:`, priceError);
+          // Skip this wallet if we can't get the price
+          continue;
+        }
+
+        totalBalance += availableBalance * priceInUSD;
+      } catch (error) {
+        console.error(`Error processing wallet ${wallet.id}:`, error);
+      }
+    }
+
+    // Calculate success rate
+    const successRate = totalTrades > 0
+      ? Math.round((completedTrades / totalTrades) * 100)
+      : 0;
+
+    // Format stats for frontend display
+    const stats = [
+      {
+        title: "Total Balance",
+        value: `$${totalBalance.toFixed(2)}`,
+        change: `${wallets.length} wallet${wallets.length !== 1 ? 's' : ''} available`,
+        changeType: "neutral",
+        icon: "wallet",
+        gradient: "from-blue-500 to-blue-700",
+      },
+      {
+        title: "Trading Volume",
+        value: `$${totalBalance.toFixed(2)}`,
+        change: `${totalTrades} total trade${totalTrades !== 1 ? 's' : ''}`,
+        changeType: totalTrades > 0 ? "positive" : "neutral",
+        icon: "trending-up",
+        gradient: "from-green-500 to-green-700",
+      },
+      {
+        title: "Active Trades",
+        value: activeTrades.toString(),
+        change: `${activeTrades} pending completion`,
+        changeType: activeTrades > 0 ? "positive" : "neutral",
+        icon: "bar-chart",
+        gradient: "from-violet-500 to-violet-700",
+      },
+      {
+        title: "Success Rate",
+        value: `${successRate}%`,
+        change: `Based on ${totalTrades} trade${totalTrades !== 1 ? 's' : ''}`,
+        changeType: successRate >= 80 ? "positive" : successRate >= 50 ? "neutral" : "negative",
+        icon: "shield-check",
+        gradient: "from-amber-500 to-amber-700",
+      },
+    ];
+
     return {
+      stats,
       totalTrades,
       activeTrades,
       completedTrades,

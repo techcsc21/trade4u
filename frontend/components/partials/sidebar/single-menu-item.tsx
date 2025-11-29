@@ -5,6 +5,7 @@ import { Link } from "@/i18n/routing";
 import { Icon } from "@iconify/react";
 import { useSidebar } from "@/store";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { useMenuTranslations } from "@/components/partials/menu-translator";
 
 const SingleMenuItem = ({
   item,
@@ -17,9 +18,12 @@ const SingleMenuItem = ({
   hovered: boolean;
   isActive: boolean;
 }) => {
-  const { badge, href, title, icon } = item;
+  const { badge, href, icon } = item;
   const { setMobileMenu } = useSidebar();
   const isMobile = useMediaQuery("(max-width: 1279px)");
+  const { getTitle } = useMenuTranslations();
+
+  const title = getTitle(item);
 
   const handleClick = () => {
     if (isMobile) {
@@ -34,7 +38,7 @@ const SingleMenuItem = ({
           <div
             className={cn(
               "flex gap-3 group text-foreground dark:text-foreground font-medium text-sm capitalize px-[10px] py-3 rounded cursor-pointer hover:bg-primary hover:text-primary-foreground dark:hover:text-black",
-              { 
+              {
                 "bg-primary text-primary-foreground dark:bg-primary dark:text-black": isActive
               }
             )}

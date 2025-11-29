@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import ListItem from "../list-item";
 import { Icon } from "@iconify/react";
 import { Link } from "@/i18n/routing";
+import { useMenuTranslations } from "@/components/partials/menu-translator";
 
 interface MegaMenuPanelProps {
   category: any;
@@ -20,6 +21,8 @@ export default function MegaMenuPanel({
   isFirst = false,
   isLast = false,
 }: MegaMenuPanelProps) {
+  const { getTitle, getDescription } = useMenuTranslations();
+
   // Add safety checks to prevent errors
   if (!category) {
     return <div className="flex items-center justify-center w-full h-full max-w-[90vw]">
@@ -66,12 +69,12 @@ export default function MegaMenuPanel({
                     <div className="flex items-center justify-between gap-2 text-sm font-medium text-muted-foreground">
                       <div className="flex items-center gap-2">
                         {extensionItem?.icon && (
-                          <Icon icon={extensionItem.icon} className="h-5 w-5 flex-shrink-0" />
+                          <Icon icon={extensionItem.icon} className="h-5 w-5 flex-shrink-0 ltr:mr-1 rtl:ml-1" />
                         )}
-                        <span className="capitalize whitespace-nowrap">{extensionItem?.title || 'Unknown'}</span>
+                        <span className="capitalize whitespace-nowrap">{getTitle(extensionItem) || 'Unknown'}</span>
                       </div>
                       {extensionItem?.child && extensionItem.child.length > 0 && (
-                        <Icon icon="mdi:chevron-right" className="h-5 w-5 flex-shrink-0 opacity-50" />
+                        <Icon icon="mdi:chevron-right" className="h-5 w-5 flex-shrink-0 opacity-50 rtl:rotate-180" />
                       )}
                     </div>
                   ) : (
@@ -81,12 +84,12 @@ export default function MegaMenuPanel({
                     >
                       <div className="flex items-center gap-2">
                         {extensionItem?.icon && (
-                          <Icon icon={extensionItem.icon} className="h-5 w-5 flex-shrink-0" />
+                          <Icon icon={extensionItem.icon} className="h-5 w-5 flex-shrink-0 ltr:mr-1 rtl:ml-1" />
                         )}
-                        <span className="capitalize whitespace-nowrap">{extensionItem?.title || 'Unknown'}</span>
+                        <span className="capitalize whitespace-nowrap">{getTitle(extensionItem) || 'Unknown'}</span>
                       </div>
                       {extensionItem?.child && extensionItem.child.length > 0 && (
-                        <Icon icon="mdi:chevron-right" className="h-5 w-5 flex-shrink-0" />
+                        <Icon icon="mdi:chevron-right" className="h-5 w-5 flex-shrink-0 rtl:rotate-180" />
                       )}
                     </Link>
                   )}
@@ -117,11 +120,11 @@ export default function MegaMenuPanel({
                   <ListItem
                     key={subItem?.key || `subItem-${sIndex}`}
                     href={subItemHref}
-                    title={subItem?.title || 'Unknown'}
+                    title={getTitle(subItem) || 'Unknown'}
                     className="w-full p-2 bg-primary/5 hover:bg-primary/10 transition-colors rounded-md"
                   >
                     {subItem?.icon && (
-                      <Icon icon={subItem.icon} className="h-5 w-5 flex-shrink-0" />
+                      <Icon icon={subItem.icon} className="h-5 w-5 flex-shrink-0 ltr:mr-2 rtl:ml-2" />
                     )}
                   </ListItem>
                 );
@@ -144,7 +147,7 @@ export default function MegaMenuPanel({
                 />
               ) : (
                 <div className="text-muted-foreground text-sm max-w-[350px] text-center px-4">
-                  {category.description || 'No description available'}
+                  {getDescription(category) || 'No description available'}
                 </div>
               )}
             </div>

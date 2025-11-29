@@ -389,7 +389,6 @@ export function PaymentMethodsStep() {
         details: paymentDetails[id] || {},
       };
     });
-    console.log("Saving payment methods:", methods);
 
     // Update the trade data with the selected payment methods
     updateTradeData({
@@ -410,8 +409,6 @@ export function PaymentMethodsStep() {
       ? selectedMethods.filter((id) => id !== methodId)
       : [...selectedMethods, methodId];
     setSelectedMethods(newSelectedMethods);
-    console.log("Method toggled:", methodId);
-    console.log("New selected methods:", newSelectedMethods);
 
     // Create an array of payment method objects from the selected IDs
     const methods = newSelectedMethods.map((id) => {
@@ -495,10 +492,43 @@ export function PaymentMethodsStep() {
       };
 
       // Add to custom methods
-      setCustomMethods((prev) => [...prev, newCustomMethod]);
+      setCustomMethods((prev) => {
+        const updated = [...prev, newCustomMethod];
+        return updated;
+      });
 
-      // Select the new method
-      setSelectedMethods((prev) => [...prev, newCustomMethod.id]);
+      // Select the new method and save immediately
+      setSelectedMethods((prev) => {
+        const updated = [...prev, newCustomMethod.id];
+
+        // Save to trade data with the updated selection
+        // We need to do this in a setTimeout to ensure state has updated
+        setTimeout(() => {
+          const methods = updated.map((id) => {
+            const allMethods = [...availablePaymentMethods, newCustomMethod];
+            const method = allMethods.find((m) => m.id === id);
+            return {
+              id,
+              name: method?.name || id,
+              description: method?.description,
+              processingTime: method?.processingTime,
+              fees: method?.fees,
+              icon: method?.icon,
+              instructions: method?.instructions || "",
+              details: paymentDetails[id] || {},
+            };
+          });
+          updateTradeData({
+            paymentMethods: methods,
+            paymentMethodsCount: methods.length,
+          });
+          if (methods.length > 0) {
+            markStepComplete(5);
+          }
+        }, 100);
+
+        return updated;
+      });
 
       // Show success toast
       toast({
@@ -512,11 +542,6 @@ export function PaymentMethodsStep() {
       setNewMethodDescription("");
       setNewMethodProcessingTime("");
       setNewMethodInstructions("");
-
-      // Save to trade data in the next tick
-      setTimeout(() => {
-        savePaymentMethods();
-      }, 0);
     } catch (err) {
       console.error("Error creating custom payment method:", err);
       toast({
