@@ -41,6 +41,17 @@ async function processPendingEcoWithdrawals() {
   }
 }
 
+// Safe import for P2P cron functions
+async function p2pTradeTimeout() {
+  try {
+    // @ts-ignore - Dynamic import for optional extension
+    const module = await import("./crons/p2pTradeTimeout");
+    return module.p2pTradeTimeout();
+  } catch (error) {
+    console.log("P2P extension not available, skipping trade timeout processing");
+  }
+}
+
 // Safe import for NFT cron functions
 async function expireOffers() {
   try {
@@ -396,6 +407,23 @@ class CronJobManager {
           lastRun: null,
           lastRunError: null,
           category: "mailwizard",
+          status: "idle",
+          progress: 0,
+          lastExecutions: [],
+          nextScheduledRun: null,
+        },
+      ],
+      p2p: [
+        {
+          name: "p2pTradeTimeout",
+          title: "P2P Trade Timeout Handler",
+          period: 5 * 60 * 1000, // Run every 5 minutes
+          description: "Automatically expires P2P trades that have passed their expiration date and releases escrowed funds.",
+          function: "p2pTradeTimeout",
+          handler: p2pTradeTimeout,
+          lastRun: null,
+          lastRunError: null,
+          category: "p2p",
           status: "idle",
           progress: 0,
           lastExecutions: [],

@@ -127,7 +127,8 @@ export default function MarketsPanel({
 
       // Set selected market if present in URL
       if (symbolParam) {
-        // Symbol format is XXX-YYY, we need to convert to XXX/YYY for internal use
+        // Convert URL-safe format (XXX-YYY) to internal format (XXX/YYY)
+        // Note: URLs use dashes because slashes are path separators
         const [currency, pair] = symbolParam.split("-");
         if (currency && pair) {
           const fullSymbol = `${currency}/${pair}` as Symbol;

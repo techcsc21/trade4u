@@ -15,7 +15,6 @@ for (const envPath of envPaths) {
   if (fs.existsSync(envPath)) {
     console.log(`Frontend: Loading environment from ${envPath}`);
     require("dotenv").config({ path: envPath });
-    console.log(`Frontend: NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID = ${process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID}`);
     envLoaded = true;
     break;
   }

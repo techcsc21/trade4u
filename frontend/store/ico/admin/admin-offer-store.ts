@@ -65,6 +65,8 @@ interface AdminOfferStoreState {
   resumeOffering: (id: string) => Promise<void>;
   flagOffering: (id: string, notes: string) => Promise<void>;
   unflagOffering: (id: string) => Promise<void>;
+  deleteOffering: (id: string) => Promise<void>;
+  emergencyCancelOffering: (id: string, reason: string) => Promise<void>;
 }
 
 export interface IcoOfferResponse {
@@ -220,6 +222,37 @@ export const useAdminOfferStore = create<AdminOfferStoreState>((set) => ({
       set({ offering: data.offering || data, isLoadingOffer: false });
     } else {
       const errMsg = error || "Failed to unflag offering";
+      set({ errorOffer: errMsg, isLoadingOffer: false });
+      throw new Error(errMsg);
+    }
+  },
+
+  deleteOffering: async (id: string) => {
+    set({ isLoadingOffer: true, errorOffer: null });
+    const { data, error } = await $fetch({
+      url: `/api/admin/ico/offer/${id}`,
+      method: "DELETE",
+    });
+    if (error) {
+      const errMsg = error || "Failed to delete offering";
+      set({ errorOffer: errMsg, isLoadingOffer: false });
+      throw new Error(errMsg);
+    }
+    set({ offering: null, isLoadingOffer: false });
+  },
+
+  emergencyCancelOffering: async (id: string, reason: string) => {
+    set({ isLoadingOffer: true, errorOffer: null });
+    const { data, error } = await $fetch({
+      url: `/api/admin/ico/offer/${id}/cancel-refund`,
+      method: "POST",
+      body: { reason },
+    });
+    if (data && !error) {
+      set({ offering: data.offering || data, isLoadingOffer: false });
+      return data;
+    } else {
+      const errMsg = error || "Failed to cancel offering and refund investors";
       set({ errorOffer: errMsg, isLoadingOffer: false });
       throw new Error(errMsg);
     }

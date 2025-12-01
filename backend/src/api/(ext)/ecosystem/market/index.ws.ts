@@ -1,6 +1,6 @@
 import { messageBroker } from "@b/handler/Websocket";
 import { MatchingEngine } from "@b/api/(ext)/ecosystem/utils/matchingEngine";
-import { getOrderBook } from "@b/api/(ext)/ecosystem/utils/scylla/queries";
+import { getOrderBook, getRecentTrades, getOHLCV } from "@b/api/(ext)/ecosystem/utils/scylla/queries";
 import { models } from "@b/db";
 
 export const metadata = {};
@@ -56,9 +56,21 @@ class UnifiedEcosystemMarketDataHandler {
               }
               break;
             case "trades":
-              // TODO: Implement trades fetching from database
-              // For now, don't broadcast empty trades data to reduce noise
-              // Only broadcast when there are actual trades to send
+              try {
+                const limit = payload.limit || 50;
+                const trades = await getRecentTrades(symbol, limit);
+
+                // Only broadcast if there are actual trades
+                if (trades && trades.length > 0) {
+                  messageBroker.broadcastToSubscribedClients(
+                    `/api/ecosystem/market`,
+                    payload,
+                    { stream: "trades", data: trades }
+                  );
+                }
+              } catch (tradesError) {
+                console.error(`Error fetching trades for ${symbol}:`, tradesError);
+              }
               break;
             case "ticker":
               const ticker = await this.engine.getTicker(symbol);
@@ -81,7 +93,22 @@ class UnifiedEcosystemMarketDataHandler {
               }
               break;
             case "ohlcv":
-              // TODO: Implement OHLCV fetching
+              try {
+                const interval = payload.interval || "1m";
+                const limit = payload.limit || 100;
+                const ohlcv = await getOHLCV(symbol, interval, limit);
+
+                // Only broadcast if there's OHLCV data
+                if (ohlcv && ohlcv.length > 0) {
+                  messageBroker.broadcastToSubscribedClients(
+                    `/api/ecosystem/market`,
+                    payload,
+                    { stream: "ohlcv", data: ohlcv }
+                  );
+                }
+              } catch (ohlcvError) {
+                console.error(`Error fetching OHLCV for ${symbol}:`, ohlcvError);
+              }
               break;
           }
         } catch (error) {

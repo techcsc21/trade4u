@@ -849,3 +849,123 @@ export async function rollbackOrderCreation(
   const params = [userId, createdAt, orderId];
   await client.execute(query, params, { prepare: true });
 }
+
+/**
+ * Retrieves recent trades for a given symbol by extracting them from filled/closed orders
+ * @param symbol - The trading pair symbol (e.g., "BTC/USDT")
+ * @param limit - Maximum number of trades to return (default: 50)
+ * @returns A Promise that resolves with an array of trade objects
+ */
+export async function getRecentTrades(
+  symbol: string,
+  limit: number = 50
+): Promise<any[]> {
+  try {
+    // Query orders that have trades (filled or closed orders)
+    const query = `
+      SELECT id, "userId", symbol, side, price, filled, trades, "updatedAt"
+      FROM ${scyllaKeyspace}.orders_by_symbol
+      WHERE symbol = ?
+      ORDER BY "createdAt" DESC
+      LIMIT ?;
+    `;
+    const params = [symbol, limit * 2]; // Fetch more to ensure we get enough trades
+
+    const result = await client.execute(query, params, { prepare: true });
+
+    // Extract and parse trades from orders
+    const allTrades: any[] = [];
+
+    for (const row of result.rows) {
+      if (!row.trades || row.trades === '' || row.trades === '[]') {
+        continue;
+      }
+
+      try {
+        let trades;
+        if (typeof row.trades === 'string') {
+          trades = JSON.parse(row.trades);
+          // Handle double-encoded JSON
+          if (!Array.isArray(trades) && typeof trades === 'string') {
+            trades = JSON.parse(trades);
+          }
+        } else if (Array.isArray(row.trades)) {
+          trades = row.trades;
+        } else {
+          continue;
+        }
+
+        if (!Array.isArray(trades) || trades.length === 0) {
+          continue;
+        }
+
+        // Add trades with proper formatting
+        for (const trade of trades) {
+          allTrades.push({
+            id: trade.id || `${row.id}_${trade.timestamp}`,
+            price: typeof trade.price === 'bigint' ? fromBigInt(trade.price) : trade.price,
+            amount: typeof trade.amount === 'bigint' ? fromBigInt(trade.amount) : trade.amount,
+            side: row.side.toLowerCase(), // 'buy' or 'sell'
+            timestamp: trade.timestamp || row.updatedAt.getTime(),
+          });
+        }
+      } catch (parseError) {
+        console.error(`Failed to parse trades for order ${row.id}:`, parseError);
+        continue;
+      }
+    }
+
+    // Sort by timestamp descending (most recent first) and limit
+    const sortedTrades = allTrades
+      .sort((a, b) => b.timestamp - a.timestamp)
+      .slice(0, limit);
+
+    return sortedTrades;
+  } catch (error) {
+    console.error(`Failed to fetch recent trades for ${symbol}:`, error.message);
+    throw new Error(`Failed to fetch recent trades: ${error.message}`);
+  }
+}
+
+/**
+ * Retrieves OHLCV (Open, High, Low, Close, Volume) data for a given symbol and interval
+ * @param symbol - The trading pair symbol (e.g., "BTC/USDT")
+ * @param interval - The candle interval (e.g., "1m", "5m", "1h", "1d")
+ * @param limit - Maximum number of candles to return (default: 100)
+ * @returns A Promise that resolves with an array of OHLCV arrays [timestamp, open, high, low, close, volume]
+ */
+export async function getOHLCV(
+  symbol: string,
+  interval: string,
+  limit: number = 100
+): Promise<number[][]> {
+  try {
+    const query = `
+      SELECT open, high, low, close, volume, "createdAt"
+      FROM ${scyllaKeyspace}.candles
+      WHERE symbol = ? AND interval = ?
+      ORDER BY "createdAt" DESC
+      LIMIT ?;
+    `;
+    const params = [symbol, interval, limit];
+
+    const result = await client.execute(query, params, { prepare: true });
+
+    // Map to OHLCV format and reverse to get chronological order
+    const ohlcv: number[][] = result.rows
+      .map((row) => [
+        row.createdAt.getTime(), // timestamp
+        row.open,                 // open
+        row.high,                 // high
+        row.low,                  // low
+        row.close,                // close
+        row.volume,               // volume
+      ])
+      .reverse(); // Reverse to get oldest to newest
+
+    return ohlcv;
+  } catch (error) {
+    console.error(`Failed to fetch OHLCV for ${symbol} ${interval}:`, error.message);
+    throw new Error(`Failed to fetch OHLCV: ${error.message}`);
+  }
+}

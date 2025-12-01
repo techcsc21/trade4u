@@ -2,21 +2,21 @@
   "id": "7848B8AC",
   "name": "bicrypto-v5",
   "private": true,
-  "version": "5.6.9",
+  "version": "5.7.2",
   "scripts": {
     "dev": "concurrently \"pnpm --filter frontend dev\" \"pnpm --filter backend dev\"",
     "dev:backend": "pnpm --filter backend dev",
     "dev:frontend": "pnpm --filter frontend dev",
-    "build:all": "NODE_OPTIONS='--max-old-space-size=4096' pnpm --filter frontend build && pnpm --filter backend build",
+    "build:all": "pnpm --filter frontend build && pnpm --filter backend build",
     "build:backend": "pnpm --filter backend build",
-    "build:frontend": "NODE_OPTIONS='--max-old-space-size=4096' pnpm --filter frontend build",
+    "build:frontend": "pnpm --filter frontend build",
     "build:permission": "node tools/build-permission.js",
     "start": "pm2 start production.config.js --env production",
     "start:thread": "pm2 start production.thread.config.js --env production",
     "start:frontend": "pnpm --filter frontend start",
     "start:backend": "pnpm --filter backend start",
     "stop": "pm2 stop all 2>/dev/null || echo 'No PM2 processes to stop'",
-    "updator": "NODE_OPTIONS='--max-old-space-size=4096' pnpm stop && pnpm update-packages-quick && pnpm build:backend && pnpm start:backend && node -e \"console.log('⏳ Waiting 30 seconds before seeding...'); setTimeout(() => { console.log('✅ Wait complete, proceeding with seed...'); process.exit(0); }, 30000)\" && pnpm stop && pnpm seed && pnpm build:all && pnpm start",
+    "updator": "pnpm stop && pnpm update-packages-quick && pnpm build:backend && pnpm start:backend && node -e \"console.log('⏳ Waiting 30 seconds before seeding...'); setTimeout(() => { console.log('✅ Wait complete, proceeding with seed...'); process.exit(0); }, 30000)\" && pnpm stop && pnpm seed && pnpm build:all && pnpm start",
     "update-packages": "node tools/update-packages.js",
     "update-packages-quick": "pnpm --filter backend update && pnpm --filter frontend update && pnpm update",
     "seed": "pnpm --filter backend seed",
@@ -120,6 +120,6 @@
       "sharp"
     ]
   },
-  "lastCommit": "8b690b5740aefc6fd0f01a5b2058b3b94116085d",
-  "lastCommitDate": "2025-11-23T00:09:34.290Z"
+  "lastCommit": "f88015a24f3c09a8faa1e653d75a400882870c36",
+  "lastCommitDate": "2025-11-29T02:56:30.543Z"
 }
